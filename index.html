@@ -4,107 +4,72 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#071a2d">
-  <title>คืนแห่งคำอธิษฐาน | ลอยกระทงออนไลน์</title>
+  <meta name="theme-color" content="#080d19">
+  <title>Your Moment | ลอยกระทงออนไลน์</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="navbar">
-    <a class="logo" href="#">✦ คืนแห่งคำอธิษฐาน</a>
-    <span class="status">● พื้นที่แห่งความปรารถนาดี</span>
-  </header>
+  <main class="landing">
+    <div class="moon-glow"></div>
+    <div class="water"></div>
 
-  <main>
-    <section class="hero">
-      <div class="hero-text">
-        <p class="eyebrow">LOY KRATHONG · A NIGHT OF WISHES</p>
-        <h1>ปล่อยทุกความทุกข์<br><span>ลอยไปกับสายน้ำ</span></h1>
-        <p class="intro">
-          เลือกกระทงดอกไม้ ฝากคำอธิษฐานจากหัวใจ<br>
-          แล้วส่งความหวังดีออกเดินทางไปในค่ำคืนนี้
-        </p>
-        <a class="start-link" href="#make-wish">↓ เขียนคำอธิษฐานของคุณ</a>
+    <section class="content">
+      <p class="eyebrow">YOUR MOMENT <span>·</span> 01</p>
+
+      <h1>คืนความสุข<br>ให้สายน้ำ</h1>
+
+      <p class="description">
+        บางความรู้สึกเหมาะกับการฝากไว้กับสายน้ำ<br>
+        เลือกกระทงที่เป็นคุณ แล้วส่งคำอธิษฐานออกไป
+      </p>
+
+      <div class="section-label">
+        <span></span>
+        <p>CHOOSE YOUR KRATHONG</p>
+        <span></span>
       </div>
 
-      <div class="moon-scene" aria-hidden="true">
-        <div class="moon"></div>
-        <span class="star star-one">✦</span>
-        <span class="star star-two">✧</span>
-        <div class="water water-one"></div>
-        <div class="water water-two"></div>
-        <div class="water water-three"></div>
-        <span class="flower flower-one">🪷</span>
-        <span class="flower flower-two">🌼</span>
+      <div class="krathong-list">
+        <button class="krathong selected" type="button"
+          data-flower="lotus" aria-pressed="true">
+          <span class="krathong-art lotus" aria-hidden="true">🪷</span>
+          <span class="krathong-name">บัวชมพู</span>
+          <span class="krathong-detail">ความรักและความหวัง</span>
+        </button>
+
+        <button class="krathong" type="button"
+          data-flower="marigold" aria-pressed="false">
+          <span class="krathong-art marigold" aria-hidden="true">🌼</span>
+          <span class="krathong-name">ดาวเรืองทอง</span>
+          <span class="krathong-detail">โชคดีและความสำเร็จ</span>
+        </button>
+
+        <button class="krathong" type="button"
+          data-flower="banana" aria-pressed="false">
+          <span class="krathong-art banana" aria-hidden="true">🍃</span>
+          <span class="krathong-name">ใบตองธรรมชาติ</span>
+          <span class="krathong-detail">เริ่มต้นใหม่อย่างสงบ</span>
+        </button>
       </div>
+
+      <button class="start-button" id="start-button" type="button">
+        เริ่มสร้างกระทงของคุณ <span aria-hidden="true">↗</span>
+      </button>
+
+      <p class="hint" id="status" aria-live="polite">
+        เลือกกระทงที่ตรงกับความรู้สึกของคุณ
+      </p>
     </section>
 
-    <section class="content" id="make-wish">
-      <div class="form-panel">
-        <p class="eyebrow">YOUR MOMENT · 01</p>
-        <h2>ฝากคำอธิษฐาน</h2>
-        <p class="muted">ไม่ต้องสมัครสมาชิก เพียงเขียนความปรารถนาดีของคุณ</p>
-
-        <form id="wish-form">
-          <label for="nickname">ชื่อเล่น</label>
-          <input id="nickname" maxlength="30"
-            placeholder="ชื่อที่อยากให้ทุกคนเรียก" required>
-
-          <label>เลือกกระทงของคุณ</label>
-          <div class="flowers">
-            <button type="button" class="flower-choice selected" data-flower="🪷">🪷<small>ดอกบัว</small></button>
-            <button type="button" class="flower-choice" data-flower="🌸">🌸<small>ซากุระ</small></button>
-            <button type="button" class="flower-choice" data-flower="🌼">🌼<small>ดาวเรือง</small></button>
-            <button type="button" class="flower-choice" data-flower="🍃">🍃<small>ใบไม้</small></button>
-          </div>
-
-          <label for="prayer">คำอธิษฐาน</label>
-          <textarea id="prayer" rows="4" maxlength="300"
-            placeholder="ขอให้ปีนี้เป็นปีที่ใจดีกับฉัน..." required></textarea>
-
-          <label class="consent">
-            <input id="consent" type="checkbox" required>
-            <span>ฉันเข้าใจว่าชื่อเล่นและคำอธิษฐานจะเปิดเผยต่อสาธารณะ</span>
-          </label>
-
-          <button class="submit-button" type="submit">
-            🪷 ปล่อยกระทงและส่งคำอธิษฐาน ↗
-          </button>
-          <p id="message" class="message" role="status"></p>
-        </form>
-      </div>
-
-      <div class="wishes-panel">
-        <p class="eyebrow">WISHES ON THE WATER · 02</p>
-        <h2>คำอธิษฐานจากทุกคน</h2>
-        <p class="muted">ความหวังเล็ก ๆ ที่ถูกส่งมารวมกันในค่ำคืนนี้</p>
-
-        <div id="wishes-list">
-          <article class="wish-card">
-            <span class="wish-flower">🪷</span>
-            <div>
-              <h3>ผู้ลอยกระทงคนแรก</h3>
-              <p>ขอให้ทุกคนมีความสุข สุขภาพแข็งแรง และได้พบเจอสิ่งดี ๆ</p>
-            </div>
-          </article>
-          <article class="wish-card">
-            <span class="wish-flower">🌼</span>
-            <div>
-              <h3>แสงดาว</h3>
-              <p>ขอให้ความพยายามที่ผ่านมานำไปสู่วันที่ดีขึ้น</p>
-            </div>
-          </article>
-        </div>
-        <p class="muted footnote">ตอนนี้เป็นข้อมูลตัวอย่าง ยังไม่ได้บันทึกลงฐานข้อมูล</p>
-      </div>
-    </section>
-
-    <section class="closing">
-      <p class="eyebrow">A WISH FOR EVERYONE</p>
-      <h2>ขอให้สิ่งที่หนักใจค่อย ๆ เบาลง<br><span>และขอให้ความหวังพาคุณไปพบสิ่งที่ดี</span></h2>
-    </section>
+    <footer>
+      <span>MADE WITH A WISH</span>
+      <span>LOY KRATHONG · THAILAND</span>
+    </footer>
   </main>
 
-  <footer>✦ คืนแห่งคำอธิษฐาน <span>ลอยกระทงออนไลน์ ด้วยความปรารถนาดี</span></footer>
   <script src="app.js"></script>
 </body>
 </html>
