@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,12 +9,20 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500&family=Playfair+Display:wght@400;500&display=swap"
+    rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-   <!-- WebGL Fireflies Background Canvas -->
+
+<body> 
+ 
+  <nav class="top-nav">
+    <a href="index.html" class="nav-link">สร้างกระทง</a>
+    <a href="wishes.html" class="nav-link">คำอธิษฐาน</a>
+  </nav>
+
   <canvas id="webgl-canvas"></canvas>
 
   <main class="landing">
@@ -30,8 +38,7 @@
         บางความรู้สึกเหมาะกับการฝากไว้กับสายน้ำ<br>
         เลือกกระทงที่เป็นคุณ แล้วส่งคำอธิษฐานออกไป
       </p>
-
-      <!-- หน้าเลือกกระทง -->
+ 
       <div id="selection-view">
         <div class="section-label">
           <span></span>
@@ -40,23 +47,13 @@
         </div>
 
         <div class="krathong-list">
-          <button
-            class="krathong selected"
-            type="button"
-            data-flower="lotus"
-            aria-pressed="true"
-          >
+          <button class="krathong selected" type="button" data-flower="lotus" aria-pressed="true">
             <span class="krathong-art lotus" aria-hidden="true">🪷</span>
             <span class="krathong-name">บัวชมพู</span>
             <span class="krathong-detail">ความรักและความหวัง</span>
           </button>
 
-          <button
-            class="krathong"
-            type="button"
-            data-flower="marigold"
-            aria-pressed="false"
-          >
+          <button class="krathong" type="button" data-flower="marigold" aria-pressed="false">
             <span class="krathong-art marigold" aria-hidden="true">🌼</span>
             <span class="krathong-name">ดาวเรืองทอง</span>
             <span class="krathong-detail">โชคดีและความสำเร็จ</span>
@@ -82,8 +79,7 @@
           เลือกกระทงที่ตรงกับความรู้สึกของคุณ
         </p>
       </div>
-
-      <!-- หน้ากรอกข้อมูล -->
+ 
       <form id="wish-form" class="wish-form" hidden>
         <p class="form-step">YOUR MOMENT</p>
 
@@ -101,58 +97,25 @@
             <p id="selected-preview-name">บัวชมพู</p>
           </div>
 
-          <button
-            type="button"
-            id="back-button"
-            class="text-button"
-          >
+          <button type="button" id="back-button" class="text-button">
             เปลี่ยนกระทง
           </button>
         </div>
 
         <label for="employee-name">ชื่อ - นามสกุล</label>
-        <input
-          id="employee-name"
-          name="employeeName"
-          type="text"
-          maxlength="100"
-          placeholder="กรอกชื่อ - นามสกุล"
-          autocomplete="name"
-          required
-        >
+        <input id="employee-name" name="employeeName" type="text" maxlength="100" placeholder="กรอกชื่อ - นามสกุล"
+          autocomplete="name" required>
 
         <label for="department">แผนก</label>
-        <input
-          id="department"
-          name="department"
-          type="text"
-          maxlength="100"
-          placeholder="กรอกชื่อแผนก"
-          required
-        >
+        <input id="department" name="department" type="text" maxlength="100" placeholder="กรอกชื่อแผนก" required>
 
         <label for="employee-code">รหัสพนักงาน</label>
-        <input
-          id="employee-code"
-          name="employeeCode"
-          inputmode="numeric"
-          pattern="[0-9]*"
-          type="text"
-          maxlength="30"
-          placeholder="กรอกรหัสพนักงาน"
-          autocomplete="off"
-          required
-        >
+        <input id="employee-code" name="employeeCode" inputmode="numeric" pattern="[0-9]*" type="text" maxlength="30"
+          placeholder="กรอกรหัสพนักงาน" autocomplete="off" required>
 
         <label for="prayer">คำอธิษฐาน</label>
-        <textarea
-          id="prayer"
-          name="prayer"
-          rows="4"
-          maxlength="300"
-          placeholder="เขียนสิ่งที่คุณอยากขอพรในปีนี้..."
-          required
-        ></textarea>
+        <textarea id="prayer" name="prayer" rows="4" maxlength="300" placeholder="เขียนสิ่งที่คุณอยากขอพรในปีนี้..."
+          required></textarea>
 
         <p class="form-note">
           คำอธิษฐานไม่เกิน 300 ตัวอักษร
@@ -164,14 +127,50 @@
 
         <p id="form-message" class="hint" aria-live="polite"></p>
       </form>
+ 
+      <div id="success-view" class="success-view" hidden>
+        <div class="success-moon">☾</div>
+
+        <div class="success-krathong" id="success-krathong">
+          🪷
+        </div>
+
+        <div class="success-sparkle sparkle-one">✦</div>
+        <div class="success-sparkle sparkle-two">✧</div>
+        <div class="success-sparkle sparkle-three">✦</div>
+
+        <p class="success-eyebrow">A WISH FOR YOU</p>
+
+        <h2>คำอธิษฐานของคุณ<br>พร้อมเดินทางแล้ว ♡</h2>
+
+        <p class="success-description">
+          ขอให้ทุกความตั้งใจของคุณ<br>
+          ค่อย ๆ กลายเป็นความจริงในวันที่งดงาม
+        </p>
+
+        <div class="success-divider">✧ ───── ♡ ───── ✧</div>
+
+        <p class="success-footer">
+          ขอให้คืนนี้เป็นคืนที่ดีของคุณนะ
+        </p>
+
+        <button type="button" id="home-button" class="start-button">
+          กลับไปหน้าหลัก <span>♡</span>
+        </button>
+      </div>
+
+
     </section>
 
     <footer>
       <span>MADE WITH A WISH</span>
       <span>LOY KRATHONG · </span>
     </footer>
+
+
   </main>
 
   <script src="app.js"></script>
 </body>
+
 </html>

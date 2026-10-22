@@ -18,6 +18,12 @@ const departmentInput = document.querySelector("#department");
 const employeeCodeInput = document.querySelector("#employee-code");
 const prayerInput = document.querySelector("#prayer");
 
+
+const successView = document.querySelector("#success-view");
+const successKrathong = document.querySelector("#success-krathong");
+const homeButton = document.querySelector("#home-button");
+
+
 const krathongData = {
     lotus: {
         name: "บัวชมพู",
@@ -35,9 +41,7 @@ const krathongData = {
 
 let selectedKrathong = "lotus";
 
-/**
- * แสดงกระทงที่เลือกในหน้ากรอกข้อมูล
- */
+ 
 function updatePreview() {
     const selected = krathongData[selectedKrathong];
 
@@ -45,9 +49,7 @@ function updatePreview() {
     previewName.textContent = selected.name;
 }
 
-/**
- * เลือกกระทง
- */
+ 
 krathongs.forEach((button) => {
     button.addEventListener("click", () => {
         selectedKrathong = button.dataset.flower;
@@ -63,10 +65,7 @@ krathongs.forEach((button) => {
             `คุณเลือก${krathongData[selectedKrathong].name}แล้ว`;
     });
 });
-
-/**
- * เปิดหน้ากรอกข้อมูล
- */
+ 
 startButton.addEventListener("click", () => {
     updatePreview();
 
@@ -83,9 +82,7 @@ startButton.addEventListener("click", () => {
     });
 });
 
-/**
- * ย้อนกลับไปเลือกกระทง
- */
+ 
 backButton.addEventListener("click", () => {
     wishForm.hidden = true;
     selectionView.hidden = false;
@@ -98,10 +95,8 @@ backButton.addEventListener("click", () => {
     });
 });
 
-/**
- * ตรวจสอบข้อมูลเมื่อกดยืนยัน
- */
-wishForm.addEventListener("submit", (event) => {
+ 
+wishForm.addEventListener("submit", async  (event) => {
     event.preventDefault();
 
     const employeeName = employeeNameInput.value.trim();
@@ -129,44 +124,81 @@ wishForm.addEventListener("submit", (event) => {
         return;
     }
 
+
+
     const wishData = {
-        employeeName,
+        fullName: employeeName,
         department,
         employeeCode,
-        prayer,
-        krathong: selectedKrathong,
+        whName: "ไม่ระบุ",
+        krathongType: selectedKrathong,
+        wish: prayer,
     };
 
-    // แสดงข้อมูลสำหรับทดสอบเท่านั้น
-    // ยังไม่ได้บันทึกลง Firebase
-    console.log("Wish data:", wishData);
+    formMessage.textContent = "กำลังบันทึกคำอธิษฐาน...";
+    formMessage.hidden = false;
 
-    formMessage.textContent =
-        "ตรวจสอบข้อมูลเรียบร้อยแล้ว ขั้นตอนถัดไปคือบันทึกคำอธิษฐาน";
+    try {
+        const response = await fetch(
+            "https://script.google.com/macros/s/AKfycbyo8w5wav4qmbJRBGiugcUKo-6B5evOpW2gyyKozXplxJmtC_m3x47JnAqc74apMRo/exec",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "text/plain;charset=utf-8",
+                },
+                body: JSON.stringify(wishData),
+                redirect: "follow",
+            }
+        );
 
-    // TODO: เชื่อม Firebase Firestore ในขั้นตอนถัดไป
+        if (!response.ok) {
+            throw new Error("ไม่สามารถเชื่อมต่อระบบบันทึกข้อมูลได้");
+        }
+
+        const result = await response.json();
+
+        if (!result.success) {
+            throw new Error(result.message || "บันทึกข้อมูลไม่สำเร็จ");
+        }
+
+    
+        successKrathong.textContent =
+            krathongData[selectedKrathong].icon;
+
+        wishForm.hidden = true;
+        selectionView.hidden = true;
+        successView.hidden = false;
+
+        formMessage.textContent = "บันทึกคำอธิษฐานเรียบร้อยแล้ว";
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
+
+    } catch (error) {
+        console.error("Save wish error:", error);
+
+        formMessage.textContent =
+            "บันทึกไม่สำเร็จ กรุณาลองใหม่อีกครั้ง";
+
+        formMessage.hidden = false;
+    }
+
 });
 
-      
 
-
-
-
-
+ 
 
 
 
 const empCodeInput = document.getElementById('employee-code');
 empCodeInput.addEventListener('input', (e) => {
-  e.target.value = e.target.value.replace(/[^0-9]/g, '');
+    e.target.value = e.target.value.replace(/[^0-9]/g, '');
 });
+
+
  
-
-
-
-
-
-
 
 
 const canvas = document.getElementById('webgl-canvas');
@@ -374,4 +406,30 @@ if (gl) {
     }
 
     requestAnimationFrame(render);
-} 
+}
+
+
+
+homeButton.addEventListener("click", () => {
+    wishForm.reset();
+
+    successView.hidden = true;
+    wishForm.hidden = true;
+    selectionView.hidden = false;
+
+    selectedKrathong = "lotus";
+
+    krathongs.forEach((button) => {
+        const isSelected = button.dataset.flower === "lotus";
+
+        button.classList.toggle("selected", isSelected);
+        button.setAttribute("aria-pressed", String(isSelected));
+    });
+
+    status.textContent = "เลือกกระทงที่ตรงกับความรู้สึกของคุณ";
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+    });
+});
