@@ -47,10 +47,14 @@ function renderWishes(items) {
           </div>
         </div>
 
-        <div class="krathong-trigger" aria-hidden="true">
-          <span class="krathong-emoji" style="animation-delay:${(index % 5) * 0.35}s">${k.emoji}</span>
-          <span class="water-ripple"></span>
+        <div>
+          <div class="krathong-trigger" aria-hidden="true">
+            <span class="krathong-emoji" style="animation-delay:${(index % 5) * 0.35}s">${k.emoji}</span>
+            <span class="water-ripple"></span>
+          </div>
         </div>
+
+        
       </article>
     `;
   }).join("");
@@ -59,7 +63,7 @@ function renderWishes(items) {
 function loadWishes() {
   refreshButton.disabled = true;
   refreshButton.textContent = "กำลังสุ่ม...";
-  resultCount.textContent = "กำลังโหลด...";
+  resultCount.textContent = "";
   wishGrid.innerHTML = '<div class="state-message">กำลังรวบรวมคำอธิษฐาน...</div>';
 
   const callbackName = `onRandomWishes_${Date.now()}_${++callbackCounter}`;
@@ -101,7 +105,7 @@ function loadWishes() {
   document.body.appendChild(script);
 }
 
- 
+
 refreshButton.addEventListener("click", loadWishes);
 loadWishes();
 

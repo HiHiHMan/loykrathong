@@ -789,343 +789,475 @@
 
 
 
- 
+
  /* ===== Wish List: Chat Layout ===== */
-.wish-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
-  width: 100%;
-  padding: 12px 0;
-  overflow: visible;
-}
+ .wish-grid {
+   display: flex;
+   flex-direction: column;
+   gap: 28px;
+   width: 100%;
+   padding: 12px 0;
+   overflow: visible;
+ }
 
-/* ===== Wish Item ===== */
-.wish-item {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: fit-content;
-  max-width: 85%;
-  min-width: 0;
-  gap: 10px;
-  overflow: visible;
-}
+ /* ===== Wish Item ===== */
+ .wish-item {
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   width: fit-content;
+   max-width: 85%;
+   min-width: 0;
+   gap: 10px;
+   overflow: visible;
+ }
 
-/* รายการแรกอยู่ฝั่งซ้าย */
-.wish-item:nth-child(odd) {
-  align-self: flex-end;
-  flex-direction: row-reverse; 
-  align-items: center;
-  gap: 12px;
-  max-width: 95%;
-}
+ /* รายการแรกอยู่ฝั่งซ้าย */
+ .wish-item:nth-child(odd) {
+   align-self: flex-end;
+   flex-direction: row-reverse;
+   align-items: center;
+   gap: 12px;
+   max-width: 95%;
+ }
 
-/* รายการที่สองอยู่ฝั่งขวา */
-.wish-item:nth-child(even) {
-  align-self: flex-end;
-  flex-direction: row;
-  align-items: center;
-  gap: 12px;
-  max-width: 95%;
-}
+ /* รายการที่สองอยู่ฝั่งขวา */
+ .wish-item:nth-child(even) {
+   align-self: flex-end;
+   flex-direction: row;
+   align-items: center;
+   gap: 12px;
+   max-width: 95%;
+ }
 
-/* ===== Tooltip: Glass Effect ===== */
-.tooltip-card {
-  position: relative;
-  z-index: 5;
-  display: block;
-  box-sizing: border-box;
-  width: min(320px, 100%);
-  min-width: 0;
-  margin: 0;
-  padding: 18px 19px 16px;
+ /* ===== Tooltip: Glass Effect ===== */
+ .tooltip-card {
+   position: relative;
+   z-index: 5;
+   display: block;
+   box-sizing: border-box;
+   width: min(320px, 100%);
+   min-width: 0;
+   margin: 0;
+   padding: 18px 19px 16px;
 
-  /* พื้นกระจกโปร่งแสง */
-  background: rgba(18, 27, 43, 0.78);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+   /* พื้นกระจกโปร่งแสง */
+   background: rgba(18, 27, 43, 0.78);
+   backdrop-filter: blur(14px);
+   -webkit-backdrop-filter: blur(14px);
 
-  /* ขอบและเงาสีทอง */
-  border: 1px solid rgba(216, 184, 107, 0.35);
-  border-radius: 16px;
-  box-shadow:
-    0 12px 35px rgba(0, 0, 0, 0.28),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08),
-    0 0 18px rgba(216, 184, 107, 0.06);
+   /* ขอบและเงาสีทอง */
+   border: 1px solid rgba(216, 184, 107, 0.35);
+   border-radius: 16px;
+   box-shadow:
+     0 12px 35px rgba(0, 0, 0, 0.28),
+     inset 0 1px 0 rgba(255, 255, 255, 0.08),
+     0 0 18px rgba(216, 184, 107, 0.06);
 
-  color: #f5f1e8;
-  overflow-wrap: anywhere;
+   color: #f5f1e8;
+   overflow-wrap: anywhere;
 
-  /* แสดงค้างไว้ */
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-  transform: none;
+   /* แสดงค้างไว้ */
+   opacity: 1;
+   visibility: visible;
+   pointer-events: auto;
+   transform: none;
 
-  transition:
-    background 0.25s ease,
-    border-color 0.25s ease,
-    box-shadow 0.25s ease;
-}
+   transition:
+     background 0.25s ease,
+     border-color 0.25s ease,
+     box-shadow 0.25s ease;
+ }
 
-/* เส้นแสงด้านบน */
-.tooltip-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 18%;
-  width: 64%;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 220, 150, 0.65),
-    transparent
-  );
-}
+ /* เส้นแสงด้านบน */
+ .tooltip-card::before {
+   content: "";
+   position: absolute;
+   top: 0;
+   left: 18%;
+   width: 64%;
+   height: 1px;
+   background: linear-gradient(90deg,
+       transparent,
+       rgba(255, 220, 150, 0.65),
+       transparent);
+ }
 
-/* ปิดลูกศรเดิม */
-.tooltip-card::after {
-  display: none;
-}
+ /* ปิดลูกศรเดิม */
+ .tooltip-card::after {
+   display: none;
+ }
 
-/* ข้อความคำอธิษฐาน */
-.tooltip-wish {
-  color: #fffaf0;
-  line-height: 1.8;
-  overflow-wrap: anywhere;
-}
+ /* ข้อความคำอธิษฐาน */
+ .tooltip-wish {
+   color: #fffaf0;
+   line-height: 1.8;
+   overflow-wrap: anywhere;
+ }
 
-/* ชื่อผู้เขียน */
-.tooltip-name {
-  color: #f1d49a;
-  font-size: 0.75rem;
-}
+ /* ชื่อผู้เขียน */
+ .tooltip-name {
+   color: #f1d49a;
+   font-size: 0.75rem;
+ }
 
-/* วันที่และข้อความรอง */
-.tooltip-date,
-.tooltip-type,
-.tooltip-label {
-  color: rgba(230, 233, 240, 0.68);
-  font-size: 0.75rem;
-}
+ /* วันที่และข้อความรอง */
+ .tooltip-date,
+ .tooltip-type,
+ .tooltip-label {
+   color: rgba(230, 233, 240, 0.68);
+   font-size: 0.75rem;
+ }
 
-/* เส้นคั่น */
-.tooltip-divider {
-  border-color: rgba(216, 184, 107, 0.2);
-}
+ /* เส้นคั่น */
+ .tooltip-divider {
+   border-color: rgba(216, 184, 107, 0.2);
+ }
 
-/* ===== Left Item: Tooltip Above Krathong ===== */
-.wish-item:nth-child(odd) .tooltip-card {
-  order: 1;
-  flex: 1 1 auto;
-  width: 350px;
-  min-width: 350px;
-}
+ /* ===== Left Item: Tooltip Above Krathong ===== */
+ .wish-item:nth-child(odd) .tooltip-card {
+   order: 1;
+   flex: 1 1 auto;
+   width: 350px;
+   min-width: 350px;
+ }
 
-.wish-item:nth-child(odd) .krathong-trigger {
-  order: 2;
-  flex: 0 0 130px;
-}
+ .wish-item:nth-child(odd) .krathong-trigger {
+   order: 2;
+   flex: 0 0 130px;
+ }
 
-/* ===== Right Item: Tooltip Left, Krathong Right ===== */
-.wish-item:nth-child(even) .tooltip-card {
-  order: 1;
-  flex: 1 1 auto;
-  width: 350px;
-  min-width: 350px;
-}
+ /* ===== Right Item: Tooltip Left, Krathong Right ===== */
+ .wish-item:nth-child(even) .tooltip-card {
+   order: 1;
+   flex: 1 1 auto;
+   width: 350px;
+   min-width: 350px;
+ }
 
-.wish-item:nth-child(even) .krathong-trigger {
-  order: 2;
-  flex: 0 0 130px;
-}
+ .wish-item:nth-child(even) .krathong-trigger {
+   order: 2;
+   flex: 0 0 130px;
+ }
 
-/* ===== Krathong ===== */
-.krathong-trigger {
-  position: relative;
-  display: grid;
-  place-items: center;
-  flex-shrink: 0;
-  width: 130px;
-  height: 130px;
-  margin: 10px 0 16px;
-  padding: 0;
+ /* ===== Krathong ===== */
+ .krathong-trigger {
+   position: relative;
+   display: grid;
+   place-items: center;
+   flex-shrink: 0;
+   width: 130px;
+   height: 130px;
+   margin: 10px 0 16px;
+   padding: 0;
 
-  border: 1px solid rgba(214, 184, 121, 0.35);
-  border-radius: 50%;
+   border: 1px solid rgba(214, 184, 121, 0.35);
+   border-radius: 50%;
 
-  background: radial-gradient(
-    circle,
-    rgba(214, 184, 121, 0.18),
-    rgba(214, 184, 121, 0.025) 65%,
-    transparent 70%
-  );
+   background: radial-gradient(circle,
+       rgba(214, 184, 121, 0.18),
+       rgba(214, 184, 121, 0.025) 65%,
+       transparent 70%);
 
-  box-shadow: 0 0 45px rgba(214, 184, 121, 0.10);
-  font-size: 68px;
-  cursor: pointer;
+   box-shadow: 0 0 45px rgba(214, 184, 121, 0.10);
+   font-size: 68px;
+   cursor: pointer;
 
-  animation: krathong-float 3s ease-in-out infinite;
-  transition:
-    border-color 0.25s ease,
-    box-shadow 0.25s ease;
-}
+   animation: krathong-float 3s ease-in-out infinite;
+   transition:
+     border-color 0.25s ease,
+     box-shadow 0.25s ease;
+ }
 
-.krathong-trigger:hover,
-.krathong-trigger:focus-visible {
-  transform: translateY(-4px);
-  border-color: var(--gold);
-  box-shadow: 0 0 28px rgba(216, 184, 107, 0.12);
-  outline: none;
-}
+ .krathong-trigger:hover,
+ .krathong-trigger:focus-visible {
+   transform: translateY(-4px);
+   border-color: var(--gold);
+   box-shadow: 0 0 28px rgba(216, 184, 107, 0.12);
+   outline: none;
+ }
 
-.krathong-emoji {
-  position: relative;
-  z-index: 1;
-  margin-top: -9px;
-  font-size: 62px;
-  line-height: 1;
-  filter: drop-shadow(0 0 12px rgba(255, 199, 91, 0.28));
-  animation: float 4s ease-in-out infinite;
-}
+ .krathong-emoji {
+   position: relative;
+   z-index: 1;
+   margin-top: 7px;
+   font-size: 62px;
+   line-height: 1;
+   filter: drop-shadow(0 0 12px rgba(255, 199, 91, 0.28));
+   animation: float 4s ease-in-out infinite;
+ }
 
-.water-ripple {
-  position: absolute;
-  left: 50%;
-  bottom: -11px;
-  width: 105px;
-  height: 25px;
-  border: 1px solid rgba(129, 198, 211, 0.36);
-  border-radius: 50%;
-  box-shadow: 0 0 0 7px rgba(129, 198, 211, 0.04);
-  transform: translateX(-50%);
-  animation: ripple 4s ease-out infinite;
-  pointer-events: none;
-}
+ .water-ripple {
+   position: absolute; 
+   bottom: -11px;
+   width: 105px;
+   height: 25px;
+   border: 1px solid rgba(129, 198, 211, 0.36);
+   border-radius: 50%;
+   box-shadow: 0 0 0 7px rgba(129, 198, 211, 0.04);
+   transform: translateX(-50%);
+   animation: ripple 4s ease-out infinite;
+   pointer-events: none;
+ }
 
-/* ===== Animations ===== */
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0) rotate(-2deg);
-  }
+ /* ===== Animations ===== */
+ @keyframes float {
 
-  50% {
-    transform: translateY(-6px) rotate(2deg);
-  }
-}
+   0%,
+   100% {
+     transform: translateY(0) rotate(-2deg);
+   }
 
-@keyframes krathong-float {
-  0%,
-  100% {
-    translate: 0 0;
-  }
+   50% {
+     transform: translateY(-6px) rotate(2deg);
+   }
+ }
 
-  50% {
-    translate: 0 -5px;
-  }
-}
+ @keyframes krathong-float {
 
-@keyframes ripple {
-  0% {
-    opacity: 0.7;
-    transform: translateX(-50%) scale(0.8);
-  }
+   0%,
+   100% {
+     translate: 0 0;
+   }
 
-  100% {
-    opacity: 0;
-    transform: translateX(-50%) scale(1.4);
-  }
-}
+   50% {
+     translate: 0 -5px;
+   }
+ }
 
-/* ===== Responsive ===== */
-@media (max-width: 800px) {
-  .wish-item {
-    max-width: 90%;
-  }
+ @keyframes ripple {
+   0% {
+     opacity: 0.7;
+     transform: translateX(-50%) scale(0.8);
+   }
 
-  .wish-item:nth-child(even) {
-    max-width: 98%;
-  }
-}
+   100% {
+     opacity: 0;
+     transform: translateX(-50%) scale(1.4);
+   }
+ }
 
-@media (max-width: 520px) {
-  .wish-grid {
-    gap: 24px;
-    padding: 8px 0;
-  }
+ /* ===== Responsive ===== */
+ @media (max-width: 800px) {
+   .wish-item {
+     max-width: 90%;
+   }
 
-  .wish-item {
-    max-width: 94%;
-    gap: 8px;
-  }
+   .wish-item:nth-child(even) {
+     max-width: 98%;
+   }
+ }
 
-  .wish-item:nth-child(even) {
-    max-width: 100%;
-    gap: 8px;
-  }
+ @media (max-width: 520px) {
+   .wish-grid {
+     gap: 24px;
+     padding: 8px 0;
+   }
 
-  .tooltip-card {
-    padding: 14px 12px;
-    border-radius: 14px;
-  }
+   .wish-item {
+     max-width: 94%;
+     gap: 8px;
+   }
 
-  .tooltip-wish {
-    font-size: 14px;
-  }
+   .wish-item:nth-child(even) {
+     max-width: 100%;
+     gap: 8px;
+   }
 
-  .tooltip-footer {
-    flex-wrap: wrap;
-  }
+   .tooltip-card {
+     padding: 14px 12px;
+     border-radius: 14px;
+   }
 
-  .tooltip-type {
-    text-align: left;
-  }
+   .tooltip-wish {
+     font-size: 14px;
+   }
 
-  .wish-item:nth-child(even) .tooltip-card {
-    flex: 1 1 0;
-    width: auto;
-  }
+   .tooltip-footer {
+     flex-wrap: wrap;
+   }
 
-  .wish-item:nth-child(even) .krathong-trigger {
-    flex-basis: 84px;
-    width: 84px;
-    height: 84px;
-    margin: 8px 0 12px;
-    font-size: 44px;
-  }
+   .tooltip-type {
+     text-align: left;
+   }
 
-  .wish-item:nth-child(odd) .krathong-trigger {
+   .wish-item:nth-child(even) .tooltip-card {
+     flex: 1 1 0;
+     width: auto;
+   }
+
+   .wish-item:nth-child(even) .krathong-trigger {
      flex-basis: 84px;
-    width: 84px;
-    height: 84px;
-    margin: 8px 0 12px;
-    font-size: 44px;
-  }
+     width: 84px;
+     height: 84px;
+     margin: 8px 0 12px;
+     font-size: 44px;
+   }
 
-  .wish-item:nth-child(odd) .krathong-emoji {
-    font-size: 40px;
-  }
+   .wish-item:nth-child(odd) .krathong-trigger {
+     flex-basis: 84px;
+     width: 84px;
+     height: 84px;
+     margin: 8px 0 12px;
+     font-size: 44px;
+   }
 
-  .wish-item:nth-child(even) .krathong-emoji {
-    font-size: 40px;
-  }
+   .wish-item:nth-child(odd) .krathong-emoji {
+     font-size: 40px;
+   }
 
-  .wish-item:nth-child(even) .water-ripple {
-    width: 70px;
-    height: 18px;
-  }
-}
+   .wish-item:nth-child(even) .krathong-emoji {
+     font-size: 40px;
+   }
 
-/* ===== Reduced Motion ===== */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation: none !important;
-    transition: none !important;
-  }
-}
+   .wish-item:nth-child(even) .water-ripple {
+     width: 70px;
+     height: 18px;
+   }
+ }
+
+ /* ===== Reduced Motion ===== */
+ @media (prefers-reduced-motion: reduce) {
+
+   *,
+   *::before,
+   *::after {
+     animation: none !important;
+     transition: none !important;
+   }
+ }
+
+ .refresh-btn {
+   padding: 11px 22px;
+   color: #171a20;
+   background: linear-gradient(135deg, #ead49a, #b9984e);
+   border: 1px solid #e2c57d;
+   border-radius: 999px;
+   cursor: pointer;
+   font: 400 14px "Kanit", sans-serif;
+   transition: filter .2s ease, transform .2s ease;
+ }
+
+ .refresh-btn:hover {
+   filter: brightness(1.07);
+   transform: translateY(-2px);
+ }
+
+ .refresh-btn:disabled {
+   opacity: .6;
+   cursor: wait;
+   transform: none;
+ }
+
+ footer {
+   display: flex;
+   justify-content: space-between;
+   gap: 16px;
+   padding: 22px 0 28px;
+   border-top: 1px solid #d8b86b22;
+   color: #6f7a8d;
+   font-size: 10px;
+   letter-spacing: 2px;
+ }
+
+ @keyframes float {
+
+   0%,
+   100% {
+     transform: translateY(0) rotate(-2deg);
+   }
+
+   50% {
+     transform: translateY(-6px) rotate(2deg);
+   }
+ }
+
+ @keyframes ripple {
+   0% {
+     opacity: .7;
+     transform: scale(.8);
+   }
+
+   100% {
+     opacity: 0;
+     transform: scale(1.4);
+   }
+ }
+
+ @media (max-width: 800px) {
+   .wish-grid {
+     grid-template-columns: repeat(2, minmax(0, 1fr));
+   }
+ }
+
+ @media (max-width: 520px) {
+   .top-nav {
+     padding: 14px 12px;
+   }
+
+   main {
+     margin-top: 20px;
+   }
+
+   .wish-grid {
+     grid-template-columns: 1fr 1fr;
+     gap: 30px 8px;
+   }
+
+   .krathong-trigger {
+     width: 124px;
+     height: 124px;
+   }
+
+   .krathong-emoji {
+     font-size: 51px;
+   }
+
+   .tooltip-card {
+     width: min(270px, calc(100vw - 28px));
+   }
+
+   .wish-item:nth-child(odd) .tooltip-card {
+     left: 20px;
+     transform: translate(0, 8px) scale(.97);
+     transform-origin: bottom left;
+   }
+
+   .wish-item:nth-child(even) .tooltip-card {
+     left: auto;
+     right: 20px;
+     transform: translate(0, 8px) scale(.97);
+     transform-origin: bottom right;
+   }
+
+   .wish-item:nth-child(odd):hover .tooltip-card,
+   .wish-item:nth-child(odd):focus-within .tooltip-card,
+   .wish-item:nth-child(odd).is-open .tooltip-card {
+     transform: translate(0, 0) scale(1);
+   }
+
+   .wish-item:nth-child(even):hover .tooltip-card,
+   .wish-item:nth-child(even):focus-within .tooltip-card,
+   .wish-item:nth-child(even).is-open .tooltip-card {
+     transform: translate(0, 0) scale(1);
+   }
+
+   .wish-item:nth-child(odd) .tooltip-card::after {
+     left: 34px;
+   }
+
+   .wish-item:nth-child(even) .tooltip-card::after {
+     left: auto;
+     right: 34px;
+   }
+
+   .mini-label {
+     font-size: 10px;
+   }
+
+   footer {
+     font-size: 9px;
+     letter-spacing: 1px;
+   }
+ }
