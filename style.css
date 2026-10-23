@@ -920,7 +920,7 @@
  .wish-item:nth-child(odd) .tooltip-card {
    order: 1;
    flex: 1 1 auto;
-   width: 440px; 
+   width: 440px;
  }
 
  .wish-item:nth-child(odd) .krathong-trigger {
@@ -931,7 +931,7 @@
  /* ===== Right Item: Tooltip Left, Krathong Right ===== */
  .wish-item:nth-child(even) .tooltip-card {
    order: 1;
-   flex: 1 1 auto; 
+   flex: 1 1 auto;
    min-width: 440px;
  }
 
@@ -988,7 +988,7 @@
  }
 
  .water-ripple {
-   position: absolute; 
+   position: absolute;
    bottom: -11px;
    width: 105px;
    height: 25px;
@@ -1149,7 +1149,7 @@
    transform: none;
  }
 
- footer {
+ /* footer {
    display: flex;
    justify-content: space-between;
    gap: 16px;
@@ -1158,7 +1158,7 @@
    color: #6f7a8d;
    font-size: 10px;
    letter-spacing: 2px;
- }
+ } */
 
  @keyframes float {
 
@@ -1259,4 +1259,10 @@
      font-size: 9px;
      letter-spacing: 1px;
    }
+ }
+
+ .refresh-row {
+   display: flex;
+   align-items: center;
+   justify-content: center;
  }
