@@ -47,12 +47,10 @@ function renderWishes(items) {
           </div>
         </div>
 
-        <div>
-          <div class="krathong-trigger" aria-hidden="true">
-            <span class="krathong-emoji" style="animation-delay:${(index % 5) * 0.35}s">${k.emoji}</span>
-            <span class="water-ripple"></span>
-          </div>
-        </div>
+        <button class="krathong-trigger" type="button" aria-label="เปิดคำอธิษฐาน" aria-expanded="false">
+          <span class="krathong-emoji" style="animation-delay:${(index % 5) * 0.35}s">${k.emoji}</span>
+          <span class="water-ripple" aria-hidden="true"></span>
+        </button>
 
         
       </article>
@@ -107,6 +105,28 @@ function loadWishes() {
 
 
 refreshButton.addEventListener("click", loadWishes);
+
+// Tap a krathong to show or hide its wish on touch devices.
+wishGrid.addEventListener("click", event => {
+  const trigger = event.target.closest(".krathong-trigger");
+  if (!trigger) return;
+
+  const item = trigger.closest(".wish-item");
+  if (!item) return;
+
+  const shouldOpen = !item.classList.contains("is-open");
+  wishGrid.querySelectorAll(".wish-item.is-open").forEach(openItem => {
+    openItem.classList.remove("is-open");
+    const openTrigger = openItem.querySelector(".krathong-trigger");
+    if (openTrigger) openTrigger.setAttribute("aria-expanded", "false");
+  });
+
+  if (shouldOpen) {
+    item.classList.add("is-open");
+    trigger.setAttribute("aria-expanded", "true");
+  }
+});
+
 loadWishes();
 
 
@@ -287,7 +307,7 @@ if (gl) {
   gl.disable(gl.DEPTH_TEST);
 
   function resize() {
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const dpr = Math.min(window.devicePixelRatio || 1, window.matchMedia('(max-width: 700px)').matches ? 1.5 : 2);
     canvas.width = window.innerWidth * dpr;
     canvas.height = window.innerHeight * dpr;
     gl.viewport(0, 0, canvas.width, canvas.height);
