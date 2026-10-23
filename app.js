@@ -140,7 +140,7 @@ wishForm.addEventListener("submit", async  (event) => {
 
     try {
         const response = await fetch(
-            "https://script.google.com/macros/s/AKfycbyo8w5wav4qmbJRBGiugcUKo-6B5evOpW2gyyKozXplxJmtC_m3x47JnAqc74apMRo/exec",
+            "https://script.google.com/macros/s/AKfycbxfVAH7i4MSIcXBWB7NSo-PSOkjsn-ur8_57RU0EaDWMB-OtaRTGGzKEJzbfB4GseM/exec",
             {
                 method: "POST",
                 headers: {

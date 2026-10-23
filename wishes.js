@@ -1,74 +1,112 @@
 "use strict";
-  
+const WISHES_API_URL = "https://script.google.com/macros/s/AKfycbxfVAH7i4MSIcXBWB7NSo-PSOkjsn-ur8_57RU0EaDWMB-OtaRTGGzKEJzbfB4GseM/exec";
+const wishGrid = document.getElementById("wishGrid");
+const refreshButton = document.getElementById("refreshWishes");
+const resultCount = document.getElementById("resultCount");
+let callbackCounter = 0;
+let requestTimeout;
 
-const WISHES_API_URL =
-  "https://script.google.com/macros/s/AKfycbyo8w5wav4qmbJRBGiugcUKo-6B5evOpW2gyyKozXplxJmtC_m3x47JnAqc74apMRo/exec";
+function escapeHtml(value) {
+  return String(value ?? "").replace(/[&<>"']/g, char => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+  })[char]);
+}
 
-function loadRandomWishes() {
-  const container = document.getElementById("randomWishes");
+function getKrathong(type) {
+  const value = String(type || "").toLowerCase();
+  if (value.includes("marigold") || value.includes("ดาวเรือง")) return { emoji: "🌼", label: "กระทงดอกดาวเรือง" };
+  if (value.includes("lotus") || value.includes("บัว")) return { emoji: "🪷", label: "กระทงดอกบัว" };
+  return { emoji: "🪷", label: "กระทงลอยน้ำ" };
+}
 
-  if (!container) return;
 
-  container.textContent = "กำลังโหลดคำอธิษฐาน...";
-
-  const callbackName =
-    "onRandomWishes_" + Date.now() + "_" +
-    Math.random().toString(36).slice(2);
-
-  const script = document.createElement("script");
-  const timeout = window.setTimeout(() => {
-    cleanup();
-    container.textContent = "โหลดคำอธิษฐานไม่สำเร็จ";
-  }, 15000);
-
-  function cleanup() {
-    window.clearTimeout(timeout);
-    delete window[callbackName];
-    script.remove();
+function renderWishes(items) {
+  if (!Array.isArray(items) || items.length === 0) {
+    wishGrid.innerHTML =
+      '<div class="state-message">ยังไม่มีคำอธิษฐานให้แสดงในขณะนี้</div>';
+    resultCount.textContent = "0 คำอธิษฐาน";
+    return;
   }
 
-  window[callbackName] = (result) => {
+  resultCount.textContent = `${items.length} คำอธิษฐาน`;
+
+  wishGrid.innerHTML = items.map((item, index) => {
+    const k = getKrathong(item.krathongType);
+
+    return `
+      <article class="wish-item">
+        <div class="tooltip-card" role="group" aria-label="รายละเอียดคำอธิษฐาน">
+          <p class="tooltip-label">✦ คำอธิษฐาน</p>
+          <p class="tooltip-wish">“${escapeHtml(item.wish || "ขอให้พบเจอแต่สิ่งดี ๆ")}”</p>
+          <div class="tooltip-divider" aria-hidden="true">✧</div>
+          <div class="tooltip-footer">
+            <div>
+              <p class="tooltip-name">${escapeHtml(item.fullName || "ไม่ระบุชื่อ")}</p> 
+            </div>
+            <span class="tooltip-type">${k.emoji} ${k.label}</span>
+          </div>
+        </div>
+
+        <div class="krathong-trigger" aria-hidden="true">
+          <span class="krathong-emoji" style="animation-delay:${(index % 5) * 0.35}s">${k.emoji}</span>
+          <span class="water-ripple"></span>
+        </div>
+      </article>
+    `;
+  }).join("");
+}
+
+function loadWishes() {
+  refreshButton.disabled = true;
+  refreshButton.textContent = "กำลังสุ่ม...";
+  resultCount.textContent = "กำลังโหลด...";
+  wishGrid.innerHTML = '<div class="state-message">กำลังรวบรวมคำอธิษฐาน...</div>';
+
+  const callbackName = `onRandomWishes_${Date.now()}_${++callbackCounter}`;
+  const script = document.createElement("script");
+  let finished = false;
+
+  function cleanup() {
+    if (finished) return;
+    finished = true;
+    clearTimeout(requestTimeout);
+    delete window[callbackName];
+    script.remove();
+    refreshButton.disabled = false;
+    refreshButton.textContent = "↻ สุ่มคำอธิษฐานใหม่";
+  }
+
+  window[callbackName] = response => {
     cleanup();
-
-    if (!result?.success || !Array.isArray(result.data)) {
-      container.textContent = "ไม่สามารถโหลดคำอธิษฐานได้";
+    if (!response || response.success !== true) {
+      wishGrid.innerHTML = '<div class="state-message">โหลดคำอธิษฐานไม่สำเร็จ กรุณาลองอีกครั้ง</div>';
+      resultCount.textContent = "โหลดข้อมูลไม่สำเร็จ";
       return;
     }
-
-    container.replaceChildren();
-
-    if (result.data.length === 0) {
-      container.textContent = "ยังไม่มีคำอธิษฐาน";
-      return;
-    }
-
-    result.data.forEach((item) => {
-      const card = document.createElement("article");
-      const name = document.createElement("h3");
-      const wish = document.createElement("p");
-
-      name.textContent = item.fullName;
-      wish.textContent = item.wish;
-
-      card.append(name, wish);
-      container.appendChild(card);
-    });
+    renderWishes(response.data);
   };
 
   script.onerror = () => {
     cleanup();
-    container.textContent = "เชื่อมต่อระบบไม่สำเร็จ";
+    wishGrid.innerHTML = '<div class="state-message">เชื่อมต่อข้อมูลไม่ได้ กรุณาตรวจสอบอินเทอร์เน็ตแล้วลองใหม่</div>';
+    resultCount.textContent = "เชื่อมต่อไม่ได้";
   };
 
-  script.src =
-    WISHES_API_URL +
-    "?action=randomWishes&callback=" +
-    encodeURIComponent(callbackName);
-
-  document.head.appendChild(script);
+  script.src = `${WISHES_API_URL}?action=randomWishes&callback=${encodeURIComponent(callbackName)}&_=${Date.now()}`;
+  requestTimeout = setTimeout(() => {
+    cleanup();
+    wishGrid.innerHTML = '<div class="state-message">ใช้เวลาโหลดนานกว่าปกติ กรุณากดสุ่มอีกครั้ง</div>';
+    resultCount.textContent = "หมดเวลารอข้อมูล";
+  }, 15000);
+  document.body.appendChild(script);
 }
 
-loadRandomWishes();
+ 
+refreshButton.addEventListener("click", loadWishes);
+loadWishes();
+
+
+
 
 
 
@@ -78,20 +116,20 @@ const canvas = document.getElementById('webgl-canvas');
 const gl = canvas.getContext('webgl', { antialias: true, alpha: true }) || canvas.getContext('experimental-webgl');
 
 if (gl) {
-    // Configuration matching exact parameters:
-    // Golden Yellow theme, 125 particles, 0.3x speed, 0.4x size, 0.5x flicker, 0.2x wind
-    const config = {
-        count: 125,
-        speedScale: 0.3,
-        sizeScale: 0.4,
-        flickerScale: 0.5,
-        windScale: 0.2,
-        colorCore: [1.0, 0.98, 0.85],
-        colorGlow: [0.98, 0.75, 0.15],
-        colorOuter: [0.85, 0.45, 0.02]
-    };
+  // Configuration matching exact parameters:
+  // Golden Yellow theme, 125 particles, 0.3x speed, 0.4x size, 0.5x flicker, 0.2x wind
+  const config = {
+    count: 125,
+    speedScale: 0.3,
+    sizeScale: 0.4,
+    flickerScale: 0.5,
+    windScale: 0.2,
+    colorCore: [1.0, 0.98, 0.85],
+    colorGlow: [0.98, 0.75, 0.15],
+    colorOuter: [0.85, 0.45, 0.02]
+  };
 
-    const vsSource = `
+  const vsSource = `
         attribute vec2 a_basePosition;
         attribute vec4 a_properties;
         attribute vec2 a_drift;
@@ -139,7 +177,7 @@ if (gl) {
         }
       `;
 
-    const fsSource = `
+  const fsSource = `
         precision mediump float;
 
         varying float v_alpha;
@@ -171,113 +209,113 @@ if (gl) {
         }
       `;
 
-    function createShader(gl, type, source) {
-        const shader = gl.createShader(type);
-        gl.shaderSource(shader, source);
-        gl.compileShader(shader);
-        if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
-            gl.deleteShader(shader);
-            return null;
-        }
-        return shader;
+  function createShader(gl, type, source) {
+    const shader = gl.createShader(type);
+    gl.shaderSource(shader, source);
+    gl.compileShader(shader);
+    if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+      gl.deleteShader(shader);
+      return null;
     }
+    return shader;
+  }
 
-    const vertShader = createShader(gl, gl.VERTEX_SHADER, vsSource);
-    const fragShader = createShader(gl, gl.FRAGMENT_SHADER, fsSource);
+  const vertShader = createShader(gl, gl.VERTEX_SHADER, vsSource);
+  const fragShader = createShader(gl, gl.FRAGMENT_SHADER, fsSource);
 
-    const program = gl.createProgram();
-    gl.attachShader(program, vertShader);
-    gl.attachShader(program, fragShader);
-    gl.linkProgram(program);
-    gl.useProgram(program);
+  const program = gl.createProgram();
+  gl.attachShader(program, vertShader);
+  gl.attachShader(program, fragShader);
+  gl.linkProgram(program);
+  gl.useProgram(program);
 
-    const locations = {
-        attribs: {
-            basePosition: gl.getAttribLocation(program, 'a_basePosition'),
-            properties: gl.getAttribLocation(program, 'a_properties'),
-            drift: gl.getAttribLocation(program, 'a_drift')
-        },
-        uniforms: {
-            time: gl.getUniformLocation(program, 'u_time'),
-            speedScale: gl.getUniformLocation(program, 'u_speedScale'),
-            sizeScale: gl.getUniformLocation(program, 'u_sizeScale'),
-            flickerScale: gl.getUniformLocation(program, 'u_flickerScale'),
-            windScale: gl.getUniformLocation(program, 'u_windScale'),
-            resolution: gl.getUniformLocation(program, 'u_resolution'),
-            colorCore: gl.getUniformLocation(program, 'u_colorCore'),
-            colorGlow: gl.getUniformLocation(program, 'u_colorGlow'),
-            colorOuter: gl.getUniformLocation(program, 'u_colorOuter')
-        }
-    };
-
-    const STRIDE = 8;
-    const particleData = new Float32Array(config.count * STRIDE);
-
-    for (let i = 0; i < config.count; i++) {
-        const idx = i * STRIDE;
-        particleData[idx + 0] = (Math.random() * 2.4) - 1.2;
-        particleData[idx + 1] = (Math.random() * 2.4) - 1.2;
-        particleData[idx + 2] = 0.6 + Math.random() * 0.8;
-        particleData[idx + 3] = 16.0 + Math.random() * 28.0;
-        particleData[idx + 4] = 0.8 + Math.random() * 1.5;
-        particleData[idx + 5] = Math.random() * Math.PI * 2;
-        particleData[idx + 6] = 0.5 + Math.random() * 1.2;
-        particleData[idx + 7] = 0.05 + Math.random() * 0.12;
+  const locations = {
+    attribs: {
+      basePosition: gl.getAttribLocation(program, 'a_basePosition'),
+      properties: gl.getAttribLocation(program, 'a_properties'),
+      drift: gl.getAttribLocation(program, 'a_drift')
+    },
+    uniforms: {
+      time: gl.getUniformLocation(program, 'u_time'),
+      speedScale: gl.getUniformLocation(program, 'u_speedScale'),
+      sizeScale: gl.getUniformLocation(program, 'u_sizeScale'),
+      flickerScale: gl.getUniformLocation(program, 'u_flickerScale'),
+      windScale: gl.getUniformLocation(program, 'u_windScale'),
+      resolution: gl.getUniformLocation(program, 'u_resolution'),
+      colorCore: gl.getUniformLocation(program, 'u_colorCore'),
+      colorGlow: gl.getUniformLocation(program, 'u_colorGlow'),
+      colorOuter: gl.getUniformLocation(program, 'u_colorOuter')
     }
+  };
 
-    const buffer = gl.createBuffer();
-    gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
-    gl.bufferData(gl.ARRAY_BUFFER, particleData, gl.STATIC_DRAW);
+  const STRIDE = 8;
+  const particleData = new Float32Array(config.count * STRIDE);
 
-    const FSIZE = Float32Array.BYTES_PER_ELEMENT;
+  for (let i = 0; i < config.count; i++) {
+    const idx = i * STRIDE;
+    particleData[idx + 0] = (Math.random() * 2.4) - 1.2;
+    particleData[idx + 1] = (Math.random() * 2.4) - 1.2;
+    particleData[idx + 2] = 0.6 + Math.random() * 0.8;
+    particleData[idx + 3] = 16.0 + Math.random() * 28.0;
+    particleData[idx + 4] = 0.8 + Math.random() * 1.5;
+    particleData[idx + 5] = Math.random() * Math.PI * 2;
+    particleData[idx + 6] = 0.5 + Math.random() * 1.2;
+    particleData[idx + 7] = 0.05 + Math.random() * 0.12;
+  }
 
-    gl.enableVertexAttribArray(locations.attribs.basePosition);
-    gl.vertexAttribPointer(locations.attribs.basePosition, 2, gl.FLOAT, false, STRIDE * FSIZE, 0);
+  const buffer = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+  gl.bufferData(gl.ARRAY_BUFFER, particleData, gl.STATIC_DRAW);
 
-    gl.enableVertexAttribArray(locations.attribs.properties);
-    gl.vertexAttribPointer(locations.attribs.properties, 4, gl.FLOAT, false, STRIDE * FSIZE, 2 * FSIZE);
+  const FSIZE = Float32Array.BYTES_PER_ELEMENT;
 
-    gl.enableVertexAttribArray(locations.attribs.drift);
-    gl.vertexAttribPointer(locations.attribs.drift, 2, gl.FLOAT, false, STRIDE * FSIZE, 6 * FSIZE);
+  gl.enableVertexAttribArray(locations.attribs.basePosition);
+  gl.vertexAttribPointer(locations.attribs.basePosition, 2, gl.FLOAT, false, STRIDE * FSIZE, 0);
 
-    gl.enable(gl.BLEND);
-    gl.blendFunc(gl.SRC_ALPHA, gl.ONE);
-    gl.disable(gl.DEPTH_TEST);
+  gl.enableVertexAttribArray(locations.attribs.properties);
+  gl.vertexAttribPointer(locations.attribs.properties, 4, gl.FLOAT, false, STRIDE * FSIZE, 2 * FSIZE);
 
-    function resize() {
-        const dpr = Math.min(window.devicePixelRatio || 1, 2);
-        canvas.width = window.innerWidth * dpr;
-        canvas.height = window.innerHeight * dpr;
-        gl.viewport(0, 0, canvas.width, canvas.height);
-    }
+  gl.enableVertexAttribArray(locations.attribs.drift);
+  gl.vertexAttribPointer(locations.attribs.drift, 2, gl.FLOAT, false, STRIDE * FSIZE, 6 * FSIZE);
 
-    window.addEventListener('resize', resize);
-    resize();
+  gl.enable(gl.BLEND);
+  gl.blendFunc(gl.SRC_ALPHA, gl.ONE);
+  gl.disable(gl.DEPTH_TEST);
 
-    const startTime = performance.now();
+  function resize() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = window.innerWidth * dpr;
+    canvas.height = window.innerHeight * dpr;
+    gl.viewport(0, 0, canvas.width, canvas.height);
+  }
 
-    function render(currentTime) {
-        const elapsedTime = (currentTime - startTime) * 0.001;
+  window.addEventListener('resize', resize);
+  resize();
 
-        // gl.clearColor(0.03, 0.05, 0.1, 1.0);
-        gl.clearColor(0.0, 0.0, 0.0, 0.0);
-        gl.clear(gl.COLOR_BUFFER_BIT);
+  const startTime = performance.now();
 
-        gl.uniform1f(locations.uniforms.time, elapsedTime);
-        gl.uniform1f(locations.uniforms.speedScale, config.speedScale);
-        gl.uniform1f(locations.uniforms.sizeScale, config.sizeScale);
-        gl.uniform1f(locations.uniforms.flickerScale, config.flickerScale);
-        gl.uniform1f(locations.uniforms.windScale, config.windScale);
-        gl.uniform2f(locations.uniforms.resolution, canvas.width, canvas.height);
+  function render(currentTime) {
+    const elapsedTime = (currentTime - startTime) * 0.001;
 
-        gl.uniform3fv(locations.uniforms.colorCore, config.colorCore);
-        gl.uniform3fv(locations.uniforms.colorGlow, config.colorGlow);
-        gl.uniform3fv(locations.uniforms.colorOuter, config.colorOuter);
+    // gl.clearColor(0.03, 0.05, 0.1, 1.0);
+    gl.clearColor(0.0, 0.0, 0.0, 0.0);
+    gl.clear(gl.COLOR_BUFFER_BIT);
 
-        gl.drawArrays(gl.POINTS, 0, config.count);
+    gl.uniform1f(locations.uniforms.time, elapsedTime);
+    gl.uniform1f(locations.uniforms.speedScale, config.speedScale);
+    gl.uniform1f(locations.uniforms.sizeScale, config.sizeScale);
+    gl.uniform1f(locations.uniforms.flickerScale, config.flickerScale);
+    gl.uniform1f(locations.uniforms.windScale, config.windScale);
+    gl.uniform2f(locations.uniforms.resolution, canvas.width, canvas.height);
 
-        requestAnimationFrame(render);
-    }
+    gl.uniform3fv(locations.uniforms.colorCore, config.colorCore);
+    gl.uniform3fv(locations.uniforms.colorGlow, config.colorGlow);
+    gl.uniform3fv(locations.uniforms.colorOuter, config.colorOuter);
+
+    gl.drawArrays(gl.POINTS, 0, config.count);
 
     requestAnimationFrame(render);
+  }
+
+  requestAnimationFrame(render);
 }
