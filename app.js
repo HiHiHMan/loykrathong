@@ -372,7 +372,7 @@ if (gl) {
     gl.disable(gl.DEPTH_TEST);
 
     function resize() {
-        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        const dpr = Math.min(window.devicePixelRatio || 1, window.matchMedia('(max-width: 700px)').matches ? 1.5 : 2);
         canvas.width = window.innerWidth * dpr;
         canvas.height = window.innerHeight * dpr;
         gl.viewport(0, 0, canvas.width, canvas.height);
