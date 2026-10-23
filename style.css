@@ -833,6 +833,7 @@
 
  /* ===== Tooltip: Glass Effect ===== */
  .tooltip-card {
+   scale: .8;
    position: relative;
    z-index: 5;
    display: block;
@@ -899,7 +900,7 @@
  /* ชื่อผู้เขียน */
  .tooltip-name {
    color: #f1d49a;
-   font-size: 0.75rem;
+   /* font-size: 0.75rem; */
  }
 
  /* วันที่และข้อความรอง */
@@ -907,7 +908,7 @@
  .tooltip-type,
  .tooltip-label {
    color: rgba(230, 233, 240, 0.68);
-   font-size: 0.75rem;
+   /* font-size: 0.75rem; */
  }
 
  /* เส้นคั่น */
@@ -919,8 +920,7 @@
  .wish-item:nth-child(odd) .tooltip-card {
    order: 1;
    flex: 1 1 auto;
-   width: 350px;
-   min-width: 350px;
+   width: 440px; 
  }
 
  .wish-item:nth-child(odd) .krathong-trigger {
@@ -931,9 +931,8 @@
  /* ===== Right Item: Tooltip Left, Krathong Right ===== */
  .wish-item:nth-child(even) .tooltip-card {
    order: 1;
-   flex: 1 1 auto;
-   width: 350px;
-   min-width: 350px;
+   flex: 1 1 auto; 
+   min-width: 440px;
  }
 
  .wish-item:nth-child(even) .krathong-trigger {
