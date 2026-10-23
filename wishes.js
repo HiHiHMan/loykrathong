@@ -75,7 +75,7 @@ loadRandomWishes();
 
 
 const canvas = document.getElementById('webgl-canvas');
-const gl = canvas.getContext('webgl', { antialias: true, alpha: false }) || canvas.getContext('experimental-webgl');
+const gl = canvas.getContext('webgl', { antialias: true, alpha: true }) || canvas.getContext('experimental-webgl');
 
 if (gl) {
     // Configuration matching exact parameters:
@@ -259,7 +259,8 @@ if (gl) {
     function render(currentTime) {
         const elapsedTime = (currentTime - startTime) * 0.001;
 
-        gl.clearColor(0.03, 0.05, 0.1, 1.0);
+        // gl.clearColor(0.03, 0.05, 0.1, 1.0);
+        gl.clearColor(0.0, 0.0, 0.0, 0.0);
         gl.clear(gl.COLOR_BUFFER_BIT);
 
         gl.uniform1f(locations.uniforms.time, elapsedTime);
