@@ -1342,3 +1342,220 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 @media (hover: none) and (pointer: coarse) {
   .krathong:hover, .start-button:hover, .refresh-btn:hover, .nav-link:hover { transform: none; }
 }
+
+
+/* =========================================================
+   RESPONSIVE SYSTEM — phones, tablets, laptops and desktops
+   Keep this block at the end so it overrides legacy media rules.
+   ========================================================= */
+:root {
+  --page-gutter: clamp(12px, 3.2vw, 40px);
+  --content-max: 1120px;
+  --tap-size: 44px;
+}
+
+html {
+  width: 100%;
+  min-width: 0;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-padding-top: 80px;
+}
+
+body {
+  width: 100%;
+  min-width: 0;
+  overflow-x: clip;
+}
+
+img, video, canvas, svg {
+  max-width: 100%;
+}
+
+#webgl-canvas {
+  width: 100%;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+}
+
+button, a, input, textarea, select {
+  touch-action: manipulation;
+}
+
+button, input, textarea, select {
+  max-width: 100%;
+  font: inherit;
+}
+
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible, a:focus-visible,
+input:focus-visible, textarea:focus-visible, select:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.landing {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+  min-height: 100dvh;
+  padding-right: var(--page-gutter);
+  padding-left: var(--page-gutter);
+}
+
+.content {
+  width: 100%;
+  max-width: var(--content-max);
+  min-width: 0;
+}
+
+.intro, .description, .form-description, .hint,
+.krathong-name, .krathong-detail, .tooltip-card,
+.tooltip-wish, .tooltip-name, .tooltip-type {
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+.krathong-list {
+  width: 100%;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.krathong, .wish-form, .selected-preview, .wish-grid,
+.wish-item, .tooltip-card {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.wish-form {
+  width: 100%;
+}
+
+.wish-form input, .wish-form textarea, .wish-form select {
+  min-width: 0;
+  font-size: 16px;
+}
+
+.start-button, .submit-button, .text-button, .refresh-btn, .nav-link {
+  min-height: var(--tap-size);
+}
+
+footer {
+  max-width: calc(100% - 2 * var(--page-gutter));
+}
+
+/* Small phones: 320–389px */
+@media (max-width: 389px) {
+  :root { --page-gutter: 12px; }
+
+  .top-nav {
+    position: relative;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4px;
+    padding: max(8px, env(safe-area-inset-top)) 8px 4px;
+  }
+
+  .nav-link {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  .landing {
+    min-height: calc(100dvh - 48px);
+    padding-top: 24px;
+    padding-bottom: calc(76px + env(safe-area-inset-bottom));
+  }
+
+  h1 { font-size: clamp(28px, 8.8vw, 36px); line-height: 1.3; }
+  .eyebrow { font-size: 10px; letter-spacing: .12em; }
+  .description { margin-top: 14px; margin-bottom: 26px; font-size: 13px; line-height: 1.8; }
+  .krathong-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .krathong { padding: 12px 6px; }
+  .krathong-art { width: 76px; height: 72px; font-size: 44px; }
+  .krathong-name { font-size: 13px; }
+  .krathong-detail { font-size: 10px; }
+  .start-button { width: 100%; gap: 12px; padding: 0 14px; }
+  .wish-form h2 { font-size: clamp(23px, 7vw, 28px); }
+  .selected-preview { flex-wrap: wrap; }
+  footer { position: relative; inset: auto; margin: 20px auto 0; }
+}
+
+/* Phones: 390–599px */
+@media (min-width: 390px) and (max-width: 599px) {
+  :root { --page-gutter: 16px; }
+
+  .top-nav {
+    position: relative;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: max(10px, env(safe-area-inset-top)) 12px 6px;
+  }
+
+  .landing {
+    min-height: calc(100dvh - 52px);
+    padding-top: 28px;
+    padding-bottom: calc(80px + env(safe-area-inset-bottom));
+  }
+
+  h1 { font-size: clamp(32px, 7.5vw, 42px); line-height: 1.32; }
+  .description { margin-bottom: 30px; line-height: 1.85; }
+  .krathong-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .krathong { padding: 14px 8px; }
+  .krathong-art { width: 84px; height: 80px; font-size: 48px; }
+  .start-button { max-width: 100%; }
+  footer { position: relative; inset: auto; margin: 20px auto 0; }
+}
+
+/* Tablets and small laptops: 600–899px */
+@media (min-width: 600px) and (max-width: 899px) {
+  :root { --page-gutter: clamp(22px, 4vw, 36px); }
+
+  .top-nav { padding: 18px var(--page-gutter); }
+  .landing { padding-top: 82px; padding-bottom: 76px; }
+  .content { max-width: 760px; }
+  h1 { font-size: clamp(40px, 5.5vw, 54px); }
+  .description { font-size: 14px; }
+  .krathong-list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+  .krathong-art { width: 88px; height: 84px; font-size: 50px; }
+  .wish-form { max-width: 520px; }
+}
+
+/* Desktop: 900px and above */
+@media (min-width: 900px) {
+  .landing { padding-top: 84px; padding-bottom: 82px; }
+  .content { max-width: 1120px; }
+  .krathong-list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+  .wish-form { max-width: 520px; }
+}
+
+/* Very wide screens */
+@media (min-width: 1440px) {
+  .content { max-width: 1200px; }
+  .landing { padding-right: max(40px, calc((100vw - 1320px) / 2)); padding-left: max(40px, calc((100vw - 1320px) / 2)); }
+}
+
+/* Landscape phones: avoid vertically clipped forms and headers */
+@media (max-height: 520px) and (orientation: landscape) {
+  .top-nav { position: relative; padding: 8px 16px; }
+  .landing { min-height: auto; padding-top: 20px; padding-bottom: 28px; }
+  .intro { margin-bottom: 18px; }
+  .eyebrow { margin-bottom: 12px; }
+  .description { margin-top: 10px; margin-bottom: 18px; }
+  .krathong-list { margin-bottom: 18px; }
+  footer { position: relative; inset: auto; margin: 12px auto 0; }
+}
+
+/* Respect OS reduced-motion settings */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
