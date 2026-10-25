@@ -1642,3 +1642,101 @@ footer {
     max-width: 100%;
   }
 }
+
+
+/* ===== Final fix: .wish-item must never exceed its parent ===== */
+.landing > section[aria-labelledby="wishes-title"],
+.landing > section[aria-labelledby="wishes-title"] * {
+  box-sizing: border-box;
+}
+
+.landing > section[aria-labelledby="wishes-title"] {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.wish-grid {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  padding-inline: 0;
+}
+
+.wish-item,
+.wish-item:nth-child(odd),
+.wish-item:nth-child(even) {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  flex: 0 1 auto;
+  box-sizing: border-box;
+}
+
+.wish-item .tooltip-card,
+.wish-item:nth-child(odd) .tooltip-card,
+.wish-item:nth-child(even) .tooltip-card {
+  flex: 1 1 0%;
+  width: auto;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-wrap: anywhere;
+}
+
+.wish-item .krathong-trigger,
+.wish-item:nth-child(odd) .krathong-trigger,
+.wish-item:nth-child(even) .krathong-trigger {
+  flex-shrink: 1;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+@media (min-width: 521px) {
+  .wish-item,
+  .wish-item:nth-child(odd),
+  .wish-item:nth-child(even) {
+    align-self: stretch;
+  }
+
+  .wish-item .tooltip-card,
+  .wish-item:nth-child(odd) .tooltip-card,
+  .wish-item:nth-child(even) .tooltip-card {
+    width: 0;
+    min-width: 0;
+  }
+
+  .wish-item .krathong-trigger,
+  .wish-item:nth-child(odd) .krathong-trigger,
+  .wish-item:nth-child(even) .krathong-trigger {
+    flex: 0 1 clamp(64px, 10vw, 112px);
+    width: clamp(64px, 10vw, 112px);
+    height: clamp(64px, 10vw, 112px);
+  }
+}
+
+@media (max-width: 520px) {
+  .wish-item,
+  .wish-item:nth-child(odd),
+  .wish-item:nth-child(even) {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .wish-item .tooltip-card,
+  .wish-item:nth-child(odd) .tooltip-card,
+  .wish-item:nth-child(even) .tooltip-card {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+
+  .wish-item .krathong-trigger,
+  .wish-item:nth-child(odd) .krathong-trigger,
+  .wish-item:nth-child(even) .krathong-trigger {
+    flex: 0 0 64px;
+    width: 64px;
+    height: 64px;
+  }
+}
