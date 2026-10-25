@@ -434,3 +434,144 @@ homeButton.addEventListener("click", () => {
         behavior: "smooth",
     });
 });
+
+
+// ===== WebGL animated water for the full-width intro =====
+(() => {
+    const waterCanvas = document.getElementById("intro-water-canvas");
+    if (!waterCanvas) return;
+
+    const waterGL = waterCanvas.getContext("webgl", {
+        alpha: false,
+        antialias: true,
+        powerPreference: "low-power"
+    });
+
+    if (!waterGL) return; // CSS gradient remains as a fallback.
+
+    const vertexSource = `
+        attribute vec2 a_position;
+        varying vec2 v_uv;
+        void main() {
+            v_uv = a_position * 0.5 + 0.5;
+            gl_Position = vec4(a_position, 0.0, 1.0);
+        }
+    `;
+
+    const fragmentSource = `
+        precision mediump float;
+        varying vec2 v_uv;
+        uniform vec2 u_resolution;
+        uniform float u_time;
+
+        float wave(vec2 p, float t) {
+            float a = sin(p.x * 8.0 + t * 0.55 + sin(p.x * 2.1 - t * 0.22) * 1.4);
+            float b = sin(p.x * 15.0 - t * 0.38 + p.y * 4.0);
+            float c = sin(p.x * 25.0 + t * 0.28 - p.y * 7.0);
+            return a * 0.48 + b * 0.22 + c * 0.10;
+        }
+
+        void main() {
+            vec2 uv = gl_FragCoord.xy / u_resolution.xy;
+            vec2 p = uv;
+            p.x *= u_resolution.x / u_resolution.y;
+
+            float t = u_time;
+            float horizon = 0.68 + sin(p.x * 1.7 + t * 0.16) * 0.025;
+            float n = wave(p * vec2(1.0, 1.7), t);
+            float surface = uv.y - horizon + n * 0.025;
+            float depth = smoothstep(0.0, 0.85, uv.y);
+
+            vec3 deep = vec3(0.015, 0.055, 0.105);
+            vec3 teal = vec3(0.025, 0.20, 0.27);
+            vec3 color = mix(deep, teal, depth * 0.72);
+
+            float rippleLines = sin((uv.y * 70.0) + n * 3.2 + t * 1.15
+                                    + sin(p.x * 4.0 + t * 0.23) * 1.7);
+            float fineLines = sin(uv.y * 145.0 + n * 4.0 - t * 0.8);
+            float waterMask = smoothstep(0.76, 0.58, uv.y);
+            float highlights = smoothstep(0.78, 0.98, rippleLines) * 0.22
+                             + smoothstep(0.90, 1.0, fineLines) * 0.07;
+            float reflection = exp(-pow((uv.x - 0.5 - sin(t * 0.12) * 0.025) * 13.0, 2.0));
+            float shimmer = (0.5 + 0.5 * sin(uv.y * 95.0 + t * 1.4 + n * 2.0));
+            color += vec3(0.12, 0.34, 0.39) * highlights * waterMask;
+            color += vec3(0.72, 0.52, 0.23) * reflection * shimmer
+                   * smoothstep(0.76, 0.25, uv.y) * 0.22;
+
+            float horizonGlow = exp(-pow((uv.y - horizon) * 22.0, 2.0));
+            color += vec3(0.20, 0.39, 0.42) * horizonGlow * 0.22;
+            float vignette = smoothstep(1.15, 0.18, abs(uv.x - 0.5));
+            color *= 0.72 + vignette * 0.28;
+
+            gl_FragColor = vec4(color, 1.0);
+        }
+    `;
+
+    function compileShader(type, source) {
+        const shader = waterGL.createShader(type);
+        waterGL.shaderSource(shader, source);
+        waterGL.compileShader(shader);
+        if (!waterGL.getShaderParameter(shader, waterGL.COMPILE_STATUS)) {
+            console.error("Intro water shader error:", waterGL.getShaderInfoLog(shader));
+            waterGL.deleteShader(shader);
+            return null;
+        }
+        return shader;
+    }
+
+    const vertexShader = compileShader(waterGL.VERTEX_SHADER, vertexSource);
+    const fragmentShader = compileShader(waterGL.FRAGMENT_SHADER, fragmentSource);
+    if (!vertexShader || !fragmentShader) return;
+
+    const waterProgram = waterGL.createProgram();
+    waterGL.attachShader(waterProgram, vertexShader);
+    waterGL.attachShader(waterProgram, fragmentShader);
+    waterGL.linkProgram(waterProgram);
+
+    if (!waterGL.getProgramParameter(waterProgram, waterGL.LINK_STATUS)) {
+        console.error("Intro water program error:", waterGL.getProgramInfoLog(waterProgram));
+        return;
+    }
+
+    waterGL.useProgram(waterProgram);
+    const vertices = waterGL.createBuffer();
+    waterGL.bindBuffer(waterGL.ARRAY_BUFFER, vertices);
+    waterGL.bufferData(
+        waterGL.ARRAY_BUFFER,
+        new Float32Array([-1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, 1]),
+        waterGL.STATIC_DRAW
+    );
+
+    const positionLocation = waterGL.getAttribLocation(waterProgram, "a_position");
+    waterGL.enableVertexAttribArray(positionLocation);
+    waterGL.vertexAttribPointer(positionLocation, 2, waterGL.FLOAT, false, 0, 0);
+
+    const resolutionLocation = waterGL.getUniformLocation(waterProgram, "u_resolution");
+    const timeLocation = waterGL.getUniformLocation(waterProgram, "u_time");
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let animationFrame = 0;
+    let start = 0;
+
+    function resizeWater() {
+        const dpr = Math.min(window.devicePixelRatio || 1, 1.75);
+        const width = Math.max(1, Math.floor(waterCanvas.clientWidth * dpr));
+        const height = Math.max(1, Math.floor(waterCanvas.clientHeight * dpr));
+        if (waterCanvas.width !== width || waterCanvas.height !== height) {
+            waterCanvas.width = width;
+            waterCanvas.height = height;
+        }
+        waterGL.viewport(0, 0, width, height);
+        waterGL.uniform2f(resolutionLocation, width, height);
+    }
+
+    function drawWater(now) {
+        if (!start) start = now;
+        resizeWater();
+        waterGL.uniform1f(timeLocation, reducedMotion ? 0.0 : (now - start) / 1000);
+        waterGL.drawArrays(waterGL.TRIANGLES, 0, 6);
+        if (!reducedMotion) animationFrame = window.requestAnimationFrame(drawWater);
+    }
+
+    window.addEventListener("resize", resizeWater, { passive: true });
+    drawWater(performance.now());
+})();
