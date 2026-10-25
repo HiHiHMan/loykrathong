@@ -464,64 +464,76 @@ homeButton.addEventListener("click", () => {
         uniform vec2 u_resolution;
         uniform float u_time;
 
-        // Stylized 2D cartoon waves: bold outlines, layered colors, soft foam.
-        float waveLine(float x, float phase, float amplitude, float frequency) {
-            return 0.58
+        float waveLine(float x, float phase, float amplitude, float frequency, float baseY) {
+            return baseY
                 + sin(x * frequency + phase) * amplitude
-                + sin(x * frequency * 0.47 - phase * 0.7) * amplitude * 0.35;
+                + sin(x * frequency * 0.48 - phase * 0.72) * amplitude * 0.34;
         }
 
-        float stroke(float distanceToLine, float thickness) {
+        float lineStroke(float distanceToLine, float thickness) {
             return 1.0 - smoothstep(thickness, thickness + 0.004, abs(distanceToLine));
+        }
+
+        float circle(vec2 p, float radius) {
+            return 1.0 - smoothstep(radius - 0.006, radius + 0.006, length(p));
         }
 
         void main() {
             vec2 uv = gl_FragCoord.xy / u_resolution.xy;
             float aspect = u_resolution.x / u_resolution.y;
             float x = uv.x * aspect;
-            float t = u_time * 0.7;
+            float t = u_time;
 
-            // Sky-like top band and stacked cartoon water layers.
-            vec3 color = mix(vec3(0.035, 0.10, 0.20), vec3(0.06, 0.25, 0.36), uv.y);
-            float farWave = waveLine(x, t * 0.55, 0.035, 2.1);
-            float midWave = waveLine(x, -t * 0.75 + 1.8, 0.055, 1.55);
-            float frontWave = waveLine(x, t + 3.1, 0.075, 1.15);
+            // Clean, flat cartoon palette with three clearly separated wave layers.
+            vec3 color = mix(vec3(0.035, 0.13, 0.27), vec3(0.06, 0.28, 0.42), uv.y);
+            float farWave = waveLine(x, t * 0.62, 0.035, 1.9, 0.69);
+            float midWave = waveLine(x, -t * 0.78 + 1.5, 0.052, 1.38, 0.52);
+            float frontWave = waveLine(x, t * 0.92 + 2.8, 0.068, 1.02, 0.34);
 
-            // Fill the layered waves with flat, illustrated colors.
-            if (uv.y < farWave) {
-                color = vec3(0.08, 0.37, 0.48);
+            if (uv.y < farWave) color = vec3(0.12, 0.52, 0.68);
+            if (uv.y < midWave) color = vec3(0.055, 0.36, 0.57);
+            if (uv.y < frontWave) color = vec3(0.025, 0.22, 0.42);
+
+            // Bold navy outlines along every crest.
+            float farEdge = lineStroke(uv.y - farWave, 0.008);
+            float midEdge = lineStroke(uv.y - midWave, 0.009);
+            float frontEdge = lineStroke(uv.y - frontWave, 0.010);
+            float darkEdge = max(farEdge * 0.85, max(midEdge * 0.9, frontEdge));
+            color = mix(color, vec3(0.012, 0.075, 0.18), darkEdge);
+
+            // Pale-blue foam ribbons that drift continuously along each crest.
+            float farFoam = lineStroke(uv.y - (farWave - 0.018), 0.007);
+            float midFoam = lineStroke(uv.y - (midWave - 0.022), 0.008);
+            float frontFoam = lineStroke(uv.y - (frontWave - 0.025), 0.009);
+            float foamMask = max(farFoam * (0.62 + 0.38 * sin(x * 8.0 - t * 1.6)),
+                            max(midFoam * (0.65 + 0.35 * sin(x * 10.0 + t * 1.8)),
+                                frontFoam * (0.7 + 0.3 * sin(x * 12.0 - t * 2.0))));
+            color = mix(color, vec3(0.52, 0.88, 0.96), clamp(foamMask, 0.0, 0.92));
+
+            // Rounded foam bubbles and short dashes, like hand-drawn 2D animation.
+            for (int i = 0; i < 7; i++) {
+                float fi = float(i);
+                float bx = mod(fi * 0.73 + t * (0.16 + fi * 0.008), aspect + 0.35) - 0.15;
+                float bob = sin(t * 1.8 + fi * 2.1) * 0.012;
+                float by = waveLine(bx, t * 0.92 + 2.8, 0.068, 1.02, 0.34) + 0.035 + bob;
+                float bubble = circle(vec2(x - bx, uv.y - by), 0.012 + mod(fi, 3.0) * 0.003);
+                color = mix(color, vec3(0.68, 0.94, 1.0), bubble * 0.95);
+
+                float dashX = bx + 0.12;
+                float dashY = waveLine(dashX, -t * 0.78 + 1.5, 0.052, 1.38, 0.52) + 0.027;
+                float dash = lineStroke(uv.y - dashY, 0.004)
+                           * (1.0 - smoothstep(0.015, 0.035, abs(x - dashX)));
+                color = mix(color, vec3(0.72, 0.94, 1.0), dash * 0.9);
             }
-            if (uv.y < midWave) {
-                color = vec3(0.04, 0.27, 0.40);
-            }
-            if (uv.y < frontWave) {
-                color = vec3(0.025, 0.17, 0.30);
-            }
 
-            // Dark, clean outlines make the surface read like 2D animation.
-            float farOutline = stroke(uv.y - farWave, 0.008);
-            float midOutline = stroke(uv.y - midWave, 0.009);
-            float frontOutline = stroke(uv.y - frontWave, 0.010);
-            color = mix(color, vec3(0.015, 0.075, 0.15), max(farOutline * 0.75, max(midOutline * 0.82, frontOutline)));
-
-            // Rounded foam strokes sliding along the wave crests.
-            float foamA = sin(x * 13.0 + t * 1.8 + sin(x * 3.0) * 1.4);
-            float foamB = sin(x * 19.0 - t * 1.4 + sin(x * 4.0) * 0.8);
-            float foam = smoothstep(0.82, 0.98, foamA) * 0.75
-                       + smoothstep(0.88, 0.99, foamB) * 0.45;
-            float crestBand = max(farOutline, max(midOutline, frontOutline));
-            color = mix(color, vec3(0.58, 0.88, 0.91), clamp(foam * crestBand * 2.0, 0.0, 0.85));
-
-            // Small, simple cartoon sparkles on the water.
-            float glint = smoothstep(0.94, 0.995, sin(x * 22.0 + t * 2.0))
-                        * smoothstep(0.45, 0.95, uv.y);
-            color = mix(color, vec3(0.78, 0.91, 0.82), glint * 0.45);
+            // A few simple glints add a playful illustrated finish, not realistic reflections.
+            float glint = smoothstep(0.94, 0.99, sin(x * 16.0 + t * 2.4))
+                        * smoothstep(0.18, 0.8, uv.y) * 0.35;
+            color = mix(color, vec3(0.78, 0.96, 1.0), glint);
 
             gl_FragColor = vec4(color, 1.0);
         }
-    `;
-
-    function compileShader(type, source) {
+    `eShader(type, source) {
         const shader = waterGL.createShader(type);
         waterGL.shaderSource(shader, source);
         waterGL.compileShader(shader);
