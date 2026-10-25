@@ -1989,6 +1989,7 @@ footer {
 /* The back layer moves gently; the front layer moves a little faster. */
 .wave-layer-1 { animation-duration: 52s; }
 .wave-layer-2 { animation-duration: 46s; }
+.wave-layer-2-5 { animation-duration: 43s; }
 .wave-layer-3 { animation-duration: 40s; }
 .wave-layer-4 { animation-duration: 34s; }
 .wave-layer-5 { animation-duration: 29s; }
