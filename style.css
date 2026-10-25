@@ -2087,8 +2087,7 @@ footer {
 
   .floating-krathong {
     top: 24%;
-    transform: scale(.85);
-    transform-origin: center;
+    font-size: 36px;
     animation-duration: 70s;
   }
 }
