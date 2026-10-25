@@ -1983,16 +1983,16 @@ footer {
   border: 0;
   outline: 0;
   will-change: transform;
-  animation: cartoon-wave-drift 44s linear infinite;
+  animation: cartoon-wave-drift 90s linear infinite;
 }
 
-/* The back layer moves gently; the front layer moves a little faster. */
-.wave-layer-1 { animation-duration: 52s; }
-.wave-layer-2 { animation-duration: 46s; }
-.wave-layer-2-5 { animation-duration: 43s; }
-.wave-layer-3 { animation-duration: 40s; }
-.wave-layer-4 { animation-duration: 34s; }
-.wave-layer-5 { animation-duration: 29s; }
+/* Slower wave motion with different durations and phases so layers don't move in sync. */
+.wave-layer-1 { animation-duration: 112s; animation-delay: -17s; }
+.wave-layer-2 { animation-duration: 96s; animation-delay: -43s; }
+.wave-layer-2-5 { animation-duration: 104s; animation-delay: -8s; }
+.wave-layer-3 { animation-duration: 88s; animation-delay: -61s; }
+.wave-layer-4 { animation-duration: 120s; animation-delay: -32s; }
+.wave-layer-5 { animation-duration: 108s; animation-delay: -74s; }
 
 /* Move the water from left to right; the repeating wave pattern keeps the loop seamless. */
 @keyframes cartoon-wave-drift {
