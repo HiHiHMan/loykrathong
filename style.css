@@ -2108,8 +2108,8 @@ footer {
 }
 
 .wave-layer-5 {
-  position: fixed;
-  inset: 0 0 0 auto;
+  position: absolute;
+  inset: 0 auto auto 0;
   width: 200%;
   height: 100dvh;
   z-index: 0;
