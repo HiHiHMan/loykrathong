@@ -2100,3 +2100,27 @@ footer {
     left: calc(50% - 44px);
   }
 }
+
+
+/* ===== Bottom water layer extends to the footer; selection UI sits above it ===== */
+.cartoon-water {
+  overflow: visible;
+}
+
+.wave-layer-5 {
+  position: fixed;
+  inset: 0 0 0 auto;
+  width: 200%;
+  height: 100dvh;
+  z-index: 0;
+  pointer-events: none;
+}
+
+#selection-view {
+  position: relative;
+  z-index: 2;
+}
+
+footer {
+  z-index: 3;
+}
