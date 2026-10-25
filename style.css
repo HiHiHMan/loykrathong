@@ -310,12 +310,12 @@
    height: 2px;
    background: var(--gold);
  }
-
+ 
  .loykrathong {
    display: grid;
    place-items: center;
    width: 100px;
-   height: 94px;
+   height: 100px;
    margin-bottom: 12px;
    border-radius: 50%;
    font-size: 55px;
