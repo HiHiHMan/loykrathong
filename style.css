@@ -1960,7 +1960,7 @@ footer {
 }
 
 
-/* ===== Seven-layer low-amplitude waves + floating krathong ===== */
+/* ===== Five-layer uniform waves + floating krathong ===== */
 .cartoon-water {
   position: relative;
   left: 50%;
@@ -1988,12 +1988,10 @@ footer {
 }
 
 .wave-layer-1 { animation-duration: 25s; }
-.wave-layer-2 { animation-duration: 23s; }
-.wave-layer-3 { animation-duration: 21s; }
-.wave-layer-4 { animation-duration: 19s; }
-.wave-layer-5 { animation-duration: 17s; }
-.wave-layer-6 { animation-duration: 15s; }
-.wave-layer-7 { animation-duration: 13s; }
+.wave-layer-2 { animation-duration: 22s; }
+.wave-layer-3 { animation-duration: 19s; }
+.wave-layer-4 { animation-duration: 16s; }
+.wave-layer-5 { animation-duration: 13s; }
 
 /* Move the water from left to right; the repeating wave pattern keeps the loop seamless. */
 @keyframes cartoon-wave-drift {
