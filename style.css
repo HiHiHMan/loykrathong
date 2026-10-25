@@ -2594,6 +2594,23 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
   pointer-events: none;
   animation: lalaloy-drift 32s linear infinite;
   will-change: transform;
+
+   display: grid;
+   place-items: center;
+   width: 100px;
+   height: 100px;
+   margin-bottom: 12px;
+   border-radius: 50%;
+   font-size: 55px;
+   filter: drop-shadow(0 0 18px rgba(214, 184, 121, 0.13));  
+
+   border: 1px solid rgba(214, 184, 121, 0.35);
+   border-radius: 50%;
+   background: radial-gradient(circle,
+       rgba(214, 184, 121, 0.18),
+       rgba(214, 184, 121, 0.025) 65%,
+       transparent 70%);
+   box-shadow: 0 0 45px rgba(214, 184, 121, 0.10);
 }
 
 .lalaloy-motion {
