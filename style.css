@@ -1866,3 +1866,24 @@ footer {
   }
 }
 
+
+/* ===== Place the wish tooltip above its krathong on all screen sizes ===== */
+.landing > section[aria-labelledby="wishes-title"] .wish-item,
+.landing > section[aria-labelledby="wishes-title"] .wish-item:nth-child(odd),
+.landing > section[aria-labelledby="wishes-title"] .wish-item:nth-child(even) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.landing > section[aria-labelledby="wishes-title"] .wish-item .tooltip-card,
+.landing > section[aria-labelledby="wishes-title"] .wish-item:nth-child(odd) .tooltip-card,
+.landing > section[aria-labelledby="wishes-title"] .wish-item:nth-child(even) .tooltip-card {
+  order: 1;
+}
+
+.landing > section[aria-labelledby="wishes-title"] .wish-item .krathong-trigger,
+.landing > section[aria-labelledby="wishes-title"] .wish-item:nth-child(odd) .krathong-trigger,
+.landing > section[aria-labelledby="wishes-title"] .wish-item:nth-child(even) .krathong-trigger {
+  order: 2;
+}
