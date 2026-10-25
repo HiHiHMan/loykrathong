@@ -1740,3 +1740,68 @@ footer {
     height: 64px;
   }
 }
+
+/* ===== Tooltip card sizing polish for small screens ===== */
+@media (max-width: 520px) {
+  .wish-item.is-open {
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .wish-item.is-open .tooltip-card,
+  .wish-item.is-open:nth-child(odd) .tooltip-card,
+  .wish-item.is-open:nth-child(even) .tooltip-card {
+    display: block;
+    flex: 0 0 100%;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    margin: 0;
+    padding: clamp(12px, 3.8vw, 16px);
+    box-sizing: border-box;
+    scale: 1;
+    transform: none;
+    border-radius: 14px;
+    font-size: 14px;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+  }
+
+  .wish-item.is-open .tooltip-wish {
+    margin: 0;
+    font-size: clamp(13px, 3.7vw, 15px);
+    line-height: 1.75;
+    overflow-wrap: anywhere;
+  }
+
+  .wish-item.is-open .tooltip-footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 10px;
+    margin-top: 10px;
+  }
+
+  .wish-item.is-open .tooltip-name,
+  .wish-item.is-open .tooltip-date,
+  .wish-item.is-open .tooltip-type,
+  .wish-item.is-open .tooltip-label {
+    min-width: 0;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (max-width: 360px) {
+  .wish-item.is-open .tooltip-card,
+  .wish-item.is-open:nth-child(odd) .tooltip-card,
+  .wish-item.is-open:nth-child(even) .tooltip-card {
+    padding: 12px;
+    border-radius: 12px;
+  }
+
+  .wish-item.is-open .tooltip-wish {
+    font-size: 13px;
+  }
+}
+
