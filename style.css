@@ -1960,27 +1960,21 @@ footer {
 }
 
 
-/* ===== Full-width WebGL water inside the intro ===== */
-.content > .intro {
+/* ===== Full-width WebGL water below the intro text ===== */
+#intro-water-canvas {
   position: relative;
   left: 50%;
+  display: block;
   width: 100vw;
   height: 300px;
   margin: 0 0 44px;
   overflow: hidden;
   transform: translateX(-50%);
-  isolation: isolate;
   background: linear-gradient(180deg, #07182a 0%, #0b3045 58%, #06111f 100%);
 }
 
-#intro-water-canvas {
-  display: block;
-  width: 100%;
-  height: 300px;
-}
-
 @media (max-width: 760px) {
-  .content > .intro {
+  #intro-water-canvas {
     margin-bottom: 30px;
   }
 }
