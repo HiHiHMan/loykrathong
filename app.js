@@ -533,7 +533,9 @@ homeButton.addEventListener("click", () => {
 
             gl_FragColor = vec4(color, 1.0);
         }
-    `eShader(type, source) {
+    `;
+
+    function compileShader(type, source) {
         const shader = waterGL.createShader(type);
         waterGL.shaderSource(shader, source);
         waterGL.compileShader(shader);
