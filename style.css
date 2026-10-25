@@ -468,11 +468,24 @@
    width: 100%;
    padding: 12px 13px;
    color: var(--text);
-   background: rgba(255, 255, 255, 0.035);
-   border: 1px solid rgba(255, 255, 255, 0.15);
-   border-radius: 2px;
+   background: rgba(20, 24, 34, 0.72);
+   border: 1px solid rgba(214, 184, 121, 0.32);
+   border-radius: 8px;
    outline: none;
    font-size: 13px;
+   transition: border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
+ }
+
+ .wish-form input:hover,
+ .wish-form textarea:hover {
+   border-color: rgba(214, 184, 121, 0.58);
+ }
+
+ .wish-form input:focus,
+ .wish-form textarea:focus {
+   background: rgba(20, 24, 34, 0.92);
+   border-color: var(--gold);
+   box-shadow: 0 0 0 3px rgba(214, 184, 121, 0.14);
  }
 
  .wish-form input:focus,
