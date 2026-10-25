@@ -1990,12 +1990,7 @@ footer {
 .wave-layer-1 { animation-duration: 52s; }
 .wave-layer-2 { animation-duration: 46s; }
 .wave-layer-3 { animation-duration: 40s; }
-.wave-layer-4 {
-  animation-duration: 34s;
-  height: 100dvh;
-  z-index: 0;
-  pointer-events: none;
-}
+.wave-layer-4 { animation-duration: 34s; }
 .wave-layer-5 { animation-duration: 29s; }
 
 /* Move the water from left to right; the repeating wave pattern keeps the loop seamless. */
