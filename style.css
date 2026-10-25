@@ -1805,24 +1805,107 @@ footer {
   }
 }
 
-/* ===== Tooltip card maximum width adjustment ===== */
-/* Keep tooltip cards compact on desktop and mobile. */
-.wish-item .tooltip-card,
-.wish-item:nth-child(odd) .tooltip-card,
-.wish-item:nth-child(even) .tooltip-card {
-  width: min(320px, calc(100vw - 32px));
+/* ===== Wish grid + compact tooltip mini-card ===== */
+.landing > section[aria-labelledby="wishes-title"] .wish-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+  max-width: 100%;
   min-width: 0;
-  max-width: 320px;
+  padding-inline: 0;
   box-sizing: border-box;
 }
 
+.landing > section[aria-labelledby="wishes-title"] .wish-item,
+.landing > section[aria-labelledby="wishes-title"] .wish-item:nth-child(odd),
+.landing > section[aria-labelledby="wishes-title"] .wish-item:nth-child(even) {
+  align-items: center;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.landing > section[aria-labelledby="wishes-title"] .tooltip-card,
+.landing > section[aria-labelledby="wishes-title"] .wish-item:nth-child(odd) .tooltip-card,
+.landing > section[aria-labelledby="wishes-title"] .wish-item:nth-child(even) .tooltip-card {
+  flex: 0 1 320px;
+  width: min(320px, calc(100vw - 32px));
+  min-width: 0;
+  max-width: 320px;
+  margin-inline: auto;
+  padding: 12px 14px;
+  box-sizing: border-box;
+  border-radius: 14px;
+  overflow-wrap: anywhere;
+  scale: 1;
+}
+
+/* Remove default paragraph margins that make each tooltip unnecessarily tall. */
+.landing > section[aria-labelledby="wishes-title"] .tooltip-card p {
+  margin: 0;
+}
+
+.landing > section[aria-labelledby="wishes-title"] .tooltip-card .tooltip-label {
+  margin-bottom: 5px;
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+.landing > section[aria-labelledby="wishes-title"] .tooltip-card .tooltip-wish {
+  padding: 0;
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.landing > section[aria-labelledby="wishes-title"] .tooltip-card .tooltip-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 8px;
+  margin-top: 8px;
+}
+
+.landing > section[aria-labelledby="wishes-title"] .tooltip-card .tooltip-name,
+.landing > section[aria-labelledby="wishes-title"] .tooltip-card .tooltip-date,
+.landing > section[aria-labelledby="wishes-title"] .tooltip-card .tooltip-type {
+  font-size: 11px;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
 @media (max-width: 520px) {
-  .wish-item.is-open .tooltip-card,
-  .wish-item.is-open:nth-child(odd) .tooltip-card,
-  .wish-item.is-open:nth-child(even) .tooltip-card {
+  .landing > section[aria-labelledby="wishes-title"] .wish-grid {
+    gap: 14px;
+  }
+
+  .landing > section[aria-labelledby="wishes-title"] .wish-item,
+  .landing > section[aria-labelledby="wishes-title"] .wish-item:nth-child(odd),
+  .landing > section[aria-labelledby="wishes-title"] .wish-item:nth-child(even) {
+    gap: 8px;
+  }
+
+  .landing > section[aria-labelledby="wishes-title"] .wish-item.is-open .tooltip-card,
+  .landing > section[aria-labelledby="wishes-title"] .wish-item.is-open:nth-child(odd) .tooltip-card,
+  .landing > section[aria-labelledby="wishes-title"] .wish-item.is-open:nth-child(even) .tooltip-card {
+    flex: 0 1 320px;
     width: min(320px, calc(100vw - 32px));
-    min-width: 0;
     max-width: 320px;
+    padding: 11px 12px;
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 360px) {
+  .landing > section[aria-labelledby="wishes-title"] .tooltip-card,
+  .landing > section[aria-labelledby="wishes-title"] .wish-item.is-open .tooltip-card {
+    width: calc(100vw - 28px);
+    padding: 10px 11px;
+  }
+
+  .landing > section[aria-labelledby="wishes-title"] .tooltip-card .tooltip-wish {
+    font-size: 12px;
   }
 }
 
