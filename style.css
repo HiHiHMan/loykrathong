@@ -811,6 +811,7 @@
    min-width: 0;
    gap: 10px;
    overflow: visible;
+   margin-bottom: 20px;
  }
 
  /* รายการแรกอยู่ฝั่งซ้าย */
