@@ -1930,3 +1930,57 @@ footer {
   }
 }
 
+/* ===== Always show tooltip cards on small screens ===== */
+/* On small screens, stack the krathong above its mini-card instead of hiding the tooltip. */
+@media (max-width: 520px) {
+  .landing > section[aria-labelledby="wishes-title"] .wish-item,
+  .landing > section[aria-labelledby="wishes-title"] .wish-item:nth-child(odd),
+  .landing > section[aria-labelledby="wishes-title"] .wish-item:nth-child(even) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: stretch;
+    gap: 10px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .landing > section[aria-labelledby="wishes-title"] .wish-item .tooltip-card,
+  .landing > section[aria-labelledby="wishes-title"] .wish-item:nth-child(odd) .tooltip-card,
+  .landing > section[aria-labelledby="wishes-title"] .wish-item:nth-child(even) .tooltip-card {
+    display: block !important;
+    order: 2;
+    flex: 0 1 auto;
+    width: min(320px, calc(100vw - 32px));
+    min-width: 0;
+    max-width: 320px;
+    margin: 0;
+    padding: 11px 12px;
+    transform: none;
+    scale: 1;
+  }
+
+  .landing > section[aria-labelledby="wishes-title"] .wish-item .krathong-trigger,
+  .landing > section[aria-labelledby="wishes-title"] .wish-item:nth-child(odd) .krathong-trigger,
+  .landing > section[aria-labelledby="wishes-title"] .wish-item:nth-child(even) .krathong-trigger {
+    order: 1;
+    flex: 0 0 64px;
+    width: 64px;
+    height: 64px;
+    margin: 0;
+  }
+
+  .landing > section[aria-labelledby="wishes-title"] .wish-item.is-open .tooltip-card {
+    flex-basis: auto;
+    width: min(320px, calc(100vw - 32px));
+  }
+}
+
+@media (max-width: 360px) {
+  .landing > section[aria-labelledby="wishes-title"] .wish-item .tooltip-card,
+  .landing > section[aria-labelledby="wishes-title"] .wish-item.is-open .tooltip-card {
+    width: calc(100vw - 28px);
+    padding: 10px 11px;
+  }
+}
+
