@@ -2585,34 +2585,34 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
  }
 
 /* ===== Homepage krathong drifting with the water ===== */
-/* Keep the original .loykrathong appearance; only add position and motion. */
+/* Separate horizontal drift from the bob/rock motion to prevent transform conflicts. */
 .lalaloy {
   position: absolute;
   z-index: 10;
   top: 27%;
   left: 0;
   pointer-events: none;
-  transform-origin: center 75%;
   animation: lalaloy-drift 32s linear infinite;
   will-change: transform;
 }
 
-@keyframes lalaloy-drift {
-  0%   { transform: translateX(-60px) translateY(0) rotate(0deg); }
-  100% { transform: translateX(100vw) translateY(0) rotate(0deg); }
+.lalaloy-motion {
+  display: inline-block;
+  transform-origin: center 75%;
+  animation: lalaloy-rock 3.2s ease-in-out infinite;
+  will-change: transform;
 }
 
-.lalaloy {
-  animation:
-    lalaloy-drift 32s linear infinite,
-    lalaloy-rock 3.2s ease-in-out infinite;
+@keyframes lalaloy-drift {
+  from { transform: translateX(-60px); }
+  to   { transform: translateX(100vw); }
 }
 
 @keyframes lalaloy-rock {
-  0%, 100% { translate: 0 0; rotate: -10deg; }
-  25%      { translate: 0 -10px; rotate: 0deg; }
-  50%      { translate: 0 0; rotate: 10deg; }
-  75%      { translate: 0 10px; rotate: 0deg; }
+  0%, 100% { transform: translateY(0) rotate(-10deg); }
+  25%      { transform: translateY(-10px) rotate(0deg); }
+  50%      { transform: translateY(0) rotate(10deg); }
+  75%      { transform: translateY(10px) rotate(0deg); }
 }
 
 @media (max-width: 760px) {
@@ -2622,11 +2622,13 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .lalaloy {
+  .lalaloy,
+  .lalaloy-motion {
     animation: none;
-    left: calc(50% - 50px);
     transform: none;
-    translate: none;
-    rotate: none;
+  }
+
+  .lalaloy {
+    left: calc(50% - 50px);
   }
 }
