@@ -464,44 +464,58 @@ homeButton.addEventListener("click", () => {
         uniform vec2 u_resolution;
         uniform float u_time;
 
-        float wave(vec2 p, float t) {
-            float a = sin(p.x * 8.0 + t * 0.55 + sin(p.x * 2.1 - t * 0.22) * 1.4);
-            float b = sin(p.x * 15.0 - t * 0.38 + p.y * 4.0);
-            float c = sin(p.x * 25.0 + t * 0.28 - p.y * 7.0);
-            return a * 0.48 + b * 0.22 + c * 0.10;
+        // Stylized 2D cartoon waves: bold outlines, layered colors, soft foam.
+        float waveLine(float x, float phase, float amplitude, float frequency) {
+            return 0.58
+                + sin(x * frequency + phase) * amplitude
+                + sin(x * frequency * 0.47 - phase * 0.7) * amplitude * 0.35;
+        }
+
+        float stroke(float distanceToLine, float thickness) {
+            return 1.0 - smoothstep(thickness, thickness + 0.004, abs(distanceToLine));
         }
 
         void main() {
             vec2 uv = gl_FragCoord.xy / u_resolution.xy;
-            vec2 p = uv;
-            p.x *= u_resolution.x / u_resolution.y;
+            float aspect = u_resolution.x / u_resolution.y;
+            float x = uv.x * aspect;
+            float t = u_time * 0.7;
 
-            float t = u_time;
-            float horizon = 0.68 + sin(p.x * 1.7 + t * 0.16) * 0.025;
-            float n = wave(p * vec2(1.0, 1.7), t);
-            float surface = uv.y - horizon + n * 0.025;
-            float depth = smoothstep(0.0, 0.85, uv.y);
+            // Sky-like top band and stacked cartoon water layers.
+            vec3 color = mix(vec3(0.035, 0.10, 0.20), vec3(0.06, 0.25, 0.36), uv.y);
+            float farWave = waveLine(x, t * 0.55, 0.035, 2.1);
+            float midWave = waveLine(x, -t * 0.75 + 1.8, 0.055, 1.55);
+            float frontWave = waveLine(x, t + 3.1, 0.075, 1.15);
 
-            vec3 deep = vec3(0.015, 0.055, 0.105);
-            vec3 teal = vec3(0.025, 0.20, 0.27);
-            vec3 color = mix(deep, teal, depth * 0.72);
+            // Fill the layered waves with flat, illustrated colors.
+            if (uv.y < farWave) {
+                color = vec3(0.08, 0.37, 0.48);
+            }
+            if (uv.y < midWave) {
+                color = vec3(0.04, 0.27, 0.40);
+            }
+            if (uv.y < frontWave) {
+                color = vec3(0.025, 0.17, 0.30);
+            }
 
-            float rippleLines = sin((uv.y * 70.0) + n * 3.2 + t * 1.15
-                                    + sin(p.x * 4.0 + t * 0.23) * 1.7);
-            float fineLines = sin(uv.y * 145.0 + n * 4.0 - t * 0.8);
-            float waterMask = 1.0 - smoothstep(0.58, 0.76, uv.y);
-            float highlights = smoothstep(0.78, 0.98, rippleLines) * 0.22
-                             + smoothstep(0.90, 1.0, fineLines) * 0.07;
-            float reflection = exp(-pow((uv.x - 0.5 - sin(t * 0.12) * 0.025) * 13.0, 2.0));
-            float shimmer = (0.5 + 0.5 * sin(uv.y * 95.0 + t * 1.4 + n * 2.0));
-            color += vec3(0.12, 0.34, 0.39) * highlights * waterMask;
-            color += vec3(0.72, 0.52, 0.23) * reflection * shimmer
-                   * (1.0 - smoothstep(0.25, 0.76, uv.y)) * 0.22;
+            // Dark, clean outlines make the surface read like 2D animation.
+            float farOutline = stroke(uv.y - farWave, 0.008);
+            float midOutline = stroke(uv.y - midWave, 0.009);
+            float frontOutline = stroke(uv.y - frontWave, 0.010);
+            color = mix(color, vec3(0.015, 0.075, 0.15), max(farOutline * 0.75, max(midOutline * 0.82, frontOutline)));
 
-            float horizonGlow = exp(-pow((uv.y - horizon) * 22.0, 2.0));
-            color += vec3(0.20, 0.39, 0.42) * horizonGlow * 0.22;
-            float vignette = 1.0 - smoothstep(0.18, 1.15, abs(uv.x - 0.5));
-            color *= 0.72 + vignette * 0.28;
+            // Rounded foam strokes sliding along the wave crests.
+            float foamA = sin(x * 13.0 + t * 1.8 + sin(x * 3.0) * 1.4);
+            float foamB = sin(x * 19.0 - t * 1.4 + sin(x * 4.0) * 0.8);
+            float foam = smoothstep(0.82, 0.98, foamA) * 0.75
+                       + smoothstep(0.88, 0.99, foamB) * 0.45;
+            float crestBand = max(farOutline, max(midOutline, frontOutline));
+            color = mix(color, vec3(0.58, 0.88, 0.91), clamp(foam * crestBand * 2.0, 0.0, 0.85));
+
+            // Small, simple cartoon sparkles on the water.
+            float glint = smoothstep(0.94, 0.995, sin(x * 22.0 + t * 2.0))
+                        * smoothstep(0.45, 0.95, uv.y);
+            color = mix(color, vec3(0.78, 0.91, 0.82), glint * 0.45);
 
             gl_FragColor = vec4(color, 1.0);
         }
