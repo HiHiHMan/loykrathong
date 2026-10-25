@@ -477,17 +477,6 @@
    transition: border-color 0.25s ease, background 0.25s ease;
  }
 
- .wish-form input:hover,
- .wish-form textarea:hover {
-   border-color: rgba(216, 184, 107, 0.35);
- }
-
- .wish-form input:focus,
- .wish-form textarea:focus {
-   background: rgba(18, 27, 43, 0.92);
-   border: 1px solid rgba(216, 184, 107, 0.65);
-   box-shadow: none;
- }
 
  .wish-form input:hover,
  .wish-form textarea:hover {
