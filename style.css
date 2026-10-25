@@ -320,6 +320,32 @@
    border-radius: 50%;
    font-size: 55px;
    filter: drop-shadow(0 0 18px rgba(214, 184, 121, 0.13));
+   transform-origin: center 70%;
+   animation: krathong-wave-rock 3.2s ease-in-out infinite;
+   will-change: transform;
+ }
+
+ .krathong:nth-child(2) .krathong-art {
+   animation-delay: -1.1s;
+ }
+
+ .krathong:nth-child(3) .krathong-art {
+   animation-delay: -2.2s;
+ }
+
+ @keyframes krathong-wave-rock {
+   0%, 100% {
+     transform: translateY(0) rotate(-4deg);
+   }
+   25% {
+     transform: translateY(-3px) rotate(2deg);
+   }
+   50% {
+     transform: translateY(-7px) rotate(5deg);
+   }
+   75% {
+     transform: translateY(-2px) rotate(-2deg);
+   }
  }
 
  .lotus {
@@ -2108,7 +2134,8 @@ footer {
   .floating-krathong,
   .floating-flower,
   .floating-candle,
-  .floating-ripple {
+  .floating-ripple,
+  .krathong-art {
     animation: none;
   }
 
