@@ -1878,6 +1878,10 @@ footer {
     flex-wrap: nowrap;
     align-items: center;
     align-self: stretch;
+    position: relative;
+    left: auto;
+    right: auto;
+    transform: none;
     width: 100%;
     max-width: 100%;
     min-width: 0;
@@ -1891,13 +1895,18 @@ footer {
   .landing > section[aria-labelledby="wishes-title"] .wish-item.is-open .tooltip-card {
     display: block !important;
     position: relative;
+    left: auto;
+    right: auto;
+    align-self: center;
     order: 1;
     flex: 0 1 auto;
     width: min(320px, calc(100vw - 32px));
     max-width: calc(100vw - 32px);
     min-width: 0;
-    margin-inline: auto;
-    transform: none;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    transform: none !important;
+    translate: none;
     scale: 1;
     text-align: left;
   }
