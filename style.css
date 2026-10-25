@@ -1909,3 +1909,24 @@ footer {
   }
 }
 
+/* ===== Keep krathong and tooltip 10px apart ===== */
+.landing > section[aria-labelledby="wishes-title"] .wish-item,
+.landing > section[aria-labelledby="wishes-title"] .wish-item:nth-child(odd),
+.landing > section[aria-labelledby="wishes-title"] .wish-item:nth-child(even) {
+  gap: 10px;
+}
+
+.landing > section[aria-labelledby="wishes-title"] .wish-item .tooltip-card,
+.landing > section[aria-labelledby="wishes-title"] .wish-item:nth-child(odd) .tooltip-card,
+.landing > section[aria-labelledby="wishes-title"] .wish-item:nth-child(even) .tooltip-card {
+  margin: 0;
+}
+
+@media (max-width: 520px) {
+  .landing > section[aria-labelledby="wishes-title"] .wish-item,
+  .landing > section[aria-labelledby="wishes-title"] .wish-item:nth-child(odd),
+  .landing > section[aria-labelledby="wishes-title"] .wish-item:nth-child(even) {
+    gap: 10px;
+  }
+}
+
