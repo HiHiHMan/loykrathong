@@ -468,12 +468,25 @@
    width: 100%;
    padding: 12px 13px;
    color: var(--text);
-   background: rgba(20, 24, 34, 0.72);
-   border: 1px solid rgba(214, 184, 121, 0.32);
-   border-radius: 8px;
+   background: rgba(18, 27, 43, 0.78);
+   border: 1px solid rgba(216, 184, 107, 0.35);
+   border-radius: 16px;
    outline: none;
    font-size: 13px;
-   transition: border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
+   box-shadow: none;
+   transition: border-color 0.25s ease, background 0.25s ease;
+ }
+
+ .wish-form input:hover,
+ .wish-form textarea:hover {
+   border-color: rgba(216, 184, 107, 0.35);
+ }
+
+ .wish-form input:focus,
+ .wish-form textarea:focus {
+   background: rgba(18, 27, 43, 0.92);
+   border: 1px solid rgba(216, 184, 107, 0.65);
+   box-shadow: none;
  }
 
  .wish-form input:hover,
@@ -486,12 +499,6 @@
    background: rgba(20, 24, 34, 0.92);
    border-color: var(--gold);
    box-shadow: 0 0 0 3px rgba(214, 184, 121, 0.14);
- }
-
- .wish-form input:focus,
- .wish-form textarea:focus {
-   border-color: var(--gold);
-   box-shadow: 0 0 0 2px rgba(214, 184, 121, 0.08);
  }
 
  .wish-form input::placeholder,
