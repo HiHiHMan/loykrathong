@@ -2583,3 +2583,63 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
  footer {
    z-index: 3;
  }
+
+/* ===== Homepage krathong drifting with the water ===== */
+.lalaloy {
+  position: absolute;
+  z-index: 10;
+  top: 27%;
+  left: 0;
+  display: grid;
+  place-items: center;
+  width: max-content;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  font-size: 42px;
+  line-height: 1;
+  pointer-events: none;
+  transform-origin: center 75%;
+  animation: lalaloy-drift 70s linear infinite;
+  will-change: transform;
+}
+
+@keyframes lalaloy-drift {
+  0% {
+    transform: translateX(-60px) translateY(0) rotate(-5deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(-5px) rotate(3deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(3px) rotate(-4deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(-6px) rotate(5deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(2px) rotate(-3deg);
+  }
+  100% {
+    transform: translateX(100vw) translateY(0) rotate(4deg);
+  }
+}
+
+@media (max-width: 760px) {
+  .lalaloy {
+    top: 24%;
+    font-size: 36px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lalaloy {
+    animation: none;
+    left: calc(50% - 21px);
+    transform: none;
+  }
+}
