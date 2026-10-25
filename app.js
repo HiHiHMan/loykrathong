@@ -489,18 +489,18 @@ homeButton.addEventListener("click", () => {
             float rippleLines = sin((uv.y * 70.0) + n * 3.2 + t * 1.15
                                     + sin(p.x * 4.0 + t * 0.23) * 1.7);
             float fineLines = sin(uv.y * 145.0 + n * 4.0 - t * 0.8);
-            float waterMask = smoothstep(0.76, 0.58, uv.y);
+            float waterMask = 1.0 - smoothstep(0.58, 0.76, uv.y);
             float highlights = smoothstep(0.78, 0.98, rippleLines) * 0.22
                              + smoothstep(0.90, 1.0, fineLines) * 0.07;
             float reflection = exp(-pow((uv.x - 0.5 - sin(t * 0.12) * 0.025) * 13.0, 2.0));
             float shimmer = (0.5 + 0.5 * sin(uv.y * 95.0 + t * 1.4 + n * 2.0));
             color += vec3(0.12, 0.34, 0.39) * highlights * waterMask;
             color += vec3(0.72, 0.52, 0.23) * reflection * shimmer
-                   * smoothstep(0.76, 0.25, uv.y) * 0.22;
+                   * (1.0 - smoothstep(0.25, 0.76, uv.y)) * 0.22;
 
             float horizonGlow = exp(-pow((uv.y - horizon) * 22.0, 2.0));
             color += vec3(0.20, 0.39, 0.42) * horizonGlow * 0.22;
-            float vignette = smoothstep(1.15, 0.18, abs(uv.x - 0.5));
+            float vignette = 1.0 - smoothstep(0.18, 1.15, abs(uv.x - 0.5));
             color *= 0.72 + vignette * 0.28;
 
             gl_FragColor = vec4(color, 1.0);
