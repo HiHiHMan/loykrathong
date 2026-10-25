@@ -1969,8 +1969,7 @@ footer {
   margin: 0 0 28px;
   overflow: hidden;
   transform: translateX(-50%);
-  isolation: isolate;
-  background: #b6edff;
+  isolation: isolate; 
 }
 
 .wave-svg {
