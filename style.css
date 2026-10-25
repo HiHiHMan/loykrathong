@@ -1965,7 +1965,7 @@ footer {
   position: relative;
   left: 50%;
   width: 100vw;
-  height: 400px;
+  height: 250px;
   margin: 0 0 28px;
   overflow: hidden;
   transform: translateX(-50%);
@@ -2075,7 +2075,7 @@ footer {
 
 @media (max-width: 760px) {
   .cartoon-water {
-    height: 320px;
+    height: 220px;
     margin-bottom: 22px;
   }
 
