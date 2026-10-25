@@ -1960,27 +1960,58 @@ footer {
 }
 
 
-/* ===== Full-width WebGL water below the intro text ===== */
-#intro-water-canvas {
+/* ===== Lightweight 2D cartoon water waves (SVG + CSS) ===== */
+.cartoon-water {
   position: relative;
   left: 50%;
-  display: block;
   width: 100vw;
   height: 300px;
   margin: 0 0 44px;
   overflow: hidden;
   transform: translateX(-50%);
-  background: linear-gradient(180deg, #07182a 0%, #0b3045 58%, #06111f 100%);
+  isolation: isolate;
+  background: linear-gradient(180deg, #b6edff 0%, #d9f7ff 38%, #70d8f5 100%);
+}
+
+.wave-svg {
+  position: absolute;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  max-width: none;
+  overflow: visible;
+  will-change: transform;
+}
+
+.wave-back {
+  top: 0;
+  animation: cartoon-wave-drift 18s linear infinite;
+}
+
+.wave-middle {
+  top: 0;
+  animation: cartoon-wave-drift 13s linear infinite reverse;
+}
+
+.wave-front {
+  top: 0;
+  animation: cartoon-wave-drift 9s linear infinite;
+}
+
+@keyframes cartoon-wave-drift {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 
 @media (max-width: 760px) {
-  #intro-water-canvas {
+  .cartoon-water {
+    height: 240px;
     margin-bottom: 30px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  #intro-water-canvas {
-    opacity: 0.9;
+  .wave-svg {
+    animation: none;
   }
 }
