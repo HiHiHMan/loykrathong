@@ -1965,11 +1965,11 @@ footer {
   position: relative;
   left: 50%;
   width: 100vw;
-  height: 320px;
+  height: 400px;
   margin: 0 0 28px;
   overflow: hidden;
   transform: translateX(-50%);
-  isolation: isolate; 
+  isolation: isolate;
 }
 
 .wave-svg {
@@ -1983,14 +1983,15 @@ footer {
   border: 0;
   outline: 0;
   will-change: transform;
-  animation: cartoon-wave-drift 22s linear infinite;
+  animation: cartoon-wave-drift 44s linear infinite;
 }
 
-.wave-layer-1 { animation-duration: 25s; }
-.wave-layer-2 { animation-duration: 22s; }
-.wave-layer-3 { animation-duration: 19s; }
-.wave-layer-4 { animation-duration: 16s; }
-.wave-layer-5 { animation-duration: 13s; }
+/* The back layer moves gently; the front layer moves a little faster. */
+.wave-layer-1 { animation-duration: 52s; }
+.wave-layer-2 { animation-duration: 46s; }
+.wave-layer-3 { animation-duration: 40s; }
+.wave-layer-4 { animation-duration: 34s; }
+.wave-layer-5 { animation-duration: 29s; }
 
 /* Move the water from left to right; the repeating wave pattern keeps the loop seamless. */
 @keyframes cartoon-wave-drift {
@@ -2074,7 +2075,7 @@ footer {
 
 @media (max-width: 760px) {
   .cartoon-water {
-    height: 250px;
+    height: 320px;
     margin-bottom: 22px;
   }
 
