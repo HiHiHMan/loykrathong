@@ -2593,7 +2593,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
   left: 0;
   pointer-events: none;
   transform-origin: center 75%;
-  animation: lalaloy-drift 25s linear infinite;
+  animation: lalaloy-drift 32s linear infinite;
   will-change: transform;
 
    display: grid;
@@ -2618,37 +2618,37 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
 
 @keyframes lalaloy-drift {
   0% {
-    transform: translateX(-60px) translateY(0) rotate(-5deg);
+    transform: translateX(-60px) translateY(0) rotate(-3deg);
   }
   10% {
-    transform: translateX(10vw) translateY(-5px) rotate(2deg);
+    transform: translateX(10vw) translateY(-2px) rotate(2deg);
   }
   20% {
-    transform: translateX(20vw) translateY(2px) rotate(6deg);
+    transform: translateX(20vw) translateY(1px) rotate(3deg);
   }
   30% {
-    transform: translateX(30vw) translateY(7px) rotate(1deg);
+    transform: translateX(30vw) translateY(2px) rotate(1deg);
   }
   40% {
-    transform: translateX(40vw) translateY(1px) rotate(-6deg);
+    transform: translateX(40vw) translateY(-1px) rotate(-3deg);
   }
   50% {
-    transform: translateX(50vw) translateY(-6px) rotate(-2deg);
+    transform: translateX(50vw) translateY(-2px) rotate(-1deg);
   }
   60% {
-    transform: translateX(60vw) translateY(3px) rotate(5deg);
+    transform: translateX(60vw) translateY(1px) rotate(3deg);
   }
   70% {
-    transform: translateX(70vw) translateY(7px) rotate(2deg);
+    transform: translateX(70vw) translateY(2px) rotate(1deg);
   }
   80% {
-    transform: translateX(80vw) translateY(0) rotate(-6deg);
+    transform: translateX(80vw) translateY(0) rotate(-3deg);
   }
   90% {
-    transform: translateX(90vw) translateY(-5px) rotate(-1deg);
+    transform: translateX(90vw) translateY(-2px) rotate(-1deg);
   }
   100% {
-    transform: translateX(100vw) translateY(0) rotate(5deg);
+    transform: translateX(100vw) translateY(0) rotate(3deg);
   }
 }
 
