@@ -2593,7 +2593,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
   left: 0;
   pointer-events: none;
   transform-origin: center 75%;
-  animation: lalaloy-drift 70s linear infinite;
+  animation: lalaloy-drift 25s linear infinite;
   will-change: transform;
 }
 
