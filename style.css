@@ -1826,37 +1826,3 @@ footer {
   }
 }
 
-/* ===== Wish grid responsive fit ===== */
-/* Keep the wish list within its parent and prevent flex children from overflowing. */
-.landing > section[aria-labelledby="wishes-title"] .wish-grid {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 100%;
-  min-width: 0;
-  margin-inline: auto;
-  padding-inline: 0;
-  box-sizing: border-box;
-}
-
-.landing > section[aria-labelledby="wishes-title"] .wish-item,
-.landing > section[aria-labelledby="wishes-title"] .wish-item:nth-child(odd),
-.landing > section[aria-labelledby="wishes-title"] .wish-item:nth-child(even) {
-  width: 100%;
-  max-width: 100%;
-  min-width: 0;
-  box-sizing: border-box;
-}
-
-.landing > section[aria-labelledby="wishes-title"] .wish-item .tooltip-card {
-  min-width: 0;
-  max-width: 100%;
-  overflow-wrap: anywhere;
-}
-
-@media (max-width: 520px) {
-  .landing > section[aria-labelledby="wishes-title"] .wish-grid {
-    gap: 16px;
-  }
-}
-
