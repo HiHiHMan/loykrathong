@@ -2595,6 +2595,25 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
   transform-origin: center 75%;
   animation: lalaloy-drift 25s linear infinite;
   will-change: transform;
+
+   display: grid;
+   place-items: center;
+   width: 100px;
+   height: 100px;
+   margin-bottom: 12px;
+   border-radius: 50%;
+   font-size: 55px;
+   filter: drop-shadow(0 0 18px rgba(214, 184, 121, 0.13));
+   transform-origin: center 70%; 
+   will-change: transform;
+
+   border: 1px solid rgba(255, 192, 57, 0.678);
+   border-radius: 50%;
+   background: radial-gradient(circle,
+       rgba(245, 199, 101, 0.527),
+       rgba(151, 130, 84, 0.137) 65%,
+       transparent 70%);
+   box-shadow: 0 0 45px rgba(214, 184, 121, 0.10);
 }
 
 @keyframes lalaloy-drift {
