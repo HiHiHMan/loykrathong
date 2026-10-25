@@ -2601,20 +2601,35 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
   0% {
     transform: translateX(-60px) translateY(0) rotate(-5deg);
   }
+  10% {
+    transform: translateX(10vw) translateY(-5px) rotate(2deg);
+  }
   20% {
-    transform: translateX(20vw) translateY(-5px) rotate(3deg);
+    transform: translateX(20vw) translateY(2px) rotate(6deg);
+  }
+  30% {
+    transform: translateX(30vw) translateY(7px) rotate(1deg);
   }
   40% {
-    transform: translateX(40vw) translateY(3px) rotate(-4deg);
+    transform: translateX(40vw) translateY(1px) rotate(-6deg);
+  }
+  50% {
+    transform: translateX(50vw) translateY(-6px) rotate(-2deg);
   }
   60% {
-    transform: translateX(60vw) translateY(-6px) rotate(5deg);
+    transform: translateX(60vw) translateY(3px) rotate(5deg);
+  }
+  70% {
+    transform: translateX(70vw) translateY(7px) rotate(2deg);
   }
   80% {
-    transform: translateX(80vw) translateY(2px) rotate(-3deg);
+    transform: translateX(80vw) translateY(0) rotate(-6deg);
+  }
+  90% {
+    transform: translateX(90vw) translateY(-5px) rotate(-1deg);
   }
   100% {
-    transform: translateX(100vw) translateY(0) rotate(4deg);
+    transform: translateX(100vw) translateY(0) rotate(5deg);
   }
 }
 
