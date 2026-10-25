@@ -1965,17 +1965,11 @@ footer {
   position: relative;
   left: 50%;
   width: 100vw;
-  height: 100vh;
-  min-height: 100vh;
+  height: 250px;
   margin: 0 0 28px;
   overflow: hidden;
   transform: translateX(-50%);
   isolation: isolate;
-  background:
-    radial-gradient(ellipse at 50% 20%, rgb(14, 40, 70), transparent 46%),
-    radial-gradient(ellipse at 8% 78%, rgba(198, 122, 30, 0.041), transparent 22%),
-    radial-gradient(ellipse at 95% 75%, rgba(198, 122, 30, 0.021), transparent 22%),
-    linear-gradient(180deg, #000000 0%, var(--night) 55%, #000000 100%);
 }
 
 .wave-svg {
@@ -1983,7 +1977,7 @@ footer {
   inset: 0 auto auto 0;
   display: block;
   width: 200%;
-  height: 250px;
+  height: 100%;
   max-width: none;
   overflow: visible;
   border: 0;
@@ -1996,7 +1990,15 @@ footer {
 .wave-layer-1 { animation-duration: 52s; }
 .wave-layer-2 { animation-duration: 46s; }
 .wave-layer-3 { animation-duration: 40s; }
-.wave-layer-4 { animation-duration: 34s; }
+.wave-layer-4 {
+  animation-duration: 34s;
+  height: 100vh;
+  background:
+    radial-gradient(ellipse at 50% 20%, rgb(14, 40, 70), transparent 46%),
+    radial-gradient(ellipse at 8% 78%, rgba(198, 122, 30, 0.041), transparent 22%),
+    radial-gradient(ellipse at 95% 75%, rgba(198, 122, 30, 0.021), transparent 22%),
+    linear-gradient(180deg, #000000 0%, var(--night) 55%, #000000 100%);
+}
 .wave-layer-5 { animation-duration: 29s; }
 
 /* Move the water from left to right; the repeating wave pattern keeps the loop seamless. */
