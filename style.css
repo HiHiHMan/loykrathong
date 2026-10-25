@@ -1805,3 +1805,24 @@ footer {
   }
 }
 
+/* ===== Tooltip card maximum width adjustment ===== */
+/* Keep tooltip cards compact on desktop and mobile. */
+.wish-item .tooltip-card,
+.wish-item:nth-child(odd) .tooltip-card,
+.wish-item:nth-child(even) .tooltip-card {
+  width: min(320px, calc(100vw - 32px));
+  min-width: 0;
+  max-width: 320px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 520px) {
+  .wish-item.is-open .tooltip-card,
+  .wish-item.is-open:nth-child(odd) .tooltip-card,
+  .wish-item.is-open:nth-child(even) .tooltip-card {
+    width: min(320px, calc(100vw - 32px));
+    min-width: 0;
+    max-width: 320px;
+  }
+}
+
