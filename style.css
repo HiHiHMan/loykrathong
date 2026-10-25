@@ -1960,7 +1960,7 @@ footer {
 }
 
 
-/* ===== Lightweight 2D cartoon water waves (SVG + CSS) ===== */
+/* ===== Seamless 5-layer 2D cartoon waves (no outlines) ===== */
 .cartoon-water {
   position: relative;
   left: 50%;
@@ -1970,33 +1970,30 @@ footer {
   overflow: hidden;
   transform: translateX(-50%);
   isolation: isolate;
-  background: linear-gradient(180deg, #b6edff 0%, #d9f7ff 38%, #70d8f5 100%);
+  background: #b6edff;
 }
 
 .wave-svg {
   position: absolute;
-  left: 0;
+  inset: 0 auto auto 0;
+  display: block;
   width: 200%;
   height: 100%;
   max-width: none;
   overflow: visible;
+  border: 0;
+  outline: 0;
   will-change: transform;
+  animation-name: cartoon-wave-drift;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 }
 
-.wave-back {
-  top: 0;
-  animation: cartoon-wave-drift 18s linear infinite;
-}
-
-.wave-middle {
-  top: 0;
-  animation: cartoon-wave-drift 13s linear infinite reverse;
-}
-
-.wave-front {
-  top: 0;
-  animation: cartoon-wave-drift 9s linear infinite;
-}
+.wave-layer-1 { animation-duration: 22s; }
+.wave-layer-2 { animation-duration: 20s; }
+.wave-layer-3 { animation-duration: 18s; }
+.wave-layer-4 { animation-duration: 16s; }
+.wave-layer-5 { animation-duration: 14s; }
 
 @keyframes cartoon-wave-drift {
   from { transform: translateX(0); }
