@@ -2595,61 +2595,24 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
   transform-origin: center 75%;
   animation: lalaloy-drift 32s linear infinite;
   will-change: transform;
-
-   display: grid;
-   place-items: center;
-   width: 100px;
-   height: 100px;
-   margin-bottom: 12px;
-   border-radius: 50%;
-   font-size: 55px;
-   filter: drop-shadow(0 0 18px rgba(214, 184, 121, 0.13));
-   transform-origin: center 70%; 
-   will-change: transform;
-
-   border: 1px solid rgba(255, 192, 57, 0.678);
-   border-radius: 50%;
-   background: radial-gradient(circle,
-       rgba(245, 199, 101, 0.527),
-       rgba(151, 130, 84, 0.137) 65%,
-       transparent 70%);
-   box-shadow: 0 0 45px rgba(214, 184, 121, 0.10);
 }
 
 @keyframes lalaloy-drift {
-  0% {
-    transform: translateX(-60px) translateY(0) rotate(-3deg);
-  }
-  10% {
-    transform: translateX(10vw) translateY(-2px) rotate(2deg);
-  }
-  20% {
-    transform: translateX(20vw) translateY(1px) rotate(3deg);
-  }
-  30% {
-    transform: translateX(30vw) translateY(2px) rotate(1deg);
-  }
-  40% {
-    transform: translateX(40vw) translateY(-1px) rotate(-3deg);
-  }
-  50% {
-    transform: translateX(50vw) translateY(-2px) rotate(-1deg);
-  }
-  60% {
-    transform: translateX(60vw) translateY(1px) rotate(3deg);
-  }
-  70% {
-    transform: translateX(70vw) translateY(2px) rotate(1deg);
-  }
-  80% {
-    transform: translateX(80vw) translateY(0) rotate(-3deg);
-  }
-  90% {
-    transform: translateX(90vw) translateY(-2px) rotate(-1deg);
-  }
-  100% {
-    transform: translateX(100vw) translateY(0) rotate(3deg);
-  }
+  0%   { transform: translateX(-60px) translateY(0) rotate(0deg); }
+  100% { transform: translateX(100vw) translateY(0) rotate(0deg); }
+}
+
+.lalaloy {
+  animation:
+    lalaloy-drift 32s linear infinite,
+    lalaloy-rock 3.2s ease-in-out infinite;
+}
+
+@keyframes lalaloy-rock {
+  0%, 100% { translate: 0 0; rotate: -10deg; }
+  25%      { translate: 0 -10px; rotate: 0deg; }
+  50%      { translate: 0 0; rotate: 10deg; }
+  75%      { translate: 0 10px; rotate: 0deg; }
 }
 
 @media (max-width: 760px) {
@@ -2663,5 +2626,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
     animation: none;
     left: calc(50% - 50px);
     transform: none;
+    translate: none;
+    rotate: none;
   }
 }
