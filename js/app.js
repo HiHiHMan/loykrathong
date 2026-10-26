@@ -348,17 +348,9 @@ if (gl) {
       launchedKrathongs.push(item);
 
       if (nextKrathongIndex < krathongs.length) {
-        // Use a fixed rhythm pattern rather than randomizing each interval.
-        // The selected pattern changes by weekday and repeats on a weekly cycle.
-        const launchPatterns = [
-          [5, 9, 5, 7, 4, 8, 6, 5, 9, 4],
-          [7, 4, 8, 5, 9, 6, 4, 7, 5, 8],
-          [4, 8, 6, 9, 5, 4, 7, 9, 6, 5],
-          [9, 5, 7, 4, 8, 5, 6, 4, 9, 7]
-        ];
-        const patternIndex = new Date().getDay() % launchPatterns.length;
-        const intervalIndex = nextKrathongIndex - 1;
-        const nextDelayMs = launchPatterns[patternIndex][intervalIndex] * 1000;
+        // Keep a full 12-second gap so krathongs do not bunch up
+        // on desktop or mobile while the previous ones are still on screen.
+        const nextDelayMs = 12_000;
         setTimeout(launchNextKrathong, nextDelayMs);
       }
     }
