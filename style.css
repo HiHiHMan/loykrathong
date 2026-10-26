@@ -1213,6 +1213,7 @@
  }
 
  .refresh-btn:hover {
+   background: linear-gradient(135deg, #ead49a, #b9984e);
    filter: brightness(1.07);
    transform: translateY(-2px);
  }
