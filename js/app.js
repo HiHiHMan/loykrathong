@@ -281,7 +281,7 @@ if (gl) {
     grid.innerHTML = latestItems.map(function (item, index) {
       const krathong = getKrathong(item.krathongType);
       const top = 8 + Math.random() * 68;
-      const delay = index * 8;
+      const delay = index * 12;
 
       return `
         <article
