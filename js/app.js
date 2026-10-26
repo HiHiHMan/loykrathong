@@ -271,9 +271,18 @@ if (gl) {
 
     grid.innerHTML = latestItems.map(function (item, index) {
       const krathong = getKrathong(item.krathongType);
+      const top = 8 + ((index * 23) % 72);
 
       return `
-        <article class="wish-item">
+        <article
+          class="lalaloy latest-wish-krathong"
+          style="top:${top}%; animation-delay:-${index * 3.2}s"
+        >
+          <button class="lalaloy-motion latest-wish-trigger" type="button"
+            aria-label="เปิดคำอธิษฐานของ ${escapeHtml(item.fullName || "ผู้ร่วมงาน")}"
+            aria-expanded="false">
+            ${krathong.emoji}
+          </button>
           <div class="tooltip-card" role="group" aria-label="รายละเอียดคำอธิษฐาน">
             <p class="tooltip-label">✦ คำอธิษฐาน</p>
             <p class="tooltip-wish">“${escapeHtml(item.wish || "ขอให้พบเจอแต่สิ่งดี ๆ")}”</p>
@@ -286,10 +295,6 @@ if (gl) {
               <span class="tooltip-type">${krathong.emoji} ${krathong.label}</span>
             </div>
           </div>
-          <button class="krathong-trigger" type="button" aria-label="เปิดคำอธิษฐาน" aria-expanded="false">
-            <span class="krathong-emoji" style="animation-delay:${(index % 5) * 0.35}s">${krathong.emoji}</span>
-            <span class="water-ripple" aria-hidden="true"></span>
-          </button>
         </article>
       `;
     }).join("");
@@ -326,19 +331,19 @@ if (gl) {
 
   document.body.appendChild(script);
 
-  // Tap a krathong to open/close its wish.
+  // Tap a floating lalaloy krathong to open/close its wish.
   grid.addEventListener("click", function (event) {
-    const trigger = event.target.closest(".krathong-trigger");
+    const trigger = event.target.closest(".latest-wish-trigger");
     if (!trigger) return;
 
-    const item = trigger.closest(".wish-item");
+    const item = trigger.closest(".latest-wish-krathong");
     if (!item) return;
 
     const shouldOpen = !item.classList.contains("is-open");
 
-    grid.querySelectorAll(".wish-item.is-open").forEach(function (openItem) {
+    grid.querySelectorAll(".latest-wish-krathong.is-open").forEach(function (openItem) {
       openItem.classList.remove("is-open");
-      const openTrigger = openItem.querySelector(".krathong-trigger");
+      const openTrigger = openItem.querySelector(".latest-wish-trigger");
       if (openTrigger) openTrigger.setAttribute("aria-expanded", "false");
     });
 
