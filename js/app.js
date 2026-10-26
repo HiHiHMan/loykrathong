@@ -273,7 +273,13 @@ if (gl) {
       return;
     }
 
+    // Keep the latest-wishes limit, but randomize display/launch order.
+    // The launch sequence must not depend on createdAt ordering from the API.
     const latestItems = items.slice(0, 10);
+    for (let i = latestItems.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [latestItems[i], latestItems[j]] = [latestItems[j], latestItems[i]];
+    }
     count.textContent = latestItems.length + " คำอธิษฐาน";
 
     // Place all krathongs in one shared floating area, with a random height
@@ -310,8 +316,8 @@ if (gl) {
       `;
     }).join("");
 
-    // Launch one krathong at a time. Restart its drift animation at the moment
-    // it becomes visible so delayed items cannot bunch up and appear together.
+    // Each item remains hidden until its individual randomized launch time.
+    // The queue is shuffled above, so launch order is independent of createdAt.
     const krathongs = Array.from(grid.querySelectorAll(".latest-wish-krathong"));
     let nextKrathongIndex = 0;
 
@@ -321,17 +327,24 @@ if (gl) {
       const item = krathongs[nextKrathongIndex];
       nextKrathongIndex += 1;
 
+      // Restart the drift from its initial position only when this item launches.
       item.style.animation = "none";
-      item.style.animationDelay = "0s";
+      item.style.visibility = "hidden";
+      item.style.opacity = "0";
       void item.offsetWidth;
-      item.style.animation = "";
       item.classList.remove("is-waiting");
+      item.style.animation = "lalaloy-drift 48s linear infinite";
+      item.style.visibility = "visible";
+      item.style.opacity = "1";
 
       if (nextKrathongIndex < krathongs.length) {
-        setTimeout(launchNextKrathong, 12000);
+        // Randomize the interval for the next item (5–14 seconds).
+        const nextDelayMs = 5000 + Math.floor(Math.random() * 9000);
+        setTimeout(launchNextKrathong, nextDelayMs);
       }
     }
 
+    // The first krathong launches immediately; all others wait for their turn.
     launchNextKrathong();
   }
 
