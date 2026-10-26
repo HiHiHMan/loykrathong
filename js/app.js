@@ -279,7 +279,7 @@ if (gl) {
       return `
         <article
           class="lalaloy latest-wish-krathong"
-          style="top:${top.toFixed(2)}%; animation-delay:-${delay.toFixed(1)}s"
+          style="top:${top.toFixed(2)}%; animation-delay:${delay.toFixed(1)}s"
         >
           <button class="lalaloy-motion latest-wish-trigger" type="button"
             aria-label="เปิดคำอธิษฐานของ ${escapeHtml(item.fullName || "ผู้ร่วมงาน")}"
