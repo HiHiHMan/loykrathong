@@ -2753,3 +2753,27 @@ body:not(:has(#webgl-canvas-create)) .nav-link {
 .refresh-btn:visited {
   text-decoration: none;
 }
+
+/* Show each krathong owner's name directly beneath the floating krathong. */
+.cartoon-water .krathong-owner-name {
+  position: absolute;
+  top: 78px;
+  left: 50%;
+  z-index: 4;
+  max-width: 150px;
+  padding: 2px 8px;
+  overflow: hidden;
+  border: 1px solid rgba(214, 184, 121, 0.5);
+  border-radius: 999px;
+  background: rgba(6, 21, 43, 0.92);
+  color: #fff4d6;
+  font-family: "Kanit", sans-serif;
+  font-size: 11px;
+  line-height: 1.5;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  pointer-events: none;
+  transform: translateX(-50%);
+}
+
