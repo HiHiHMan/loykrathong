@@ -333,12 +333,6 @@ if (gl) {
       positions.push(positions[i - 1] + randomGap);
     }
 
-    // Shuffle the cumulative X coordinates so the display order is randomized.
-    for (let i = positions.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [positions[i], positions[j]] = [positions[j], positions[i]];
-    }
-
     const maxPosition = positions.length ? Math.max(...positions) : 0;
 
     krathongs.forEach(function (item, index) {
