@@ -2777,3 +2777,16 @@ body:not(:has(#webgl-canvas-create)) .nav-link {
   transform: translateX(-50%);
 }
 
+/* Strict launch queue: queued krathongs must remain fully invisible and motionless. */
+.cartoon-water .latest-wish-krathong.lalaloy.is-waiting {
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  animation-play-state: paused !important;
+}
+
+.cartoon-water .latest-wish-krathong.lalaloy:not(.is-waiting) {
+  visibility: visible;
+  pointer-events: auto;
+}
+
