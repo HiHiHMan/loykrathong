@@ -2792,9 +2792,8 @@ body:not(:has(#webgl-canvas-create)) .nav-link {
 
 
 
-/* ===== Temple image with intro text floating over it ===== */
+/* ===== Temple image: full viewport width ===== */
 .temple-image {
-  position: relative;
   width: 100vw;
   max-width: none;
   margin: 0 calc(50% - 50vw) 1.5rem;
@@ -2807,42 +2806,4 @@ body:not(:has(#webgl-canvas-create)) .nav-link {
   width: 100%;
   height: auto;
   object-fit: contain;
-}
-
-.temple-image .intro {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  z-index: 5;
-  width: min(90%, 760px);
-  margin: 0;
-  padding: clamp(12px, 3vw, 32px);
-  text-align: center;
-  transform: translate(-50%, -50%);
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
-}
-
-.temple-image .intro h1 {
-  color: #fff8e8;
-}
-
-.temple-image .intro .description {
-  color: #fff8e8;
-}
-
-@media (max-width: 600px) {
-  .temple-image .intro {
-    width: 96%;
-    padding: 8px;
-  }
-
-  .temple-image .intro .description {
-    margin: 8px 0 0;
-    font-size: 11px;
-    line-height: 1.6;
-  }
-
-  .temple-image .intro .ornament {
-    margin: 2px auto 8px;
-  }
 }
