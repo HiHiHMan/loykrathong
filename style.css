@@ -82,11 +82,6 @@
    scroll-behavior: smooth;
  }
 
- #randomWishes,
- #createKrathong {
-   scroll-margin-top: 24px;
- }
-
  @media (max-width: 600px) {
    .top-nav {
      padding: 16px;
@@ -1326,10 +1321,6 @@
      right: 34px;
    }
 
-   .mini-label {
-     font-size: 10px;
-   }
-
    footer {
      font-size: 9px;
      letter-spacing: 1px;
@@ -2402,11 +2393,6 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
    animation-delay: -52s;
  }
 
- .wave-layer-5 {
-   animation-duration: 74s;
-   animation-delay: -24s;
- }
-
  /* Move the water from left to right; the repeating wave pattern keeps the loop seamless. */
  @keyframes cartoon-wave-drift {
    from {
@@ -2419,145 +2405,23 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
  }
 
  /* A small krathong glides across the water and gently bobs with the waves. */
- .floating-krathong {
-   position: absolute;
-   z-index: 10;
-   left: 0;
-   top: 27%;
-   width: max-content;
-   height: auto;
-   font-size: 42px;
-   line-height: 1;
-   pointer-events: none;
-   animation: krathong-drift-right 70s linear infinite;
-   will-change: transform;
- }
-
- .floating-flower {
-   position: absolute;
-   z-index: 2;
-   top: 5px;
-   left: 25px;
-   font-size: 30px;
-   line-height: 1;
-   filter: drop-shadow(0 2px 3px rgba(0, 35, 65, .25));
-   animation: krathong-bob 2.8s ease-in-out infinite;
- }
-
- .floating-candle {
-   position: absolute;
-   z-index: 3;
-   top: 0;
-   left: 47px;
-   font-size: 16px;
-   line-height: 1;
-   animation: krathong-bob 2.8s ease-in-out infinite reverse;
- }
-
- .krathong-bowl {
-   position: absolute;
-   z-index: 2;
-   top: 34px;
-   left: 10px;
-   width: 68px;
-   height: 20px;
-   border-radius: 0 0 50% 50%;
-   background: linear-gradient(180deg, #e7c879 0%, #bd7e35 55%, #70451f 100%);
-   clip-path: polygon(0 0, 100% 0, 79% 100%, 21% 100%);
-   filter: drop-shadow(0 3px 2px rgba(0, 34, 65, .25));
- }
-
- .floating-ripple {
-   position: absolute;
-   top: 50px;
-   left: 0;
-   width: 88px;
-   height: 16px;
-   border: 2px solid rgba(225, 250, 255, .75);
-   border-top-color: rgba(225, 250, 255, .25);
-   border-radius: 50%;
-   animation: ripple-spread 2.8s ease-in-out infinite;
- }
-
- @keyframes krathong-drift-right {
-   from {
-     transform: translateX(-100px) translateY(0) rotate(-4deg);
-   }
-
-   25% {
-     transform: translateX(25vw) translateY(4px) rotate(2deg);
-   }
-
-   50% {
-     transform: translateX(50vw) translateY(0) rotate(-3deg);
-   }
-
-   75% {
-     transform: translateX(75vw) translateY(4px) rotate(3deg);
-   }
-
-   to {
-     transform: translateX(100vw) translateY(0) rotate(-4deg);
-   }
- }
-
- @keyframes krathong-bob {
-
-   0%,
-   100% {
-     transform: translateY(0) rotate(-3deg);
-   }
-
-   50% {
-     transform: translateY(5px) rotate(3deg);
-   }
- }
-
- @keyframes ripple-spread {
-
-   0%,
-   100% {
-     transform: scaleX(.82);
-     opacity: .45;
-   }
-
-   50% {
-     transform: scaleX(1.08);
-     opacity: .9;
-   }
- }
-
  @media (max-width: 760px) {
    .cartoon-water {
      height: 220px;
      margin-bottom: 22px;
    }
-
-   .floating-krathong {
-     top: 24%;
-     font-size: 36px;
-     animation-duration: 70s;
-   }
  }
 
  @media (prefers-reduced-motion: reduce) {
 
-   .wave-svg,
-   .success-krathong,
-   .floating-krathong,
-   .floating-flower,
-   .floating-candle,
-   .floating-ripple,
-   .loykrathong {
-     animation: none;
-   }
+.wave-svg,
+    .success-krathong,
+    .loykrathong {
+      animation: none;
+    }
 
    .success-krathong {
      left: calc(50% - 22px);
-   }
-
-   .floating-krathong {
-     left: calc(50% - 44px);
    }
  }
 
@@ -2565,15 +2429,6 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
  /* ===== Bottom water layer extends to the footer; selection UI sits above it ===== */
  .cartoon-water {
    overflow: visible;
- }
-
- .wave-layer-5 {
-   position: absolute;
-   inset: 0 auto auto 0;
-   width: 200%;
-   height: 100dvh;
-   z-index: 0;
-   pointer-events: none;
  }
 
  #selection-view {
