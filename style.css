@@ -2706,9 +2706,12 @@ body:not(:has(#webgl-canvas-create)) .nav-link {
     font-size: 44px;
   }
 
-  /* On narrow screens, show only the first krathong entering from the left gate. */
-  .cartoon-water .latest-wish-krathong.lalaloy:nth-child(n + 2) {
-    display: none !important;
+  /* Keep waiting krathongs stacked at the left edge until their launch delay ends. */
+  .cartoon-water .latest-wish-krathong.lalaloy.is-waiting {
+    left: -38px;
+    top: 24%;
+    visibility: visible;
+    pointer-events: none;
   }
 
   .cartoon-water .latest-wish-trigger {
@@ -2717,9 +2720,17 @@ body:not(:has(#webgl-canvas-create)) .nav-link {
 }
 
 
-/* Keep krathongs off-canvas until their staggered launch time. */
+/* Keep waiting krathongs tucked just beyond the left edge until their staggered launch time. */
 .cartoon-water .latest-wish-krathong.lalaloy.is-waiting {
   left: -120px;
   visibility: hidden;
   pointer-events: none;
+}
+
+@media (max-width: 600px) {
+  .cartoon-water .latest-wish-krathong.lalaloy.is-waiting {
+    left: -38px;
+    top: 24%;
+    visibility: visible;
+  }
 }
