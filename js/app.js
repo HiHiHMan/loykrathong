@@ -293,6 +293,7 @@ if (gl) {
             aria-expanded="false">
             ${krathong.emoji}
           </button>
+          <span class="krathong-owner-name">${escapeHtml(item.fullName || "ไม่ระบุชื่อ")}</span>
           <div class="tooltip-card" role="group" aria-label="รายละเอียดคำอธิษฐาน">
             <p class="tooltip-label">✦ คำอธิษฐาน</p>
             <p class="tooltip-wish">“${escapeHtml(item.wish || "ขอให้พบเจอแต่สิ่งดี ๆ")}”</p>
