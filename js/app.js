@@ -324,8 +324,8 @@ if (gl) {
     // initially hidden beyond the left edge of the screen.
     const krathongs = Array.from(grid.querySelectorAll(".latest-wish-krathong"));
     const itemWidth = krathongs[0]?.getBoundingClientRect().width || 100;
-    const minimumGap = 10;
-    const maximumGap = 35;
+    const minimumGap = 50;
+    const maximumGap = 200;
     const positions = [0];
 
     for (let i = 1; i < krathongs.length; i++) {
