@@ -2706,6 +2706,11 @@ body:not(:has(#webgl-canvas-create)) .nav-link {
     font-size: 44px;
   }
 
+  /* On narrow screens, show only the first krathong entering from the left gate. */
+  .cartoon-water .latest-wish-krathong.lalaloy:nth-child(n + 2) {
+    display: none !important;
+  }
+
   .cartoon-water .latest-wish-trigger {
     font-size: 44px;
   }
