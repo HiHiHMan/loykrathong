@@ -277,11 +277,11 @@ if (gl) {
     count.textContent = latestItems.length + " คำอธิษฐาน";
 
     // Place all krathongs in one shared floating area, with a random height
-    // and staggered launch delay so they drift across one after another.
+    // and longer staggered launch delay so krathongs have more space between them.
     grid.innerHTML = latestItems.map(function (item, index) {
       const krathong = getKrathong(item.krathongType);
       const top = 8 + Math.random() * 68;
-      const delay = index * 3.2;
+      const delay = index * 8;
 
       return `
         <article
