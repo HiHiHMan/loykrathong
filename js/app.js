@@ -320,43 +320,49 @@ if (gl) {
       `;
     }).join("");
 
-    // Each item remains hidden until its individual randomized launch time.
-    // The queue is shuffled above, so launch order is independent of createdAt.
+    // Assign unique X points with more than 30px between each point.
+    // All positions are prepared before any krathong starts moving.
     const krathongs = Array.from(grid.querySelectorAll(".latest-wish-krathong"));
-    let nextKrathongIndex = 0;
-    const launchedKrathongs = [];
+    const minimumGap = 31;
+    const minSpan = minimumGap * Math.max(0, krathongs.length - 1);
+    const itemWidth = krathongs[0]?.getBoundingClientRect().width || 100;
+    const availableSpan = Math.max(grid.clientWidth - itemWidth, minSpan);
+    const extraSpan = availableSpan - minSpan;
+    const gapWeights = Array.from(
+      { length: Math.max(0, krathongs.length - 1) },
+      () => 0.25 + Math.random()
+    );
+    const totalWeight = gapWeights.reduce((sum, weight) => sum + weight, 0);
+    const positions = [0];
 
-    function launchNextKrathong() {
-      if (nextKrathongIndex >= krathongs.length) return;
+    gapWeights.forEach(function (weight) {
+      const gap = minimumGap + (totalWeight ? extraSpan * weight / totalWeight : 0);
+      positions.push(positions[positions.length - 1] + gap);
+    });
 
-      const item = krathongs[nextKrathongIndex];
-      nextKrathongIndex += 1;
+    // Randomly assign the unique coordinates to the krathongs.
+    for (let i = positions.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [positions[i], positions[j]] = [positions[j], positions[i]];
+    }
 
-      // The viewport is only a window onto the 2880px water scene.
-      // Keep krathong dimensions unchanged on every device; let the viewport
-      // naturally reveal more on desktop and fewer on tablet/mobile.
+    // Position every krathong while hidden, then start all animations together.
+    krathongs.forEach(function (item, index) {
       item.style.animation = "none";
-      item.style.left = "0";
+      item.style.left = (positions[index] + 60) + "px";
       item.style.visibility = "hidden";
       item.style.opacity = "0";
-      void item.offsetWidth;
+    });
+
+    void grid.offsetWidth;
+
+    krathongs.forEach(function (item) {
       item.classList.remove("is-waiting");
       item.style.animation = "lalaloy-drift 72s linear infinite";
       item.style.visibility = "visible";
       item.style.opacity = "1";
       item.style.pointerEvents = "auto";
-      launchedKrathongs.push(item);
-
-      if (nextKrathongIndex < krathongs.length) {
-        // Keep a full 12-second gap so krathongs do not bunch up
-        // on desktop or mobile while the previous ones are still on screen.
-        const nextDelayMs = 12_000;
-        setTimeout(launchNextKrathong, nextDelayMs);
-      }
-    }
-
-    // The first krathong launches immediately; all others wait for their turn.
-    launchNextKrathong();
+    });
   }
 
   window[callbackName] = function (response) {
