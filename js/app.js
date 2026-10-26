@@ -327,10 +327,11 @@ if (gl) {
 
       const item = krathongs[nextKrathongIndex];
       nextKrathongIndex += 1;
+      const isSmallScreen = window.matchMedia("(max-width: 600px)").matches;
 
-      // On small screens, show only the current krathong to avoid crowding
-      // and horizontal overflow. Desktop keeps previously launched krathongs.
-      if (window.matchMedia("(max-width: 600px)").matches) {
+      // On small screens, let the current krathong cross the whole screen
+      // before hiding it and starting the next one.
+      if (isSmallScreen) {
         launchedKrathongs.forEach(function (launchedItem) {
           launchedItem.style.visibility = "hidden";
           launchedItem.style.opacity = "0";
@@ -341,21 +342,39 @@ if (gl) {
         });
       }
 
-      // Restart the drift from the left edge only when this item launches.
       item.style.animation = "none";
       item.style.left = "0";
       item.style.visibility = "hidden";
       item.style.opacity = "0";
       void item.offsetWidth;
       item.classList.remove("is-waiting");
-      item.style.animation = "lalaloy-drift 48s linear infinite";
+      item.style.animation = isSmallScreen
+        ? "lalaloy-drift 48s linear 1 forwards"
+        : "lalaloy-drift 48s linear infinite";
       item.style.visibility = "visible";
       item.style.opacity = "1";
       item.style.pointerEvents = "auto";
       launchedKrathongs.push(item);
 
-      if (nextKrathongIndex < krathongs.length) {
-        // Randomize the interval for the next item (5–14 seconds).
+      if (isSmallScreen) {
+        // Wait until the krathong has fully drifted off the right edge.
+        item.addEventListener("animationend", function onDriftEnd(event) {
+          if (event.animationName !== "lalaloy-drift") return;
+          item.removeEventListener("animationend", onDriftEnd);
+          item.style.visibility = "hidden";
+          item.style.opacity = "0";
+          item.style.pointerEvents = "none";
+          item.classList.remove("is-open");
+          const trigger = item.querySelector(".latest-wish-trigger");
+          if (trigger) trigger.setAttribute("aria-expanded", "false");
+
+          if (nextKrathongIndex < krathongs.length) {
+            const nextDelayMs = 5000 + Math.floor(Math.random() * 9000);
+            setTimeout(launchNextKrathong, nextDelayMs);
+          }
+        });
+      } else if (nextKrathongIndex < krathongs.length) {
+        // Desktop keeps the original randomized 5–14 second launch interval.
         const nextDelayMs = 5000 + Math.floor(Math.random() * 9000);
         setTimeout(launchNextKrathong, nextDelayMs);
       }
