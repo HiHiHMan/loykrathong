@@ -2790,3 +2790,20 @@ body:not(:has(#webgl-canvas-create)) .nav-link {
   pointer-events: auto;
 }
 
+
+
+/* ===== Temple image: full viewport width ===== */
+.temple-image {
+  width: 100vw;
+  max-width: none;
+  margin: 0 calc(50% - 50vw) 1.5rem;
+  padding: 0;
+  overflow: hidden;
+}
+
+.temple-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
