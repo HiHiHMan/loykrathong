@@ -269,13 +269,17 @@ if (gl) {
     const latestItems = items.slice(0, 10);
     count.textContent = latestItems.length + " คำอธิษฐาน";
 
+    // Place all krathongs in one shared floating area, with a random height
+    // and staggered launch delay so they drift across one after another.
     grid.innerHTML = latestItems.map(function (item, index) {
       const krathong = getKrathong(item.krathongType);
+      const top = 8 + Math.random() * 68;
+      const delay = index * 3.2;
 
       return `
         <article
           class="lalaloy latest-wish-krathong"
-          style="animation-delay:-${index * 3.2}s"
+          style="top:${top.toFixed(2)}%; animation-delay:-${delay.toFixed(1)}s"
         >
           <button class="lalaloy-motion latest-wish-trigger" type="button"
             aria-label="เปิดคำอธิษฐานของ ${escapeHtml(item.fullName || "ผู้ร่วมงาน")}"
