@@ -2357,7 +2357,8 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
    position: absolute;
    inset: 0 auto auto 0;
    display: block;
-   width: 200%;
+   /* Keep the wave's horizontal wavelength stable on narrow screens. */
+   width: max(200%, 2880px);
    height: 100%;
    max-width: none;
    overflow: visible;
