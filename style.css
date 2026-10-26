@@ -2649,3 +2649,50 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
     left: calc(50% - 50px);
   }
 }
+
+
+/* ===== Global layer order: decorative layers behind all page controls ===== */
+#webgl-canvas {
+  z-index: 0 !important;
+  pointer-events: none !important;
+}
+
+.landing {
+  position: relative;
+  z-index: 1;
+  isolation: isolate;
+}
+
+.top-nav {
+  position: relative;
+  z-index: 10000 !important;
+}
+
+.content,
+.landing > section {
+  position: relative;
+  z-index: 20;
+}
+
+.moon-glow,
+.water,
+.cartoon-water,
+.cartoon-water .wave-svg,
+.cartoon-water .lalaloy,
+.landing > canvas {
+  pointer-events: none;
+}
+
+.start-button,
+.krathong,
+.text-button,
+.submit-button,
+.refresh-btn,
+.krathong-trigger,
+.nav-link,
+#back-button,
+#home-button {
+  position: relative;
+  z-index: 30;
+  pointer-events: auto;
+}
