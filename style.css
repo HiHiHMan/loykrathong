@@ -2763,3 +2763,79 @@ body:not(:has(#webgl-canvas-create)) .nav-link {
   z-index: 30 !important;
   pointer-events: auto;
 }
+
+
+/* ===== Latest wishes: floating krathongs reuse the homepage lalaloy style ===== */
+.latest-wishes-section #latestWishesGrid {
+  position: relative;
+  display: block;
+  height: 300px;
+  min-height: 300px;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.latest-wishes-section .latest-wish-krathong.lalaloy {
+  top: 8%;
+  left: 0;
+  z-index: 2;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.latest-wishes-section .latest-wish-trigger {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 55px;
+  cursor: pointer;
+  pointer-events: auto;
+  filter: drop-shadow(0 0 12px rgba(214, 184, 121, 0.2));
+}
+
+.latest-wishes-section .latest-wish-krathong .tooltip-card {
+  position: absolute;
+  left: 50%;
+  bottom: 88px;
+  width: min(320px, calc(100vw - 40px));
+  scale: 1;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translate(-50%, 8px);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+}
+
+.latest-wishes-section .latest-wish-krathong.is-open .tooltip-card {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translate(-50%, 0);
+}
+
+.latest-wishes-section .latest-wish-krathong.is-open {
+  z-index: 20;
+}
+
+@media (max-width: 600px) {
+  .latest-wishes-section #latestWishesGrid {
+    height: 260px;
+    min-height: 260px;
+  }
+
+  .latest-wishes-section .latest-wish-krathong.lalaloy {
+    width: 76px;
+    height: 76px;
+    font-size: 44px;
+  }
+
+  .latest-wishes-section .latest-wish-trigger {
+    font-size: 44px;
+  }
+}
