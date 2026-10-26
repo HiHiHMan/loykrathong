@@ -281,12 +281,12 @@ if (gl) {
     grid.innerHTML = latestItems.map(function (item, index) {
       const krathong = getKrathong(item.krathongType);
       const top = 8 + Math.random() * 68;
-      const delay = index * 12;
+      // Launch krathongs sequentially instead of relying on CSS animation delays.
 
       return `
         <article
           class="lalaloy latest-wish-krathong is-waiting"
-          style="--wish-float-top:${top.toFixed(2)}%; animation-delay:${delay.toFixed(1)}s"
+          style="--wish-float-top:${top.toFixed(2)}%; animation-delay:0s"
         >
           <button class="lalaloy-motion latest-wish-trigger" type="button"
             aria-label="เปิดคำอธิษฐานของ ${escapeHtml(item.fullName || "ผู้ร่วมงาน")}"
@@ -310,14 +310,29 @@ if (gl) {
       `;
     }).join("");
 
-    // Reveal krathongs after they have been rendered into the grid.
-    grid.querySelectorAll(".latest-wish-krathong").forEach(function (item) {
-      const delayText = item.style.animationDelay || "0s";
-      const delayMs = Math.max(0, parseFloat(delayText) || 0) * 1000;
-      setTimeout(function () {
-        item.classList.remove("is-waiting");
-      }, delayMs);
-    });
+    // Launch one krathong at a time. Restart its drift animation at the moment
+    // it becomes visible so delayed items cannot bunch up and appear together.
+    const krathongs = Array.from(grid.querySelectorAll(".latest-wish-krathong"));
+    let nextKrathongIndex = 0;
+
+    function launchNextKrathong() {
+      if (nextKrathongIndex >= krathongs.length) return;
+
+      const item = krathongs[nextKrathongIndex];
+      nextKrathongIndex += 1;
+
+      item.style.animation = "none";
+      item.style.animationDelay = "0s";
+      void item.offsetWidth;
+      item.style.animation = "";
+      item.classList.remove("is-waiting");
+
+      if (nextKrathongIndex < krathongs.length) {
+        setTimeout(launchNextKrathong, 12000);
+      }
+    }
+
+    launchNextKrathong();
   }
 
   window[callbackName] = function (response) {
