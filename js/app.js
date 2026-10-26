@@ -337,7 +337,7 @@ if (gl) {
       item.style.opacity = "0";
       void item.offsetWidth;
       item.classList.remove("is-waiting");
-      item.style.animation = "lalaloy-drift 48s linear infinite";
+      item.style.animation = "lalaloy-drift 72s linear infinite";
       item.style.visibility = "visible";
       item.style.opacity = "1";
       item.style.pointerEvents = "auto";
@@ -346,7 +346,7 @@ if (gl) {
       if (nextKrathongIndex < krathongs.length) {
         // Short randomized intervals keep the scene populated without scaling
         // krathongs to fit smaller screens.
-        const nextDelayMs = 1800 + Math.floor(Math.random() * 801);
+        const nextDelayMs = 6000 + Math.floor(Math.random() * 6001);
         setTimeout(launchNextKrathong, nextDelayMs);
       }
     }
