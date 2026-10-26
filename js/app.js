@@ -285,8 +285,8 @@ if (gl) {
 
       return `
         <article
-          class="lalaloy latest-wish-krathong"
-          style="top:${top.toFixed(2)}%; animation-delay:${delay.toFixed(1)}s"
+          class="lalaloy latest-wish-krathong is-waiting"
+          style="--wish-float-top:${top.toFixed(2)}%; animation-delay:${delay.toFixed(1)}s"
         >
           <button class="lalaloy-motion latest-wish-trigger" type="button"
             aria-label="เปิดคำอธิษฐานของ ${escapeHtml(item.fullName || "ผู้ร่วมงาน")}"
@@ -342,6 +342,15 @@ if (gl) {
   document.body.appendChild(script);
 
   // Tap a floating lalaloy krathong to open/close its wish.
+  // Reveal each krathong only when its staggered launch delay begins.
+  grid.querySelectorAll(".latest-wish-krathong").forEach(function (item) {
+    const delayText = item.style.animationDelay || "0s";
+    const delayMs = Math.max(0, parseFloat(delayText) || 0) * 1000;
+    setTimeout(function () {
+      item.classList.remove("is-waiting");
+    }, delayMs);
+  });
+
   grid.addEventListener("click", function (event) {
     const trigger = event.target.closest(".latest-wish-trigger");
     if (!trigger) return;
