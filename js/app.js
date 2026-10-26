@@ -253,17 +253,21 @@ if (gl) {
   }
 
   function getKrathong(type) {
-    const value = String(type || "").toLowerCase();
+    const value = String(type || "").trim().toLowerCase();
 
-    if (value.includes("marigold") || value.includes("ดาวเรือง")) {
-      return { emoji: "🌼", label: "กระทงดอกดาวเรือง" };
+    if (value === "marigold" || value.includes("ดาวเรือง")) {
+      return { emoji: "🌼", label: "กระทงดาวเรืองทอง" };
     }
 
-    if (value.includes("lotus") || value.includes("บัว")) {
-      return { emoji: "🪷", label: "กระทงดอกบัว" };
+    if (value === "lotus" || value.includes("บัว")) {
+      return { emoji: "🪷", label: "กระทงบัวชมพู" };
     }
 
-    return { emoji: "🪷", label: "กระทงลอยน้ำ" };
+    if (value === "banana" || value.includes("ใบตอง")) {
+      return { emoji: "🍃", label: "กระทงใบตองธรรมชาติ" };
+    }
+
+    return { emoji: "🪷", label: "กระทงดอกบัว" };
   }
 
   function renderWishes(items) {
