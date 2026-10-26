@@ -126,8 +126,11 @@
  }
 
  .intro {
+   position: relative;
+   z-index: 24;
    text-align: center;
    margin-bottom: 44px;
+   isolation: isolate;
  }
 
  @media (max-width: 760px) {
@@ -2796,7 +2799,9 @@ body:not(:has(#webgl-canvas-create)) .nav-link {
 .temple-image {
   width: 100vw;
   max-width: none;
-  margin: 0 calc(50% - 50vw) 1.5rem;
+  margin-inline: calc(50% - 50vw);
+  margin-top: clamp(-426px, -32vw, -180px);
+  margin-bottom: 1.5rem;
   padding: 0;
   overflow: hidden;
 }
@@ -2806,4 +2811,15 @@ body:not(:has(#webgl-canvas-create)) .nav-link {
   width: 100%;
   height: auto;
   object-fit: contain;
+}
+
+/* Keep intro above page layers, but below the homepage WebGL canvas (z-index: 25). */
+body:not(:has(#webgl-canvas-create)) .landing .intro {
+  position: relative;
+  z-index: 24;
+}
+
+/* The WebGL canvas intentionally remains above the intro. */
+body:not(:has(#webgl-canvas-create)) #webgl-canvas {
+  z-index: 25 !important;
 }
