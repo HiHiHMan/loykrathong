@@ -2595,6 +2595,17 @@ body:has(#webgl-canvas-create) textarea {
 }
 
 
+/* Keep homepage actions lower on small screens so they cover less of the waves. */
+@media (max-width: 600px) {
+  body:not(:has(#webgl-canvas-create)) .content > .refresh-btn {
+    margin-top: 30px;
+  }
+
+  body:not(:has(#webgl-canvas-create)) .refresh-row {
+    margin-top: 14px;
+  }
+}
+
 /* ===== Homepage WebGL overlay: above scenery, below interactive controls ===== */
 body:not(:has(#webgl-canvas-create)) #webgl-canvas {
   z-index: 25 !important;
