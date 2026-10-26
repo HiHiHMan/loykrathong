@@ -2734,3 +2734,12 @@ body:not(:has(#webgl-canvas-create)) .nav-link {
     visibility: hidden;
   }
 }
+
+
+/* Remove underline from button-style links in every interaction state. */
+.btn,
+.btn:hover,
+.btn:focus,
+.btn:active {
+  text-decoration: none;
+}
