@@ -2769,7 +2769,7 @@ body:not(:has(#webgl-canvas-create)) .nav-link {
 .cartoon-water #latestWishesGrid.latest-wishes-waterline {
   position: absolute;
   inset: 0;
-  z-index: 5;
+  z-index: auto;
   display: block;
   width: 100%;
   height: 100%;
@@ -2777,7 +2777,7 @@ body:not(:has(#webgl-canvas-create)) .nav-link {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  isolation: isolate;
+  isolation: auto;
   pointer-events: none;
 }
 
@@ -2785,9 +2785,25 @@ body:not(:has(#webgl-canvas-create)) .nav-link {
 .cartoon-water .latest-wish-krathong.lalaloy {
   left: 0;
   top: var(--wish-float-top, 27%);
-  z-index: 2;
+  z-index: 3;
   pointer-events: auto;
   cursor: pointer;
+}
+
+/* Layer the krathongs between the rear waves and translucent front wave crests. */
+.cartoon-water .wave-layer-1 { z-index: 1; }
+.cartoon-water .wave-layer-2 { z-index: 2; }
+.cartoon-water .wave-layer-2-5 {
+  z-index: 4;
+  opacity: 0.48;
+}
+.cartoon-water .wave-layer-3 {
+  z-index: 5;
+  opacity: 0.38;
+}
+/* Keep the deep-water fill behind the floating items. */
+.cartoon-water .wave-layer-4 {
+  z-index: 0;
 }
 
 .cartoon-water .latest-wish-trigger {
