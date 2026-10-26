@@ -2413,7 +2413,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
  @media (max-width: 760px) {
    .cartoon-water {
      height: 220px;
-     margin-top: -36px;
+     margin-top: -170px;
      margin-bottom: 0;
    }
  }
@@ -2801,7 +2801,7 @@ body:not(:has(#webgl-canvas-create)) .nav-link {
   width: 100vw;
   max-width: none;
   margin-inline: calc(50% - 50vw);
-  margin-top: clamp(-426px, -32vw, -180px);
+  margin-top: -426px;
   margin-bottom: 1.5rem;
   padding: 0;
   overflow: hidden;
