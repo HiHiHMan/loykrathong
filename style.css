@@ -2809,8 +2809,12 @@ body:not(:has(#webgl-canvas-create)) .nav-link {
 
 .temple-image img {
   display: block;
-  width: 100%;
+  width: 1920px;
+  max-width: none;
   height: auto;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
   object-fit: contain;
 }
 
