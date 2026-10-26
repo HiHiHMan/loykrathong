@@ -2695,3 +2695,34 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
   z-index: 30;
   pointer-events: auto;
 }
+
+
+/* ===== Create page: full-screen WebGL overlay, controls stay on top ===== */
+#webgl-canvas-create {
+  position: fixed;
+  inset: 0;
+  display: block;
+  width: 100vw;
+  width: 100dvw;
+  height: 100vh;
+  height: 100dvh;
+  z-index: 100;
+  pointer-events: none;
+}
+
+body:has(#webgl-canvas-create) .landing {
+  z-index: auto;
+  isolation: auto;
+}
+
+body:has(#webgl-canvas-create) .top-nav,
+body:has(#webgl-canvas-create) .start-button,
+body:has(#webgl-canvas-create) .krathong,
+body:has(#webgl-canvas-create) .text-button,
+body:has(#webgl-canvas-create) #back-button,
+body:has(#webgl-canvas-create) #home-button,
+body:has(#webgl-canvas-create) button {
+  position: relative;
+  z-index: 110;
+  pointer-events: auto;
+}
