@@ -2743,3 +2743,13 @@ body:not(:has(#webgl-canvas-create)) .nav-link {
 .btn:active {
   text-decoration: none;
 }
+
+
+/* Remove underline from the homepage button-style link. */
+.refresh-btn,
+.refresh-btn:hover,
+.refresh-btn:focus,
+.refresh-btn:active,
+.refresh-btn:visited {
+  text-decoration: none;
+}
