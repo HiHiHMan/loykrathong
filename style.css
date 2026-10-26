@@ -2775,8 +2775,14 @@ body:not(:has(#webgl-canvas-create)) .nav-link {
   isolation: isolate;
 }
 
+/* Each krathong follows the same path inside this shared launch area. */
 .latest-wishes-section .latest-wish-krathong.lalaloy {
-  top: 27%;
+  top: var(--wish-float-top, 27%);
+  left: 0;
+}
+
+.latest-wishes-section .latest-wish-krathong.lalaloy {
+  top: var(--wish-float-top, 27%);
   left: 0;
   z-index: 2;
   pointer-events: auto;
@@ -2830,7 +2836,6 @@ body:not(:has(#webgl-canvas-create)) .nav-link {
   }
 
   .latest-wishes-section .latest-wish-krathong.lalaloy {
-    top: 24%;
     width: 76px;
     height: 76px;
     font-size: 44px;
