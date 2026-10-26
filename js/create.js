@@ -1,6 +1,6 @@
 "use strict"; 
 
-const canvas = document.getElementById('webgl-canvas-create');
+const canvas = document.getElementById('webgl-canvas');
 const gl = canvas.getContext('webgl', { antialias: true, alpha: true }) || canvas.getContext('experimental-webgl');
 
 if (gl) {
