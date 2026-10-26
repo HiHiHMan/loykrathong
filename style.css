@@ -2840,3 +2840,11 @@ body:not(:has(#webgl-canvas-create)) .nav-link {
     font-size: 44px;
   }
 }
+
+
+/* Keep krathongs off-canvas until their staggered launch time. */
+.cartoon-water .latest-wish-krathong.lalaloy.is-waiting {
+  left: -120px;
+  visibility: hidden;
+  pointer-events: none;
+}
