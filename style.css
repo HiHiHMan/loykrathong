@@ -2480,7 +2480,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
 
 @keyframes lalaloy-drift {
   from { transform: translateX(-60px); }
-  to   { transform: translateX(100vw); }
+  to   { transform: translateX(2880px); }
 }
 
 @keyframes lalaloy-rock {
