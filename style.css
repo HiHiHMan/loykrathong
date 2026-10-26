@@ -2450,7 +2450,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
   top: 27%;
   left: 0;
   pointer-events: none;
-  animation: lalaloy-drift 48s linear infinite;
+  animation: lalaloy-drift 72s linear infinite;
   will-change: transform;
 
    display: grid;
