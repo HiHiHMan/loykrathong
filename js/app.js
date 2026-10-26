@@ -349,7 +349,7 @@ if (gl) {
     // Position every krathong while hidden, then start all animations together.
     krathongs.forEach(function (item, index) {
       item.style.animation = "none";
-      item.style.left = (positions[index] + 60) + "px";
+      item.style.left = (positions[index] - itemWidth) + "px";
       item.style.visibility = "hidden";
       item.style.opacity = "0";
     });
