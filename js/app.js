@@ -320,6 +320,7 @@ if (gl) {
     // The queue is shuffled above, so launch order is independent of createdAt.
     const krathongs = Array.from(grid.querySelectorAll(".latest-wish-krathong"));
     let nextKrathongIndex = 0;
+    const launchedKrathongs = [];
 
     function launchNextKrathong() {
       if (nextKrathongIndex >= krathongs.length) return;
@@ -327,8 +328,22 @@ if (gl) {
       const item = krathongs[nextKrathongIndex];
       nextKrathongIndex += 1;
 
-      // Restart the drift from its initial position only when this item launches.
+      // On small screens, show only the current krathong to avoid crowding
+      // and horizontal overflow. Desktop keeps previously launched krathongs.
+      if (window.matchMedia("(max-width: 600px)").matches) {
+        launchedKrathongs.forEach(function (launchedItem) {
+          launchedItem.style.visibility = "hidden";
+          launchedItem.style.opacity = "0";
+          launchedItem.style.pointerEvents = "none";
+          launchedItem.classList.remove("is-open");
+          const trigger = launchedItem.querySelector(".latest-wish-trigger");
+          if (trigger) trigger.setAttribute("aria-expanded", "false");
+        });
+      }
+
+      // Restart the drift from the left edge only when this item launches.
       item.style.animation = "none";
+      item.style.left = "0";
       item.style.visibility = "hidden";
       item.style.opacity = "0";
       void item.offsetWidth;
@@ -336,6 +351,8 @@ if (gl) {
       item.style.animation = "lalaloy-drift 48s linear infinite";
       item.style.visibility = "visible";
       item.style.opacity = "1";
+      item.style.pointerEvents = "auto";
+      launchedKrathongs.push(item);
 
       if (nextKrathongIndex < krathongs.length) {
         // Randomize the interval for the next item (5–14 seconds).
