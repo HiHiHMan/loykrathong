@@ -2351,7 +2351,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
    left: 50%;
    width: 100vw;
    height: 250px;
-   margin: -36px 0 28px;
+   margin: clamp(-170px, calc(22.5vw - 458px), -80px) 0 28px;
    overflow: hidden;
    transform: translateX(-50%);
    isolation: isolate;
@@ -2413,6 +2413,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
  @media (max-width: 760px) {
    .cartoon-water {
      height: 220px;
+     margin-top: -36px;
      margin-bottom: 0;
    }
  }
