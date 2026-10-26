@@ -208,3 +208,143 @@ if (gl) {
 
     requestAnimationFrame(render);
 }
+
+// =====================================
+// HOMEPAGE: LOAD LATEST 10 WISHES
+// =====================================
+(function initLatestWishes() {
+  const grid = document.getElementById("latestWishesGrid");
+  const count = document.getElementById("latestWishesCount");
+
+  // app.js is also used on pages without the latest-wishes section.
+  if (!grid || !count) return;
+
+  const apiUrl = "https://script.google.com/macros/s/AKfycbxfVAH7i4MSIcXBWB7NSo-PSOkjsn-ur8_57RU0EaDWMB-OtaRTGGzKEJzbfB4GseM/exec";
+  const callbackName = "onLatestWishes_" + Date.now();
+  const script = document.createElement("script");
+  let finished = false;
+  let timeoutId;
+
+  function cleanup() {
+    if (finished) return;
+    finished = true;
+    clearTimeout(timeoutId);
+    delete window[callbackName];
+    script.remove();
+  }
+
+  function escapeHtml(value) {
+    return String(value ?? "").replace(/[&<>"']/g, function (char) {
+      return {
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+      }[char];
+    });
+  }
+
+  function getKrathong(type) {
+    const value = String(type || "").toLowerCase();
+
+    if (value.includes("marigold") || value.includes("ดาวเรือง")) {
+      return { emoji: "🌼", label: "กระทงดอกดาวเรือง" };
+    }
+
+    if (value.includes("lotus") || value.includes("บัว")) {
+      return { emoji: "🪷", label: "กระทงดอกบัว" };
+    }
+
+    return { emoji: "🪷", label: "กระทงลอยน้ำ" };
+  }
+
+  function renderWishes(items) {
+    if (!Array.isArray(items) || items.length === 0) {
+      grid.innerHTML = '<div class="state-message">ยังไม่มีคำอธิษฐานให้แสดงในขณะนี้</div>';
+      count.textContent = "0 คำอธิษฐาน";
+      return;
+    }
+
+    const latestItems = items.slice(0, 10);
+    count.textContent = latestItems.length + " คำอธิษฐาน";
+
+    grid.innerHTML = latestItems.map(function (item, index) {
+      const krathong = getKrathong(item.krathongType);
+
+      return `
+        <article class="wish-item">
+          <div class="tooltip-card" role="group" aria-label="รายละเอียดคำอธิษฐาน">
+            <p class="tooltip-label">✦ คำอธิษฐาน</p>
+            <p class="tooltip-wish">“${escapeHtml(item.wish || "ขอให้พบเจอแต่สิ่งดี ๆ")}”</p>
+            <div class="tooltip-divider" aria-hidden="true">✧</div>
+            <div class="tooltip-footer">
+              <div>
+                <p class="tooltip-name">${escapeHtml(item.fullName || "ไม่ระบุชื่อ")}</p>
+                <p class="tooltip-date">${escapeHtml(item.createdAt || "")}</p>
+              </div>
+              <span class="tooltip-type">${krathong.emoji} ${krathong.label}</span>
+            </div>
+          </div>
+          <button class="krathong-trigger" type="button" aria-label="เปิดคำอธิษฐาน" aria-expanded="false">
+            <span class="krathong-emoji" style="animation-delay:${(index % 5) * 0.35}s">${krathong.emoji}</span>
+            <span class="water-ripple" aria-hidden="true"></span>
+          </button>
+        </article>
+      `;
+    }).join("");
+  }
+
+  window[callbackName] = function (response) {
+    cleanup();
+
+    if (!response || response.success !== true) {
+      grid.innerHTML = '<div class="state-message">โหลดคำอธิษฐานไม่สำเร็จ กรุณาลองใหม่อีกครั้ง</div>';
+      count.textContent = "โหลดข้อมูลไม่สำเร็จ";
+      return;
+    }
+
+    renderWishes(response.data);
+  };
+
+  script.onerror = function () {
+    cleanup();
+    grid.innerHTML = '<div class="state-message">เชื่อมต่อข้อมูลไม่ได้ กรุณาตรวจสอบอินเทอร์เน็ต</div>';
+    count.textContent = "เชื่อมต่อไม่ได้";
+  };
+
+  script.src = apiUrl
+    + "?action=latestWishes&callback="
+    + encodeURIComponent(callbackName)
+    + "&_=" + Date.now();
+
+  timeoutId = setTimeout(function () {
+    cleanup();
+    grid.innerHTML = '<div class="state-message">โหลดข้อมูลใช้เวลานานเกินไป กรุณารีเฟรชหน้าเว็บ</div>';
+    count.textContent = "หมดเวลารอข้อมูล";
+  }, 15000);
+
+  document.body.appendChild(script);
+
+  // Tap a krathong to open/close its wish.
+  grid.addEventListener("click", function (event) {
+    const trigger = event.target.closest(".krathong-trigger");
+    if (!trigger) return;
+
+    const item = trigger.closest(".wish-item");
+    if (!item) return;
+
+    const shouldOpen = !item.classList.contains("is-open");
+
+    grid.querySelectorAll(".wish-item.is-open").forEach(function (openItem) {
+      openItem.classList.remove("is-open");
+      const openTrigger = openItem.querySelector(".krathong-trigger");
+      if (openTrigger) openTrigger.setAttribute("aria-expanded", "false");
+    });
+
+    if (shouldOpen) {
+      item.classList.add("is-open");
+      trigger.setAttribute("aria-expanded", "true");
+    }
+  });
+})();
