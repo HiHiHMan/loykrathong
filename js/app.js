@@ -320,8 +320,8 @@ if (gl) {
       `;
     }).join("");
 
-    // Randomize horizontal spacing (10–35px) while keeping all krathongs
-    // initially hidden beyond the left edge of the screen.
+    // Build cumulative X coordinates: each new position adds a random 50–200px
+    // gap to the previous position.
     const krathongs = Array.from(grid.querySelectorAll(".latest-wish-krathong"));
     const itemWidth = krathongs[0]?.getBoundingClientRect().width || 100;
     const minimumGap = 50;
@@ -333,8 +333,7 @@ if (gl) {
       positions.push(positions[i - 1] + randomGap);
     }
 
-    // Shuffle the randomized X coordinates so the wishes do not launch in
-    // the same left-to-right order as the API response.
+    // Shuffle the cumulative X coordinates so the display order is randomized.
     for (let i = positions.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [positions[i], positions[j]] = [positions[j], positions[i]];
@@ -344,7 +343,7 @@ if (gl) {
 
     krathongs.forEach(function (item, index) {
       item.style.animation = "none";
-      // Keep even the rightmost krathong fully beyond the left edge at startup.
+      // Offset all coordinates so even the rightmost krathong starts offscreen.
       item.style.left = (-itemWidth - 12 + positions[index] - maxPosition) + "px";
       item.style.visibility = "hidden";
       item.style.opacity = "0";
@@ -353,7 +352,7 @@ if (gl) {
 
     void grid.offsetWidth;
 
-    // Reveal and launch all krathongs from offscreen left together.
+    // Start all krathongs drifting right from beyond the left edge.
     krathongs.forEach(function (item) {
       item.classList.remove("is-waiting");
       item.style.animation = "lalaloy-drift 72s linear infinite";
