@@ -2776,7 +2776,7 @@ body:not(:has(#webgl-canvas-create)) .nav-link {
 }
 
 .latest-wishes-section .latest-wish-krathong.lalaloy {
-  top: 8%;
+  top: 27%;
   left: 0;
   z-index: 2;
   pointer-events: auto;
@@ -2830,6 +2830,7 @@ body:not(:has(#webgl-canvas-create)) .nav-link {
   }
 
   .latest-wishes-section .latest-wish-krathong.lalaloy {
+    top: 24%;
     width: 76px;
     height: 76px;
     font-size: 44px;
