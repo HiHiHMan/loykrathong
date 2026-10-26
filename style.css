@@ -2410,8 +2410,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
  @media (max-width: 760px) {
    .cartoon-water {
      height: 220px;
-     margin-top: -18px;
-     margin-bottom: 40px;
+     margin-bottom: 22px;
    }
  }
 
@@ -2429,9 +2428,9 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
  }
 
 
- /* Clip the wave artwork cleanly so it ends at the wave section instead of spilling into the footer. */
+ /* ===== Bottom water layer extends to the footer; selection UI sits above it ===== */
  .cartoon-water {
-   overflow: hidden;
+   overflow: visible;
  }
 
  #selection-view {
