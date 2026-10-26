@@ -321,6 +321,7 @@ if (gl) {
     const krathongs = Array.from(grid.querySelectorAll(".latest-wish-krathong"));
     let nextKrathongIndex = 0;
     const launchedKrathongs = [];
+    renderWishes.launchCycle = (renderWishes.launchCycle || 0) + 1;
 
     function launchNextKrathong() {
       if (nextKrathongIndex >= krathongs.length) return;
@@ -346,7 +347,17 @@ if (gl) {
       if (nextKrathongIndex < krathongs.length) {
         // Short randomized intervals keep the scene populated without scaling
         // krathongs to fit smaller screens.
-        const nextDelayMs = 6000 + Math.floor(Math.random() * 6001);
+        // Cycle through four fixed launch rhythms (seconds between krathongs).
+        // Each pattern has a different cadence; the sequence repeats after pattern 4.
+        const launchPatterns = [
+          [5, 9, 5, 7, 4, 8, 6, 5, 9, 4],
+          [7, 4, 8, 5, 9, 6, 4, 7, 5, 8],
+          [4, 8, 6, 9, 5, 4, 7, 9, 6, 5],
+          [9, 5, 7, 4, 8, 5, 6, 4, 9, 7]
+        ];
+        const patternIndex = (Math.floor((latestItems.length + launchPatterns.length - 1) / 1) + renderWishes.launchCycle - 1) % launchPatterns.length;
+        const intervalIndex = nextKrathongIndex - 1;
+        const nextDelayMs = launchPatterns[patternIndex][intervalIndex] * 1000;
         setTimeout(launchNextKrathong, nextDelayMs);
       }
     }
