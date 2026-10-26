@@ -340,9 +340,12 @@ if (gl) {
       [positions[i], positions[j]] = [positions[j], positions[i]];
     }
 
+    const maxPosition = positions.length ? Math.max(...positions) : 0;
+
     krathongs.forEach(function (item, index) {
       item.style.animation = "none";
-      item.style.left = (-itemWidth - 12 + positions[index]) + "px";
+      // Keep even the rightmost krathong fully beyond the left edge at startup.
+      item.style.left = (-itemWidth - 12 + positions[index] - maxPosition) + "px";
       item.style.visibility = "hidden";
       item.style.opacity = "0";
       item.style.pointerEvents = "none";
