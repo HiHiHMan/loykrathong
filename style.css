@@ -2664,7 +2664,6 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
 }
 
 .top-nav {
-  position: relative;
   z-index: 10000 !important;
 }
 
