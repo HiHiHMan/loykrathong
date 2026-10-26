@@ -2351,7 +2351,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
    left: 50%;
    width: 100vw;
    height: 250px;
-   margin: 0 0 28px;
+   margin: -36px 0 28px;
    overflow: hidden;
    transform: translateX(-50%);
    isolation: isolate;
