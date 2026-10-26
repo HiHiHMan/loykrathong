@@ -2784,6 +2784,7 @@ body:not(:has(#webgl-canvas-create)) .nav-link {
 /* Random vertical positions stay within the waterline; each krathong drifts left-to-right. */
 .cartoon-water .latest-wish-krathong.lalaloy {
   left: 0;
+  top: var(--wish-float-top, 27%);
   z-index: 2;
   pointer-events: auto;
   cursor: pointer;
