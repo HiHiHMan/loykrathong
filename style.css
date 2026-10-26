@@ -2757,7 +2757,7 @@ body:not(:has(#webgl-canvas-create)) .nav-link {
 /* Show each krathong owner's name directly beneath the floating krathong. */
 .cartoon-water .krathong-owner-name {
   position: absolute;
-  top: 78px;
+  top: -24px;
   left: 50%;
   z-index: 4;
   max-width: 150px;
