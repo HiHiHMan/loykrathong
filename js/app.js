@@ -320,45 +320,25 @@ if (gl) {
       `;
     }).join("");
 
-    // Assign unique X points with more than 30px between each point.
-    // All positions are prepared before any krathong starts moving.
+    // Start every krathong beyond the left edge, then launch them one by one.
+    // A staggered delay prevents any krathong from appearing halfway across the screen.
     const krathongs = Array.from(grid.querySelectorAll(".latest-wish-krathong"));
-    const minimumGap = 31;
-    const minSpan = minimumGap * Math.max(0, krathongs.length - 1);
     const itemWidth = krathongs[0]?.getBoundingClientRect().width || 100;
-    const availableSpan = Math.max(grid.clientWidth - itemWidth, minSpan);
-    const extraSpan = availableSpan - minSpan;
-    const gapWeights = Array.from(
-      { length: Math.max(0, krathongs.length - 1) },
-      () => 0.25 + Math.random()
-    );
-    const totalWeight = gapWeights.reduce((sum, weight) => sum + weight, 0);
-    const positions = [0];
+    const launchInterval = 2.5;
 
-    gapWeights.forEach(function (weight) {
-      const gap = minimumGap + (totalWeight ? extraSpan * weight / totalWeight : 0);
-      positions.push(positions[positions.length - 1] + gap);
-    });
-
-    // Randomly assign the unique coordinates to the krathongs.
-    for (let i = positions.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [positions[i], positions[j]] = [positions[j], positions[i]];
-    }
-
-    // Position every krathong while hidden, then start all animations together.
     krathongs.forEach(function (item, index) {
       item.style.animation = "none";
-      item.style.left = (positions[index] - itemWidth) + "px";
+      item.style.left = (-itemWidth - 12) + "px";
       item.style.visibility = "hidden";
       item.style.opacity = "0";
+      item.style.pointerEvents = "none";
     });
 
     void grid.offsetWidth;
 
-    krathongs.forEach(function (item) {
+    krathongs.forEach(function (item, index) {
       item.classList.remove("is-waiting");
-      item.style.animation = "lalaloy-drift 72s linear infinite";
+      item.style.animation = `lalaloy-drift 72s linear ${index * launchInterval}s infinite`;
       item.style.visibility = "visible";
       item.style.opacity = "1";
       item.style.pointerEvents = "auto";
