@@ -215,9 +215,16 @@ if (gl) {
 (function initLatestWishes() {
   const grid = document.getElementById("latestWishesGrid");
   const count = document.getElementById("latestWishesCount");
+  const waterArea = document.querySelector(".cartoon-water");
 
   // app.js is also used on pages without the latest-wishes section.
   if (!grid || !count) return;
+
+  // Render the latest wishes directly over the animated water waves.
+  if (waterArea) {
+    waterArea.appendChild(grid);
+    grid.classList.add("latest-wishes-waterline");
+  }
 
   const apiUrl = "https://script.google.com/macros/s/AKfycbzPBRubmqbrZbjqO6mNfzJ24ScNzyIHchY1QXRuE-NatslGoaxNb4Np86abO2pkGOs/exec";
   const callbackName = "onLatestWishes_" + Date.now();
