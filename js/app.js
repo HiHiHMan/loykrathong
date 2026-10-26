@@ -271,12 +271,11 @@ if (gl) {
 
     grid.innerHTML = latestItems.map(function (item, index) {
       const krathong = getKrathong(item.krathongType);
-      const top = 8 + ((index * 23) % 72);
 
       return `
         <article
           class="lalaloy latest-wish-krathong"
-          style="top:${top}%; animation-delay:-${index * 3.2}s"
+          style="animation-delay:-${index * 3.2}s"
         >
           <button class="lalaloy-motion latest-wish-trigger" type="button"
             aria-label="เปิดคำอธิษฐานของ ${escapeHtml(item.fullName || "ผู้ร่วมงาน")}"
