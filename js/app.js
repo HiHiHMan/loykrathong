@@ -219,7 +219,7 @@ if (gl) {
   // app.js is also used on pages without the latest-wishes section.
   if (!grid || !count) return;
 
-  const apiUrl = "https://script.google.com/macros/s/AKfycbxfVAH7i4MSIcXBWB7NSo-PSOkjsn-ur8_57RU0EaDWMB-OtaRTGGzKEJzbfB4GseM/exec";
+  const apiUrl = "https://script.google.com/macros/s/AKfycbzPBRubmqbrZbjqO6mNfzJ24ScNzyIHchY1QXRuE-NatslGoaxNb4Np86abO2pkGOs/exec";
   const callbackName = "onLatestWishes_" + Date.now();
   const script = document.createElement("script");
   let finished = false;
