@@ -2726,3 +2726,11 @@ body:has(#webgl-canvas-create) button {
   z-index: 110;
   pointer-events: auto;
 }
+
+
+/* Let create-page controls escape intermediate stacking contexts above the canvas. */
+body:has(#webgl-canvas-create) .content,
+body:has(#webgl-canvas-create) .landing > section,
+body:has(#webgl-canvas-create) #selection-view {
+  z-index: auto;
+}
