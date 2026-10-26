@@ -2790,21 +2790,6 @@ body:not(:has(#webgl-canvas-create)) .nav-link {
   cursor: pointer;
 }
 
-/* Layer the krathongs between the rear waves and translucent front wave crests. */
-.cartoon-water .wave-layer-1 { z-index: 1; }
-.cartoon-water .wave-layer-2 { z-index: 2; }
-.cartoon-water .wave-layer-2-5 {
-  z-index: 4;
-  opacity: 0.48;
-}
-.cartoon-water .wave-layer-3 {
-  z-index: 5;
-  opacity: 0.38;
-}
-/* Keep the deep-water fill behind the floating items. */
-.cartoon-water .wave-layer-4 {
-  z-index: 0;
-}
 
 .cartoon-water .latest-wish-trigger {
   display: grid;
