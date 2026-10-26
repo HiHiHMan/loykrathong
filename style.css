@@ -2708,7 +2708,7 @@ body:not(:has(#webgl-canvas-create)) .nav-link {
 
   /* Keep waiting krathongs stacked at the left edge until their launch delay ends. */
   .cartoon-water .latest-wish-krathong.lalaloy.is-waiting {
-    left: -38px;
+    left: -90px;
     top: 24%;
     visibility: visible;
     pointer-events: none;
@@ -2729,7 +2729,7 @@ body:not(:has(#webgl-canvas-create)) .nav-link {
 
 @media (max-width: 600px) {
   .cartoon-water .latest-wish-krathong.lalaloy.is-waiting {
-    left: -38px;
+    left: -90px;
     top: 24%;
     visibility: visible;
   }
