@@ -334,8 +334,11 @@ if (gl) {
     }
 
     const maxPosition = positions.length ? Math.max(...positions) : 0;
+    // Travel far enough to move every krathong completely across the visible water.
+    const travelDistance = grid.clientWidth + itemWidth + maxPosition + 24;
 
     krathongs.forEach(function (item, index) {
+      item.style.setProperty("--krathong-travel", travelDistance + "px");
       item.style.animation = "none";
       // Offset all coordinates so even the rightmost krathong starts offscreen.
       item.style.left = (-itemWidth - 12 + positions[index] - maxPosition) + "px";
