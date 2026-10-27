@@ -2886,22 +2886,32 @@ body:not(:has(#webgl-canvas-create)) .landing .intro .ornament {
   }
 }
 
-/* Float homepage actions above the scenery layers without changing document flow. */
-body:not(:has(#webgl-canvas-create)) .content > .refresh-btn,
-body:not(:has(#webgl-canvas-create)) .content > .refresh-row {
-  position: relative;
-  z-index: 100 !important;
-  transform: translateY(-140px);
+/* Position homepage actions by viewport coordinates, above waves and WebGL. */
+body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-btn {
+  position: fixed !important;
+  top: 72vh;
+  left: 50%;
+  z-index: 1000 !important;
+  margin: 0 !important;
+  transform: translate(-50%, -50%);
 }
 
-body:not(:has(#webgl-canvas-create)) .content > .refresh-row {
-  margin-top: 0 !important;
+body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-row {
+  position: fixed !important;
+  top: 81vh;
+  left: 50%;
+  z-index: 1000 !important;
+  margin: 0 !important;
+  transform: translate(-50%, -50%);
 }
 
 @media (max-width: 600px) {
-  body:not(:has(#webgl-canvas-create)) .content > .refresh-btn,
-  body:not(:has(#webgl-canvas-create)) .content > .refresh-row {
-    transform: translateY(-100px);
+  body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-btn {
+    top: 74vh;
+  }
+
+  body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-row {
+    top: 83vh;
   }
 }
 
