@@ -2885,24 +2885,24 @@ body:not(:has(#webgl-canvas-create)) .landing .intro .ornament {
   }
 }
 
-/* Raise homepage action buttons closer to the intro. */
+/* Raise homepage action buttons further toward the intro. */
 @media (min-width: 601px) {
   body:not(:has(#webgl-canvas-create)) .content > .refresh-btn {
-    margin-top: -18px;
+    margin-top: -42px;
   }
 
   body:not(:has(#webgl-canvas-create)) .content > .refresh-row {
-    margin-top: 8px;
+    margin-top: 4px;
   }
 }
 
 @media (max-width: 600px) {
   body:not(:has(#webgl-canvas-create)) .content > .refresh-btn {
-    margin-top: 12px;
+    margin-top: -4px;
   }
 
   body:not(:has(#webgl-canvas-create)) .content > .refresh-row {
-    margin-top: 8px;
+    margin-top: 4px;
   }
 }
 
