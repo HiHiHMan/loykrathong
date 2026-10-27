@@ -2890,24 +2890,13 @@ body:not(:has(#webgl-canvas-create)) .landing .intro .ornament {
 body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-btn,
 body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-row {
   position: relative !important;
-  top: -140px;
+  top: -92px;
   left: auto;
   z-index: 1000 !important;
   transform: none;
 }
 
 body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-row {
-  margin-top: -126px !important;
-}
-
-@media (max-width: 600px) {
-  body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-btn,
-  body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-row {
-    top: -100px;
-  }
-
-  body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-row {
-    margin-top: -86px !important;
-  }
+  margin-top: -78px !important;
 }
 
