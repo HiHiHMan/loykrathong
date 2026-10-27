@@ -6011,3 +6011,21 @@ body:not(:has(#webgl-canvas-create)) .landing > .moon-image img {
     font-size: 11px;
   }
 }
+
+
+/* Homepage mobile: move the full foreground content lower together. */
+@media (max-width: 760px) {
+  body:not(:has(#webgl-canvas-create)) .landing > .content {
+    padding-top: clamp(42px, 8vh, 76px) !important;
+  }
+
+  body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop {
+    margin-top: clamp(28px, 5vh, 48px) !important;
+  }
+}
+
+@media (max-width: 390px) {
+  body:not(:has(#webgl-canvas-create)) .landing > .content {
+    padding-top: clamp(34px, 6vh, 56px) !important;
+  }
+}
