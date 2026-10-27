@@ -2886,32 +2886,28 @@ body:not(:has(#webgl-canvas-create)) .landing .intro .ornament {
   }
 }
 
-/* Position homepage actions by viewport coordinates, above waves and WebGL. */
-body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-btn {
-  position: fixed !important;
-  top: 72vh;
-  left: 50%;
+/* Keep homepage actions in the document flow so they scroll with the page. */
+body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-btn,
+body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-row {
+  position: relative !important;
+  top: -140px;
+  left: auto;
   z-index: 1000 !important;
-  margin: 0 !important;
-  transform: translate(-50%, -50%);
+  transform: none;
 }
 
 body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-row {
-  position: fixed !important;
-  top: 81vh;
-  left: 50%;
-  z-index: 1000 !important;
-  margin: 0 !important;
-  transform: translate(-50%, -50%);
+  margin-top: -126px !important;
 }
 
 @media (max-width: 600px) {
-  body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-btn {
-    top: 74vh;
+  body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-btn,
+  body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-row {
+    top: -100px;
   }
 
   body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-row {
-    top: 83vh;
+    margin-top: -86px !important;
   }
 }
 
