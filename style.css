@@ -5946,8 +5946,12 @@ body:not(:has(#webgl-canvas-create)) .landing > .moon-image img {
 }
 
 
-/* Homepage navigation stays visible but inactive */
+/* Homepage navigation stays visible above the scenery, but remains inactive */
 .homepage-top-nav {
+  position: fixed !important;
+  top: 18px;
+  right: 24px;
+  z-index: 2147483647 !important;
   opacity: 0.3;
-  pointer-events: none;
+  pointer-events: none !important;
 }
