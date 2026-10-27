@@ -6223,3 +6223,23 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moo
   }
 }
 
+
+
+/* Index page only: move temple and cartoon water significantly downward */
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
+  margin-top: -250px !important;
+}
+
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .cartoon-water {
+  margin-top: -20px !important;
+}
+
+@media (max-width: 760px) {
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
+    margin-top: -250px !important;
+  }
+
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .cartoon-water {
+    margin-top: -20px !important;
+  }
+}
