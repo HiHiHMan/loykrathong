@@ -6210,16 +6210,16 @@ body:has(.landing > .moon-image) .landing > .content > .intro {
 
 /* Index page: move intro and moon upward only */
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .intro {
-  top: -35px;
+  top: -65px;
 }
 
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image {
-  top: clamp(24px, 4vh, 60px) !important;
+  top: clamp(0px, 1vh, 16px) !important;
 }
 
 @media (max-width: 600px) {
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image {
-    top: 24px !important;
+    top: 0 !important;
   }
 }
 
