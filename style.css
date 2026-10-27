@@ -6055,3 +6055,17 @@ body:not(:has(#webgl-canvas-create)) .landing > .moon-image {
     inset: -18%;
   }
 }
+
+
+/* Move homepage content down slightly to match the adjusted moon position. */
+@media (max-width: 760px) {
+  body:not(:has(#webgl-canvas-create)) .landing > .content {
+    padding-top: clamp(54px, 10vh, 90px) !important;
+  }
+}
+
+@media (max-width: 390px) {
+  body:not(:has(#webgl-canvas-create)) .landing > .content {
+    padding-top: clamp(44px, 8vh, 68px) !important;
+  }
+}
