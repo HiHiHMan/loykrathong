@@ -2897,6 +2897,6 @@ body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-row {
 }
 
 body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-row {
-  margin-top: -78px !important;
+  margin-top: 12px !important;
 }
 
