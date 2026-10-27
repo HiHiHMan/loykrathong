@@ -2819,7 +2819,7 @@ body:not(:has(#webgl-canvas-create)) .refresh-btn {
 }
 
 /* Keep intro above page layers, but below the homepage WebGL canvas (z-index: 25). */
-body:not(:has(#webgl-canvas-create)) .landing .intro {
+body:has(.landing > .moon-image) .landing .intro {
   position: relative;
   z-index: 24;
 }
@@ -2830,13 +2830,13 @@ body:not(:has(#webgl-canvas-create)) #webgl-canvas {
 }
 
 /* ===== Homepage intro: soft backdrop glow without a card ===== */
-body:not(:has(#webgl-canvas-create)) .landing .intro {
+body:has(.landing > .moon-image) .landing .intro {
   position: relative;
   z-index: 24;
   isolation: isolate;
 }
 
-body:not(:has(#webgl-canvas-create)) .landing .intro::before {
+body:has(.landing > .moon-image) .landing .intro::before {
   content: "";
   position: absolute;
   z-index: -1;
@@ -2852,23 +2852,23 @@ body:not(:has(#webgl-canvas-create)) .landing .intro::before {
   filter: blur(12px);
 }
 
-body:not(:has(#webgl-canvas-create)) .landing .intro h1 {
+body:has(.landing > .moon-image) .landing .intro h1 {
   color: #fffaf0;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
 }
 
-body:not(:has(#webgl-canvas-create)) .landing .intro .description {
+body:has(.landing > .moon-image) .landing .intro .description {
   color: #f7f1e7;
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.95);
 }
 
-body:not(:has(#webgl-canvas-create)) .landing .intro .ornament {
+body:has(.landing > .moon-image) .landing .intro .ornament {
   color: #f0c76c;
   text-shadow: 0 0 12px rgba(240, 199, 108, 0.3);
 }
 
 @media (max-width: 600px) {
-  body:not(:has(#webgl-canvas-create)) .landing .intro::before {
+  body:has(.landing > .moon-image) .landing .intro::before {
     inset: -24px -18px;
     background: radial-gradient(
       ellipse at center,
@@ -2891,7 +2891,7 @@ body:not(:has(#webgl-canvas-create)) .landing .intro .ornament {
     filter: blur(8px);
   }
 
-  body:not(:has(#webgl-canvas-create)) .landing .intro .description {
+  body:has(.landing > .moon-image) .landing .intro .description {
     font-size: 13px;
     line-height: 1.9;
   }
@@ -5732,7 +5732,7 @@ body:not(:has(#webgl-canvas-create)) .refresh-btn {
 }
 
 /* Keep intro above page layers, but below the homepage WebGL canvas (z-index: 25). */
-body:not(:has(#webgl-canvas-create)) .landing .intro {
+body:has(.landing > .moon-image) .landing .intro {
   position: relative;
   z-index: 24;
 }
@@ -5743,13 +5743,13 @@ body:not(:has(#webgl-canvas-create)) #webgl-canvas {
 }
 
 /* ===== Homepage intro: soft backdrop glow without a card ===== */
-body:not(:has(#webgl-canvas-create)) .landing .intro {
+body:has(.landing > .moon-image) .landing .intro {
   position: relative;
   z-index: 24;
   isolation: isolate;
 }
 
-body:not(:has(#webgl-canvas-create)) .landing .intro::before {
+body:has(.landing > .moon-image) .landing .intro::before {
   content: "";
   position: absolute;
   z-index: -1;
@@ -5765,23 +5765,23 @@ body:not(:has(#webgl-canvas-create)) .landing .intro::before {
   filter: blur(12px);
 }
 
-body:not(:has(#webgl-canvas-create)) .landing .intro h1 {
+body:has(.landing > .moon-image) .landing .intro h1 {
   color: #fffaf0;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
 }
 
-body:not(:has(#webgl-canvas-create)) .landing .intro .description {
+body:has(.landing > .moon-image) .landing .intro .description {
   color: #f7f1e7;
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.95);
 }
 
-body:not(:has(#webgl-canvas-create)) .landing .intro .ornament {
+body:has(.landing > .moon-image) .landing .intro .ornament {
   color: #f0c76c;
   text-shadow: 0 0 12px rgba(240, 199, 108, 0.3);
 }
 
 @media (max-width: 600px) {
-  body:not(:has(#webgl-canvas-create)) .landing .intro::before {
+  body:has(.landing > .moon-image) .landing .intro::before {
     inset: -24px -18px;
     background: radial-gradient(
       ellipse at center,
@@ -5803,7 +5803,7 @@ body:not(:has(#webgl-canvas-create)) .landing .intro .ornament {
     filter: blur(8px);
   }
 
-  body:not(:has(#webgl-canvas-create)) .landing .intro .description {
+  body:has(.landing > .moon-image) .landing .intro .description {
     font-size: 13px;
     line-height: 1.9;
   }
