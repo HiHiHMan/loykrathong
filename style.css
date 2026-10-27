@@ -6095,3 +6095,35 @@ body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop
     margin-top: 36px !important;
   }
 }
+
+/* Wishes page: keep the footer after the wish cards instead of overlaying the viewport. */
+body:has(#wishGrid) .landing {
+  height: auto !important;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow: visible !important;
+}
+
+body:has(#wishGrid) .landing > footer {
+  position: relative !important;
+  inset: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  left: auto !important;
+  width: 100%;
+  margin: 32px auto 0 !important;
+  padding: 18px 24px max(22px, env(safe-area-inset-bottom));
+  box-sizing: border-box;
+  z-index: 1001;
+}
+
+@media (max-width: 600px) {
+  body:has(#wishGrid) .landing > footer {
+    margin-top: 24px !important;
+    padding: 18px 16px max(18px, env(safe-area-inset-bottom));
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.6;
+  }
+}
