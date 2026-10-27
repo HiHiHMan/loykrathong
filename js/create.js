@@ -4,8 +4,8 @@ const canvas = document.getElementById('webgl-canvas-create');
 const gl = canvas.getContext('webgl', { antialias: true, alpha: true }) || canvas.getContext('experimental-webgl');
 
 if (gl) {
-  // Configuration matching exact parameters:
-  // Golden Yellow theme, 125 particles, 0.3x speed, 0.4x size, 0.5x flicker, 0.2x wind
+  
+  
   const config = {
     count: 125,
     speedScale: 0.3,
@@ -185,7 +185,7 @@ if (gl) {
   function render(currentTime) {
     const elapsedTime = (currentTime - startTime) * 0.001;
 
-    // gl.clearColor(0.03, 0.05, 0.1, 1.0);
+    
     gl.clearColor(0.0, 0.0, 0.0, 0.0);
     gl.clear(gl.COLOR_BUFFER_BIT);
 
