@@ -6040,3 +6040,18 @@ body:not(:has(#webgl-canvas-create)) .landing > .moon-image {
     top: 12px !important;
   }
 }
+
+/* Strong correction: move the moon well clear of the landing's top edge. */
+body:not(:has(#webgl-canvas-create)) .landing > .moon-image {
+  top: clamp(72px, 10vh, 120px) !important;
+}
+
+@media (max-width: 600px) {
+  body:not(:has(#webgl-canvas-create)) .landing > .moon-image {
+    top: 64px !important;
+  }
+
+  body:not(:has(#webgl-canvas-create)) .landing > .moon-image::before {
+    inset: -18%;
+  }
+}
