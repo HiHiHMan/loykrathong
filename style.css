@@ -5872,3 +5872,18 @@ body:not(:has(#webgl-canvas-create)) .landing > footer {
   text-shadow: 0 1px 5px rgba(0, 0, 0, 0.95);
   pointer-events: none;
 }
+
+
+/* ===== Absolute homepage layer order: water above scenery, WebGL canvas above all ===== */
+body:not(:has(#webgl-canvas-create)) .landing > .water {
+  position: absolute;
+  z-index: 2147483646 !important;
+  pointer-events: none !important;
+}
+
+body:not(:has(#webgl-canvas-create)) .landing > #webgl-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483647 !important;
+  pointer-events: none !important;
+}
