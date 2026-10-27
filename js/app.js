@@ -324,8 +324,8 @@ if (gl) {
     // gap to the previous position.
     const krathongs = Array.from(grid.querySelectorAll(".latest-wish-krathong"));
     const itemWidth = krathongs[0]?.getBoundingClientRect().width || 100;
-    const minimumGap = 50;
-    const maximumGap = 200;
+    const minimumGap = 200;
+    const maximumGap = 400;
     const positions = [0];
 
     for (let i = 1; i < krathongs.length; i++) {
