@@ -183,12 +183,13 @@
 
  .water {
    position: absolute;
-   z-index: 1;
+   z-index: 3;
    bottom: 0;
    left: 0;
    width: 100%;
    height: 24%;
    opacity: 0.45;
+   pointer-events: none;
    background:
      repeating-linear-gradient(177deg,
        transparent 0 17px,
@@ -5857,3 +5858,17 @@ body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-back
   z-index: 1;
 }
 
+/* Keep homepage water and footer above scenery layers without covering content controls. */
+body:not(:has(#webgl-canvas-create)) .landing > .water {
+  z-index: 26;
+  pointer-events: none;
+}
+
+body:not(:has(#webgl-canvas-create)) .landing > footer {
+  position: absolute;
+  z-index: 1001;
+  isolation: isolate;
+  color: #f0d89e;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.95);
+  pointer-events: none;
+}
