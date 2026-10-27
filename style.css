@@ -2818,16 +2818,15 @@ body:has(.landing > .moon-image) .landing .intro::before {
   content: "";
   position: absolute;
   z-index: -1;
-  inset: -34px -70px;
+  inset: -28px -48px;
   pointer-events: none;
   background: radial-gradient(
     ellipse at center,
-    rgba(2, 9, 21, 0.56) 0%,
-    rgba(2, 9, 21, 0.36) 42%,
-    rgba(2, 9, 21, 0.13) 68%,
-    transparent 78%
+    rgba(2, 9, 21, 0.52) 0%,
+    rgba(2, 9, 21, 0.32) 48%,
+    rgba(2, 9, 21, 0.12) 72%,
+    transparent 100%
   );
-  filter: blur(12px);
 }
 
 body:has(.landing > .moon-image) .landing .intro h1 {
@@ -2847,15 +2846,14 @@ body:has(.landing > .moon-image) .landing .intro .ornament {
 
 @media (max-width: 600px) {
   body:has(.landing > .moon-image) .landing .intro::before {
-    inset: -24px -18px;
+    inset: -22px -14px;
     background: radial-gradient(
       ellipse at center,
-      rgba(2, 9, 21, 0.78) 0%,
-      rgba(2, 9, 21, 0.52) 54%,
+      rgba(2, 9, 21, 0.56) 0%,
+      rgba(2, 9, 21, 0.34) 50%,
       rgba(2, 9, 21, 0.12) 76%,
-      transparent 86%
+      transparent 100%
     );
-    filter: blur(8px);
   }
 
   body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop::before {
