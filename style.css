@@ -2884,8 +2884,8 @@ body:not(:has(#webgl-canvas-create)) .landing .intro .ornament {
     inset: -24px -18px;
     background: radial-gradient(
       ellipse at center,
-      rgba(2, 9, 21, 0.14) 0%,
-      rgba(2, 9, 21, 0.07) 54%,
+      rgba(2, 9, 21, 0.34) 0%,
+      rgba(2, 9, 21, 0.20) 54%,
       transparent 82%
     );
     filter: blur(8px);
@@ -5834,9 +5834,9 @@ body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-back
   pointer-events: none;
   background: radial-gradient(
     ellipse at center,
-    rgba(2, 9, 21, 0.12) 0%,
-    rgba(2, 9, 21, 0.06) 42%,
-    rgba(2, 9, 21, 0.02) 68%,
+    rgba(2, 9, 21, 0.32) 0%,
+    rgba(2, 9, 21, 0.20) 42%,
+    rgba(2, 9, 21, 0.07) 68%,
     transparent 78%
   );
   filter: blur(12px);
