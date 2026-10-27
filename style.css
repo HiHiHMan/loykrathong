@@ -6057,15 +6057,15 @@ body:not(:has(#webgl-canvas-create)) .landing > .moon-image {
 }
 
 
-/* Move homepage content down slightly to match the adjusted moon position. */
+/* Move homepage content much further down on small screens. */
 @media (max-width: 760px) {
   body:not(:has(#webgl-canvas-create)) .landing > .content {
-    padding-top: clamp(54px, 10vh, 90px) !important;
+    padding-top: clamp(120px, 22vh, 190px) !important;
   }
 }
 
 @media (max-width: 390px) {
   body:not(:has(#webgl-canvas-create)) .landing > .content {
-    padding-top: clamp(44px, 8vh, 68px) !important;
+    padding-top: clamp(100px, 18vh, 150px) !important;
   }
 }
