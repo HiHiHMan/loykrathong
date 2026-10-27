@@ -24,11 +24,11 @@ function renderWishes(items) {
   if (!Array.isArray(items) || items.length === 0) {
     wishGrid.innerHTML =
       '<div class="state-message">ยังไม่มีคำอธิษฐานให้แสดงในขณะนี้</div>';
-    resultCount.textContent = "0 คำอธิษฐาน";
+    resultCount.textContent = "";
     return;
   }
 
-  resultCount.textContent = `${items.length} คำอธิษฐาน`;
+  resultCount.textContent = ``;
 
   wishGrid.innerHTML = items.map((item, index) => {
     const k = getKrathong(item.krathongType);
