@@ -5892,7 +5892,7 @@ body:not(:has(#webgl-canvas-create)) .landing > #webgl-canvas {
 /* ===== First scenery layer: moon image ===== */
 body:not(:has(#webgl-canvas-create)) .landing > .moon-image {
   position: absolute;
-  top: clamp(28px, 5vh, 64px);
+  top: clamp(8px, 1vh, 16px);
   left: 50%;
   z-index: 0;
   width: clamp(150px, 24vw, 320px);
@@ -5911,7 +5911,7 @@ body:not(:has(#webgl-canvas-create)) .landing > .moon-image img {
 
 @media (max-width: 600px) {
   body:not(:has(#webgl-canvas-create)) .landing > .moon-image {
-    top: 7vh;
+    top: 2vh;
     width: clamp(130px, 42vw, 210px);
   }
 }
