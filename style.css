@@ -5843,7 +5843,7 @@ body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-back
 }
 
 body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop .refresh-row {
-  margin-top: 0 !important;
+  margin-top: -13px !important;
 }
 
 body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop .refresh-btn {
