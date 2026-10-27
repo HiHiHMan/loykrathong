@@ -5856,3 +5856,7 @@ body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-back
   z-index: 1;
 }
 
+/* Keep the homepage footer above the WebGL canvas and scenery layers. */
+body:not(:has(#webgl-canvas-create)) .landing > footer {
+  z-index: 1001;
+}
