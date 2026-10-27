@@ -2630,9 +2630,7 @@ body:not(:has(#webgl-canvas-create)) .landing > .content {
 }
 
 body:not(:has(#webgl-canvas-create)) .start-button,
-body:not(:has(#webgl-canvas-create)) .refresh-btn,
-body:not(:has(#webgl-canvas-create)) .top-nav,
-body:not(:has(#webgl-canvas-create)) .nav-link {
+body:not(:has(#webgl-canvas-create)) .refresh-btn {
   position: relative;
   z-index: 30 !important;
   pointer-events: auto;
@@ -5545,9 +5543,7 @@ body:not(:has(#webgl-canvas-create)) .landing > .content {
 }
 
 body:not(:has(#webgl-canvas-create)) .start-button,
-body:not(:has(#webgl-canvas-create)) .refresh-btn,
-body:not(:has(#webgl-canvas-create)) .top-nav,
-body:not(:has(#webgl-canvas-create)) .nav-link {
+body:not(:has(#webgl-canvas-create)) .refresh-btn {
   position: relative;
   z-index: 30 !important;
   pointer-events: auto;
@@ -5946,12 +5942,3 @@ body:not(:has(#webgl-canvas-create)) .landing > .moon-image img {
 }
 
 
-/* Homepage navigation stays visible above the scenery, but remains inactive */
-.homepage-top-nav {
-  position: fixed !important;
-  top: 18px;
-  right: 24px;
-  z-index: 2147483647 !important;
-  opacity: 0.3;
-  pointer-events: none !important;
-}
