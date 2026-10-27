@@ -2880,13 +2880,24 @@ body:not(:has(#webgl-canvas-create)) .landing .intro .ornament {
     filter: blur(8px);
   }
 
+  body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop::before {
+    inset: -24px -18px;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(2, 9, 21, 0.84) 0%,
+      rgba(2, 9, 21, 0.58) 54%,
+      transparent 82%
+    );
+    filter: blur(8px);
+  }
+
   body:not(:has(#webgl-canvas-create)) .landing .intro .description {
     font-size: 13px;
     line-height: 1.9;
   }
 }
 
-/* Backdrop groups the homepage actions and scrolls with the document. */
+/* Match the homepage intro's soft radial-glow backdrop; scrolls with the page. */
 body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop {
   position: relative;
   top: -92px;
@@ -2898,13 +2909,23 @@ body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-back
   width: fit-content;
   max-width: calc(100% - 32px);
   margin: 0 auto;
-  padding: 18px 24px;
-  border: 1px solid rgba(220, 194, 132,  0.28);
-  border-radius: 24px;
-  background: rgba(3, 15, 31, 0.48);
-  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.18);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
+  isolation: isolate;
+}
+
+body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -34px -70px;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(2, 9, 21, 0.78) 0%,
+    rgba(2, 9, 21, 0.54) 42%,
+    rgba(2, 9, 21, 0.2) 68%,
+    transparent 78%
+  );
+  filter: blur(12px);
 }
 
 body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop .refresh-row {
