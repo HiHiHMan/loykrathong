@@ -2610,15 +2610,16 @@ body:has(#webgl-canvas-create) textarea {
   }
 }
 
-/* ===== Homepage WebGL overlay: above scenery, below interactive controls ===== */
+/* ===== Homepage WebGL overlay: scenery below content and controls ===== */
 body:not(:has(#webgl-canvas-create)) #webgl-canvas {
   z-index: 25 !important;
   pointer-events: none !important;
 }
 
-/* Remove the content stacking layer on the homepage so buttons can sit above WebGL. */
-body:not(:has(#webgl-canvas-create)) .content {
-  z-index: auto;
+/* Keep the entire content stacking context above the WebGL canvas. */
+body:not(:has(#webgl-canvas-create)) .landing > .content {
+  position: relative;
+  z-index: 50 !important;
   animation: homepage-content-appear 900ms ease both;
 }
 
