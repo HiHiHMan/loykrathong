@@ -2886,17 +2886,38 @@ body:not(:has(#webgl-canvas-create)) .landing .intro .ornament {
   }
 }
 
-/* Keep homepage actions in the document flow so they scroll with the page. */
-body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-btn,
-body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-row {
-  position: relative !important;
+/* Backdrop groups the homepage actions and scrolls with the document. */
+body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop {
+  position: relative;
   top: -92px;
-  left: auto;
   z-index: 1000 !important;
-  transform: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: fit-content;
+  max-width: calc(100% - 32px);
+  margin: 0 auto;
+  padding: 18px 24px;
+  border: 1px solid rgba(220, 194, 132,  0.28);
+  border-radius: 24px;
+  background: rgba(3, 15, 31, 0.48);
+  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.18);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 }
 
-body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-row {
-  margin-top: 12px !important;
+body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop .refresh-row {
+  margin-top: 0 !important;
+}
+
+body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop .refresh-btn {
+  position: relative;
+  z-index: 1;
+}
+
+body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop .text-button {
+  position: relative;
+  z-index: 1;
 }
 
