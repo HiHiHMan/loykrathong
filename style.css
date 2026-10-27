@@ -2889,7 +2889,7 @@ body:not(:has(#webgl-canvas-create)) .landing .intro .ornament {
 body:not(:has(#webgl-canvas-create)) .content > .refresh-btn {
   position: relative;
   z-index: 40 !important;
-  margin-top: -100px !important;
+  margin-top: -140px !important;
 }
 
 body:not(:has(#webgl-canvas-create)) .content > .refresh-row {
@@ -2900,7 +2900,7 @@ body:not(:has(#webgl-canvas-create)) .content > .refresh-row {
 
 @media (max-width: 600px) {
   body:not(:has(#webgl-canvas-create)) .content > .refresh-btn {
-    margin-top: -72px !important;
+    margin-top: -100px !important;
   }
 }
 
