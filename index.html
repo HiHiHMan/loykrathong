@@ -18,6 +18,13 @@
 
 <body>
 
+  <nav class="top-nav" style="opacity: 0; pointer-events: none;">
+    <a href="./index.html" class="nav-link" aria-current="page">หน้าหลัก</a>
+    <a href="./pages/Create.html" class="nav-link">สร้างกระทง</a>
+    <a href="./pages/wishes.html" class="nav-link">คำอธิษฐาน</a>
+  </nav>
+
+
   <main class="landing">
     <div class="moon-image" aria-hidden="true"><img src="./images/obj07.png" alt="" loading="eager"></div>
     <div class="moon-glow"></div>
@@ -39,7 +46,7 @@
         <img src="./images/obj01.png" alt="ภาพวัด" loading="eager">
       </div>
       <div class="cartoon-water" role="img" aria-label="ภาพคลื่นน้ำการ์ตูน 5 ชั้น พร้อมกระทงลอยไปทางขวา">
-        
+
         <div id="latestWishesGrid" aria-live="polite"></div>
         <span id="latestWishesCount" hidden>กำลังโหลดคำอธิษฐาน</span>
         <svg class="wave-svg wave-layer wave-layer-1" viewBox="0 0 2880 300" preserveAspectRatio="none"
@@ -92,11 +99,6 @@
   </main>
 
   <script src="./js/app.js"></script>
-  <nav class="top-nav">
-    <a href="./index.html" class="nav-link" aria-current="page">หน้าหลัก</a>
-    <a href="./pages/Create.html" class="nav-link">สร้างกระทง</a>
-    <a href="./pages/wishes.html" class="nav-link">คำอธิษฐาน</a>
-  </nav>
 
 </body>
 
