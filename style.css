@@ -2828,3 +2828,51 @@ body:not(:has(#webgl-canvas-create)) .landing .intro {
 body:not(:has(#webgl-canvas-create)) #webgl-canvas {
   z-index: 25 !important;
 }
+
+/* ===== Homepage intro: improve text contrast over the scenery ===== */
+body:not(:has(#webgl-canvas-create)) .landing .intro {
+  width: min(100%, 680px);
+  margin-inline: auto;
+  padding: clamp(18px, 3vw, 30px) clamp(16px, 4vw, 38px);
+  border: 1px solid rgba(214, 184, 121, 0.2);
+  border-radius: 20px;
+  background: linear-gradient(
+    180deg,
+    rgba(3, 10, 22, 0.82),
+    rgba(3, 10, 22, 0.64)
+  );
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+body:not(:has(#webgl-canvas-create)) .landing .intro h1 {
+  color: #fffaf0;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.85);
+}
+
+body:not(:has(#webgl-canvas-create)) .landing .intro .description {
+  color: #f0e9dc;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.95);
+}
+
+body:not(:has(#webgl-canvas-create)) .landing .intro .ornament {
+  color: #f0c76c;
+  text-shadow: 0 0 12px rgba(240, 199, 108, 0.25);
+}
+
+@media (max-width: 600px) {
+  body:not(:has(#webgl-canvas-create)) .landing .intro {
+    padding: 18px 14px;
+    border-radius: 16px;
+    background: rgba(3, 10, 22, 0.84);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+  }
+
+  body:not(:has(#webgl-canvas-create)) .landing .intro .description {
+    font-size: 13px;
+    line-height: 1.9;
+  }
+}
+
