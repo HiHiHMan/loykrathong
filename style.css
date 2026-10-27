@@ -6041,14 +6041,14 @@ body:has(.landing > .moon-image) .landing > .moon-image {
   }
 }
 
-/* Fine adjustment: lower the moon a little further from the landing's top edge. */
+/* Raise the moon slightly while keeping it inside the landing section. */
 body:has(.landing > .moon-image) .landing > .moon-image {
-  top: clamp(84px, 11vh, 132px) !important;
+  top: clamp(54px, 7vh, 96px) !important;
 }
 
 @media (max-width: 600px) {
   body:has(.landing > .moon-image) .landing > .moon-image {
-    top: 78px !important;
+    top: 48px !important;
   }
 
   body:has(.landing > .moon-image) .landing > .moon-image::before {
