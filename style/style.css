@@ -2621,7 +2621,7 @@
 @keyframes lalaloy-drift {
 
   from { transform: translateX(-60px); }
-  to   { transform: translateX(2880px); }
+  to   { transform: translateX(var(--krathong-travel, 2880px)); }
 
 }
 
@@ -5445,7 +5445,7 @@ oot {
 @keyframes lalaloy-drift {
 
   from { transform: translateX(-60px); }
-  to   { transform: translateX(2880px); }
+  to   { transform: translateX(var(--krathong-travel, 2880px)); }
 
 }
 
