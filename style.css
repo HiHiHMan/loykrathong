@@ -6029,3 +6029,14 @@ body:not(:has(#webgl-canvas-create)) .landing > .moon-image img {
     padding-top: clamp(34px, 6vh, 56px) !important;
   }
 }
+
+/* Keep the moon fully inside the landing section instead of crossing its top edge. */
+body:not(:has(#webgl-canvas-create)) .landing > .moon-image {
+  top: clamp(12px, 2vh, 24px) !important;
+}
+
+@media (max-width: 600px) {
+  body:not(:has(#webgl-canvas-create)) .landing > .moon-image {
+    top: 12px !important;
+  }
+}
