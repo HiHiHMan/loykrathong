@@ -19,7 +19,7 @@
    color: var(--text);
    font-family: "Kanit", sans-serif;
    font-weight: 300;
-   /* background: var(--background); */
+   
    background:
      radial-gradient(ellipse at 50% 20%, rgb(14, 40, 70), transparent 46%),
      radial-gradient(ellipse at 8% 78%, rgba(198, 122, 30, 0.041), transparent 22%),
@@ -266,7 +266,7 @@
  .krathong-list {
    display: grid;
    grid-template-columns: repeat(2, minmax(0, 1fr));
-   /* grid-template-columns: repeat(3, minmax(0, 1fr)); */
+   
    gap: 14px;
    max-width: 680px;
    margin: 0 auto 34px;
@@ -862,7 +862,7 @@
 
 
 
- /* ===== Wish List: Chat Layout ===== */
+ 
  .wish-grid {
    display: flex;
    flex-direction: column;
@@ -872,7 +872,7 @@
    overflow: visible;
  }
 
- /* ===== Wish Item ===== */
+ 
  .wish-item {
    position: relative;
    display: flex;
@@ -886,7 +886,7 @@
    margin-bottom: 20px;
  }
 
- /* รายการแรกอยู่ฝั่งซ้าย */
+ 
  .wish-item:nth-child(odd) {
    align-self: flex-end;
    flex-direction: row-reverse;
@@ -895,7 +895,7 @@
    max-width: 95%;
  }
 
- /* รายการที่สองอยู่ฝั่งขวา */
+ 
  .wish-item:nth-child(even) {
    align-self: flex-end;
    flex-direction: row;
@@ -904,7 +904,7 @@
    max-width: 95%;
  }
 
- /* ===== Tooltip: Glass Effect ===== */
+ 
  .tooltip-card {
    scale: .8;
    position: relative;
@@ -916,12 +916,12 @@
    margin: 0;
    padding: 18px 19px 16px;
 
-   /* พื้นกระจกโปร่งแสง */
+   
    background: rgba(18, 27, 43, 0.78);
    backdrop-filter: blur(14px);
    -webkit-backdrop-filter: blur(14px);
 
-   /* ขอบและเงาสีทอง */
+   
    border: 1px solid rgba(216, 184, 107, 0.35);
    border-radius: 16px;
    box-shadow:
@@ -932,7 +932,7 @@
    color: #f5f1e8;
    overflow-wrap: anywhere;
 
-   /* แสดงค้างไว้ */
+   
    opacity: 1;
    visibility: visible;
    pointer-events: auto;
@@ -944,7 +944,7 @@
      box-shadow 0.25s ease;
  }
 
- /* เส้นแสงด้านบน */
+ 
  .tooltip-card::before {
    content: "";
    position: absolute;
@@ -958,38 +958,38 @@
        transparent);
  }
 
- /* ปิดลูกศรเดิม */
+ 
  .tooltip-card::after {
    display: none;
  }
 
- /* ข้อความคำอธิษฐาน */
+ 
  .tooltip-wish {
    color: #fffaf0;
    line-height: 1.8;
    overflow-wrap: anywhere;
  }
 
- /* ชื่อผู้เขียน */
+ 
  .tooltip-name {
    color: #f1d49a;
-   /* font-size: 0.75rem; */
+   
  }
 
- /* วันที่และข้อความรอง */
+ 
  .tooltip-date,
  .tooltip-type,
  .tooltip-label {
    color: rgba(230, 233, 240, 0.68);
-   /* font-size: 0.75rem; */
+   
  }
 
- /* เส้นคั่น */
+ 
  .tooltip-divider {
    border-color: rgba(216, 184, 107, 0.2);
  }
 
- /* ===== Left Item: Tooltip Above Krathong ===== */
+ 
  .wish-item:nth-child(odd) .tooltip-card {
    order: 1;
    flex: 1 1 auto;
@@ -1001,7 +1001,7 @@
    flex: 0 0 130px;
  }
 
- /* ===== Right Item: Tooltip Left, Krathong Right ===== */
+ 
  .wish-item:nth-child(even) .tooltip-card {
    order: 1;
    flex: 1 1 auto;
@@ -1013,7 +1013,7 @@
    flex: 0 0 130px;
  }
 
- /* ===== Krathong ===== */
+ 
  .krathong-trigger {
    position: relative;
    display: grid;
@@ -1073,7 +1073,7 @@
    pointer-events: none;
  }
 
- /* ===== Animations ===== */
+ 
  @keyframes float {
 
    0%,
@@ -1110,7 +1110,7 @@
    }
  }
 
- /* ===== Responsive ===== */
+ 
  @media (max-width: 800px) {
    .wish-item {
      max-width: 90%;
@@ -1189,7 +1189,7 @@
    }
  }
 
- /* ===== Reduced Motion ===== */
+ 
  @media (prefers-reduced-motion: reduce) {
 
    *,
@@ -1223,16 +1223,7 @@
    transform: none;
  }
 
- /* footer {
-   display: flex;
-   justify-content: space-between;
-   gap: 16px;
-   padding: 22px 0 28px;
-   border-top: 1px solid #d8b86b22;
-   color: #6f7a8d;
-   font-size: 10px;
-   letter-spacing: 2px;
- } */
+ 
 
  @keyframes float {
 
@@ -1338,20 +1329,14 @@
    margin-top: 14px;
  }
 
- /* ===== Mobile Safari / Android touch fixes ===== */
+ 
  html {
    -webkit-text-size-adjust: 100%;
    text-size-adjust: 100%;
    scroll-padding-top: 72px;
  }
 
- /* body { min-width: 0; -webkit-tap-highlight-color: transparent; }
-button, a, input, textarea { touch-action: manipulation; }
-button, .nav-link, .krathong-trigger { -webkit-appearance: none; appearance: none; }
-button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible {
-  outline: 2px solid var(--gold);
-  outline-offset: 3px;
-} */
+ 
  #webgl-canvas {
    width: 100%;
    height: 100%;
@@ -1450,7 +1435,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
      line-height: 1.6;
    }
 
-   /* Wish list becomes tap-to-open cards instead of hover tooltips. */
+   
    .wish-grid {
      display: flex;
      flex-direction: column;
@@ -1560,10 +1545,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
  }
 
 
- /* =========================================================
-   RESPONSIVE SYSTEM — phones, tablets, laptops and desktops
-   Keep this block at the end so it overrides legacy media rules.
-   ========================================================= */
+ 
  :root {
    --page-gutter: clamp(12px, 3.2vw, 40px);
    --content-max: 1120px;
@@ -1619,11 +1601,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
    -webkit-tap-highlight-color: transparent;
  }
 
- /* button:focus-visible, a:focus-visible,
-input:focus-visible, textarea:focus-visible, select:focus-visible {
-  outline: 2px solid var(--gold);
-  outline-offset: 3px;
-} */
+ 
 
  .landing {
    width: 100%;
@@ -1692,7 +1670,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
    max-width: calc(100% - 2 * var(--page-gutter));
  }
 
- /* Small phones: 320–389px */
+ 
  @media (max-width: 389px) {
    :root {
      --page-gutter: 12px;
@@ -1778,7 +1756,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
    }
  }
 
- /* Phones: 390–599px */
+ 
  @media (min-width: 390px) and (max-width: 599px) {
    :root {
      --page-gutter: 16px;
@@ -1833,7 +1811,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
    }
  }
 
- /* Tablets and small laptops: 600–899px */
+ 
  @media (min-width: 600px) and (max-width: 899px) {
    :root {
      --page-gutter: clamp(22px, 4vw, 36px);
@@ -1876,7 +1854,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
    }
  }
 
- /* Desktop: 900px and above */
+ 
  @media (min-width: 900px) {
    .landing {
      padding-top: 84px;
@@ -1897,7 +1875,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
    }
  }
 
- /* Very wide screens */
+ 
  @media (min-width: 1440px) {
    .content {
      max-width: 1200px;
@@ -1909,7 +1887,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
    }
  }
 
- /* Landscape phones: avoid vertically clipped forms and headers */
+ 
  @media (max-height: 520px) and (orientation: landscape) {
    .top-nav {
      position: relative;
@@ -1946,7 +1924,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
    }
  }
 
- /* Respect OS reduced-motion settings */
+ 
  @media (prefers-reduced-motion: reduce) {
 
    *,
@@ -1960,7 +1938,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
  }
 
 
- /* ===== Wishes page overflow fix (tablet / desktop) ===== */
+ 
  .landing>section[aria-labelledby="wishes-title"] {
    width: 100%;
    max-width: 1000px;
@@ -2044,7 +2022,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
  }
 
 
- /* ===== Final fix: .wish-item must never exceed its parent ===== */
+ 
  .landing>section[aria-labelledby="wishes-title"],
  .landing>section[aria-labelledby="wishes-title"] * {
    box-sizing: border-box;
@@ -2143,7 +2121,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
    }
  }
 
- /* ===== Wish list responsive layout and compact tooltip cards ===== */
+ 
  .landing>section[aria-labelledby="wishes-title"] .wish-grid {
    display: flex;
    flex-direction: column;
@@ -2180,7 +2158,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
    scale: 1;
  }
 
- /* Compact paragraph spacing without changing the card's visual theme. */
+ 
  .landing>section[aria-labelledby="wishes-title"] .tooltip-card p {
    margin: 0;
  }
@@ -2269,7 +2247,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
  }
 
 
- /* ===== Small screens: center each wish and visually connect it to its krathong ===== */
+ 
  @media (max-width: 520px) {
 
    .landing>section[aria-labelledby="wishes-title"] .wish-item,
@@ -2314,7 +2292,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
      text-align: left;
    }
 
-   /* A small connector makes it clear which krathong belongs to the wish above. */
+   
    .landing>section[aria-labelledby="wishes-title"] .wish-item .tooltip-card::after,
    .landing>section[aria-labelledby="wishes-title"] .wish-item:nth-child(odd) .tooltip-card::after,
    .landing>section[aria-labelledby="wishes-title"] .wish-item:nth-child(even) .tooltip-card::after {
@@ -2345,7 +2323,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
  }
 
 
- /* ===== Five-layer uniform waves + floating krathong ===== */
+ 
  .cartoon-water {
    position: relative;
    z-index: 0;
@@ -2362,7 +2340,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
    position: absolute;
    inset: 0 auto auto 0;
    display: block;
-   /* Keep the wave's horizontal wavelength stable on narrow screens. */
+   
    width: max(200%, 2880px);
    height: 100%;
    max-width: none;
@@ -2373,7 +2351,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
    animation: cartoon-wave-drift 90s linear infinite;
  }
 
- /* Slower wave motion with different durations and phases so layers don't move in sync. */
+ 
  .wave-layer-1 {
    animation-duration: 78s;
    animation-delay: -17s;
@@ -2399,7 +2377,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
    animation-delay: -52s;
  }
 
- /* Move the water from left to right; the repeating wave pattern keeps the loop seamless. */
+ 
  @keyframes cartoon-wave-drift {
    from {
      transform: translateX(-50%);
@@ -2410,7 +2388,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
    }
  }
 
- /* A small krathong glides across the water and gently bobs with the waves. */
+ 
  @media (max-width: 760px) {
    .cartoon-water {
      height: 220px;
@@ -2433,7 +2411,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
  }
 
 
- /* ===== Bottom water layer extends to the footer; selection UI sits above it ===== */
+ 
  .cartoon-water {
    overflow: visible;
  }
@@ -2447,8 +2425,8 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
    z-index: 3;
  }
 
-/* ===== Homepage krathong drifting with the water ===== */
-/* Separate horizontal drift from the bob/rock motion to prevent transform conflicts. */
+
+
 .lalaloy {
   position: absolute;
   z-index: 10;
@@ -2514,7 +2492,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
 }
 
 
-/* ===== Global layer order: decorative layers behind all page controls ===== */
+
 #webgl-canvas {
   z-index: 0 !important;
   pointer-events: none !important;
@@ -2560,7 +2538,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
 }
 
 
-/* ===== Create page: canvas overlays page content, but never blocks controls ===== */
+
 body:has(#webgl-canvas-create) #webgl-canvas-create {
   position: fixed;
   inset: 0;
@@ -2574,7 +2552,7 @@ body:has(#webgl-canvas-create) #webgl-canvas-create {
   pointer-events: none;
 }
 
-/* Avoid parent stacking contexts trapping buttons below the canvas. */
+
 body:has(#webgl-canvas-create) .landing {
   position: relative;
   z-index: auto;
@@ -2588,7 +2566,7 @@ body:has(#webgl-canvas-create) #selection-view {
   z-index: auto;
 }
 
-/* Only navigation and actual controls sit above the full-screen canvas. */
+
 body:has(#webgl-canvas-create) .top-nav,
 body:has(#webgl-canvas-create) button,
 body:has(#webgl-canvas-create) .nav-link,
@@ -2600,7 +2578,7 @@ body:has(#webgl-canvas-create) textarea {
 }
 
 
-/* Keep homepage actions lower on small screens so they cover less of the waves. */
+
 @media (max-width: 600px) {
   body:not(:has(#webgl-canvas-create)) .content > .refresh-btn {
     margin-top: 30px;
@@ -2611,13 +2589,13 @@ body:has(#webgl-canvas-create) textarea {
   }
 }
 
-/* ===== Homepage WebGL overlay: scenery below content and controls ===== */
+
 body:not(:has(#webgl-canvas-create)) #webgl-canvas {
   z-index: 25 !important;
   pointer-events: none !important;
 }
 
-/* Keep the entire content stacking context above the WebGL canvas. */
+
 body:not(:has(#webgl-canvas-create)) .landing > .content {
   position: relative;
   z-index: 50 !important;
@@ -2637,7 +2615,7 @@ body:not(:has(#webgl-canvas-create)) .refresh-btn {
 }
 
 
-/* ===== Latest wishes: krathongs launch and float directly on the animated waves ===== */
+
 .cartoon-water #latestWishesGrid.latest-wishes-waterline {
   position: absolute;
   inset: 0;
@@ -2653,7 +2631,7 @@ body:not(:has(#webgl-canvas-create)) .refresh-btn {
   pointer-events: none;
 }
 
-/* Random vertical positions stay within the waterline; each krathong drifts left-to-right. */
+
 .cartoon-water .latest-wish-krathong.lalaloy {
   left: 0;
   top: var(--wish-float-top, 27%);
@@ -2710,7 +2688,7 @@ body:not(:has(#webgl-canvas-create)) .refresh-btn {
     font-size: 44px;
   }
 
-  /* Keep waiting krathongs stacked at the left edge until their launch delay ends. */
+  
   .cartoon-water .latest-wish-krathong.lalaloy.is-waiting {
     left: -160px;
     top: 24%;
@@ -2724,7 +2702,7 @@ body:not(:has(#webgl-canvas-create)) .refresh-btn {
 }
 
 
-/* Keep waiting krathongs tucked just beyond the left edge until their staggered launch time. */
+
 .cartoon-water .latest-wish-krathong.lalaloy.is-waiting {
   left: -120px;
   visibility: hidden;
@@ -2740,7 +2718,7 @@ body:not(:has(#webgl-canvas-create)) .refresh-btn {
 }
 
 
-/* Remove underline from button-style links in every interaction state. */
+
 .btn,
 .btn:hover,
 .btn:focus,
@@ -2749,7 +2727,7 @@ body:not(:has(#webgl-canvas-create)) .refresh-btn {
 }
 
 
-/* Remove underline from the homepage button-style link. */
+
 .refresh-btn,
 .refresh-btn:hover,
 .refresh-btn:focus,
@@ -2758,7 +2736,7 @@ body:not(:has(#webgl-canvas-create)) .refresh-btn {
   text-decoration: none;
 }
 
-/* Show each krathong owner's name directly beneath the floating krathong. */
+
 .cartoon-water .krathong-owner-name {
   position: absolute;
   top: -24px;
@@ -2781,7 +2759,7 @@ body:not(:has(#webgl-canvas-create)) .refresh-btn {
   transform: translateX(-50%);
 }
 
-/* Strict launch queue: queued krathongs must remain fully invisible and motionless. */
+
 .cartoon-water .latest-wish-krathong.lalaloy.is-waiting {
   visibility: hidden !important;
   opacity: 0 !important;
@@ -2796,7 +2774,7 @@ body:not(:has(#webgl-canvas-create)) .refresh-btn {
 
 
 
-/* ===== Temple image: full viewport width ===== */
+
 .temple-image {
   width: 100vw;
   max-width: none;
@@ -2818,18 +2796,18 @@ body:not(:has(#webgl-canvas-create)) .refresh-btn {
   object-fit: contain;
 }
 
-/* Keep intro above page layers, but below the homepage WebGL canvas (z-index: 25). */
+
 body:has(.landing > .moon-image) .landing .intro {
   position: relative;
   z-index: 24;
 }
 
-/* The WebGL canvas intentionally remains above the intro. */
+
 body:not(:has(#webgl-canvas-create)) #webgl-canvas {
   z-index: 25 !important;
 }
 
-/* ===== Homepage intro: soft backdrop glow without a card ===== */
+
 body:has(.landing > .moon-image) .landing .intro {
   position: relative;
   z-index: 24;
@@ -2897,7 +2875,7 @@ body:has(.landing > .moon-image) .landing .intro .ornament {
   }
 }
 
-/* Match the homepage intro's soft radial-glow backdrop; scrolls with the page. */
+
 body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop {
   position: relative;
   top: -92px;
@@ -2933,7 +2911,7 @@ oot {
    color: var(--text);
    font-family: "Kanit", sans-serif;
    font-weight: 300;
-   /* background: var(--background); */
+   
    background:
      radial-gradient(ellipse at 50% 20%, rgb(14, 40, 70), transparent 46%),
      radial-gradient(ellipse at 8% 78%, rgba(198, 122, 30, 0.041), transparent 22%),
@@ -3179,7 +3157,7 @@ oot {
  .krathong-list {
    display: grid;
    grid-template-columns: repeat(2, minmax(0, 1fr));
-   /* grid-template-columns: repeat(3, minmax(0, 1fr)); */
+   
    gap: 14px;
    max-width: 680px;
    margin: 0 auto 34px;
@@ -3775,7 +3753,7 @@ oot {
 
 
 
- /* ===== Wish List: Chat Layout ===== */
+ 
  .wish-grid {
    display: flex;
    flex-direction: column;
@@ -3785,7 +3763,7 @@ oot {
    overflow: visible;
  }
 
- /* ===== Wish Item ===== */
+ 
  .wish-item {
    position: relative;
    display: flex;
@@ -3799,7 +3777,7 @@ oot {
    margin-bottom: 20px;
  }
 
- /* รายการแรกอยู่ฝั่งซ้าย */
+ 
  .wish-item:nth-child(odd) {
    align-self: flex-end;
    flex-direction: row-reverse;
@@ -3808,7 +3786,7 @@ oot {
    max-width: 95%;
  }
 
- /* รายการที่สองอยู่ฝั่งขวา */
+ 
  .wish-item:nth-child(even) {
    align-self: flex-end;
    flex-direction: row;
@@ -3817,7 +3795,7 @@ oot {
    max-width: 95%;
  }
 
- /* ===== Tooltip: Glass Effect ===== */
+ 
  .tooltip-card {
    scale: .8;
    position: relative;
@@ -3829,12 +3807,12 @@ oot {
    margin: 0;
    padding: 18px 19px 16px;
 
-   /* พื้นกระจกโปร่งแสง */
+   
    background: rgba(18, 27, 43, 0.78);
    backdrop-filter: blur(14px);
    -webkit-backdrop-filter: blur(14px);
 
-   /* ขอบและเงาสีทอง */
+   
    border: 1px solid rgba(216, 184, 107, 0.35);
    border-radius: 16px;
    box-shadow:
@@ -3845,7 +3823,7 @@ oot {
    color: #f5f1e8;
    overflow-wrap: anywhere;
 
-   /* แสดงค้างไว้ */
+   
    opacity: 1;
    visibility: visible;
    pointer-events: auto;
@@ -3857,7 +3835,7 @@ oot {
      box-shadow 0.25s ease;
  }
 
- /* เส้นแสงด้านบน */
+ 
  .tooltip-card::before {
    content: "";
    position: absolute;
@@ -3871,38 +3849,38 @@ oot {
        transparent);
  }
 
- /* ปิดลูกศรเดิม */
+ 
  .tooltip-card::after {
    display: none;
  }
 
- /* ข้อความคำอธิษฐาน */
+ 
  .tooltip-wish {
    color: #fffaf0;
    line-height: 1.8;
    overflow-wrap: anywhere;
  }
 
- /* ชื่อผู้เขียน */
+ 
  .tooltip-name {
    color: #f1d49a;
-   /* font-size: 0.75rem; */
+   
  }
 
- /* วันที่และข้อความรอง */
+ 
  .tooltip-date,
  .tooltip-type,
  .tooltip-label {
    color: rgba(230, 233, 240, 0.68);
-   /* font-size: 0.75rem; */
+   
  }
 
- /* เส้นคั่น */
+ 
  .tooltip-divider {
    border-color: rgba(216, 184, 107, 0.2);
  }
 
- /* ===== Left Item: Tooltip Above Krathong ===== */
+ 
  .wish-item:nth-child(odd) .tooltip-card {
    order: 1;
    flex: 1 1 auto;
@@ -3914,7 +3892,7 @@ oot {
    flex: 0 0 130px;
  }
 
- /* ===== Right Item: Tooltip Left, Krathong Right ===== */
+ 
  .wish-item:nth-child(even) .tooltip-card {
    order: 1;
    flex: 1 1 auto;
@@ -3926,7 +3904,7 @@ oot {
    flex: 0 0 130px;
  }
 
- /* ===== Krathong ===== */
+ 
  .krathong-trigger {
    position: relative;
    display: grid;
@@ -3986,7 +3964,7 @@ oot {
    pointer-events: none;
  }
 
- /* ===== Animations ===== */
+ 
  @keyframes float {
 
    0%,
@@ -4023,7 +4001,7 @@ oot {
    }
  }
 
- /* ===== Responsive ===== */
+ 
  @media (max-width: 800px) {
    .wish-item {
      max-width: 90%;
@@ -4102,7 +4080,7 @@ oot {
    }
  }
 
- /* ===== Reduced Motion ===== */
+ 
  @media (prefers-reduced-motion: reduce) {
 
    *,
@@ -4136,16 +4114,7 @@ oot {
    transform: none;
  }
 
- /* footer {
-   display: flex;
-   justify-content: space-between;
-   gap: 16px;
-   padding: 22px 0 28px;
-   border-top: 1px solid #d8b86b22;
-   color: #6f7a8d;
-   font-size: 10px;
-   letter-spacing: 2px;
- } */
+ 
 
  @keyframes float {
 
@@ -4251,20 +4220,14 @@ oot {
    margin-top: 14px;
  }
 
- /* ===== Mobile Safari / Android touch fixes ===== */
+ 
  html {
    -webkit-text-size-adjust: 100%;
    text-size-adjust: 100%;
    scroll-padding-top: 72px;
  }
 
- /* body { min-width: 0; -webkit-tap-highlight-color: transparent; }
-button, a, input, textarea { touch-action: manipulation; }
-button, .nav-link, .krathong-trigger { -webkit-appearance: none; appearance: none; }
-button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible {
-  outline: 2px solid var(--gold);
-  outline-offset: 3px;
-} */
+ 
  #webgl-canvas {
    width: 100%;
    height: 100%;
@@ -4363,7 +4326,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
      line-height: 1.6;
    }
 
-   /* Wish list becomes tap-to-open cards instead of hover tooltips. */
+   
    .wish-grid {
      display: flex;
      flex-direction: column;
@@ -4473,10 +4436,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
  }
 
 
- /* =========================================================
-   RESPONSIVE SYSTEM — phones, tablets, laptops and desktops
-   Keep this block at the end so it overrides legacy media rules.
-   ========================================================= */
+ 
  :root {
    --page-gutter: clamp(12px, 3.2vw, 40px);
    --content-max: 1120px;
@@ -4532,11 +4492,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
    -webkit-tap-highlight-color: transparent;
  }
 
- /* button:focus-visible, a:focus-visible,
-input:focus-visible, textarea:focus-visible, select:focus-visible {
-  outline: 2px solid var(--gold);
-  outline-offset: 3px;
-} */
+ 
 
  .landing {
    width: 100%;
@@ -4605,7 +4561,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
    max-width: calc(100% - 2 * var(--page-gutter));
  }
 
- /* Small phones: 320–389px */
+ 
  @media (max-width: 389px) {
    :root {
      --page-gutter: 12px;
@@ -4691,7 +4647,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
    }
  }
 
- /* Phones: 390–599px */
+ 
  @media (min-width: 390px) and (max-width: 599px) {
    :root {
      --page-gutter: 16px;
@@ -4746,7 +4702,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
    }
  }
 
- /* Tablets and small laptops: 600–899px */
+ 
  @media (min-width: 600px) and (max-width: 899px) {
    :root {
      --page-gutter: clamp(22px, 4vw, 36px);
@@ -4789,7 +4745,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
    }
  }
 
- /* Desktop: 900px and above */
+ 
  @media (min-width: 900px) {
    .landing {
      padding-top: 84px;
@@ -4810,7 +4766,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
    }
  }
 
- /* Very wide screens */
+ 
  @media (min-width: 1440px) {
    .content {
      max-width: 1200px;
@@ -4822,7 +4778,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
    }
  }
 
- /* Landscape phones: avoid vertically clipped forms and headers */
+ 
  @media (max-height: 520px) and (orientation: landscape) {
    .top-nav {
      position: relative;
@@ -4859,7 +4815,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
    }
  }
 
- /* Respect OS reduced-motion settings */
+ 
  @media (prefers-reduced-motion: reduce) {
 
    *,
@@ -4873,7 +4829,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
  }
 
 
- /* ===== Wishes page overflow fix (tablet / desktop) ===== */
+ 
  .landing>section[aria-labelledby="wishes-title"] {
    width: 100%;
    max-width: 1000px;
@@ -4957,7 +4913,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
  }
 
 
- /* ===== Final fix: .wish-item must never exceed its parent ===== */
+ 
  .landing>section[aria-labelledby="wishes-title"],
  .landing>section[aria-labelledby="wishes-title"] * {
    box-sizing: border-box;
@@ -5056,7 +5012,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
    }
  }
 
- /* ===== Wish list responsive layout and compact tooltip cards ===== */
+ 
  .landing>section[aria-labelledby="wishes-title"] .wish-grid {
    display: flex;
    flex-direction: column;
@@ -5093,7 +5049,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
    scale: 1;
  }
 
- /* Compact paragraph spacing without changing the card's visual theme. */
+ 
  .landing>section[aria-labelledby="wishes-title"] .tooltip-card p {
    margin: 0;
  }
@@ -5182,7 +5138,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
  }
 
 
- /* ===== Small screens: center each wish and visually connect it to its krathong ===== */
+ 
  @media (max-width: 520px) {
 
    .landing>section[aria-labelledby="wishes-title"] .wish-item,
@@ -5227,7 +5183,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
      text-align: left;
    }
 
-   /* A small connector makes it clear which krathong belongs to the wish above. */
+   
    .landing>section[aria-labelledby="wishes-title"] .wish-item .tooltip-card::after,
    .landing>section[aria-labelledby="wishes-title"] .wish-item:nth-child(odd) .tooltip-card::after,
    .landing>section[aria-labelledby="wishes-title"] .wish-item:nth-child(even) .tooltip-card::after {
@@ -5258,7 +5214,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
  }
 
 
- /* ===== Five-layer uniform waves + floating krathong ===== */
+ 
  .cartoon-water {
    position: relative;
    z-index: 0;
@@ -5275,7 +5231,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
    position: absolute;
    inset: 0 auto auto 0;
    display: block;
-   /* Keep the wave's horizontal wavelength stable on narrow screens. */
+   
    width: max(200%, 2880px);
    height: 100%;
    max-width: none;
@@ -5286,7 +5242,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
    animation: cartoon-wave-drift 90s linear infinite;
  }
 
- /* Slower wave motion with different durations and phases so layers don't move in sync. */
+ 
  .wave-layer-1 {
    animation-duration: 78s;
    animation-delay: -17s;
@@ -5312,7 +5268,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
    animation-delay: -52s;
  }
 
- /* Move the water from left to right; the repeating wave pattern keeps the loop seamless. */
+ 
  @keyframes cartoon-wave-drift {
    from {
      transform: translateX(-50%);
@@ -5323,7 +5279,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
    }
  }
 
- /* A small krathong glides across the water and gently bobs with the waves. */
+ 
  @media (max-width: 760px) {
    .cartoon-water {
      height: 220px;
@@ -5346,7 +5302,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
  }
 
 
- /* ===== Bottom water layer extends to the footer; selection UI sits above it ===== */
+ 
  .cartoon-water {
    overflow: visible;
  }
@@ -5360,8 +5316,8 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
    z-index: 3;
  }
 
-/* ===== Homepage krathong drifting with the water ===== */
-/* Separate horizontal drift from the bob/rock motion to prevent transform conflicts. */
+
+
 .lalaloy {
   position: absolute;
   z-index: 10;
@@ -5427,7 +5383,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
 }
 
 
-/* ===== Global layer order: decorative layers behind all page controls ===== */
+
 #webgl-canvas {
   z-index: 0 !important;
   pointer-events: none !important;
@@ -5473,7 +5429,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
 }
 
 
-/* ===== Create page: canvas overlays page content, but never blocks controls ===== */
+
 body:has(#webgl-canvas-create) #webgl-canvas-create {
   position: fixed;
   inset: 0;
@@ -5487,7 +5443,7 @@ body:has(#webgl-canvas-create) #webgl-canvas-create {
   pointer-events: none;
 }
 
-/* Avoid parent stacking contexts trapping buttons below the canvas. */
+
 body:has(#webgl-canvas-create) .landing {
   position: relative;
   z-index: auto;
@@ -5501,7 +5457,7 @@ body:has(#webgl-canvas-create) #selection-view {
   z-index: auto;
 }
 
-/* Only navigation and actual controls sit above the full-screen canvas. */
+
 body:has(#webgl-canvas-create) .top-nav,
 body:has(#webgl-canvas-create) button,
 body:has(#webgl-canvas-create) .nav-link,
@@ -5513,7 +5469,7 @@ body:has(#webgl-canvas-create) textarea {
 }
 
 
-/* Keep homepage actions lower on small screens so they cover less of the waves. */
+
 @media (max-width: 600px) {
   body:not(:has(#webgl-canvas-create)) .content > .refresh-btn {
     margin-top: 30px;
@@ -5524,13 +5480,13 @@ body:has(#webgl-canvas-create) textarea {
   }
 }
 
-/* ===== Homepage WebGL overlay: scenery below content and controls ===== */
+
 body:not(:has(#webgl-canvas-create)) #webgl-canvas {
   z-index: 25 !important;
   pointer-events: none !important;
 }
 
-/* Keep the entire content stacking context above the WebGL canvas. */
+
 body:not(:has(#webgl-canvas-create)) .landing > .content {
   position: relative;
   z-index: 50 !important;
@@ -5550,7 +5506,7 @@ body:not(:has(#webgl-canvas-create)) .refresh-btn {
 }
 
 
-/* ===== Latest wishes: krathongs launch and float directly on the animated waves ===== */
+
 .cartoon-water #latestWishesGrid.latest-wishes-waterline {
   position: absolute;
   inset: 0;
@@ -5566,7 +5522,7 @@ body:not(:has(#webgl-canvas-create)) .refresh-btn {
   pointer-events: none;
 }
 
-/* Random vertical positions stay within the waterline; each krathong drifts left-to-right. */
+
 .cartoon-water .latest-wish-krathong.lalaloy {
   left: 0;
   top: var(--wish-float-top, 27%);
@@ -5623,7 +5579,7 @@ body:not(:has(#webgl-canvas-create)) .refresh-btn {
     font-size: 44px;
   }
 
-  /* Keep waiting krathongs stacked at the left edge until their launch delay ends. */
+  
   .cartoon-water .latest-wish-krathong.lalaloy.is-waiting {
     left: -160px;
     top: 24%;
@@ -5637,7 +5593,7 @@ body:not(:has(#webgl-canvas-create)) .refresh-btn {
 }
 
 
-/* Keep waiting krathongs tucked just beyond the left edge until their staggered launch time. */
+
 .cartoon-water .latest-wish-krathong.lalaloy.is-waiting {
   left: -120px;
   visibility: hidden;
@@ -5653,7 +5609,7 @@ body:not(:has(#webgl-canvas-create)) .refresh-btn {
 }
 
 
-/* Remove underline from button-style links in every interaction state. */
+
 .btn,
 .btn:hover,
 .btn:focus,
@@ -5662,7 +5618,7 @@ body:not(:has(#webgl-canvas-create)) .refresh-btn {
 }
 
 
-/* Remove underline from the homepage button-style link. */
+
 .refresh-btn,
 .refresh-btn:hover,
 .refresh-btn:focus,
@@ -5671,7 +5627,7 @@ body:not(:has(#webgl-canvas-create)) .refresh-btn {
   text-decoration: none;
 }
 
-/* Show each krathong owner's name directly beneath the floating krathong. */
+
 .cartoon-water .krathong-owner-name {
   position: absolute;
   top: -24px;
@@ -5694,7 +5650,7 @@ body:not(:has(#webgl-canvas-create)) .refresh-btn {
   transform: translateX(-50%);
 }
 
-/* Strict launch queue: queued krathongs must remain fully invisible and motionless. */
+
 .cartoon-water .latest-wish-krathong.lalaloy.is-waiting {
   visibility: hidden !important;
   opacity: 0 !important;
@@ -5709,7 +5665,7 @@ body:not(:has(#webgl-canvas-create)) .refresh-btn {
 
 
 
-/* ===== Temple image: full viewport width ===== */
+
 .temple-image {
   width: 100vw;
   max-width: none;
@@ -5731,18 +5687,18 @@ body:not(:has(#webgl-canvas-create)) .refresh-btn {
   object-fit: contain;
 }
 
-/* Keep intro above page layers, but below the homepage WebGL canvas (z-index: 25). */
+
 body:has(.landing > .moon-image) .landing .intro {
   position: relative;
   z-index: 24;
 }
 
-/* The WebGL canvas intentionally remains above the intro. */
+
 body:not(:has(#webgl-canvas-create)) #webgl-canvas {
   z-index: 25 !important;
 }
 
-/* ===== Homepage intro: soft backdrop glow without a card ===== */
+
 body:has(.landing > .moon-image) .landing .intro {
   position: relative;
   z-index: 24;
@@ -5809,7 +5765,7 @@ body:has(.landing > .moon-image) .landing .intro .ornament {
   }
 }
 
-/* Match the homepage intro's soft radial-glow backdrop; scrolls with the page. */
+
 body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop {
   position: relative;
   top: -92px;
@@ -5854,7 +5810,7 @@ body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-back
   z-index: 1;
 }
 
-/* Keep homepage water and footer above scenery layers without covering content controls. */
+
 body:not(:has(#webgl-canvas-create)) .landing > .water {
   z-index: 26;
   pointer-events: none;
@@ -5870,7 +5826,7 @@ body:not(:has(#webgl-canvas-create)) .landing > footer {
 }
 
 
-/* ===== Absolute homepage layer order: water above scenery, WebGL canvas above all ===== */
+
 body:not(:has(#webgl-canvas-create)) .landing > .water {
   position: absolute;
   z-index: 2147483646 !important;
@@ -5885,7 +5841,7 @@ body:not(:has(#webgl-canvas-create)) .landing > #webgl-canvas {
 }
 
 
-/* ===== First scenery layer: raised moon with a soft white glow ===== */
+
 body:not(:has(#webgl-canvas-create)) .landing > .moon-image {
   position: absolute;
   top: clamp(-34px, -3vh, -18px);
@@ -5942,7 +5898,7 @@ body:not(:has(#webgl-canvas-create)) .landing > .moon-image img {
 }
 
 
-/* ===== Responsive layout repair: homepage controls and footer ===== */
+
 @media (max-width: 760px) {
   body:has(.landing > .moon-image) {
     min-height: 100vh;
@@ -5969,7 +5925,7 @@ body:not(:has(#webgl-canvas-create)) .landing > .moon-image img {
     padding-bottom: 24px;
   }
 
-  /* Remove the large negative offset that pulls the CTA into the content. */
+  
   body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop {
     top: 0 !important;
     margin-top: clamp(28px, 6vh, 54px) !important;
@@ -6013,7 +5969,7 @@ body:not(:has(#webgl-canvas-create)) .landing > .moon-image img {
 }
 
 
-/* Homepage mobile: move the full foreground content lower together. */
+
 @media (max-width: 760px) {
   body:has(.landing > .moon-image) .landing > .content {
     padding-top: clamp(42px, 8vh, 76px) !important;
@@ -6030,7 +5986,7 @@ body:not(:has(#webgl-canvas-create)) .landing > .moon-image img {
   }
 }
 
-/* Keep the moon fully inside the landing section instead of crossing its top edge. */
+
 body:has(.landing > .moon-image) .landing > .moon-image {
   top: clamp(12px, 2vh, 24px) !important;
 }
@@ -6041,7 +5997,7 @@ body:has(.landing > .moon-image) .landing > .moon-image {
   }
 }
 
-/* Raise the moon slightly while keeping it inside the landing section. */
+
 body:has(.landing > .moon-image) .landing > .moon-image {
   top: clamp(54px, 7vh, 96px) !important;
 }
@@ -6057,7 +6013,7 @@ body:has(.landing > .moon-image) .landing > .moon-image {
 }
 
 
-/* Move homepage content much further down on small screens. */
+
 @media (max-width: 760px) {
   body:has(.landing > .moon-image) .landing > .content {
     padding-top: clamp(120px, 22vh, 190px) !important;
@@ -6071,7 +6027,7 @@ body:has(.landing > .moon-image) .landing > .moon-image {
 }
 
 
-/* Move homepage content down on large screens too. */
+
 @media (min-width: 761px) {
   body:has(.landing > .moon-image) .landing > .content {
     padding-top: clamp(110px, 16vh, 190px) !important;
@@ -6079,7 +6035,7 @@ body:has(.landing > .moon-image) .landing > .moon-image {
 }
 
 
-/* Raise the homepage action buttons while keeping them independent of the content block. */
+
 body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop {
   margin-top: clamp(28px, 4vh, 52px) !important;
 }
@@ -6096,7 +6052,7 @@ body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop
   }
 }
 
-/* Wishes page: keep the footer after the wish cards instead of overlaying the viewport. */
+
 body:has(#wishGrid) .landing {
   height: auto !important;
   min-height: 100vh;
@@ -6128,7 +6084,7 @@ body:has(#wishGrid) .landing > footer {
   }
 }
 
-/* Consistent footer appearance across Home, Create, and Wishes; positioning stays page-specific. */
+
 body:has(.landing > footer) .landing > footer {
   display: flex;
   align-items: center;
@@ -6169,8 +6125,8 @@ body:has(#wishGrid) .landing > footer {
   }
 }
 
-/* Final footer normalization: identical typography and alignment on every page. */
-/* Home and Create share the same bottom-anchored footer layout. */
+
+
 body:has(.landing > footer):not(:has(#wishGrid)) .landing > footer {
   position: absolute !important;
   right: 24px !important;
