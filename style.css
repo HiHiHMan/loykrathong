@@ -2885,24 +2885,22 @@ body:not(:has(#webgl-canvas-create)) .landing .intro .ornament {
   }
 }
 
-/* Raise homepage action buttons further toward the intro. */
-@media (min-width: 601px) {
-  body:not(:has(#webgl-canvas-create)) .content > .refresh-btn {
-    margin-top: -42px;
-  }
+/* Pull homepage buttons upward to overlap the intro area. */
+body:not(:has(#webgl-canvas-create)) .content > .refresh-btn {
+  position: relative;
+  z-index: 40 !important;
+  margin-top: -100px !important;
+}
 
-  body:not(:has(#webgl-canvas-create)) .content > .refresh-row {
-    margin-top: 4px;
-  }
+body:not(:has(#webgl-canvas-create)) .content > .refresh-row {
+  position: relative;
+  z-index: 40 !important;
+  margin-top: 0 !important;
 }
 
 @media (max-width: 600px) {
   body:not(:has(#webgl-canvas-create)) .content > .refresh-btn {
-    margin-top: -4px;
-  }
-
-  body:not(:has(#webgl-canvas-create)) .content > .refresh-row {
-    margin-top: 4px;
+    margin-top: -72px !important;
   }
 }
 
