@@ -5942,3 +5942,72 @@ body:not(:has(#webgl-canvas-create)) .landing > .moon-image img {
 }
 
 
+/* ===== Responsive layout repair: homepage controls and footer ===== */
+@media (max-width: 760px) {
+  body:not(:has(#webgl-canvas-create)) {
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  body:not(:has(#webgl-canvas-create)) .landing {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    height: auto !important;
+    min-height: 100vh;
+    min-height: 100svh;
+    min-height: 100dvh;
+    overflow: visible !important;
+    padding-bottom: max(12px, env(safe-area-inset-bottom));
+  }
+
+  body:not(:has(#webgl-canvas-create)) .landing > .content {
+    position: relative;
+    flex: 0 0 auto;
+    width: 100%;
+    min-width: 0;
+    padding-bottom: 24px;
+  }
+
+  /* Remove the large negative offset that pulls the CTA into the content. */
+  body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop {
+    top: 0 !important;
+    margin-top: clamp(28px, 6vh, 54px) !important;
+    margin-bottom: 0 !important;
+    max-width: calc(100% - 28px);
+  }
+
+  body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop .refresh-row {
+    margin-top: 0 !important;
+  }
+
+  body:not(:has(#webgl-canvas-create)) .landing > footer {
+    position: relative !important;
+    inset: auto !important;
+    flex: 0 0 auto;
+    width: 100%;
+    margin: auto 0 0 !important;
+    padding: 18px 12px max(14px, env(safe-area-inset-bottom));
+    text-align: center;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (max-width: 390px) {
+  body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop {
+    margin-top: 38px !important;
+    gap: 10px;
+  }
+
+  body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop .refresh-btn,
+  body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop .text-button {
+    max-width: calc(100vw - 36px);
+    white-space: normal;
+    text-align: center;
+  }
+
+  body:not(:has(#webgl-canvas-create)) .landing > footer {
+    font-size: 11px;
+  }
+}
