@@ -6077,3 +6077,21 @@ body:not(:has(#webgl-canvas-create)) .landing > .moon-image {
     padding-top: clamp(110px, 16vh, 190px) !important;
   }
 }
+
+
+/* Move the homepage action buttons lower independently of the content block. */
+body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop {
+  margin-top: clamp(72px, 10vh, 120px) !important;
+}
+
+@media (max-width: 760px) {
+  body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop {
+    margin-top: clamp(72px, 12vh, 120px) !important;
+  }
+}
+
+@media (max-width: 390px) {
+  body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop {
+    margin-top: 88px !important;
+  }
+}
