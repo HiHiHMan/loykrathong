@@ -5887,3 +5887,31 @@ body:not(:has(#webgl-canvas-create)) .landing > #webgl-canvas {
   z-index: 2147483647 !important;
   pointer-events: none !important;
 }
+
+
+/* ===== First scenery layer: moon image ===== */
+body:not(:has(#webgl-canvas-create)) .landing > .moon-image {
+  position: absolute;
+  top: clamp(28px, 5vh, 64px);
+  left: 50%;
+  z-index: 0;
+  width: clamp(150px, 24vw, 320px);
+  pointer-events: none;
+  transform: translateX(-50%);
+}
+
+body:not(:has(#webgl-canvas-create)) .landing > .moon-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+@media (max-width: 600px) {
+  body:not(:has(#webgl-canvas-create)) .landing > .moon-image {
+    top: 7vh;
+    width: clamp(130px, 42vw, 210px);
+  }
+}
