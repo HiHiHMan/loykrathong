@@ -6079,19 +6079,19 @@ body:not(:has(#webgl-canvas-create)) .landing > .moon-image {
 }
 
 
-/* Move the homepage action buttons lower independently of the content block. */
+/* Raise the homepage action buttons while keeping them independent of the content block. */
 body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop {
-  margin-top: clamp(72px, 10vh, 120px) !important;
+  margin-top: clamp(28px, 4vh, 52px) !important;
 }
 
 @media (max-width: 760px) {
   body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop {
-    margin-top: clamp(72px, 12vh, 120px) !important;
+    margin-top: clamp(32px, 5vh, 56px) !important;
   }
 }
 
 @media (max-width: 390px) {
   body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop {
-    margin-top: 88px !important;
+    margin-top: 36px !important;
   }
 }
