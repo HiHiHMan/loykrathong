@@ -6127,3 +6127,44 @@ body:has(#wishGrid) .landing > footer {
     line-height: 1.6;
   }
 }
+
+/* Consistent footer appearance across Home, Create, and Wishes; positioning stays page-specific. */
+body:has(.landing > footer) .landing > footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  box-sizing: border-box;
+  color: #f0d89e !important;
+  font-family: "Kanit", sans-serif;
+  font-size: 9px !important;
+  font-weight: 300;
+  letter-spacing: 0.13em;
+  line-height: 1.6;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.95);
+  z-index: 1001;
+}
+
+body:has(#wishGrid) .landing > footer {
+  position: relative !important;
+  inset: auto !important;
+  width: 100%;
+  margin: 32px auto 0 !important;
+  padding: 18px 24px max(22px, env(safe-area-inset-bottom)) !important;
+}
+
+@media (max-width: 600px) {
+  body:has(.landing > footer) .landing > footer {
+    gap: 8px 12px;
+    font-size: 9px !important;
+    letter-spacing: 0.1em;
+  }
+
+  body:has(#wishGrid) .landing > footer {
+    margin-top: 24px !important;
+    padding: 18px 16px max(18px, env(safe-area-inset-bottom)) !important;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+}
