@@ -5944,3 +5944,10 @@ body:not(:has(#webgl-canvas-create)) .landing > .moon-image img {
     filter: blur(11px);
   }
 }
+
+
+/* Homepage navigation stays visible but inactive */
+.homepage-top-nav {
+  opacity: 0.3;
+  pointer-events: none;
+}
