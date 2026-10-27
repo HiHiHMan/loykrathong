@@ -1,0 +1,399 @@
+/* Styles used only by the wishes page */
+.wish-grid {
+
+   display: flex;
+   flex-direction: column;
+   gap: 28px;
+   width: 100%;
+   padding: 12px 0;
+   overflow: visible;
+ 
+}
+
+
+ @media (max-width: 520px) {
+
+   .wish-grid {
+
+     gap: 24px;
+     padding: 8px 0;
+   
+}
+
+}
+
+
+ @media (max-width: 800px) {
+
+   .wish-grid {
+
+     grid-template-columns: repeat(2, minmax(0, 1fr));
+   
+}
+
+}
+
+
+ @media (max-width: 520px) {
+
+
+   .wish-grid {
+
+     grid-template-columns: 1fr 1fr;
+     gap: 30px 8px;
+   
+}
+
+}
+
+
+ @media (max-width: 520px) {
+
+
+   
+   .wish-grid {
+
+     display: flex;
+     flex-direction: column;
+     gap: 16px;
+     width: 100%;
+     overflow: visible;
+   
+}
+
+}
+
+
+ .wish-grid {
+
+   width: 100%;
+   min-width: 0;
+   max-width: 100%;
+   box-sizing: border-box;
+ 
+}
+
+
+ .wish-grid {
+
+   display: flex;
+   flex-direction: column;
+   width: 100%;
+   max-width: 100%;
+   min-width: 0;
+   padding-inline: 0;
+ 
+}
+
+
+ 
+ .landing>section[aria-labelledby="wishes-title"] .wish-grid {
+
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 18px;
+   width: 100%;
+   max-width: 100%;
+   min-width: 0;
+   padding-inline: 0;
+   box-sizing: border-box;
+ 
+}
+
+
+ @media (max-width: 520px) {
+
+   .landing>section[aria-labelledby="wishes-title"] .wish-grid {
+
+     gap: 14px;
+   
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+ 
+ .wish-grid {
+
+   display: flex;
+   flex-direction: column;
+   gap: 28px;
+   width: 100%;
+   padding: 12px 0;
+   overflow: visible;
+ 
+}
+
+
+ @media (max-width: 520px) {
+
+   .wish-grid {
+
+     gap: 24px;
+     padding: 8px 0;
+   
+}
+
+}
+
+
+ @media (max-width: 800px) {
+
+   .wish-grid {
+
+     grid-template-columns: repeat(2, minmax(0, 1fr));
+   
+}
+
+}
+
+
+ @media (max-width: 520px) {
+
+
+   .wish-grid {
+
+     grid-template-columns: 1fr 1fr;
+     gap: 30px 8px;
+   
+}
+
+}
+
+
+ @media (max-width: 520px) {
+
+
+   
+   .wish-grid {
+
+     display: flex;
+     flex-direction: column;
+     gap: 16px;
+     width: 100%;
+     overflow: visible;
+   
+}
+
+}
+
+
+ .wish-grid {
+
+   width: 100%;
+   min-width: 0;
+   max-width: 100%;
+   box-sizing: border-box;
+ 
+}
+
+
+ .wish-grid {
+
+   display: flex;
+   flex-direction: column;
+   width: 100%;
+   max-width: 100%;
+   min-width: 0;
+   padding-inline: 0;
+ 
+}
+
+
+ 
+ .landing>section[aria-labelledby="wishes-title"] .wish-grid {
+
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 18px;
+   width: 100%;
+   max-width: 100%;
+   min-width: 0;
+   padding-inline: 0;
+   box-sizing: border-box;
+ 
+}
+
+
+ @media (max-width: 520px) {
+
+   .landing>section[aria-labelledby="wishes-title"] .wish-grid {
+
+     gap: 14px;
+   
+}
+
+}
+
+
+
+body:has(#wishGrid) .landing {
+
+  height: auto !important;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow: visible !important;
+
+}
+
+
+body:has(#wishGrid) .landing > footer {
+
+  position: relative !important;
+  inset: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  left: auto !important;
+  width: 100%;
+  margin: 32px auto 0 !important;
+  padding: 18px 24px max(22px, env(safe-area-inset-bottom));
+  box-sizing: border-box;
+  z-index: 1001;
+
+}
+
+
+@media (max-width: 600px) {
+
+  body:has(#wishGrid) .landing > footer {
+
+    margin-top: 24px !important;
+    padding: 18px 16px max(18px, env(safe-area-inset-bottom));
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.6;
+  
+}
+
+}
+
+
+body:has(#wishGrid) .landing > footer {
+
+  position: relative !important;
+  inset: auto !important;
+  width: 100%;
+  margin: 32px auto 0 !important;
+  padding: 18px 24px max(22px, env(safe-area-inset-bottom)) !important;
+
+}
+
+
+@media (max-width: 600px) {
+
+
+  body:has(#wishGrid) .landing > footer {
+
+    margin-top: 24px !important;
+    padding: 18px 16px max(18px, env(safe-area-inset-bottom)) !important;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  
+}
+
+}
+
+
+
+
+body:has(.landing > footer):not(:has(#wishGrid)) .landing > footer {
+
+  position: absolute !important;
+  right: 24px !important;
+  bottom: 22px !important;
+  left: 24px !important;
+  width: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  flex-wrap: nowrap !important;
+  text-align: left !important;
+  color: #f0d89e !important;
+  font-family: "Kanit", sans-serif !important;
+  font-size: 9px !important;
+  font-weight: 300 !important;
+  letter-spacing: 0.13em !important;
+  line-height: 1.6 !important;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.95) !important;
+  box-sizing: border-box !important;
+  z-index: 1001 !important;
+
+}
+
+
+body:has(#wishGrid) .landing > footer {
+
+  position: relative !important;
+  right: auto !important;
+  bottom: auto !important;
+  left: auto !important;
+  width: 100% !important;
+  margin: 32px auto 0 !important;
+  padding: 18px 24px max(22px, env(safe-area-inset-bottom)) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  color: #f0d89e !important;
+  font-family: "Kanit", sans-serif !important;
+  font-size: 9px !important;
+  font-weight: 300 !important;
+  letter-spacing: 0.13em !important;
+  line-height: 1.6 !important;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.95) !important;
+  box-sizing: border-box !important;
+  z-index: 1001 !important;
+
+}
+
+
+@media (max-width: 760px) {
+
+  body:has(.landing > footer):not(:has(#wishGrid)) .landing > footer {
+
+    right: 16px !important;
+    bottom: max(14px, env(safe-area-inset-bottom)) !important;
+    left: 16px !important;
+    width: auto !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 8px 12px !important;
+    text-align: center !important;
+    font-size: 9px !important;
+    letter-spacing: 0.1em !important;
+  
+}
+
+}
+
+
+@media (max-width: 600px) {
+
+  body:has(#wishGrid) .landing > footer {
+
+    margin-top: 24px !important;
+    padding: 18px 16px max(18px, env(safe-area-inset-bottom)) !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 8px 12px !important;
+    text-align: center !important;
+    font-size: 9px !important;
+    letter-spacing: 0.1em !important;
+  
+}
+
+}
