@@ -6201,3 +6201,9 @@ body:has(#wishGrid) .landing > footer {
     letter-spacing: 0.1em !important;
   }
 }
+
+
+body:has(.landing > .moon-image) .landing > .content > .intro {
+  position: relative;
+  top: -35px;
+}
