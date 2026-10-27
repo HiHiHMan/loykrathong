@@ -6041,14 +6041,14 @@ body:not(:has(#webgl-canvas-create)) .landing > .moon-image {
   }
 }
 
-/* Strong correction: move the moon well clear of the landing's top edge. */
+/* Fine adjustment: lower the moon a little further from the landing's top edge. */
 body:not(:has(#webgl-canvas-create)) .landing > .moon-image {
-  top: clamp(72px, 10vh, 120px) !important;
+  top: clamp(84px, 11vh, 132px) !important;
 }
 
 @media (max-width: 600px) {
   body:not(:has(#webgl-canvas-create)) .landing > .moon-image {
-    top: 64px !important;
+    top: 78px !important;
   }
 
   body:not(:has(#webgl-canvas-create)) .landing > .moon-image::before {
