@@ -6069,3 +6069,11 @@ body:not(:has(#webgl-canvas-create)) .landing > .moon-image {
     padding-top: clamp(100px, 18vh, 150px) !important;
   }
 }
+
+
+/* Move homepage content down on large screens too. */
+@media (min-width: 761px) {
+  body:not(:has(#webgl-canvas-create)) .landing > .content {
+    padding-top: clamp(110px, 16vh, 190px) !important;
+  }
+}
