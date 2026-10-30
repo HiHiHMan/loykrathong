@@ -155,7 +155,7 @@ animation-duration: 82s;
 
 
 
-.cartoon-water #latestWishesGrid.latest-wishes-waterline {
+.cartoon-water #latestWishesGrid {
 
   position: absolute;
   inset: 0;
@@ -610,7 +610,7 @@ body:has(.landing > .moon-image) .landing .intro .ornament {
 
 
 
-.cartoon-water #latestWishesGrid.latest-wishes-waterline {
+.cartoon-water #latestWishesGrid {
 
   position: absolute;
   inset: 0;
@@ -1552,6 +1552,6 @@ body:has(.landing > .moon-image) .refresh-actions-backdrop > .refresh-btn:active
 }
 
 /* Keep index-page krathongs above every water wave layer. */
-.cartoon-water #latestWishesGrid.latest-wishes-waterline {
+.cartoon-water #latestWishesGrid {
   z-index: 7;
 }
