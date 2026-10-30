@@ -469,3 +469,50 @@ body:has(#wishGrid) .landing > .sky-lanterns {
   font-size: 10px;
   line-height: 1.4;
 }
+
+
+/* Wider wish cards to balance the larger, more readable typography. */
+body:has(#wishGrid) .wish-item {
+  width: 100%;
+  max-width: min(100%, 760px);
+}
+
+body:has(#wishGrid) .wish-item .tooltip-card {
+  scale: 1;
+  width: min(520px, calc(100vw - 48px));
+  max-width: 100%;
+  padding: 20px 24px;
+}
+
+body:has(#wishGrid) .wish-item:nth-child(odd) .tooltip-card,
+body:has(#wishGrid) .wish-item:nth-child(even) .tooltip-card {
+  width: min(520px, calc(100vw - 48px));
+  min-width: 0;
+}
+
+body:has(#wishGrid) .wish-item .tooltip-wish {
+  font-size: 17px !important;
+  line-height: 1.8;
+}
+
+body:has(#wishGrid) .wish-item .tooltip-footer {
+  gap: 12px 18px;
+}
+
+@media (max-width: 600px) {
+  body:has(#wishGrid) .wish-item {
+    max-width: 100%;
+  }
+
+  body:has(#wishGrid) .wish-item .tooltip-card,
+  body:has(#wishGrid) .wish-item:nth-child(odd) .tooltip-card,
+  body:has(#wishGrid) .wish-item:nth-child(even) .tooltip-card {
+    width: min(420px, calc(100vw - 28px));
+    padding: 18px 18px;
+  }
+
+  body:has(#wishGrid) .wish-item .tooltip-wish {
+    font-size: 16px !important;
+    line-height: 1.85;
+  }
+}
