@@ -361,7 +361,7 @@ if (gl) {
                 <p class="tooltip-name">${escapeHtml(item.fullName || "ไม่ระบุชื่อ")}</p>
                 <p class="tooltip-date">${escapeHtml(item.createdAt || "")}</p>
               </div>
-              <span class="tooltip-type"><img class="latest-wish-krathong-image" src="./images/obj02.png" alt="กระทง" loading="lazy"> ${krathong.label}</span>
+              <span class="tooltip-type"><img class="latest-wish-krathong-image" src="${krathong.image}" alt="${krathong.label}" loading="lazy"> ${krathong.label}</span>
             </div>
           </div>
         </article>
