@@ -1402,3 +1402,23 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .sky-lantern-im
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns {
   z-index: 12;
 }
+
+
+/* Keep lanterns above the temple artwork, while the heading and controls stay readable. */
+body:has(.landing > .moon-image) .landing > .content {
+  z-index: auto;
+}
+
+body:has(.landing > .moon-image) .landing > .sky-lanterns {
+  z-index: 2 !important;
+}
+
+body:has(.landing > .moon-image) .landing > .content > .temple-image {
+  position: relative;
+  z-index: 1;
+}
+
+body:has(.landing > .moon-image) .landing > .content > .intro {
+  position: relative;
+  z-index: 3;
+}
