@@ -71,27 +71,31 @@ function getKrathong(type) {
   const value = String(type || "").trim().toLowerCase();
 
   const krathongTypes = {
-    lotus: { emoji: "🪷", label: "กระทงบัวชมพู" },
-    marigold: { emoji: "🌼", label: "กระทงดาวเรืองทอง" },
-    banana: { emoji: "🍃", label: "กระทงใบตองธรรมชาติ" },
-    bread: { emoji: "🍞", label: "กระทงขนมปัง" },
-    coconut: { emoji: "🥥", label: "กระทงกะลามะพร้าว" },
-    flower: { emoji: "🌸", label: "กระทงดอกไม้หลากสี" }
+    lotus: { image: "../images/Lotus.png", label: "ดอกบัว" },
+    orchid: { image: "../images/Orchid.png", label: "ดอกกล้วยไม้" },
+    marigold: { image: "../images/Marigold.png", label: "ดอกดาวเรือง" },
+    globeamaranth: { image: "../images/GlobeAmaranth.png", label: "ดอกบานไม่รู้โรย" },
+    ixora: { image: "../images/Ixora.png", label: "ดอกเข็ม" },
+    whitechampaca: { image: "../images/WhiteChampaca.png", label: "ดอกจำปี" },
+    banana: { image: "../images/Lotus.png", label: "กระทงใบตอง" },
+    bread: { image: "../images/Lotus.png", label: "กระทงขนมปัง" },
+    coconut: { image: "../images/Lotus.png", label: "กระทงกะลามะพร้าว" },
+    flower: { image: "../images/Lotus.png", label: "กระทงดอกไม้" }
   };
 
-  const thaiAliases = [
-    { match: "ดาวเรือง", key: "marigold" },
-    { match: "บัว", key: "lotus" },
-    { match: "ใบตอง", key: "banana" },
-    { match: "ขนมปัง", key: "bread" },
-    { match: "กะลามะพร้าว", key: "coconut" },
-    { match: "ดอกไม้", key: "flower" }
+  const aliases = [
+    ["บานไม่รู้โรย", "globeamaranth"],
+    ["กล้วยไม้", "orchid"],
+    ["ดาวเรือง", "marigold"],
+    ["จำปี", "whitechampaca"],
+    ["ดอกเข็ม", "ixora"],
+    ["บัว", "lotus"]
   ];
 
   if (krathongTypes[value]) return krathongTypes[value];
 
-  const matched = thaiAliases.find(item => value.includes(item.match));
-  return matched ? krathongTypes[matched.key] : { emoji: "🪷", label: "กระทงลอยน้ำ" };
+  const matched = aliases.find(([thai]) => value.includes(thai));
+  return matched ? krathongTypes[matched[1]] : krathongTypes.lotus;
 }
 
 
@@ -118,12 +122,12 @@ function renderWishes(items) {
             <div>
               <p class="tooltip-name">${escapeHtml(item.fullName || "ไม่ระบุชื่อ")}</p> 
             </div>
-            <span class="tooltip-type">${k.emoji} ${k.label}</span>
+            <span class="tooltip-type"><img src="${k.image}" alt=""> ${k.label}</span>
           </div>
         </div>
 
         <button class="krathong-trigger" type="button" aria-label="เปิดคำอธิษฐาน" aria-expanded="false">
-          <span class="krathong-emoji" style="animation-delay:${(index % 5) * 0.35}s">${k.emoji}</span>
+          <span class="krathong-emoji" style="animation-delay:${(index % 5) * 0.35}s"><img src="${k.image}" alt="${k.label}"></span>
           <span class="water-ripple" aria-hidden="true"></span>
         </button>
 
