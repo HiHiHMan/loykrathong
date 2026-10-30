@@ -1507,6 +1507,7 @@ body:has(.landing > .moon-image) .refresh-actions-backdrop > .refresh-btn:focus-
 /* Make the create-krathong image button feel inviting and tactile. */
 body:has(.landing > .moon-image) .refresh-actions-backdrop > .refresh-btn {
   position: relative;
+  top: -10px;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
