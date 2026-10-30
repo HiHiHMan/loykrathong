@@ -1555,3 +1555,47 @@ body:has(.landing > .moon-image) .refresh-actions-backdrop > .refresh-btn:active
 .cartoon-water #latestWishesGrid {
   z-index: 7;
 }
+
+
+/* Home water: flatter, less frequent waves with krathongs between wave layers. */
+.cartoon-water {
+  height: 220px;
+}
+
+@media (max-width: 760px) {
+  .cartoon-water {
+    height: 190px;
+  }
+}
+
+/* Wider SVG canvas spreads each repeated crest farther apart. */
+.cartoon-water .wave-svg {
+  width: max(300%, 4320px) !important;
+}
+
+.cartoon-water .wave-layer-1 { z-index: 1; }
+.cartoon-water .wave-layer-2 { z-index: 3; }
+.cartoon-water .wave-layer-2-5 { z-index: 4; }
+.cartoon-water .wave-layer-3 { z-index: 6; }
+.cartoon-water .wave-layer-4 { z-index: 8; }
+
+.cartoon-water #latestWishesGrid {
+  z-index: auto !important;
+}
+
+.cartoon-water .krathong-wave-lane {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.cartoon-water .krathong-wave-lane-1 { z-index: 2; }
+.cartoon-water .krathong-wave-lane-2 { z-index: 5; }
+.cartoon-water .krathong-wave-lane-3 { z-index: 7; }
+
+.cartoon-water .krathong-wave-lane .latest-wish-krathong {
+  pointer-events: auto;
+}
