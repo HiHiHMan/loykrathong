@@ -1423,18 +1423,31 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky
   object-fit: contain;
 }
 
-/* Keep every landing-page sky lantern at 35px wide with proportional height. */
+/* Sky lantern sizes follow their visual depth: near 80px, middle 60px, far 40px. */
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image {
-  width: 60px !important;
-  max-width: 60px;
   height: auto;
   aspect-ratio: auto;
+}
+
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image:is(.sky-lantern-1) {
+  width: 80px !important;
+  max-width: 80px;
+}
+
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image:is(.sky-lantern-3, .sky-lantern-5, .sky-lantern-6, .sky-lantern-8, .sky-lantern-10, .sky-lantern-12) {
+  width: 60px !important;
+  max-width: 60px;
+}
+
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image:is(.sky-lantern-2, .sky-lantern-4, .sky-lantern-7, .sky-lantern-9, .sky-lantern-11, .sky-lantern-13, .sky-lantern-14, .sky-lantern-15) {
+  width: 40px !important;
+  max-width: 40px;
 }
 
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image img {
   width: 100%;
   height: auto;
-  max-width: 60px;
+  max-width: none;
   object-fit: contain;
 }
 
