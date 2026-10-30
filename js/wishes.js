@@ -11,7 +11,7 @@
 
   while (cursor < lanterns.length) {
     const remaining = lanterns.length - cursor;
-    const groupSize = remaining <= 3 ? remaining : (Math.random() < 0.5 ? 2 : 3);
+    const groupSize = remaining <= 3 ? remaining : (remaining === 4 ? 2 : (Math.random() < 0.5 ? 2 : 3));
     groups.push(lanterns.slice(cursor, cursor + groupSize));
     cursor += groupSize;
   }
