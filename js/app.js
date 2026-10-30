@@ -297,18 +297,18 @@ if (gl) {
     const value = String(type || "").trim().toLowerCase();
 
     if (value === "marigold" || value.includes("ดาวเรือง")) {
-      return { emoji: "🌼", label: "กระทงดาวเรืองทอง" };
+      return { label: "กระทงดาวเรืองทอง" };
     }
 
     if (value === "lotus" || value.includes("บัว")) {
-      return { emoji: "🪷", label: "กระทงบัวชมพู" };
+      return { label: "กระทงบัวชมพู" };
     }
 
     if (value === "banana" || value.includes("ใบตอง")) {
-      return { emoji: "🍃", label: "กระทงใบตองธรรมชาติ" };
+      return { label: "กระทงใบตองธรรมชาติ" };
     }
 
-    return { emoji: "🪷", label: "กระทงดอกบัว" };
+    return { label: "กระทงดอกบัว" };
   }
 
   function renderWishes(items) {
@@ -342,7 +342,7 @@ if (gl) {
           <button class="lalaloy-motion latest-wish-trigger" type="button"
             aria-label="เปิดคำอธิษฐานของ ${escapeHtml(item.fullName || "ผู้ร่วมงาน")}"
             aria-expanded="false">
-            ${krathong.emoji}
+            <img class="latest-wish-krathong-image" src="./images/obj02.png" alt="กระทง" loading="lazy">
           </button>
           <span class="krathong-owner-name">${escapeHtml(item.fullName || "ไม่ระบุชื่อ")}</span>
           <div class="tooltip-card" role="group" aria-label="รายละเอียดคำอธิษฐาน">
@@ -354,7 +354,7 @@ if (gl) {
                 <p class="tooltip-name">${escapeHtml(item.fullName || "ไม่ระบุชื่อ")}</p>
                 <p class="tooltip-date">${escapeHtml(item.createdAt || "")}</p>
               </div>
-              <span class="tooltip-type">${krathong.emoji} ${krathong.label}</span>
+              <span class="tooltip-type"><img class="latest-wish-krathong-image" src="./images/obj02.png" alt="กระทง" loading="lazy"> ${krathong.label}</span>
             </div>
           </div>
         </article>
