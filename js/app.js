@@ -368,28 +368,17 @@ if (gl) {
       `;
     }).join("");
 
-    // Build cumulative X coordinates: each new position adds a random 50–200px
-    // gap to the previous position.
+    // Launch each krathong at a steady interval. The next one enters while
+    // the previous ones are still floating, preventing an empty gap on loop.
     const krathongs = Array.from(grid.querySelectorAll(".latest-wish-krathong"));
     const itemWidth = krathongs[0]?.getBoundingClientRect().width || 100;
-    const minimumGap = 100;
-    const maximumGap = 300;
-    const positions = [0];
+    const launchInterval = 6;
+    const travelDistance = grid.clientWidth + itemWidth + 24;
 
-    for (let i = 1; i < krathongs.length; i++) {
-      const randomGap = minimumGap + Math.random() * (maximumGap - minimumGap);
-      positions.push(positions[i - 1] + randomGap);
-    }
-
-    const maxPosition = positions.length ? Math.max(...positions) : 0;
-    // Travel far enough to move every krathong completely across the visible water.
-    const travelDistance = grid.clientWidth + itemWidth + maxPosition + 24;
-
-    krathongs.forEach(function (item, index) {
+    krathongs.forEach(function (item) {
       item.style.setProperty("--krathong-travel", travelDistance + "px");
       item.style.animation = "none";
-      // Offset all coordinates so even the rightmost krathong starts offscreen.
-      item.style.left = (-itemWidth - 12 + positions[index] - maxPosition) + "px";
+      item.style.left = (-itemWidth - 12) + "px";
       item.style.visibility = "hidden";
       item.style.opacity = "0";
       item.style.pointerEvents = "none";
@@ -397,10 +386,10 @@ if (gl) {
 
     void grid.offsetWidth;
 
-    // Start all krathongs drifting right from beyond the left edge.
-    krathongs.forEach(function (item) {
+    // Stagger the launch; each animation then repeats at the same interval.
+    krathongs.forEach(function (item, index) {
       item.classList.remove("is-waiting");
-      item.style.animation = "lalaloy-drift 72s linear infinite";
+      item.style.animation = "lalaloy-drift 72s linear " + (index * launchInterval) + "s infinite";
       item.style.visibility = "visible";
       item.style.opacity = "1";
       item.style.pointerEvents = "auto";
