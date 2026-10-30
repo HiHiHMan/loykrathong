@@ -13,10 +13,30 @@ function escapeHtml(value) {
 }
 
 function getKrathong(type) {
-  const value = String(type || "").toLowerCase();
-  if (value.includes("marigold") || value.includes("ดาวเรือง")) return { emoji: "🌼", label: "กระทงดอกดาวเรือง" };
-  if (value.includes("lotus") || value.includes("บัว")) return { emoji: "🪷", label: "กระทงดอกบัว" };
-  return { emoji: "🪷", label: "กระทงลอยน้ำ" };
+  const value = String(type || "").trim().toLowerCase();
+
+  const krathongTypes = {
+    lotus: { emoji: "🪷", label: "กระทงบัวชมพู" },
+    marigold: { emoji: "🌼", label: "กระทงดาวเรืองทอง" },
+    banana: { emoji: "🍃", label: "กระทงใบตองธรรมชาติ" },
+    bread: { emoji: "🍞", label: "กระทงขนมปัง" },
+    coconut: { emoji: "🥥", label: "กระทงกะลามะพร้าว" },
+    flower: { emoji: "🌸", label: "กระทงดอกไม้หลากสี" }
+  };
+
+  const thaiAliases = [
+    { match: "ดาวเรือง", key: "marigold" },
+    { match: "บัว", key: "lotus" },
+    { match: "ใบตอง", key: "banana" },
+    { match: "ขนมปัง", key: "bread" },
+    { match: "กะลามะพร้าว", key: "coconut" },
+    { match: "ดอกไม้", key: "flower" }
+  ];
+
+  if (krathongTypes[value]) return krathongTypes[value];
+
+  const matched = thaiAliases.find(item => value.includes(item.match));
+  return matched ? krathongTypes[matched.key] : { emoji: "🪷", label: "กระทงลอยน้ำ" };
 }
 
 
