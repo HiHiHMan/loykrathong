@@ -101,7 +101,8 @@
 
  .wave-layer-4 {
 
-   animation-duration: 82s;
+     z-index: 6;
+animation-duration: 82s;
    animation-delay: -52s;
  
 }
