@@ -7,16 +7,22 @@
 
   const lanterns = Array.from(container.querySelectorAll(".sky-lantern-image"));
   const placed = [];
-  const minDistance = window.innerWidth <= 600 ? 19 : 16;
+  const minDistance = window.innerWidth <= 600 ? 15 : 13;
   const maxAttempts = 80;
 
-  lanterns.forEach((lantern) => {
+  lanterns.forEach((lantern, index) => {
     let x = 0;
     let y = 0;
 
     for (let attempt = 0; attempt < maxAttempts; attempt++) {
-      x = 5 + Math.random() * 85;
-      y = 8 + Math.random() * 53;
+      // Keep a few lanterns around the temple silhouette; scatter the rest higher in the sky.
+      if (index < 2) {
+        x = 32 + Math.random() * 36;
+        y = 27 + Math.random() * 14;
+      } else {
+        x = 5 + Math.random() * 85;
+        y = 7 + Math.random() * 27;
+      }
 
       const hasSpace = placed.every((position) => {
         const dx = (x - position.x) * window.innerWidth / window.innerHeight;
