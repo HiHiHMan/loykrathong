@@ -1396,3 +1396,9 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .sky-lantern-im
   .sky-lantern-14 { top: 68%; right: 37%; width: clamp(32px, 8.5vw, 42px); }
   .sky-lantern-15 { top: 18%; left: 21%; width: clamp(24px, 6vw, 30px); }
 }
+
+
+/* Keep sky lanterns visible in front of the temple while the intro stays above them. */
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns {
+  z-index: 12;
+}
