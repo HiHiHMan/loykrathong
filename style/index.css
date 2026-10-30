@@ -1469,7 +1469,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky
 body:has(.landing > .moon-image) .refresh-actions-backdrop > .refresh-btn {
   display: block;
   width: fit-content;
-  max-width: min(78vw, 320px);
+  max-width: min(58vw, 220px);
   margin-inline: auto;
   padding: 0;
   border: 0;
