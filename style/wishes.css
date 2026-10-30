@@ -421,3 +421,9 @@ body:has(#wishGrid) .sky-lanterns .sky-lantern-13 { top: 53%; left: auto; right:
 body:has(#wishGrid) .sky-lanterns .sky-lantern-14 { top: 84%; left: auto; right: 38%; }
 body:has(#wishGrid) .sky-lanterns .sky-lantern-15 { top: 16%; left: 28%; right: auto; }
 
+
+
+/* Keep wishes-page sky lanterns in front of the temple artwork. */
+body:has(#wishGrid) .landing > .sky-lanterns {
+  z-index: 12;
+}
