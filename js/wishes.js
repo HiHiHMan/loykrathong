@@ -71,12 +71,12 @@ function getKrathong(type) {
   const value = String(type || "").trim().toLowerCase();
 
   const krathongTypes = {
-    lotus: { image: "../images/Lotus.png", label: "ดอกบัว" },
-    orchid: { image: "../images/Orchid.png", label: "ดอกกล้วยไม้" },
-    marigold: { image: "../images/Marigold.png", label: "ดอกดาวเรือง" },
-    globeamaranth: { image: "../images/GlobeAmaranth.png", label: "ดอกบานไม่รู้โรย" },
-    ixora: { image: "../images/Ixora.png", label: "ดอกเข็ม" },
-    whitechampaca: { image: "../images/WhiteChampaca.png", label: "ดอกจำปี" },
+    lotus: { image: "../images/Lotus.png", label: "ดอกบัว", meaning: "ความสำเร็จและสติปัญญา" },
+    orchid: { image: "../images/Orchid.png", label: "ดอกกล้วยไม้", meaning: "สุขภาพแข็งแรง อายุยืน ไร้โรคภัย" },
+    marigold: { image: "../images/Marigold.png", label: "ดอกดาวเรือง", meaning: "การงานเจริญรุ่งเรืองและมีโชคลาภ" },
+    globeamaranth: { image: "../images/GlobeAmaranth.png", label: "ดอกบานไม่รู้โรย", meaning: "ความรักยั่งยืนและมั่นคง" },
+    ixora: { image: "../images/Ixora.png", label: "ดอกเข็ม", meaning: "สติปัญญาเฉียบคมและผ่านพ้นอุปสรรค" },
+    whitechampaca: { image: "../images/WhiteChampaca.png", label: "ดอกจำปี", meaning: "โชคลาภและเงินทองไหลมา" },
     banana: { image: "../images/Lotus.png", label: "กระทงใบตอง" },
     bread: { image: "../images/Lotus.png", label: "กระทงขนมปัง" },
     coconut: { image: "../images/Lotus.png", label: "กระทงกะลามะพร้าว" },
@@ -122,7 +122,7 @@ function renderWishes(items) {
             <div>
               <p class="tooltip-name">${escapeHtml(item.fullName || "ไม่ระบุชื่อ")}</p> 
             </div>
-            <span class="tooltip-type"><img src="${k.image}" alt=""> ${k.label}</span>
+            <span class="tooltip-type"><img src="${k.image}" alt=""><span><strong>${k.label}</strong><small>${k.meaning || ""}</small></span></span>
           </div>
         </div>
 
