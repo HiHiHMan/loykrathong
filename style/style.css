@@ -5901,3 +5901,28 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 
 
 }
+
+/* Index page: keep floating lanterns visible in front of the temple image. */
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content {
+  z-index: auto !important;
+}
+
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns {
+  z-index: 2 !important;
+}
+
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
+  position: relative;
+  z-index: 1;
+}
+
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .intro {
+  position: relative;
+  z-index: 24;
+}
+
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop {
+  position: relative;
+  z-index: 1000 !important;
+}
+
