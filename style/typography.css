@@ -1,0 +1,73 @@
+/* Shared readable typography for every page.
+   Body copy and controls stay comfortably readable on phones and desktops. */
+
+body {
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+/* Main navigation, content, form labels, cards and interactive controls. */
+body :is(
+  .nav-link,
+  .description,
+  .start-button,
+  .refresh-btn,
+  .submit-button,
+  .text-button,
+  .krathong-name,
+  .krathong-detail,
+  .hint,
+  .section-label p,
+  .wish-form label,
+  .wish-form input,
+  .wish-form textarea,
+  .wish-form select,
+  .form-description,
+  .preview-label,
+  .form-note,
+  .success-description,
+  .success-footer,
+  .count,
+  .state-message,
+  .tooltip-label,
+  .tooltip-wish,
+  .tooltip-name,
+  .tooltip-type
+) {
+  font-size: clamp(16px, 1rem + 0.12vw, 18px) !important;
+  line-height: 1.65;
+}
+
+/* Secondary information remains slightly smaller, but never tiny. */
+body :is(.eyebrow, .form-step, .success-eyebrow, .tooltip-type small) {
+  font-size: 14px !important;
+  line-height: 1.6;
+}
+
+/* Comfortable touch targets for navigation and text actions. */
+body :is(.nav-link, .start-button, .refresh-btn, .text-button) {
+  min-height: 44px;
+}
+
+body :is(.wish-form input, .wish-form select) {
+  min-height: 48px;
+}
+
+body .wish-form textarea {
+  min-height: 120px;
+  line-height: 1.7;
+}
+
+@media (max-width: 600px) {
+  body {
+    font-size: 17px;
+  }
+
+  body :is(.description, .form-description, .success-description, .tooltip-wish) {
+    line-height: 1.8;
+  }
+
+  body :is(.nav-link, .start-button, .refresh-btn, .text-button) {
+    min-height: 46px;
+  }
+}
