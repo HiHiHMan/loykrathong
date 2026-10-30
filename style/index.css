@@ -1402,3 +1402,23 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .sky-lantern-im
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns {
   z-index: 12;
 }
+
+
+/* Use the existing krathong artwork for floating wishes on the landing page. */
+.cartoon-water .latest-wish-trigger .latest-wish-krathong-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.28));
+}
+
+.cartoon-water .tooltip-type .latest-wish-krathong-image {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  margin-right: 4px;
+  vertical-align: middle;
+  object-fit: contain;
+}
