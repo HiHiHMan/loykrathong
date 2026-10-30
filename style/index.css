@@ -1174,3 +1174,51 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moo
     width: clamp(120px, 37vw, 184px);
   }
 }
+
+/* Floating sky lantern — home page only */
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lantern-image {
+  position: absolute;
+  top: clamp(210px, 30vh, 360px);
+  right: clamp(18px, 8vw, 132px);
+  z-index: 1;
+  width: clamp(76px, 10vw, 142px);
+  aspect-ratio: 1;
+  pointer-events: none;
+  user-select: none;
+  animation: sky-lantern-float 7s ease-in-out infinite;
+  filter:
+    drop-shadow(0 0 10px rgba(255, 190, 92, 0.42))
+    drop-shadow(0 0 28px rgba(255, 160, 55, 0.24));
+}
+
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lantern-image::before {
+  content: "";
+  position: absolute;
+  inset: 12%;
+  z-index: -1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 174, 75, 0.34), rgba(255, 174, 75, 0.10) 48%, transparent 74%);
+  filter: blur(16px);
+}
+
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lantern-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  -webkit-user-drag: none;
+}
+
+@keyframes sky-lantern-float {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(-3deg); }
+  50% { transform: translate3d(-10px, -22px, 0) rotate(3deg); }
+}
+
+@media (max-width: 600px) {
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lantern-image {
+    top: clamp(235px, 34vh, 310px);
+    right: 3vw;
+    width: clamp(62px, 19vw, 92px);
+    opacity: 0.92;
+  }
+}
