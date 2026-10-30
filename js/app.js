@@ -278,6 +278,14 @@ if (gl) {
     grid.classList.add("latest-wishes-waterline");
   }
 
+  const krathongLanes = [1, 2, 3].map(function (number) {
+    const lane = document.createElement("div");
+    lane.className = "krathong-wave-lane krathong-wave-lane-" + number;
+    lane.setAttribute("aria-hidden", "false");
+    grid.appendChild(lane);
+    return lane;
+  });
+
   const apiUrl = "https://script.google.com/macros/s/AKfycbzPBRubmqbrZbjqO6mNfzJ24ScNzyIHchY1QXRuE-NatslGoaxNb4Np86abO2pkGOs/exec";
   const callbackName = "onLatestWishes_" + Date.now();
   const script = document.createElement("script");
@@ -336,7 +344,7 @@ if (gl) {
 
     // Place all krathongs in one shared floating area, with a random height
     // and longer staggered launch delay so krathongs have more space between them.
-    grid.innerHTML = latestItems.map(function (item, index) {
+    const krathongMarkup = latestItems.map(function (item, index) {
       const krathong = getKrathong(item.krathongType);
       const top = 8 + Math.random() * 68;
       // Launch krathongs sequentially instead of relying on CSS animation delays.
@@ -368,9 +376,22 @@ if (gl) {
       `;
     }).join("");
 
+    // Distribute krathongs across three depth lanes:
+    // lane 1 is between waves 1-2, lane 2 between 2.5-3, lane 3 between 3-4.
+    krathongLanes.forEach(function (lane) {
+      lane.replaceChildren();
+    });
+
+    const stagingArea = document.createElement("div");
+    stagingArea.innerHTML = krathongMarkup;
+    const krathongs = Array.from(stagingArea.children);
+
+    krathongs.forEach(function (krathong, index) {
+      krathongLanes[index % krathongLanes.length].appendChild(krathong);
+    });
+
     // Launch each krathong at a steady interval. The next one enters while
     // the previous ones are still floating, preventing an empty gap on loop.
-    const krathongs = Array.from(grid.querySelectorAll(".latest-wish-krathong"));
     const itemWidth = krathongs[0]?.getBoundingClientRect().width || 100;
     const launchInterval = 6;
     const travelDistance = grid.clientWidth + itemWidth + 24;
