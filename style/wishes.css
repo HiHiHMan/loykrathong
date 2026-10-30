@@ -397,3 +397,15 @@ body:has(#wishGrid) .landing > footer {
 }
 
 }
+
+/* Match the home page WebGL canvas background on the wishes page */
+body:has(#wishGrid) > #webgl-canvas {
+  position: fixed;
+  inset: 0;
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  z-index: 0 !important;
+  pointer-events: none !important;
+}
