@@ -8,9 +8,9 @@
 
     const lanterns = Array.from(container.querySelectorAll('.sky-lantern-image'));
 
-    // Randomly use obj02 for 1–3 lanterns; keep the remaining lanterns on obj04.
+    // Randomly select exactly 2 of the 6 lanterns to use obj02.
     const shuffledLanterns = [...lanterns].sort(() => Math.random() - 0.5);
-    const obj02Count = 1 + Math.floor(Math.random() * Math.min(3, lanterns.length));
+    const obj02Count = Math.min(2, lanterns.length);
     shuffledLanterns.forEach((lantern, index) => {
         const image = lantern.querySelector('img');
         if (image) {
