@@ -1,4 +1,39 @@
 "use strict";
+
+/* Randomize sky lantern positions on every page load */
+(function randomizeSkyLanterns() {
+  const container = document.querySelector(".sky-lanterns");
+  if (!container) return;
+
+  const lanterns = Array.from(container.querySelectorAll(".sky-lantern-image"));
+  const placed = [];
+  const minDistance = window.innerWidth <= 600 ? 19 : 16;
+  const maxAttempts = 80;
+
+  lanterns.forEach((lantern) => {
+    let x = 0;
+    let y = 0;
+
+    for (let attempt = 0; attempt < maxAttempts; attempt++) {
+      x = 5 + Math.random() * 85;
+      y = 8 + Math.random() * 53;
+
+      const hasSpace = placed.every((position) => {
+        const dx = (x - position.x) * window.innerWidth / window.innerHeight;
+        const dy = y - position.y;
+        return Math.hypot(dx, dy) >= minDistance;
+      });
+
+      if (hasSpace) break;
+    }
+
+    placed.push({ x, y });
+    lantern.style.left = `${x.toFixed(2)}%`;
+    lantern.style.top = `${y.toFixed(2)}%`;
+    lantern.style.right = "auto";
+  });
+})();
+
 const WISHES_API_URL = "https://script.google.com/macros/s/AKfycbxfVAH7i4MSIcXBWB7NSo-PSOkjsn-ur8_57RU0EaDWMB-OtaRTGGzKEJzbfB4GseM/exec";
 const wishGrid = document.getElementById("wishGrid");
 const refreshButton = document.getElementById("refreshWishes");
