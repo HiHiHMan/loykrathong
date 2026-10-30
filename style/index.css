@@ -1463,3 +1463,42 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky
     height: 64px;
   }
 }
+
+
+/* Image button: start creating a krathong */
+body:has(.landing > .moon-image) .refresh-actions-backdrop > .refresh-btn {
+  display: block;
+  width: fit-content;
+  max-width: min(78vw, 320px);
+  margin-inline: auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  line-height: 0;
+}
+
+body:has(.landing > .moon-image) .refresh-actions-backdrop > .refresh-btn img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  transition: transform 180ms ease, filter 180ms ease;
+}
+
+body:has(.landing > .moon-image) .refresh-actions-backdrop > .refresh-btn:hover img {
+  transform: translateY(-3px) scale(1.03);
+  filter: brightness(1.06);
+}
+
+body:has(.landing > .moon-image) .refresh-actions-backdrop > .refresh-btn:focus-visible {
+  outline: 2px solid #f5d98b;
+  outline-offset: 5px;
+  border-radius: 12px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body:has(.landing > .moon-image) .refresh-actions-backdrop > .refresh-btn img {
+    transition: none;
+  }
+}
