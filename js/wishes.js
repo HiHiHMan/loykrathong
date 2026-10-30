@@ -1,42 +1,56 @@
 "use strict";
 
-/* Randomize sky lantern positions on every page load */
+/* Float sky lanterns in loose pairs or trios on the wishes page. */
 (function randomizeSkyLanterns() {
   const container = document.querySelector(".sky-lanterns");
   if (!container) return;
 
   const lanterns = Array.from(container.querySelectorAll(".sky-lantern-image"));
-  const placed = [];
-  const minDistance = window.innerWidth <= 600 ? 15 : 13;
-  const maxAttempts = 80;
+  const groups = [];
+  let cursor = 0;
 
-  lanterns.forEach((lantern, index) => {
-    let x = 0;
-    let y = 0;
+  while (cursor < lanterns.length) {
+    const remaining = lanterns.length - cursor;
+    const groupSize = remaining <= 3 ? remaining : (Math.random() < 0.5 ? 2 : 3);
+    groups.push(lanterns.slice(cursor, cursor + groupSize));
+    cursor += groupSize;
+  }
+
+  const placedCenters = [];
+  const minGroupDistance = window.innerWidth <= 600 ? 19 : 17;
+  const maxAttempts = 100;
+
+  groups.forEach((group) => {
+    let centerX = 0;
+    let centerY = 0;
 
     for (let attempt = 0; attempt < maxAttempts; attempt++) {
-      // Keep a few lanterns around the temple silhouette; scatter the rest higher in the sky.
-      if (index < 2) {
-        x = 32 + Math.random() * 36;
-        y = 27 + Math.random() * 14;
-      } else {
-        x = 5 + Math.random() * 85;
-        y = 7 + Math.random() * 27;
-      }
+      centerX = 7 + Math.random() * 86;
+      centerY = 8 + Math.random() * 29;
 
-      const hasSpace = placed.every((position) => {
-        const dx = (x - position.x) * window.innerWidth / window.innerHeight;
-        const dy = y - position.y;
-        return Math.hypot(dx, dy) >= minDistance;
+      const hasRoom = placedCenters.every((point) => {
+        const dx = (centerX - point.x) * window.innerWidth / window.innerHeight;
+        const dy = centerY - point.y;
+        return Math.hypot(dx, dy) >= minGroupDistance;
       });
 
-      if (hasSpace) break;
+      if (hasRoom) break;
     }
 
-    placed.push({ x, y });
-    lantern.style.left = `${x.toFixed(2)}%`;
-    lantern.style.top = `${y.toFixed(2)}%`;
-    lantern.style.right = "auto";
+    placedCenters.push({ x: centerX, y: centerY });
+
+    group.forEach((lantern, index) => {
+      // Keep lanterns close enough to read as a group, but not touching.
+      const offsets = group.length === 2
+        ? [{ x: -3.8, y: 1.8 }, { x: 3.8, y: -1.8 }]
+        : [{ x: -5.2, y: 2.2 }, { x: 0, y: -2.4 }, { x: 5.2, y: 2.2 }];
+      const x = Math.max(3, Math.min(94, centerX + offsets[index].x));
+      const y = Math.max(5, Math.min(42, centerY + offsets[index].y));
+
+      lantern.style.left = `${x.toFixed(2)}%`;
+      lantern.style.top = `${y.toFixed(2)}%`;
+      lantern.style.right = "auto";
+    });
   });
 })();
 
@@ -91,45 +105,30 @@ function renderWishes(items) {
 
   resultCount.textContent = ``;
 
-  // Arrange krathongs in small floating groups of 2–3, with a little space between groups.
-  const groups = [];
-  let cursor = 0;
-  while (cursor < items.length) {
-    const remaining = items.length - cursor;
-    const groupSize = remaining <= 3 ? remaining : (Math.random() < 0.5 ? 2 : 3);
-    groups.push(items.slice(cursor, cursor + groupSize));
-    cursor += groupSize;
-  }
+  wishGrid.innerHTML = items.map((item, index) => {
+    const k = getKrathong(item.krathongType);
 
-  wishGrid.innerHTML = groups.map((group, groupIndex) => `
-    <div class="krathong-group" style="--group-index:${groupIndex}">
-      ${group.map((item, itemIndex) => {
-        const index = groupIndex * 3 + itemIndex;
-        const k = getKrathong(item.krathongType);
-
-        return `
-          <article class="wish-item">
-            <div class="tooltip-card" role="group" aria-label="รายละเอียดคำอธิษฐาน">
-              <p class="tooltip-label">✦ คำอธิษฐาน</p>
-              <p class="tooltip-wish">“${escapeHtml(item.wish || "ขอให้พบเจอแต่สิ่งดี ๆ")}”</p>
-              <div class="tooltip-divider" aria-hidden="true">✧</div>
-              <div class="tooltip-footer">
-                <div>
-                  <p class="tooltip-name">${escapeHtml(item.fullName || "ไม่ระบุชื่อ")}</p>
-                </div>
-                <span class="tooltip-type">${k.emoji} ${k.label}</span>
-              </div>
+    return `
+      <article class="wish-item">
+        <div class="tooltip-card" role="group" aria-label="รายละเอียดคำอธิษฐาน">
+          <p class="tooltip-label">✦ คำอธิษฐาน</p>
+          <p class="tooltip-wish">“${escapeHtml(item.wish || "ขอให้พบเจอแต่สิ่งดี ๆ")}”</p>
+          <div class="tooltip-divider" aria-hidden="true">✧</div>
+          <div class="tooltip-footer">
+            <div>
+              <p class="tooltip-name">${escapeHtml(item.fullName || "ไม่ระบุชื่อ")}</p>
             </div>
+            <span class="tooltip-type">${k.emoji} ${k.label}</span>
+          </div>
+        </div>
 
-            <button class="krathong-trigger" type="button" aria-label="เปิดคำอธิษฐาน" aria-expanded="false">
-              <span class="krathong-emoji" style="animation-delay:${(index % 5) * 0.35}s">${k.emoji}</span>
-              <span class="water-ripple" aria-hidden="true"></span>
-            </button>
-          </article>
-        `;
-      }).join("")}
-    </div>
-  `).join("");
+        <button class="krathong-trigger" type="button" aria-label="เปิดคำอธิษฐาน" aria-expanded="false">
+          <span class="krathong-emoji" style="animation-delay:${(index % 5) * 0.35}s">${k.emoji}</span>
+          <span class="water-ripple" aria-hidden="true"></span>
+        </button>
+      </article>
+    `;
+  }).join("");
 }
 
 function loadWishes() {
