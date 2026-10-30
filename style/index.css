@@ -1438,3 +1438,15 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky
   object-fit: contain;
 }
 
+/* Slightly reduce floating krathong size on the home page. */
+.cartoon-water .latest-wish-krathong.lalaloy {
+  width: 80px;
+  height: 80px;
+}
+
+@media (max-width: 600px) {
+  .cartoon-water .latest-wish-krathong.lalaloy {
+    width: 64px;
+    height: 64px;
+  }
+}
