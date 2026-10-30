@@ -91,32 +91,45 @@ function renderWishes(items) {
 
   resultCount.textContent = ``;
 
-  wishGrid.innerHTML = items.map((item, index) => {
-    const k = getKrathong(item.krathongType);
+  // Arrange krathongs in small floating groups of 2–3, with a little space between groups.
+  const groups = [];
+  let cursor = 0;
+  while (cursor < items.length) {
+    const remaining = items.length - cursor;
+    const groupSize = remaining <= 3 ? remaining : (Math.random() < 0.5 ? 2 : 3);
+    groups.push(items.slice(cursor, cursor + groupSize));
+    cursor += groupSize;
+  }
 
-    return `
-      <article class="wish-item">
-        <div class="tooltip-card" role="group" aria-label="รายละเอียดคำอธิษฐาน">
-          <p class="tooltip-label">✦ คำอธิษฐาน</p>
-          <p class="tooltip-wish">“${escapeHtml(item.wish || "ขอให้พบเจอแต่สิ่งดี ๆ")}”</p>
-          <div class="tooltip-divider" aria-hidden="true">✧</div>
-          <div class="tooltip-footer">
-            <div>
-              <p class="tooltip-name">${escapeHtml(item.fullName || "ไม่ระบุชื่อ")}</p> 
+  wishGrid.innerHTML = groups.map((group, groupIndex) => `
+    <div class="krathong-group" style="--group-index:${groupIndex}">
+      ${group.map((item, itemIndex) => {
+        const index = groupIndex * 3 + itemIndex;
+        const k = getKrathong(item.krathongType);
+
+        return `
+          <article class="wish-item">
+            <div class="tooltip-card" role="group" aria-label="รายละเอียดคำอธิษฐาน">
+              <p class="tooltip-label">✦ คำอธิษฐาน</p>
+              <p class="tooltip-wish">“${escapeHtml(item.wish || "ขอให้พบเจอแต่สิ่งดี ๆ")}”</p>
+              <div class="tooltip-divider" aria-hidden="true">✧</div>
+              <div class="tooltip-footer">
+                <div>
+                  <p class="tooltip-name">${escapeHtml(item.fullName || "ไม่ระบุชื่อ")}</p>
+                </div>
+                <span class="tooltip-type">${k.emoji} ${k.label}</span>
+              </div>
             </div>
-            <span class="tooltip-type">${k.emoji} ${k.label}</span>
-          </div>
-        </div>
 
-        <button class="krathong-trigger" type="button" aria-label="เปิดคำอธิษฐาน" aria-expanded="false">
-          <span class="krathong-emoji" style="animation-delay:${(index % 5) * 0.35}s">${k.emoji}</span>
-          <span class="water-ripple" aria-hidden="true"></span>
-        </button>
-
-        
-      </article>
-    `;
-  }).join("");
+            <button class="krathong-trigger" type="button" aria-label="เปิดคำอธิษฐาน" aria-expanded="false">
+              <span class="krathong-emoji" style="animation-delay:${(index % 5) * 0.35}s">${k.emoji}</span>
+              <span class="water-ripple" aria-hidden="true"></span>
+            </button>
+          </article>
+        `;
+      }).join("")}
+    </div>
+  `).join("");
 }
 
 function loadWishes() {
