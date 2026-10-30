@@ -1528,3 +1528,54 @@ body:has(#webgl-canvas-create) textarea {
   pointer-events: auto;
 
 }
+
+
+/* Six krathong choices */
+.krathong-list {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  max-width: 760px;
+}
+
+.krathong {
+  min-height: 150px;
+  justify-content: center;
+  gap: 5px;
+}
+
+.krathong .loykrathong {
+  display: grid;
+  place-items: center;
+  min-height: 52px;
+  font-size: 38px;
+}
+
+.krathong-name {
+  font-size: 14px;
+}
+
+.krathong-detail {
+  font-size: 11px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .krathong-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .krathong {
+    min-height: 140px;
+  }
+}
+
+@media (max-width: 360px) {
+  .krathong-name {
+    font-size: 13px;
+  }
+
+  .krathong-detail {
+    font-size: 10px;
+  }
+}
