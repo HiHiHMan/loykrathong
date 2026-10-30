@@ -14,7 +14,7 @@
     shuffledLanterns.forEach((lantern, index) => {
         const image = lantern.querySelector('img');
         if (image) {
-            image.src = index < obj02Count ? './images/obj02.png' : './images/obj04.png';
+            image.src = './images/obj02.png';
         }
     });
 
