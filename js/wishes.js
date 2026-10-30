@@ -116,7 +116,7 @@ function renderWishes(items) {
           <div class="tooltip-divider" aria-hidden="true">✧</div>
           <div class="tooltip-footer">
             <div>
-              <p class="tooltip-name">${escapeHtml(item.fullName || "ไม่ระบุชื่อ")}</p>
+              <p class="tooltip-name">${escapeHtml(item.fullName || "ไม่ระบุชื่อ")}</p> 
             </div>
             <span class="tooltip-type">${k.emoji} ${k.label}</span>
           </div>
@@ -126,6 +126,8 @@ function renderWishes(items) {
           <span class="krathong-emoji" style="animation-delay:${(index % 5) * 0.35}s">${k.emoji}</span>
           <span class="water-ripple" aria-hidden="true"></span>
         </button>
+
+        
       </article>
     `;
   }).join("");
