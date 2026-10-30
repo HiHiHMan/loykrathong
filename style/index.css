@@ -166,7 +166,7 @@ animation-duration: 82s;
   min-height: 0;
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  overflow: visible;
   isolation: auto;
   pointer-events: none;
 
@@ -621,7 +621,7 @@ body:has(.landing > .moon-image) .landing .intro .ornament {
   min-height: 0;
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  overflow: visible;
   isolation: auto;
   pointer-events: none;
 
