@@ -7,6 +7,17 @@
     if (!container) return;
 
     const lanterns = Array.from(container.querySelectorAll('.sky-lantern-image'));
+
+    // Randomly use obj02 for 1–3 lanterns; keep the remaining lanterns on obj04.
+    const shuffledLanterns = [...lanterns].sort(() => Math.random() - 0.5);
+    const obj02Count = 1 + Math.floor(Math.random() * Math.min(3, lanterns.length));
+    shuffledLanterns.forEach((lantern, index) => {
+        const image = lantern.querySelector('img');
+        if (image) {
+            image.src = index < obj02Count ? './images/obj02.png' : './images/obj04.png';
+        }
+    });
+
     const placed = [];
     const minDistance = window.innerWidth <= 600 ? 0.15 : 0.13;
     const maxAttempts = 80;
