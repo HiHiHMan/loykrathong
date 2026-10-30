@@ -481,7 +481,7 @@ body:has(#wishGrid) .wish-item .tooltip-card {
 @media (max-width: 520px) {
   body:has(#wishGrid) .wish-item .tooltip-card {
     flex-basis: auto;
-    width: calc(100vw - 32px);
-    max-width: calc(100vw - 32px);
+    width: calc(100vw - 48px);
+    max-width: calc(100vw - 48px);
   }
 }
