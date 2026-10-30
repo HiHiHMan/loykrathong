@@ -16,13 +16,13 @@
         let y = 0;
 
         for (let attempt = 0; attempt < maxAttempts; attempt++) {
-            // Three lanterns drift across the temple; the others stay higher in the sky.
-            if (index < 3) {
-                x = 24 + Math.random() * 52;
-                y = 29 + Math.random() * 12;
+            // Keep a few lanterns around the temple silhouette; scatter the rest higher in the sky.
+            if (index < 2) {
+                x = 32 + Math.random() * 36;
+                y = 27 + Math.random() * 14;
             } else {
-                x = 5 + Math.random() * 90;
-                y = 5 + Math.random() * 20;
+                x = 5 + Math.random() * 85;
+                y = 7 + Math.random() * 27;
             }
 
             const hasSpace = placed.every((position) => {
