@@ -245,6 +245,18 @@ const krathongData = {
         name: "ใบตองธรรมชาติ",
         icon: "🍃",
     },
+    bread: {
+        name: "ขนมปัง",
+        icon: "🍞",
+    },
+    coconut: {
+        name: "กะลามะพร้าว",
+        icon: "🥥",
+    },
+    flower: {
+        name: "ดอกไม้หลากสี",
+        icon: "🌸",
+    },
 };
 
 let selectedKrathong = "lotus";
