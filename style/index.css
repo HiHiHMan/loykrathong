@@ -1559,12 +1559,12 @@ body:has(.landing > .moon-image) .refresh-actions-backdrop > .refresh-btn:active
 
 /* Home water: flatter, less frequent waves with krathongs between wave layers. */
 .cartoon-water {
-  height: 220px;
+  height: 200px;
 }
 
 @media (max-width: 760px) {
   .cartoon-water {
-    height: 190px;
+    height: 176px;
   }
 }
 
@@ -1598,4 +1598,9 @@ body:has(.landing > .moon-image) .refresh-actions-backdrop > .refresh-btn:active
 
 .cartoon-water .krathong-wave-lane .latest-wish-krathong {
   pointer-events: auto;
+}
+
+/* Keep an opened wish above every wave layer. */
+.cartoon-water .krathong-wave-lane:has(.latest-wish-krathong.is-open) {
+  z-index: 20;
 }
