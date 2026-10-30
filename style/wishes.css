@@ -469,3 +469,19 @@ body:has(#wishGrid) .landing > .sky-lanterns {
   font-size: 10px;
   line-height: 1.4;
 }
+
+/* Adjust tooltip dimensions only; leave wish items and krathongs unchanged. */
+body:has(#wishGrid) .wish-item .tooltip-card {
+  flex: 0 1 440px;
+  width: min(440px, calc(100vw - 32px));
+  min-width: 0;
+  max-width: min(440px, calc(100vw - 32px));
+}
+
+@media (max-width: 520px) {
+  body:has(#wishGrid) .wish-item .tooltip-card {
+    flex-basis: auto;
+    width: calc(100vw - 32px);
+    max-width: calc(100vw - 32px);
+  }
+}
