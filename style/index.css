@@ -1205,7 +1205,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .sky-lantern-im
   top: 25%;
   right: 8%;
   z-index: 3;
-  width: clamp(92px, 11vw, 150px);
+  width: clamp(72px, 8vw, 112px);
   filter: drop-shadow(0 0 10px rgba(255, 190, 92, 0.48)) drop-shadow(0 0 28px rgba(255, 160, 55, 0.26));
   animation-duration: 7s;
 }
@@ -1225,7 +1225,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .sky-lantern-im
   top: 39%;
   left: 34%;
   z-index: 2;
-  width: clamp(68px, 8vw, 108px);
+  width: clamp(54px, 6vw, 82px);
   opacity: 0.82;
   filter: drop-shadow(0 0 18px rgba(255, 174, 75, 0.3));
   animation-duration: 8s;
@@ -1247,7 +1247,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .sky-lantern-im
   top: 41%;
   right: 23%;
   z-index: 2;
-  width: clamp(48px, 5.5vw, 74px);
+  width: clamp(40px, 4.5vw, 60px);
   opacity: 0.52;
   filter: drop-shadow(0 0 14px rgba(255, 174, 75, 0.22));
   animation-duration: 8.5s;
@@ -1260,11 +1260,11 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .sky-lantern-im
 }
 
 @media (max-width: 600px) {
-  .sky-lantern-1 { top: 26%; right: 3%; width: clamp(68px, 19vw, 92px); }
-  .sky-lantern-2 { top: 15%; left: 4%; width: clamp(42px, 12vw, 58px); }
-  .sky-lantern-3 { top: 38%; left: 18%; width: clamp(52px, 15vw, 72px); }
-  .sky-lantern-4 { top: 11%; right: 25%; width: clamp(34px, 9vw, 44px); }
-  .sky-lantern-5 { top: 42%; right: 14%; width: clamp(38px, 11vw, 52px); }
+  .sky-lantern-1 { top: 26%; right: 3%; width: clamp(56px, 15vw, 76px); }
+  .sky-lantern-2 { top: 15%; left: 4%; width: clamp(36px, 10vw, 48px); }
+  .sky-lantern-3 { top: 38%; left: 18%; width: clamp(42px, 12vw, 60px); }
+  .sky-lantern-4 { top: 11%; right: 25%; width: clamp(30px, 8vw, 38px); }
+  .sky-lantern-5 { top: 42%; right: 14%; width: clamp(32px, 9vw, 44px); }
 }
 
 
@@ -1273,7 +1273,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .sky-lantern-im
   top: 51%;
   left: 14%;
   z-index: 2;
-  width: clamp(58px, 7vw, 94px);
+  width: clamp(46px, 5.5vw, 76px);
   opacity: 0.76;
   filter: drop-shadow(0 0 16px rgba(255, 174, 75, 0.28));
   animation-duration: 9.5s;
@@ -1295,7 +1295,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .sky-lantern-im
   top: 58%;
   right: 12%;
   z-index: 2;
-  width: clamp(64px, 7.5vw, 102px);
+  width: clamp(52px, 6vw, 82px);
   opacity: 0.72;
   filter: drop-shadow(0 0 18px rgba(255, 174, 75, 0.28));
   animation-duration: 8.5s;
@@ -1317,7 +1317,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .sky-lantern-im
   top: 63%;
   left: 42%;
   z-index: 2;
-  width: clamp(46px, 5.5vw, 74px);
+  width: clamp(38px, 4.5vw, 60px);
   opacity: 0.6;
   filter: blur(0.3px) drop-shadow(0 0 14px rgba(255, 174, 75, 0.22));
   animation-duration: 9s;
@@ -1325,11 +1325,11 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .sky-lantern-im
 }
 
 @media (max-width: 600px) {
-  .sky-lantern-6 { top: 49%; left: 9%; width: clamp(42px, 12vw, 58px); }
+  .sky-lantern-6 { top: 49%; left: 9%; width: clamp(36px, 10vw, 48px); }
   .sky-lantern-7 { top: 18%; right: 10%; width: clamp(30px, 8vw, 40px); }
-  .sky-lantern-8 { top: 58%; right: 3%; width: clamp(46px, 13vw, 62px); }
+  .sky-lantern-8 { top: 58%; right: 3%; width: clamp(38px, 10vw, 52px); }
   .sky-lantern-9 { top: 29%; left: 58%; width: clamp(28px, 7.5vw, 36px); }
-  .sky-lantern-10 { top: 64%; left: 40%; width: clamp(34px, 9vw, 46px); }
+  .sky-lantern-10 { top: 64%; left: 40%; width: clamp(30px, 8vw, 38px); }
 }
 
 
@@ -1349,7 +1349,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .sky-lantern-im
   top: 64%;
   left: 14%;
   z-index: 2;
-  width: clamp(50px, 6vw, 80px);
+  width: clamp(42px, 5vw, 68px);
   opacity: 0.68;
   filter: drop-shadow(0 0 15px rgba(255, 174, 75, 0.25));
   animation-duration: 8.8s;
@@ -1391,7 +1391,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .sky-lantern-im
 
 @media (max-width: 600px) {
   .sky-lantern-11 { top: 34%; left: 35%; width: clamp(28px, 7.5vw, 36px); }
-  .sky-lantern-12 { top: 64%; left: 12%; width: clamp(38px, 10vw, 48px); }
+  .sky-lantern-12 { top: 64%; left: 12%; width: clamp(32px, 8.5vw, 42px); }
   .sky-lantern-13 { top: 48%; right: 9%; width: clamp(26px, 7vw, 34px); }
   .sky-lantern-14 { top: 68%; right: 37%; width: clamp(32px, 8.5vw, 42px); }
   .sky-lantern-15 { top: 18%; left: 21%; width: clamp(24px, 6vw, 30px); }
