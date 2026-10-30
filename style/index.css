@@ -1549,3 +1549,8 @@ body:has(.landing > .moon-image) .refresh-actions-backdrop > .refresh-btn:active
     width: 1728px;
   }
 }
+
+/* Keep floating krathongs above every water wave layer. */
+.cartoon-water #latestWishesGrid.latest-wishes-waterline {
+  z-index: 5;
+}
