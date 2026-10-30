@@ -1281,8 +1281,8 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .sky-lantern-im
 }
 
 .sky-lantern-7 {
-  top: 7%;
-  right: 8%;
+  top: 16%;
+  right: 17%;
   z-index: 1;
   width: clamp(40px, 4.8vw, 64px);
   opacity: 0.48;
@@ -1326,7 +1326,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .sky-lantern-im
 
 @media (max-width: 600px) {
   .sky-lantern-6 { top: 55%; left: 3%; width: clamp(42px, 12vw, 58px); }
-  .sky-lantern-7 { top: 8%; right: 4%; width: clamp(30px, 8vw, 40px); }
+  .sky-lantern-7 { top: 18%; right: 10%; width: clamp(30px, 8vw, 40px); }
   .sky-lantern-8 { top: 58%; right: 3%; width: clamp(46px, 13vw, 62px); }
   .sky-lantern-9 { top: 29%; left: 58%; width: clamp(28px, 7.5vw, 36px); }
   .sky-lantern-10 { top: 64%; left: 40%; width: clamp(34px, 9vw, 46px); }
@@ -1335,7 +1335,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .sky-lantern-im
 
 /* Five more distant lanterns to enrich the sky depth */
 .sky-lantern-11 {
-  top: 18%;
+  top: 32%;
   left: 43%;
   z-index: 1;
   width: clamp(38px, 4.5vw, 60px);
@@ -1346,8 +1346,8 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .sky-lantern-im
 }
 
 .sky-lantern-12 {
-  top: 70%;
-  left: 20%;
+  top: 64%;
+  left: 14%;
   z-index: 2;
   width: clamp(50px, 6vw, 80px);
   opacity: 0.68;
@@ -1357,8 +1357,8 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .sky-lantern-im
 }
 
 .sky-lantern-13 {
-  top: 35%;
-  right: 4%;
+  top: 48%;
+  right: 18%;
   z-index: 1;
   width: clamp(34px, 4vw, 54px);
   opacity: 0.44;
@@ -1368,8 +1368,8 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .sky-lantern-im
 }
 
 .sky-lantern-14 {
-  top: 76%;
-  right: 35%;
+  top: 70%;
+  right: 42%;
   z-index: 1;
   width: clamp(42px, 5vw, 66px);
   opacity: 0.52;
@@ -1379,8 +1379,8 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .sky-lantern-im
 }
 
 .sky-lantern-15 {
-  top: 5%;
-  left: 29%;
+  top: 18%;
+  left: 24%;
   z-index: 1;
   width: clamp(30px, 3.5vw, 48px);
   opacity: 0.4;
@@ -1390,9 +1390,9 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .sky-lantern-im
 }
 
 @media (max-width: 600px) {
-  .sky-lantern-11 { top: 20%; left: 42%; width: clamp(28px, 7.5vw, 36px); }
-  .sky-lantern-12 { top: 70%; left: 8%; width: clamp(38px, 10vw, 48px); }
-  .sky-lantern-13 { top: 36%; right: 2%; width: clamp(26px, 7vw, 34px); }
-  .sky-lantern-14 { top: 74%; right: 32%; width: clamp(32px, 8.5vw, 42px); }
-  .sky-lantern-15 { top: 6%; left: 28%; width: clamp(24px, 6vw, 30px); }
+  .sky-lantern-11 { top: 34%; left: 35%; width: clamp(28px, 7.5vw, 36px); }
+  .sky-lantern-12 { top: 64%; left: 12%; width: clamp(38px, 10vw, 48px); }
+  .sky-lantern-13 { top: 48%; right: 9%; width: clamp(26px, 7vw, 34px); }
+  .sky-lantern-14 { top: 68%; right: 37%; width: clamp(32px, 8.5vw, 42px); }
+  .sky-lantern-15 { top: 18%; left: 21%; width: clamp(24px, 6vw, 30px); }
 }
