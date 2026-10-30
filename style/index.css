@@ -1163,3 +1163,14 @@ body:has(.landing > .moon-image) .landing > .content > .intro {
   top: -35px;
 
 }
+
+/* Reduce moon size on the landing page */
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image {
+  width: clamp(144px, 22vw, 288px);
+}
+
+@media (max-width: 600px) {
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image {
+    width: clamp(120px, 37vw, 184px);
+  }
+}
