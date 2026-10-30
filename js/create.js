@@ -234,28 +234,28 @@ const homeButton = document.querySelector("#home-button");
 
 const krathongData = {
     lotus: {
-        name: "บัวชมพู",
-        icon: "🪷",
+        name: "ดอกบัว",
+        image: "../images/Lotus.png",
+    },
+    orchid: {
+        name: "ดอกกล้วยไม้",
+        image: "../images/Orchid.png",
     },
     marigold: {
-        name: "ดาวเรืองทอง",
-        icon: "🌼",
+        name: "ดอกดาวเรือง",
+        image: "../images/Marigold.png",
     },
-    banana: {
-        name: "ใบตองธรรมชาติ",
-        icon: "🍃",
+    globeAmaranth: {
+        name: "ดอกบานไม่รู้โรย",
+        image: "../images/GlobeAmaranth.png",
     },
-    bread: {
-        name: "ขนมปัง",
-        icon: "🍞",
+    ixora: {
+        name: "ดอกเข็ม",
+        image: "../images/Ixora.png",
     },
-    coconut: {
-        name: "กะลามะพร้าว",
-        icon: "🥥",
-    },
-    flower: {
-        name: "ดอกไม้หลากสี",
-        icon: "🌸",
+    whiteChampaca: {
+        name: "ดอกจำปี",
+        image: "../images/WhiteChampaca.png",
     },
 };
 
@@ -265,7 +265,7 @@ let selectedKrathong = "lotus";
 function updatePreview() {
     const selected = krathongData[selectedKrathong];
 
-    previewIcon.textContent = selected.icon;
+    previewIcon.innerHTML = `<img src="${selected.image}" alt="">`;
     previewName.textContent = selected.name;
 }
 
@@ -382,8 +382,7 @@ wishForm.addEventListener("submit", async  (event) => {
         }
 
     
-        successKrathong.textContent =
-            krathongData[selectedKrathong].icon;
+        successKrathong.innerHTML = `<img src="${krathongData[selectedKrathong].image}" alt="${krathongData[selectedKrathong].name}">`;
 
         wishForm.hidden = true;
         selectionView.hidden = true;
