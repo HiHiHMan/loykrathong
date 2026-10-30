@@ -306,20 +306,16 @@ if (gl) {
 
   function getKrathong(type) {
     const value = String(type || "").trim().toLowerCase();
+    const flowers = [
+      { keys: ["lotus", "บัว"], label: "ดอกบัว", image: "./images/Lotus.png" },
+      { keys: ["orchid", "กล้วยไม้"], label: "ดอกกล้วยไม้", image: "./images/Orchid.png" },
+      { keys: ["marigold", "ดาวเรือง"], label: "ดอกดาวเรือง", image: "./images/Marigold.png" },
+      { keys: ["globeamaranth", "globe amaranth", "บานไม่รู้โรย"], label: "ดอกบานไม่รู้โรย", image: "./images/GlobeAmaranth.png" },
+      { keys: ["ixora", "ดอกเข็ม", "เข็ม"], label: "ดอกเข็ม", image: "./images/Ixora.png" },
+      { keys: ["whitechampaca", "white champaca", "จำปี"], label: "ดอกจำปี", image: "./images/WhiteChampaca.png" }
+    ];
 
-    if (value === "marigold" || value.includes("ดาวเรือง")) {
-      return { label: "กระทงดาวเรืองทอง" };
-    }
-
-    if (value === "lotus" || value.includes("บัว")) {
-      return { label: "กระทงบัวชมพู" };
-    }
-
-    if (value === "banana" || value.includes("ใบตอง")) {
-      return { label: "กระทงใบตองธรรมชาติ" };
-    }
-
-    return { label: "กระทงดอกบัว" };
+    return flowers.find(flower => flower.keys.some(key => value === key || value.includes(key))) || flowers[0];
   }
 
   function renderWishes(items) {
@@ -353,7 +349,7 @@ if (gl) {
           <button class="lalaloy-motion latest-wish-trigger" type="button"
             aria-label="เปิดคำอธิษฐานของ ${escapeHtml(item.fullName || "ผู้ร่วมงาน")}"
             aria-expanded="false">
-            <img class="latest-wish-krathong-image" src="./images/obj02.png" alt="กระทง" loading="lazy">
+            <img class="latest-wish-krathong-image" src="${krathong.image}" alt="${krathong.label}" loading="lazy">
           </button>
           <span class="krathong-owner-name">${escapeHtml(item.fullName || "ไม่ระบุชื่อ")}</span>
           <div class="tooltip-card" role="group" aria-label="รายละเอียดคำอธิษฐาน">
