@@ -1660,17 +1660,20 @@ body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-back
 }
 
 
-/* Darker evening twilight sky with subdued violet and sunset tones. */
+/* La La Land-inspired vivid violet and magenta twilight sky. */
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing {
   background:
-    radial-gradient(ellipse at 50% 57%, rgba(204, 126, 137, 0.13) 0%, transparent 43%),
+    radial-gradient(ellipse at 50% 58%, rgba(255, 112, 160, 0.42) 0%, rgba(255, 112, 160, 0.12) 28%, transparent 56%),
+    radial-gradient(ellipse at 18% 38%, rgba(117, 65, 220, 0.34) 0%, transparent 48%),
+    radial-gradient(ellipse at 84% 30%, rgba(65, 74, 190, 0.32) 0%, transparent 46%),
     linear-gradient(
       180deg,
-      #17172f 0%,
-      #292342 24%,
-      #493752 48%,
-      #684657 66%,
-      #45354f 82%,
-      #0b172b 100%
+      #17164f 0%,
+      #302078 22%,
+      #6230a0 43%,
+      #a33d9b 61%,
+      #d65391 73%,
+      #70406f 87%,
+      #101d3d 100%
     );
 }
