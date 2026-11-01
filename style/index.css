@@ -1641,3 +1641,9 @@ body:has(.landing > .moon-image) .refresh-actions-backdrop > .refresh-btn:active
 .cartoon-water .wave-layer-7 { z-index: 11; }
 .cartoon-water .wave-layer-8 { z-index: 12; }
 .cartoon-water .wave-layer-9 { z-index: 13; }
+
+
+/* Move the home-page action buttons slightly downward. */
+body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop {
+  transform: translateY(16px);
+}
