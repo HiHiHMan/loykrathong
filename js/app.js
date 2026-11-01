@@ -403,7 +403,7 @@ if (gl) {
     const itemWidth = krathongs[0]?.getBoundingClientRect().width || 100;
     const travelDistance = grid.clientWidth * 3 + itemWidth + 24;
     const duration = 216;
-    const launchInterval = duration / krathongs.length;
+    const launchInterval = 6; // Seconds between each krathong entering from the left.
 
     krathongs.forEach(function (item, index) {
       item.style.setProperty("--krathong-travel", travelDistance + "px");
