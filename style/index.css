@@ -1612,7 +1612,7 @@ body:has(.landing > .moon-image) .refresh-actions-backdrop > .refresh-btn:active
 }
 
 
-/* Move the entire water section downward. */
+/* Move the entire water section downward while preserving horizontal centering. */
 .cartoon-water {
-  transform: translateY(30px);
+  transform: translate(-50%, 30px);
 }
