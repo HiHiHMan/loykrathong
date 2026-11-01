@@ -1604,3 +1604,9 @@ body:has(.landing > .moon-image) .refresh-actions-backdrop > .refresh-btn:active
 .cartoon-water .krathong-wave-lane:has(.latest-wish-krathong.is-open) {
   z-index: 20;
 }
+
+
+/* Move all water wave layers slightly downward together. */
+.cartoon-water .wave-svg {
+  transform: translateY(30px);
+}
