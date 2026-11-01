@@ -1656,5 +1656,5 @@ body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-back
 
 /* Shift the temple artwork (obj01.png) slightly to the right. */
 .temple-image img {
-  transform: translateX(calc(-50% + 12px));
+  transform: translateX(calc(-50% + 6px));
 }
