@@ -1627,17 +1627,16 @@ body:has(.landing > .moon-image) .refresh-actions-backdrop > .refresh-btn:active
 .cartoon-water .wave-layer-9 { z-index: 13; animation-duration: 88s; animation-delay: -33s; }
 
 
-/* Distribute the three krathong lanes between all ten water layers. */
+/* Keep krathongs only between the upper wave layers; none after wave 6. */
 .cartoon-water .wave-layer-1 { z-index: 1; }
+.cartoon-water .krathong-wave-lane-1 { z-index: 2; }
 .cartoon-water .wave-layer-2 { z-index: 3; }
 .cartoon-water .wave-layer-2-5 { z-index: 4; }
-.cartoon-water .wave-layer-3 { z-index: 5; }
-.cartoon-water .krathong-wave-lane-1 { z-index: 2; }
-.cartoon-water .krathong-wave-lane-2 { z-index: 6; }
+.cartoon-water .krathong-wave-lane-2 { z-index: 5; }
+.cartoon-water .wave-layer-3 { z-index: 6; }
 .cartoon-water .wave-layer-4 { z-index: 7; }
 .cartoon-water .wave-layer-5 { z-index: 8; }
 .cartoon-water .wave-layer-6 { z-index: 9; }
-.cartoon-water .krathong-wave-lane-3 { z-index: 10; }
 .cartoon-water .wave-layer-7 { z-index: 11; }
 .cartoon-water .wave-layer-8 { z-index: 12; }
 .cartoon-water .wave-layer-9 { z-index: 13; }
