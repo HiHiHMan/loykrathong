@@ -5903,7 +5903,3 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 }
 
 
-/* Keep the moon and its attached WebGL clouds moving as one group. */
-body:not(:has(#webgl-canvas-create)) .landing > .moon-image {
-  transform: translate3d(calc(-50% + var(--moon-shift-x, 0px)), var(--moon-shift-y, 0px), 0);
-}
