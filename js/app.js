@@ -279,17 +279,20 @@ if (gl) {
         }
 
         void main() {
-            vec2 p = v_uv - vec2(0.5, 0.88);
-            p.x *= u_cloudResolution.x / u_cloudResolution.y;
+            vec2 screenPos = v_uv;
+            vec2 drift = vec2(u_cloudTime * 0.018, sin(u_cloudTime * 0.10) * 0.012);
+            vec2 cloudPos = screenPos + drift;
 
-            vec2 drift = vec2(u_cloudTime * 0.012, sin(u_cloudTime * 0.12) * 0.008);
-            float broadMask = 1.0 - smoothstep(0.18, 0.34, length(p * vec2(1.0, 2.5)));
-            float moonGap = smoothstep(0.035, 0.095, length(p * vec2(1.0, 1.8)));
+            // Keep clouds in the upper sky, but let the cloud field travel across the screen.
+            float skyBand = 1.0 - smoothstep(0.10, 0.27, abs(screenPos.y - 0.88));
+            vec2 moonPos = screenPos - vec2(0.5, 0.88);
+            moonPos.x *= u_cloudResolution.x / u_cloudResolution.y;
+            float moonGap = smoothstep(0.035, 0.095, length(moonPos * vec2(1.0, 1.8)));
 
-            float cloudNoise = fbm(p * vec2(13.0, 29.0) + drift);
+            float cloudNoise = fbm(cloudPos * vec2(13.0, 29.0));
             float wisps = smoothstep(0.43, 0.72, cloudNoise);
-            float streak = 1.0 - smoothstep(0.025, 0.11, abs(p.y + sin(p.x * 19.0 + u_cloudTime * 0.08) * 0.018));
-            float density = wisps * max(streak, wisps * 0.42) * broadMask * moonGap;
+            float streak = 1.0 - smoothstep(0.025, 0.11, abs(screenPos.y - 0.88 + sin(screenPos.x * 19.0 + u_cloudTime * 0.08) * 0.018));
+            float density = wisps * max(streak, wisps * 0.42) * skyBand * moonGap;
 
             float alpha = density * 0.19;
             vec3 cloudColor = mix(vec3(0.42, 0.57, 0.72), vec3(0.86, 0.89, 0.92), wisps);
