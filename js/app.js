@@ -287,176 +287,19 @@ if (gl) {
     return lane;
   });
 
-  const apiUrl = "https://script.google.com/macros/s/AKfycbzPBRubmqbrZbjqO6mNfzJ24ScNzyIHchY1QXRuE-NatslGoaxNb4Np86abO2pkGOs/exec";
-  const callbackName = "onLatestWishes_" + Date.now();
-  const script = document.createElement("script");
-  let finished = false;
-  let timeoutId;
-
-  function cleanup() {
-    if (finished) return;
-    finished = true;
-    clearTimeout(timeoutId);
-    delete window[callbackName];
-    script.remove();
-  }
-
-  function escapeHtml(value) {
-    return String(value ?? "").replace(/[&<>"']/g, function (char) {
-      return {
-        "&": "&amp;",
-        "<": "&lt;",
-        ">": "&gt;",
-        '"': "&quot;",
-        "'": "&#39;"
-      }[char];
-    });
-  }
-
-  function getKrathong(type) {
-    const value = String(type || "").trim().toLowerCase();
-    const flowers = [
-      { keys: ["lotus", "บัว"], label: "ดอกบัว", image: "./images/Lotus.png" },
-      { keys: ["orchid", "กล้วยไม้"], label: "ดอกกล้วยไม้", image: "./images/Orchid.png" },
-      { keys: ["marigold", "ดาวเรือง"], label: "ดอกดาวเรือง", image: "./images/Marigold.png" },
-      { keys: ["globeamaranth", "globe amaranth", "บานไม่รู้โรย"], label: "ดอกบานไม่รู้โรย", image: "./images/GlobeAmaranth.png" },
-      { keys: ["ixora", "ดอกเข็ม", "เข็ม"], label: "ดอกเข็ม", image: "./images/Ixora.png" },
-      { keys: ["whitechampaca", "white champaca", "จำปี"], label: "ดอกจำปี", image: "./images/WhiteChampaca.png" }
-    ];
-
-    return flowers.find(flower => flower.keys.some(key => value === key || value.includes(key))) || flowers[0];
-  }
-
-  function renderWishes(items) {
-    if (!Array.isArray(items) || items.length === 0) {
-      grid.innerHTML = '<div class="state-message">ยังไม่มีคำอธิษฐานให้แสดงในขณะนี้</div>';
-      count.textContent = "0 คำอธิษฐาน";
-      return;
-    }
-
-    // Keep the latest-wishes limit, but randomize display/launch order.
-    // The launch sequence must not depend on createdAt ordering from the API.
-    const latestItems = items.slice(0, 10);
-    for (let i = latestItems.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [latestItems[i], latestItems[j]] = [latestItems[j], latestItems[i]];
-    }
-    count.textContent = latestItems.length + " คำอธิษฐาน";
-
-    // Place all krathongs in one shared floating area, with a random height
-    // and longer staggered launch delay so krathongs have more space between them.
-    const krathongMarkup = latestItems.map(function (item, index) {
-      const krathong = getKrathong(item.krathongType);
-      const laneIndex = index % 3;
-      const top = [
-        "calc(30px + -9.667%)",
-        "calc(30px + 22%)",
-        "calc(30px + 43.667%)"
-      ][laneIndex];
-      // Launch krathongs sequentially instead of relying on CSS animation delays.
-
-      return `
-        <article
-          class="lalaloy latest-wish-krathong is-waiting"
-          style="--wish-float-top:${top}; animation-delay:0s"
-        >
-          <button class="lalaloy-motion latest-wish-trigger" type="button"
-            aria-label="เปิดคำอธิษฐานของ ${escapeHtml(item.fullName || "ผู้ร่วมงาน")}"
-            aria-expanded="false">
-            <img class="latest-wish-krathong-image" src="${krathong.image}" alt="${krathong.label}" loading="lazy">
-          </button>
-          <span class="krathong-owner-name">${escapeHtml(item.fullName || "ไม่ระบุชื่อ")}</span>
-          <div class="tooltip-card" role="group" aria-label="รายละเอียดคำอธิษฐาน">
-            <p class="tooltip-label">✦ คำอธิษฐาน</p>
-            <p class="tooltip-wish">“${escapeHtml(item.wish || "ขอให้พบเจอแต่สิ่งดี ๆ")}”</p>
-            <div class="tooltip-divider" aria-hidden="true">✧</div>
-            <div class="tooltip-footer">
-              <div>
-                <p class="tooltip-name">${escapeHtml(item.fullName || "ไม่ระบุชื่อ")}</p>
-                <p class="tooltip-date">${escapeHtml(item.createdAt || "")}</p>
-              </div>
-              <span class="tooltip-type"><img class="latest-wish-krathong-image" src="${krathong.image}" alt="${krathong.label}" loading="lazy"> ${krathong.label}</span>
-            </div>
-          </div>
-        </article>
-      `;
-    }).join("");
-
-    // Distribute krathongs across three depth lanes:
-    // lane 1 is midway between wave 1 (Y=0) and wave 2 (Y=80).
-    // lane 2 is midway between wave 2 (Y=80) and wave 2.5 (Y=160).
-    // lane 3 is midway between wave 2.5 (Y=160) and wave 3 (Y=240).
-    krathongLanes.forEach(function (lane) {
-      lane.replaceChildren();
-    });
-
-    const stagingArea = document.createElement("div");
-    stagingArea.innerHTML = krathongMarkup;
-    const krathongs = Array.from(stagingArea.children);
-
-    krathongs.forEach(function (krathong, index) {
-      krathongLanes[index % krathongLanes.length].appendChild(krathong);
-    });
-
-    // Launch every krathong from just beyond the left edge.
-    // Positive staggered delays prevent any krathong appearing mid-screen on load.
-    const itemWidth = krathongs[0]?.getBoundingClientRect().width || 100;
-    const travelDistance = grid.clientWidth * 3 + itemWidth + 24;
-    const duration = 216;
-    const launchInterval = 6; // Seconds between each krathong entering from the left.
-
-    krathongs.forEach(function (item, index) {
-      item.style.setProperty("--krathong-travel", travelDistance + "px");
-      item.style.animation = "none";
-      item.style.left = (-itemWidth - 12) + "px";
-      item.style.visibility = "hidden";
-      item.style.opacity = "0";
-      item.style.pointerEvents = "none";
-    });
-
-    void grid.offsetWidth;
-
-    // All krathongs begin at the left edge; each one enters after the previous.
-    krathongs.forEach(function (item, index) {
-      item.classList.remove("is-waiting");
-      item.style.animation = "lalaloy-drift " + duration + "s linear infinite";
-      item.style.animationDelay = (index * launchInterval).toFixed(2) + "s";
-      item.style.visibility = "visible";
-      item.style.opacity = "1";
-      item.style.pointerEvents = "auto";
-    });
-  }
-
-  window[callbackName] = function (response) {
-    cleanup();
-
-    if (!response || response.success !== true) {
+  async function loadLatestWishes() {
+    try {
+      const items = await window.LoyKrathongDB.getWishes();
+      items.sort((a, b) => Number(b.createdAt || 0) - Number(a.createdAt || 0));
+      renderWishes(items.slice(0, 10));
+    } catch (error) {
+      console.error("Load latest wishes error:", error);
       grid.innerHTML = '<div class="state-message">โหลดคำอธิษฐานไม่สำเร็จ กรุณาลองใหม่อีกครั้ง</div>';
       count.textContent = "โหลดข้อมูลไม่สำเร็จ";
-      return;
     }
+  }
 
-    renderWishes(response.data);
-  };
-
-  script.onerror = function () {
-    cleanup();
-    grid.innerHTML = '<div class="state-message">เชื่อมต่อข้อมูลไม่ได้ กรุณาตรวจสอบอินเทอร์เน็ต</div>';
-    count.textContent = "เชื่อมต่อไม่ได้";
-  };
-
-  script.src = apiUrl
-    + "?action=latestWishes&callback="
-    + encodeURIComponent(callbackName)
-    + "&_=" + Date.now();
-
-  timeoutId = setTimeout(function () {
-    cleanup();
-    grid.innerHTML = '<div class="state-message">โหลดข้อมูลใช้เวลานานเกินไป กรุณารีเฟรชหน้าเว็บ</div>';
-    count.textContent = "หมดเวลารอข้อมูล";
-  }, 15000);
-
-  document.body.appendChild(script);
+  loadLatestWishes();
 
   // Tap a floating lalaloy krathong to open/close its wish.
   grid.addEventListener("click", function (event) {
