@@ -397,12 +397,41 @@ if (gl) {
       krathongLanes[index % krathongLanes.length].appendChild(krathong);
     });
 
-    // Give each krathong its own launch gap and floating speed.
-    // Random gaps prevent the krathongs from forming an evenly spaced queue.
+    // Spread krathongs along a longer shared horizontal loop.
+    // X spacing is calculated across ALL lanes, not separately per lane.
     const itemWidth = krathongs[0]?.getBoundingClientRect().width || 100;
-    const travelDistance = grid.clientWidth + itemWidth + 24;
-    const launchDelays = [];
-    let nextLaunchAt = 0;
+    const travelDistance = grid.clientWidth * 3 + itemWidth + 24;
+    const duration = 216;
+    const minGap = Math.min(itemWidth * 1.1, (travelDistance / krathongs.length) * 0.85);
+    const xPositions = [];
+
+    // Pick randomized X phases while enforcing a minimum circular distance.
+    krathongs.forEach(function () {
+      let position = 0;
+      let found = false;
+
+      for (let attempt = 0; attempt < 300; attempt++) {
+        const candidate = Math.random() * travelDistance;
+        const hasSpace = xPositions.every(function (existing) {
+          const directGap = Math.abs(candidate - existing);
+          const circularGap = Math.min(directGap, travelDistance - directGap);
+          return circularGap >= minGap;
+        });
+
+        if (hasSpace) {
+          position = candidate;
+          found = true;
+          break;
+        }
+      }
+
+      if (!found) {
+        // Fallback remains spaced out if random placement reaches its attempt limit.
+        position = (xPositions.length * travelDistance) / krathongs.length;
+      }
+
+      xPositions.push(position);
+    });
 
     krathongs.forEach(function (item) {
       item.style.setProperty("--krathong-travel", travelDistance + "px");
@@ -411,22 +440,17 @@ if (gl) {
       item.style.visibility = "hidden";
       item.style.opacity = "0";
       item.style.pointerEvents = "none";
-
-      // Random gap of 3.5–8.5 seconds from the previous launch.
-      nextLaunchAt += 3.5 + Math.random() * 5;
-      launchDelays.push(nextLaunchAt);
     });
 
     void grid.offsetWidth;
 
+    // Use the same speed and duration so randomized X gaps stay consistent
+    // while moving, regardless of which depth lane contains each krathong.
     krathongs.forEach(function (item, index) {
       item.classList.remove("is-waiting");
-
-      // Randomize travel time too, so the floating speed is not identical.
-      const duration = 66 + Math.random() * 18;
-      item.style.animation = "lalaloy-drift " + duration.toFixed(2) + "s linear "
-        + launchDelays[index].toFixed(2) + "s infinite";
-
+      const phaseDelay = (xPositions[index] / travelDistance) * duration;
+      item.style.animation = "lalaloy-drift " + duration + "s linear -"
+        + phaseDelay.toFixed(2) + "s infinite";
       item.style.visibility = "visible";
       item.style.opacity = "1";
       item.style.pointerEvents = "auto";
