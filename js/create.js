@@ -359,27 +359,8 @@ wishForm.addEventListener("submit", async  (event) => {
     formMessage.hidden = false;
 
     try {
-        const response = await fetch(
-            "https://script.google.com/macros/s/AKfycbxfVAH7i4MSIcXBWB7NSo-PSOkjsn-ur8_57RU0EaDWMB-OtaRTGGzKEJzbfB4GseM/exec",
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type": "text/plain;charset=utf-8",
-                },
-                body: JSON.stringify(wishData),
-                redirect: "follow",
-            }
-        );
+        await window.LoyKrathongDB.addWish(wishData);
 
-        if (!response.ok) {
-            throw new Error("ไม่สามารถเชื่อมต่อระบบบันทึกข้อมูลได้");
-        }
-
-        const result = await response.json();
-
-        if (!result.success) {
-            throw new Error(result.message || "บันทึกข้อมูลไม่สำเร็จ");
-        }
 
     
         successKrathong.innerHTML = `<img src="${krathongData[selectedKrathong].image}" alt="${krathongData[selectedKrathong].name}">`;
