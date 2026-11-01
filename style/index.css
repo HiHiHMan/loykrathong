@@ -1660,17 +1660,17 @@ body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-back
 }
 
 
-/* Evening twilight sky: violet upper sky with a soft warm sunset near the horizon. */
+/* Darker evening twilight sky with subdued violet and sunset tones. */
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing {
   background:
-    radial-gradient(ellipse at 50% 57%, rgba(255, 184, 151, 0.24) 0%, transparent 43%),
+    radial-gradient(ellipse at 50% 57%, rgba(204, 126, 137, 0.13) 0%, transparent 43%),
     linear-gradient(
       180deg,
-      #302b56 0%,
-      #51436f 24%,
-      #806184 48%,
-      #b17d91 66%,
-      #755a7d 82%,
-      #182641 100%
+      #17172f 0%,
+      #292342 24%,
+      #493752 48%,
+      #684657 66%,
+      #45354f 82%,
+      #0b172b 100%
     );
 }
