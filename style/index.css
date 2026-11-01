@@ -1658,3 +1658,19 @@ body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-back
 .temple-image img {
   transform: translateX(calc(-50% + 6px));
 }
+
+
+/* Evening twilight sky: violet upper sky with a soft warm sunset near the horizon. */
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing {
+  background:
+    radial-gradient(ellipse at 50% 57%, rgba(255, 184, 151, 0.24) 0%, transparent 43%),
+    linear-gradient(
+      180deg,
+      #302b56 0%,
+      #51436f 24%,
+      #806184 48%,
+      #b17d91 66%,
+      #755a7d 82%,
+      #182641 100%
+    );
+}
