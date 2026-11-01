@@ -1568,9 +1568,9 @@ body:has(.landing > .moon-image) .refresh-actions-backdrop > .refresh-btn:active
   }
 }
 
-/* Wider SVG canvas spreads each repeated crest farther apart. */
+/* Narrower individual wave shapes while keeping the layers independently scaled. */
 .cartoon-water .wave-svg {
-  width: max(300%, 4320px) !important;
+  width: max(225%, 3240px) !important;
 }
 
 .cartoon-water .wave-layer-1 { z-index: 1; }
