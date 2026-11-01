@@ -251,6 +251,7 @@ if (gl) {
         varying vec2 v_uv;
         uniform float u_cloudTime;
         uniform vec2 u_cloudResolution;
+        uniform vec2 u_mouseOffset;
 
         float hash(vec2 p) {
             return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
@@ -280,18 +281,20 @@ if (gl) {
 
         void main() {
             vec2 screenPos = v_uv;
-            vec2 drift = vec2(u_cloudTime * 0.018, sin(u_cloudTime * 0.10) * 0.012);
-            vec2 cloudPos = screenPos + drift;
+            vec2 drift = vec2(u_cloudTime * 0.006, sin(u_cloudTime * 0.07) * 0.004);
+            vec2 parallax = u_mouseOffset * vec2(0.035, 0.018);
+            vec2 cloudScreenPos = screenPos - parallax;
+            vec2 cloudPos = cloudScreenPos + drift;
 
-            // Keep clouds in the upper sky, but let the cloud field travel across the screen.
-            float skyBand = 1.0 - smoothstep(0.10, 0.27, abs(screenPos.y - 0.88));
-            vec2 moonPos = screenPos - vec2(0.5, 0.88);
+            // Clouds gently follow the moon's parallax movement while staying in the upper sky.
+            float skyBand = 1.0 - smoothstep(0.10, 0.27, abs(cloudScreenPos.y - 0.88));
+            vec2 moonPos = cloudScreenPos - vec2(0.5, 0.88);
             moonPos.x *= u_cloudResolution.x / u_cloudResolution.y;
             float moonGap = smoothstep(0.035, 0.095, length(moonPos * vec2(1.0, 1.8)));
 
             float cloudNoise = fbm(cloudPos * vec2(13.0, 29.0));
             float wisps = smoothstep(0.43, 0.72, cloudNoise);
-            float streak = 1.0 - smoothstep(0.025, 0.11, abs(screenPos.y - 0.88 + sin(screenPos.x * 19.0 + u_cloudTime * 0.08) * 0.018));
+            float streak = 1.0 - smoothstep(0.025, 0.11, abs(cloudScreenPos.y - 0.88 + sin(cloudScreenPos.x * 19.0 + u_cloudTime * 0.05) * 0.018));
             float density = wisps * max(streak, wisps * 0.42) * skyBand * moonGap;
 
             float alpha = density * 0.19;
@@ -318,11 +321,25 @@ if (gl) {
 
     let cloudTimeLocation = null;
     let cloudResolutionLocation = null;
+    let cloudMouseLocation = null;
+    const cloudMouseTarget = [0, 0];
+    const cloudMouseCurrent = [0, 0];
+
+    window.addEventListener('pointermove', (event) => {
+        cloudMouseTarget[0] = (event.clientX / window.innerWidth - 0.5) * 2;
+        cloudMouseTarget[1] = (0.5 - event.clientY / window.innerHeight) * 2;
+    }, { passive: true });
+
+    window.addEventListener('pointerleave', () => {
+        cloudMouseTarget[0] = 0;
+        cloudMouseTarget[1] = 0;
+    }, { passive: true });
 
     if (cloudProgramReady) {
         const cloudPositionLocation = gl.getAttribLocation(cloudProgram, 'a_position');
         cloudTimeLocation = gl.getUniformLocation(cloudProgram, 'u_cloudTime');
         cloudResolutionLocation = gl.getUniformLocation(cloudProgram, 'u_cloudResolution');
+        cloudMouseLocation = gl.getUniformLocation(cloudProgram, 'u_mouseOffset');
 
         const cloudBuffer = gl.createBuffer();
         gl.bindBuffer(gl.ARRAY_BUFFER, cloudBuffer);
@@ -363,6 +380,12 @@ if (gl) {
             gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
             gl.uniform1f(cloudTimeLocation, elapsedTime);
             gl.uniform2f(cloudResolutionLocation, canvas.width, canvas.height);
+
+            // Smoothly ease cloud movement toward the pointer, like the moon's parallax.
+            cloudMouseCurrent[0] += (cloudMouseTarget[0] - cloudMouseCurrent[0]) * 0.012;
+            cloudMouseCurrent[1] += (cloudMouseTarget[1] - cloudMouseCurrent[1]) * 0.012;
+            gl.uniform2f(cloudMouseLocation, cloudMouseCurrent[0], cloudMouseCurrent[1]);
+
             gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
             gl.blendFunc(gl.SRC_ALPHA, gl.ONE);
         }
