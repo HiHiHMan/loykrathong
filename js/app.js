@@ -398,43 +398,14 @@ if (gl) {
       krathongLanes[index % krathongLanes.length].appendChild(krathong);
     });
 
-    // Spread krathongs along a longer shared horizontal loop.
-    // X spacing is calculated across ALL lanes, not separately per lane.
+    // Launch every krathong from just beyond the left edge.
+    // Positive staggered delays prevent any krathong appearing mid-screen on load.
     const itemWidth = krathongs[0]?.getBoundingClientRect().width || 100;
     const travelDistance = grid.clientWidth * 3 + itemWidth + 24;
     const duration = 216;
-    const minGap = Math.min(itemWidth * 1.1, (travelDistance / krathongs.length) * 0.85);
-    const xPositions = [];
+    const launchInterval = duration / krathongs.length;
 
-    // Pick randomized X phases while enforcing a minimum circular distance.
-    krathongs.forEach(function () {
-      let position = 0;
-      let found = false;
-
-      for (let attempt = 0; attempt < 300; attempt++) {
-        const candidate = Math.random() * travelDistance;
-        const hasSpace = xPositions.every(function (existing) {
-          const directGap = Math.abs(candidate - existing);
-          const circularGap = Math.min(directGap, travelDistance - directGap);
-          return circularGap >= minGap;
-        });
-
-        if (hasSpace) {
-          position = candidate;
-          found = true;
-          break;
-        }
-      }
-
-      if (!found) {
-        // Fallback remains spaced out if random placement reaches its attempt limit.
-        position = (xPositions.length * travelDistance) / krathongs.length;
-      }
-
-      xPositions.push(position);
-    });
-
-    krathongs.forEach(function (item) {
+    krathongs.forEach(function (item, index) {
       item.style.setProperty("--krathong-travel", travelDistance + "px");
       item.style.animation = "none";
       item.style.left = (-itemWidth - 12) + "px";
@@ -445,13 +416,11 @@ if (gl) {
 
     void grid.offsetWidth;
 
-    // Use the same speed and duration so randomized X gaps stay consistent
-    // while moving, regardless of which depth lane contains each krathong.
+    // All krathongs begin at the left edge; each one enters after the previous.
     krathongs.forEach(function (item, index) {
       item.classList.remove("is-waiting");
-      const phaseDelay = (xPositions[index] / travelDistance) * duration;
-      item.style.animation = "lalaloy-drift " + duration + "s linear -"
-        + phaseDelay.toFixed(2) + "s infinite";
+      item.style.animation = "lalaloy-drift " + duration + "s linear infinite";
+      item.style.animationDelay = (index * launchInterval).toFixed(2) + "s";
       item.style.visibility = "visible";
       item.style.opacity = "1";
       item.style.pointerEvents = "auto";
