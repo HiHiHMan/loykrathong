@@ -348,8 +348,8 @@ if (gl) {
       const krathong = getKrathong(item.krathongType);
       const laneIndex = index % 2;
       const top = laneIndex === 0
-        ? "calc(30px + 8.333%)"
-        : "calc(30px + 61.667%)";
+        ? "calc(30px + 3.333%)"
+        : "calc(30px + 56.667%)";
       // Launch krathongs sequentially instead of relying on CSS animation delays.
 
       return `
