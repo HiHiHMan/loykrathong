@@ -235,6 +235,105 @@ if (gl) {
 
     const startTime = performance.now();
 
+
+    // Soft procedural clouds drifting around the moon.
+    const cloudVsSource = `
+        attribute vec2 a_position;
+        varying vec2 v_uv;
+        void main() {
+            v_uv = a_position * 0.5 + 0.5;
+            gl_Position = vec4(a_position, 0.0, 1.0);
+        }
+    `;
+
+    const cloudFsSource = `
+        precision mediump float;
+        varying vec2 v_uv;
+        uniform float u_cloudTime;
+        uniform vec2 u_cloudResolution;
+
+        float hash(vec2 p) {
+            return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
+        }
+
+        float noise(vec2 p) {
+            vec2 i = floor(p);
+            vec2 f = fract(p);
+            f = f * f * (3.0 - 2.0 * f);
+            return mix(
+                mix(hash(i), hash(i + vec2(1.0, 0.0)), f.x),
+                mix(hash(i + vec2(0.0, 1.0)), hash(i + vec2(1.0, 1.0)), f.x),
+                f.y
+            );
+        }
+
+        float fbm(vec2 p) {
+            float value = 0.0;
+            float amplitude = 0.5;
+            for (int i = 0; i < 4; i++) {
+                value += noise(p) * amplitude;
+                p *= 2.03;
+                amplitude *= 0.5;
+            }
+            return value;
+        }
+
+        void main() {
+            vec2 p = v_uv - vec2(0.5, 0.88);
+            p.x *= u_cloudResolution.x / u_cloudResolution.y;
+
+            vec2 drift = vec2(u_cloudTime * 0.012, sin(u_cloudTime * 0.12) * 0.008);
+            float broadMask = 1.0 - smoothstep(0.18, 0.34, length(p * vec2(1.0, 2.5)));
+            float moonGap = smoothstep(0.035, 0.095, length(p * vec2(1.0, 1.8)));
+
+            float cloudNoise = fbm(p * vec2(13.0, 29.0) + drift);
+            float wisps = smoothstep(0.43, 0.72, cloudNoise);
+            float streak = 1.0 - smoothstep(0.025, 0.11, abs(p.y + sin(p.x * 19.0 + u_cloudTime * 0.08) * 0.018));
+            float density = wisps * max(streak, wisps * 0.42) * broadMask * moonGap;
+
+            float alpha = density * 0.19;
+            vec3 cloudColor = mix(vec3(0.42, 0.57, 0.72), vec3(0.86, 0.89, 0.92), wisps);
+            gl_FragColor = vec4(cloudColor, alpha);
+        }
+    `;
+
+    const cloudVertexShader = createShader(gl, gl.VERTEX_SHADER, cloudVsSource);
+    const cloudFragmentShader = createShader(gl, gl.FRAGMENT_SHADER, cloudFsSource);
+    const cloudProgram = gl.createProgram();
+
+    if (cloudVertexShader && cloudFragmentShader) {
+        gl.attachShader(cloudProgram, cloudVertexShader);
+        gl.attachShader(cloudProgram, cloudFragmentShader);
+        gl.linkProgram(cloudProgram);
+    }
+
+    const cloudProgramReady = !!(
+        cloudVertexShader &&
+        cloudFragmentShader &&
+        gl.getProgramParameter(cloudProgram, gl.LINK_STATUS)
+    );
+
+    let cloudTimeLocation = null;
+    let cloudResolutionLocation = null;
+
+    if (cloudProgramReady) {
+        const cloudPositionLocation = gl.getAttribLocation(cloudProgram, 'a_position');
+        cloudTimeLocation = gl.getUniformLocation(cloudProgram, 'u_cloudTime');
+        cloudResolutionLocation = gl.getUniformLocation(cloudProgram, 'u_cloudResolution');
+
+        const cloudBuffer = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, cloudBuffer);
+        gl.bufferData(
+            gl.ARRAY_BUFFER,
+            new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]),
+            gl.STATIC_DRAW
+        );
+
+        gl.useProgram(cloudProgram);
+        gl.enableVertexAttribArray(cloudPositionLocation);
+        gl.vertexAttribPointer(cloudPositionLocation, 2, gl.FLOAT, false, 0, 0);
+    }
+
     function render(currentTime) {
         const elapsedTime = (currentTime - startTime) * 0.001;
 
@@ -252,6 +351,17 @@ if (gl) {
         gl.uniform3fv(locations.uniforms.colorCore, config.colorCore);
         gl.uniform3fv(locations.uniforms.colorGlow, config.colorGlow);
         gl.uniform3fv(locations.uniforms.colorOuter, config.colorOuter);
+
+        if (cloudProgramReady) {
+            gl.useProgram(cloudProgram);
+            gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+            gl.uniform1f(cloudTimeLocation, elapsedTime);
+            gl.uniform2f(cloudResolutionLocation, canvas.width, canvas.height);
+            gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+
+            gl.blendFunc(gl.SRC_ALPHA, gl.ONE);
+            gl.useProgram(program);
+        }
 
         gl.drawArrays(gl.POINTS, 0, config.count);
 
