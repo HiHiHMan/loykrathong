@@ -58,6 +58,70 @@ const wishGrid = document.getElementById("wishGrid");
 const refreshButton = document.getElementById("refreshWishes");
 const resultCount = document.getElementById("resultCount");
 
+function escapeHtml(value) {
+  return String(value ?? "").replace(/[&<>"']/g, char => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+  })[char]);
+}
+
+function getKrathong(type) {
+  const value = String(type || "").trim().toLowerCase();
+  const krathongTypes = {
+    lotus: { image: "../images/Lotus.png", label: "ดอกบัว", meaning: "ความสำเร็จและสติปัญญา" },
+    orchid: { image: "../images/Orchid.png", label: "ดอกกล้วยไม้", meaning: "สุขภาพแข็งแรง อายุยืน ไร้โรคภัย" },
+    marigold: { image: "../images/Marigold.png", label: "ดอกดาวเรือง", meaning: "การงานเจริญรุ่งเรืองและมีโชคลาภ" },
+    globeamaranth: { image: "../images/GlobeAmaranth.png", label: "ดอกบานไม่รู้โรย", meaning: "ความรักยั่งยืนและมั่นคง" },
+    ixora: { image: "../images/Ixora.png", label: "ดอกเข็ม", meaning: "สติปัญญาเฉียบคมและผ่านพ้นอุปสรรค" },
+    whitechampaca: { image: "../images/WhiteChampaca.png", label: "ดอกจำปี", meaning: "โชคลาภและเงินทองไหลมา" },
+    banana: { image: "../images/Lotus.png", label: "กระทงใบตอง" },
+    bread: { image: "../images/Lotus.png", label: "กระทงขนมปัง" },
+    coconut: { image: "../images/Lotus.png", label: "กระทงกะลามะพร้าว" },
+    flower: { image: "../images/Lotus.png", label: "กระทงดอกไม้" }
+  };
+  const aliases = [
+    ["บานไม่รู้โรย", "globeamaranth"], ["กล้วยไม้", "orchid"],
+    ["ดาวเรือง", "marigold"], ["จำปี", "whitechampaca"],
+    ["ดอกเข็ม", "ixora"], ["บัว", "lotus"]
+  ];
+  if (krathongTypes[value]) return krathongTypes[value];
+  const matched = aliases.find(([thai]) => value.includes(thai));
+  return matched ? krathongTypes[matched[1]] : krathongTypes.lotus;
+}
+
+function renderWishes(items) {
+  if (!Array.isArray(items) || items.length === 0) {
+    wishGrid.innerHTML = '<div class="state-message">ยังไม่มีคำอธิษฐานให้แสดงในขณะนี้</div>';
+    resultCount.textContent = "";
+    return;
+  }
+
+  resultCount.textContent = "";
+
+  wishGrid.innerHTML = items.map((item, index) => {
+    const k = getKrathong(item.krathongType);
+    return `
+      <article class="wish-item">
+        <div class="tooltip-card" role="group" aria-label="รายละเอียดคำอธิษฐาน">
+          <p class="tooltip-label">✦ คำอธิษฐาน</p>
+          <p class="tooltip-wish">“${escapeHtml(item.wish || "ขอให้พบเจอแต่สิ่งดี ๆ")}”</p>
+          <div class="tooltip-divider" aria-hidden="true">✧</div>
+          <div class="tooltip-footer">
+            <div>
+              <p class="tooltip-name">${escapeHtml(item.fullName || "ไม่ระบุชื่อ")}</p>
+            </div>
+            <span class="tooltip-type"><img src="${k.image}" alt=""><span><strong>${k.label}</strong><small>${k.meaning || ""}</small></span></span>
+          </div>
+        </div>
+        <button class="krathong-trigger" type="button" aria-label="เปิดคำอธิษฐาน" aria-expanded="false">
+          <span class="krathong-emoji" style="animation-delay:${(index % 5) * 0.35}s"><img src="${k.image}" alt="${k.label}"></span>
+          <span class="water-ripple" aria-hidden="true"></span>
+        </button>
+      </article>
+    `;
+  }).join("");
+}
+
+
 function loadWishes() {
   refreshButton.disabled = true;
   refreshButton.textContent = "กำลังสุ่ม...";
