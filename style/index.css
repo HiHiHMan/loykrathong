@@ -1652,3 +1652,9 @@ body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop
 body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop .refresh-row {
   margin-top: -34px !important;
 }
+
+
+/* Shift the temple artwork (obj01.png) slightly to the right. */
+.temple-image img {
+  transform: translateX(calc(-50% + 12px));
+}
