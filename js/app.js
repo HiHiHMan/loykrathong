@@ -283,7 +283,8 @@ if (gl) {
             vec2 screenPos = v_uv;
             // Very slow natural drift; pointer parallax remains clearly visible.
             vec2 drift = vec2(u_cloudTime * 0.0018, sin(u_cloudTime * 0.025) * 0.003);
-            vec2 parallax = u_mouseOffset * vec2(0.16, 0.09);
+            // Match the moon's pointer movement so the cloud cluster stays attached to it.
+            vec2 parallax = u_mouseOffset * vec2(0.025, 0.012);
             vec2 cloudScreenPos = screenPos - parallax;
             vec2 cloudPos = cloudScreenPos + drift;
 
@@ -386,6 +387,13 @@ if (gl) {
             cloudMouseCurrent[0] += (cloudMouseTarget[0] - cloudMouseCurrent[0]) * 0.018;
             cloudMouseCurrent[1] += (cloudMouseTarget[1] - cloudMouseCurrent[1]) * 0.018;
             gl.uniform2f(cloudMouseLocation, cloudMouseCurrent[0], cloudMouseCurrent[1]);
+
+            // Move the moon by the exact same amount as the clouds.
+            const moonElement = document.querySelector('.landing > .moon-image');
+            if (moonElement) {
+                moonElement.style.setProperty('--moon-shift-x', `${cloudMouseCurrent[0] * window.innerWidth * 0.025}px`);
+                moonElement.style.setProperty('--moon-shift-y', `${-cloudMouseCurrent[1] * window.innerHeight * 0.012}px`);
+            }
 
             gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
             gl.blendFunc(gl.SRC_ALPHA, gl.ONE);
