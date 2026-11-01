@@ -281,8 +281,9 @@ if (gl) {
 
         void main() {
             vec2 screenPos = v_uv;
-            vec2 drift = vec2(u_cloudTime * 0.006, sin(u_cloudTime * 0.07) * 0.004);
-            vec2 parallax = u_mouseOffset * vec2(0.035, 0.018);
+            // Very slow natural drift; pointer parallax remains clearly visible.
+            vec2 drift = vec2(u_cloudTime * 0.0018, sin(u_cloudTime * 0.025) * 0.003);
+            vec2 parallax = u_mouseOffset * vec2(0.16, 0.09);
             vec2 cloudScreenPos = screenPos - parallax;
             vec2 cloudPos = cloudScreenPos + drift;
 
@@ -382,8 +383,8 @@ if (gl) {
             gl.uniform2f(cloudResolutionLocation, canvas.width, canvas.height);
 
             // Smoothly ease cloud movement toward the pointer, like the moon's parallax.
-            cloudMouseCurrent[0] += (cloudMouseTarget[0] - cloudMouseCurrent[0]) * 0.012;
-            cloudMouseCurrent[1] += (cloudMouseTarget[1] - cloudMouseCurrent[1]) * 0.012;
+            cloudMouseCurrent[0] += (cloudMouseTarget[0] - cloudMouseCurrent[0]) * 0.018;
+            cloudMouseCurrent[1] += (cloudMouseTarget[1] - cloudMouseCurrent[1]) * 0.018;
             gl.uniform2f(cloudMouseLocation, cloudMouseCurrent[0], cloudMouseCurrent[1]);
 
             gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
