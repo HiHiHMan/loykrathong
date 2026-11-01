@@ -1610,3 +1610,9 @@ body:has(.landing > .moon-image) .refresh-actions-backdrop > .refresh-btn:active
 .cartoon-water .wave-svg {
   transform: translateY(30px);
 }
+
+
+/* Move the entire water section downward. */
+.cartoon-water {
+  transform: translateY(30px);
+}
