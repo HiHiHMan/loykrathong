@@ -1677,3 +1677,25 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing {
       #101d3d 100%
     );
 }
+
+
+/* Index page: soften the moon brightness and surrounding halo. */
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image img {
+  filter:
+    brightness(0.88)
+    drop-shadow(0 0 5px rgba(255, 255, 255, 0.42))
+    drop-shadow(0 0 14px rgba(255, 255, 255, 0.24))
+    drop-shadow(0 0 28px rgba(220, 237, 255, 0.16));
+}
+
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image::before {
+  opacity: 0.38;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 255, 255, 0.42) 0%,
+    rgba(255, 255, 255, 0.24) 24%,
+    rgba(220, 237, 255, 0.12) 46%,
+    rgba(210, 230, 255, 0.04) 62%,
+    transparent 76%
+  );
+}
