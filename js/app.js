@@ -352,27 +352,17 @@ if (gl) {
         gl.uniform3fv(locations.uniforms.colorGlow, config.colorGlow);
         gl.uniform3fv(locations.uniforms.colorOuter, config.colorOuter);
 
+        gl.drawArrays(gl.POINTS, 0, config.count);
+
+        // Draw clouds last so they stay visually in front of every scene layer.
         if (cloudProgramReady) {
             gl.useProgram(cloudProgram);
             gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
             gl.uniform1f(cloudTimeLocation, elapsedTime);
             gl.uniform2f(cloudResolutionLocation, canvas.width, canvas.height);
             gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
-
             gl.blendFunc(gl.SRC_ALPHA, gl.ONE);
-            gl.useProgram(program);
-
-            // Restore the particle buffer attributes after the cloud pass.
-            gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
-            gl.enableVertexAttribArray(locations.attribs.basePosition);
-            gl.vertexAttribPointer(locations.attribs.basePosition, 2, gl.FLOAT, false, STRIDE * FSIZE, 0);
-            gl.enableVertexAttribArray(locations.attribs.properties);
-            gl.vertexAttribPointer(locations.attribs.properties, 4, gl.FLOAT, false, STRIDE * FSIZE, 2 * FSIZE);
-            gl.enableVertexAttribArray(locations.attribs.drift);
-            gl.vertexAttribPointer(locations.attribs.drift, 2, gl.FLOAT, false, STRIDE * FSIZE, 6 * FSIZE);
         }
-
-        gl.drawArrays(gl.POINTS, 0, config.count);
 
         requestAnimationFrame(render);
     }
