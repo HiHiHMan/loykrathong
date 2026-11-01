@@ -278,7 +278,7 @@ if (gl) {
     grid.classList.add("latest-wishes-waterline");
   }
 
-  const krathongLanes = [1, 2, 3].map(function (number) {
+  const krathongLanes = [1, 2].map(function (number) {
     const lane = document.createElement("div");
     lane.className = "krathong-wave-lane krathong-wave-lane-" + number;
     lane.setAttribute("aria-hidden", "false");
@@ -346,13 +346,16 @@ if (gl) {
     // and longer staggered launch delay so krathongs have more space between them.
     const krathongMarkup = latestItems.map(function (item, index) {
       const krathong = getKrathong(item.krathongType);
-      const top = 8 + Math.random() * 68;
+      const laneIndex = index % 2;
+      const top = laneIndex === 0
+        ? "calc(30px + 13.333%)"
+        : "calc(30px + 66.667%)";
       // Launch krathongs sequentially instead of relying on CSS animation delays.
 
       return `
         <article
           class="lalaloy latest-wish-krathong is-waiting"
-          style="--wish-float-top:${top.toFixed(2)}%; animation-delay:0s"
+          style="--wish-float-top:${top}; animation-delay:0s"
         >
           <button class="lalaloy-motion latest-wish-trigger" type="button"
             aria-label="เปิดคำอธิษฐานของ ${escapeHtml(item.fullName || "ผู้ร่วมงาน")}"
@@ -376,8 +379,9 @@ if (gl) {
       `;
     }).join("");
 
-    // Distribute krathongs across three depth lanes:
-    // lane 1 is between waves 1-2, lane 2 between 2.5-3, lane 3 between 3-4.
+    // Distribute krathongs across two depth lanes:
+    // lane 1 is midway between wave 1 (Y=0) and wave 2 (Y=80).
+    // lane 2 is midway between wave 2.5 (Y=160) and wave 3 (Y=240).
     krathongLanes.forEach(function (lane) {
       lane.replaceChildren();
     });
