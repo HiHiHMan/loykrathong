@@ -397,11 +397,12 @@ if (gl) {
       krathongLanes[index % krathongLanes.length].appendChild(krathong);
     });
 
-    // Launch each krathong at a steady interval. The next one enters while
-    // the previous ones are still floating, preventing an empty gap on loop.
+    // Give each krathong its own launch gap and floating speed.
+    // Random gaps prevent the krathongs from forming an evenly spaced queue.
     const itemWidth = krathongs[0]?.getBoundingClientRect().width || 100;
-    const launchInterval = 6;
     const travelDistance = grid.clientWidth + itemWidth + 24;
+    const launchDelays = [];
+    let nextLaunchAt = 0;
 
     krathongs.forEach(function (item) {
       item.style.setProperty("--krathong-travel", travelDistance + "px");
@@ -410,14 +411,22 @@ if (gl) {
       item.style.visibility = "hidden";
       item.style.opacity = "0";
       item.style.pointerEvents = "none";
+
+      // Random gap of 3.5–8.5 seconds from the previous launch.
+      nextLaunchAt += 3.5 + Math.random() * 5;
+      launchDelays.push(nextLaunchAt);
     });
 
     void grid.offsetWidth;
 
-    // Stagger the launch; each animation then repeats at the same interval.
     krathongs.forEach(function (item, index) {
       item.classList.remove("is-waiting");
-      item.style.animation = "lalaloy-drift 72s linear " + (index * launchInterval) + "s infinite";
+
+      // Randomize travel time too, so the floating speed is not identical.
+      const duration = 66 + Math.random() * 18;
+      item.style.animation = "lalaloy-drift " + duration.toFixed(2) + "s linear "
+        + launchDelays[index].toFixed(2) + "s infinite";
+
       item.style.visibility = "visible";
       item.style.opacity = "1";
       item.style.pointerEvents = "auto";
