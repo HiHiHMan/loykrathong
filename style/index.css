@@ -1647,3 +1647,8 @@ body:has(.landing > .moon-image) .refresh-actions-backdrop > .refresh-btn:active
 body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop {
   transform: translateY(16px);
 }
+
+/* Adjust the home-page action row spacing. */
+body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop .refresh-row {
+  margin-top: -34px !important;
+}
