@@ -319,6 +319,21 @@ if (gl) {
     return flowers.find(flower => flower.keys.some(key => value === key || value.includes(key))) || flowers[0];
   }
 
+  const MAX_WISHES = 10;
+  const BATCH_SIZE = 5;
+  const REFRESH_INTERVAL = 10000;
+  let displayedWishes = [];
+  let isLoadingWishes = false;
+  let hasLoadedOnce = false;
+
+  function getWishId(item) {
+    return String(item.id || item.key || [
+      item.createdAt || "",
+      item.fullName || "",
+      item.wish || ""
+    ].join("|"));
+  }
+
   function renderWishes(items) {
     if (!Array.isArray(items) || items.length === 0) {
       grid.innerHTML = '<div class="state-message">ยังไม่มีคำอธิษฐานให้แสดงในขณะนี้</div>';
@@ -326,7 +341,7 @@ if (gl) {
       return;
     }
 
-    const latestItems = items.slice(0, 10);
+    const latestItems = [...items].slice(-MAX_WISHES);
     for (let i = latestItems.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [latestItems[i], latestItems[j]] = [latestItems[j], latestItems[i]];
@@ -382,7 +397,6 @@ if (gl) {
     const launchPhases = [];
 
     if (krathongs.length === 1) {
-      // A lone krathong starts already visible instead of waiting off-screen.
       const targetX = grid.clientWidth * 0.2;
       const targetTranslateX = itemWidth + 12 + targetX;
       const progress = Math.min(1, Math.max(0,
@@ -390,11 +404,9 @@ if (gl) {
       ));
       launchPhases.push(progress * duration);
     } else {
-      // Keep a minimum horizontal gap between every krathong, including different lanes.
       const minGapSeconds = Math.max(8.5, ((itemWidth + 48) / travelDistance) * duration);
       const maxPhaseAttempts = 2000;
 
-      // Random phases are distributed around the full animation cycle, not in index order.
       for (let attempt = 0; attempt < maxPhaseAttempts && launchPhases.length < krathongs.length; attempt++) {
         const phase = Math.random() * duration;
         const hasEnoughSpace = launchPhases.every(existing => {
@@ -406,7 +418,6 @@ if (gl) {
         if (hasEnoughSpace) launchPhases.push(phase);
       }
 
-      // Fallback for unusually crowded layouts where random placement cannot fit.
       if (launchPhases.length < krathongs.length) {
         launchPhases.length = 0;
         const safeGap = duration / krathongs.length;
@@ -432,7 +443,6 @@ if (gl) {
     krathongs.forEach((item, index) => {
       item.classList.remove("is-waiting");
       item.style.animation = "lalaloy-drift " + duration + "s linear infinite";
-      // Negative delay places each krathong at its own randomized starting X position.
       item.style.animationDelay = (-launchPhases[index]).toFixed(2) + "s";
       item.style.visibility = "visible";
       item.style.opacity = "1";
@@ -440,20 +450,42 @@ if (gl) {
     });
   }
 
-
   async function loadLatestWishes() {
+    if (isLoadingWishes) return;
+    isLoadingWishes = true;
+
     try {
       const items = await window.LoyKrathongDB.getWishes();
       items.sort((a, b) => Number(b.createdAt || 0) - Number(a.createdAt || 0));
-      renderWishes(items.slice(0, 10));
+
+      if (!hasLoadedOnce) {
+        displayedWishes = items.slice(0, BATCH_SIZE);
+        hasLoadedOnce = true;
+      } else {
+        const knownIds = new Set(displayedWishes.map(getWishId));
+        const newItems = items
+          .filter(item => !knownIds.has(getWishId(item)))
+          .slice(0, BATCH_SIZE);
+
+        if (newItems.length > 0) {
+          displayedWishes = [...newItems, ...displayedWishes].slice(0, MAX_WISHES);
+        }
+      }
+
+      renderWishes(displayedWishes);
     } catch (error) {
       console.error("Load latest wishes error:", error);
-      grid.innerHTML = '<div class="state-message">โหลดคำอธิษฐานไม่สำเร็จ กรุณาลองใหม่อีกครั้ง</div>';
-      count.textContent = "โหลดข้อมูลไม่สำเร็จ";
+      if (!hasLoadedOnce) {
+        grid.innerHTML = '<div class="state-message">โหลดคำอธิษฐานไม่สำเร็จ กรุณาลองใหม่อีกครั้ง</div>';
+        count.textContent = "โหลดข้อมูลไม่สำเร็จ";
+      }
+    } finally {
+      isLoadingWishes = false;
     }
   }
 
   loadLatestWishes();
+  window.setInterval(loadLatestWishes, REFRESH_INTERVAL);
 
   // Tap a floating lalaloy krathong to open/close its wish.
   grid.addEventListener("click", function (event) {
