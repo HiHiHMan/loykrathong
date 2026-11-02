@@ -458,9 +458,12 @@ if (gl) {
       const items = await window.LoyKrathongDB.getWishes(BATCH_SIZE);
       items.sort((a, b) => Number(b.createdAt || 0) - Number(a.createdAt || 0));
 
+      let shouldRender = false;
+
       if (!hasLoadedOnce) {
         displayedWishes = items.slice(0, BATCH_SIZE);
         hasLoadedOnce = true;
+        shouldRender = true;
       } else {
         const knownIds = new Set(displayedWishes.map(getWishId));
         const newItems = items
@@ -469,10 +472,13 @@ if (gl) {
 
         if (newItems.length > 0) {
           displayedWishes = [...newItems, ...displayedWishes].slice(0, MAX_WISHES);
+          shouldRender = true;
         }
       }
 
-      renderWishes(displayedWishes);
+      // Do not rebuild the krathongs on an unchanged poll.
+      // Rebuilding resets their CSS animation and sends them back to the left.
+      if (shouldRender) renderWishes(displayedWishes);
     } catch (error) {
       console.error("Load latest wishes error:", error);
       if (!hasLoadedOnce) {
