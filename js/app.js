@@ -418,7 +418,7 @@ if (gl) {
 
     const itemWidth = krathongs[0]?.getBoundingClientRect().width || 100;
     const travelDistance = grid.clientWidth * 3 + itemWidth + 24;
-    const duration = krathongs.length === 1 ? 120 : 216;
+    const duration = krathongs.length === 1 ? 60 : 108;
     const launchPhases = [];
 
     if (krathongs.length === 1) {
@@ -429,7 +429,7 @@ if (gl) {
       ));
       launchPhases.push(progress * duration);
     } else {
-      const minGapSeconds = Math.max(8.5, ((itemWidth + 48) / travelDistance) * duration);
+      const minGapSeconds = Math.max(4.25, ((itemWidth + 48) / travelDistance) * duration);
       const maxPhaseAttempts = 2000;
 
       for (let attempt = 0; attempt < maxPhaseAttempts && launchPhases.length < krathongs.length; attempt++) {
