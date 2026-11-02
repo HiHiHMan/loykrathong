@@ -379,7 +379,33 @@ if (gl) {
     const itemWidth = krathongs[0]?.getBoundingClientRect().width || 100;
     const travelDistance = grid.clientWidth * 3 + itemWidth + 24;
     const duration = 216;
-    const launchInterval = 6;
+    // Keep a minimum horizontal gap between every krathong, including different lanes.
+    const minGapSeconds = Math.max(8.5, ((itemWidth + 48) / travelDistance) * duration);
+    const launchPhases = [];
+    const maxPhaseAttempts = 2000;
+
+    // Random phases are distributed around the full animation cycle, not in index order.
+    for (let attempt = 0; attempt < maxPhaseAttempts && launchPhases.length < krathongs.length; attempt++) {
+      const phase = Math.random() * duration;
+      const hasEnoughSpace = launchPhases.every(existing => {
+        const directGap = Math.abs(phase - existing);
+        const circularGap = Math.min(directGap, duration - directGap);
+        return circularGap >= minGapSeconds;
+      });
+
+      if (hasEnoughSpace) launchPhases.push(phase);
+    }
+
+    // Fallback for unusually crowded layouts where random placement cannot fit.
+    if (launchPhases.length < krathongs.length) {
+      launchPhases.length = 0;
+      const safeGap = duration / krathongs.length;
+      for (let index = 0; index < krathongs.length; index++) {
+        launchPhases.push(index * safeGap);
+      }
+    }
+
+    launchPhases.sort((a, b) => a - b);
 
     krathongs.forEach(item => {
       item.style.setProperty("--krathong-travel", travelDistance + "px");
@@ -395,7 +421,8 @@ if (gl) {
     krathongs.forEach((item, index) => {
       item.classList.remove("is-waiting");
       item.style.animation = "lalaloy-drift " + duration + "s linear infinite";
-      item.style.animationDelay = (index * launchInterval).toFixed(2) + "s";
+      // Negative delay places each krathong at its own randomized starting X position.
+      item.style.animationDelay = (-launchPhases[index]).toFixed(2) + "s";
       item.style.visibility = "visible";
       item.style.opacity = "1";
       item.style.pointerEvents = "auto";
