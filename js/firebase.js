@@ -40,8 +40,10 @@
         return wish;
       },
 
-      async getWishes() {
-        return JSON.parse(localStorage.getItem(MOCK_KEY) || "[]");
+      async getWishes(limit = null) {
+        const items = JSON.parse(localStorage.getItem(MOCK_KEY) || "[]")
+          .sort((a, b) => Number(b.createdAt || 0) - Number(a.createdAt || 0));
+        return Number.isInteger(limit) && limit > 0 ? items.slice(0, limit) : items;
       }
     };
 
@@ -92,14 +94,19 @@
       return wish;
     },
 
-    async getWishes() {
-      const snapshot = await wishesRef.once("value");
+    async getWishes(limit = null) {
+      const query = Number.isInteger(limit) && limit > 0
+        ? wishesRef.orderByChild("createdAt").limitToLast(limit)
+        : wishesRef;
+      const snapshot = await query.once("value");
       if (!snapshot.exists()) return [];
 
-      return Object.entries(snapshot.val()).map(([key, value]) => ({
-        ...value,
-        id: value && value.id ? value.id : key
-      }));
+      return Object.entries(snapshot.val())
+        .map(([key, value]) => ({
+          ...value,
+          id: value && value.id ? value.id : key
+        }))
+        .sort((a, b) => Number(b.createdAt || 0) - Number(a.createdAt || 0));
     }
   };
 })();
