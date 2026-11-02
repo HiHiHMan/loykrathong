@@ -1699,3 +1699,77 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moo
     transparent 76%
   );
 }
+
+
+/* Delicate golden stars orbiting the home-page moon — inspired by success-view sparkles. */
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image {
+  isolation: isolate;
+}
+
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .moon-star {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  color: #f2dfaa;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  text-shadow:
+    0 0 5px rgba(255, 239, 190, 0.9),
+    0 0 13px rgba(255, 220, 145, 0.62),
+    0 0 24px rgba(255, 213, 130, 0.28);
+  animation: moon-star-twinkle 2.8s ease-in-out infinite;
+}
+
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .moon-star-1 {
+  top: 5%;
+  left: 3%;
+  font-size: clamp(15px, 1.8vw, 23px);
+  animation-delay: -0.4s;
+}
+
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .moon-star-2 {
+  top: 20%;
+  right: -8%;
+  font-size: clamp(18px, 2.1vw, 27px);
+  animation-delay: -1.5s;
+}
+
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .moon-star-3 {
+  right: 4%;
+  bottom: 8%;
+  font-size: clamp(12px, 1.5vw, 19px);
+  animation-delay: -2.1s;
+}
+
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .moon-star-4 {
+  left: -7%;
+  bottom: 22%;
+  font-size: clamp(16px, 1.9vw, 24px);
+  animation-delay: -0.9s;
+}
+
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .moon-star-5 {
+  top: -9%;
+  right: 25%;
+  font-size: clamp(10px, 1.3vw, 16px);
+  animation-delay: -1.8s;
+}
+
+@keyframes moon-star-twinkle {
+  0%, 100% {
+    opacity: 0.42;
+    transform: scale(0.82) rotate(-8deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.12) rotate(8deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .moon-star {
+    animation: none;
+    opacity: 0.78;
+  }
+}
