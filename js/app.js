@@ -378,34 +378,45 @@ if (gl) {
 
     const itemWidth = krathongs[0]?.getBoundingClientRect().width || 100;
     const travelDistance = grid.clientWidth * 3 + itemWidth + 24;
-    const duration = 216;
-    // Keep a minimum horizontal gap between every krathong, including different lanes.
-    const minGapSeconds = Math.max(8.5, ((itemWidth + 48) / travelDistance) * duration);
+    const duration = krathongs.length === 1 ? 90 : 216;
     const launchPhases = [];
-    const maxPhaseAttempts = 2000;
 
-    // Random phases are distributed around the full animation cycle, not in index order.
-    for (let attempt = 0; attempt < maxPhaseAttempts && launchPhases.length < krathongs.length; attempt++) {
-      const phase = Math.random() * duration;
-      const hasEnoughSpace = launchPhases.every(existing => {
-        const directGap = Math.abs(phase - existing);
-        const circularGap = Math.min(directGap, duration - directGap);
-        return circularGap >= minGapSeconds;
-      });
+    if (krathongs.length === 1) {
+      // A lone krathong starts already visible instead of waiting off-screen.
+      const targetX = grid.clientWidth * 0.2;
+      const targetTranslateX = itemWidth + 12 + targetX;
+      const progress = Math.min(1, Math.max(0,
+        (targetTranslateX + 60) / (travelDistance + 60)
+      ));
+      launchPhases.push(progress * duration);
+    } else {
+      // Keep a minimum horizontal gap between every krathong, including different lanes.
+      const minGapSeconds = Math.max(8.5, ((itemWidth + 48) / travelDistance) * duration);
+      const maxPhaseAttempts = 2000;
 
-      if (hasEnoughSpace) launchPhases.push(phase);
-    }
+      // Random phases are distributed around the full animation cycle, not in index order.
+      for (let attempt = 0; attempt < maxPhaseAttempts && launchPhases.length < krathongs.length; attempt++) {
+        const phase = Math.random() * duration;
+        const hasEnoughSpace = launchPhases.every(existing => {
+          const directGap = Math.abs(phase - existing);
+          const circularGap = Math.min(directGap, duration - directGap);
+          return circularGap >= minGapSeconds;
+        });
 
-    // Fallback for unusually crowded layouts where random placement cannot fit.
-    if (launchPhases.length < krathongs.length) {
-      launchPhases.length = 0;
-      const safeGap = duration / krathongs.length;
-      for (let index = 0; index < krathongs.length; index++) {
-        launchPhases.push(index * safeGap);
+        if (hasEnoughSpace) launchPhases.push(phase);
       }
-    }
 
-    launchPhases.sort((a, b) => a - b);
+      // Fallback for unusually crowded layouts where random placement cannot fit.
+      if (launchPhases.length < krathongs.length) {
+        launchPhases.length = 0;
+        const safeGap = duration / krathongs.length;
+        for (let index = 0; index < krathongs.length; index++) {
+          launchPhases.push(index * safeGap);
+        }
+      }
+
+      launchPhases.sort((a, b) => a - b);
+    }
 
     krathongs.forEach(item => {
       item.style.setProperty("--krathong-travel", travelDistance + "px");
