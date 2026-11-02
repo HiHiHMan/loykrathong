@@ -223,8 +223,21 @@ const previewName = document.querySelector("#selected-preview-name");
 
 const employeeNameInput = document.querySelector("#employee-name");
 const departmentInput = document.querySelector("#department");
+const departmentOtherInput = document.querySelector("#department-other");
 const employeeCodeInput = document.querySelector("#employee-code");
 const prayerInput = document.querySelector("#prayer");
+
+departmentInput.addEventListener("change", () => {
+    const isOther = departmentInput.value === "__other__";
+    departmentOtherInput.hidden = !isOther;
+    departmentOtherInput.required = isOther;
+
+    if (isOther) {
+        departmentOtherInput.focus();
+    } else {
+        departmentOtherInput.value = "";
+    }
+});
 
 
 const successView = document.querySelector("#success-view");
@@ -320,7 +333,9 @@ wishForm.addEventListener("submit", async  (event) => {
     event.preventDefault();
 
     const employeeName = employeeNameInput.value.trim();
-    const department = departmentInput.value.trim();
+    const department = departmentInput.value === "__other__"
+        ? departmentOtherInput.value.trim()
+        : departmentInput.value.trim();
     const employeeCode = employeeCodeInput.value.trim();
     const prayer = prayerInput.value.trim();
 
