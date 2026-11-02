@@ -197,7 +197,8 @@
 
 
  .wish-form input,
- .wish-form textarea {
+ .wish-form textarea,
+ .wish-form select {
 
    display: block;
    width: 100%;
@@ -216,7 +217,8 @@
 
 
  .wish-form input:hover,
- .wish-form textarea:hover {
+ .wish-form textarea:hover,
+ .wish-form select:hover {
 
    border-color: rgba(255, 220, 143, 0.9);
    background: rgba(27, 36, 54, 0.94);
@@ -229,7 +231,8 @@
 
 
  .wish-form input:focus,
- .wish-form textarea:focus {
+ .wish-form textarea:focus,
+ .wish-form select:focus {
 
    background: rgba(14, 22, 37, 0.98);
    border-color: #f2d18a;
@@ -243,7 +246,8 @@
 
 
  .wish-form input::placeholder,
- .wish-form textarea::placeholder {
+ .wish-form textarea::placeholder,
+ .wish-form select:invalid {
 
    color: #777e8c;
  
@@ -755,7 +759,8 @@ body:has(#webgl-canvas-create) .top-nav,
 body:has(#webgl-canvas-create) button,
 body:has(#webgl-canvas-create) .nav-link,
 body:has(#webgl-canvas-create) input,
-body:has(#webgl-canvas-create) textarea {
+body:has(#webgl-canvas-create) textarea,
+body:has(#webgl-canvas-create) select {
 
   position: relative;
   z-index: 1000;
@@ -963,7 +968,8 @@ body:has(#webgl-canvas-create) textarea {
 
 
  .wish-form input,
- .wish-form textarea {
+ .wish-form textarea,
+ .wish-form select {
 
    display: block;
    width: 100%;
@@ -982,7 +988,8 @@ body:has(#webgl-canvas-create) textarea {
 
 
  .wish-form input:hover,
- .wish-form textarea:hover {
+ .wish-form textarea:hover,
+ .wish-form select:hover {
 
    border-color: rgba(255, 220, 143, 0.9);
    background: rgba(27, 36, 54, 0.94);
@@ -995,7 +1002,8 @@ body:has(#webgl-canvas-create) textarea {
 
 
  .wish-form input:focus,
- .wish-form textarea:focus {
+ .wish-form textarea:focus,
+ .wish-form select:focus {
 
    background: rgba(14, 22, 37, 0.98);
    border-color: #f2d18a;
@@ -1009,7 +1017,8 @@ body:has(#webgl-canvas-create) textarea {
 
 
  .wish-form input::placeholder,
- .wish-form textarea::placeholder {
+ .wish-form textarea::placeholder,
+ .wish-form select:invalid {
 
    color: #777e8c;
  
