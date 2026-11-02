@@ -485,3 +485,23 @@ body:has(#wishGrid) .wish-item .tooltip-card {
     max-width: calc(100vw - 48px);
   }
 }
+
+/* Keep the wishes-page footer at the bottom of the viewport or content. */
+body:has(#wishGrid) .landing {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 100vh;
+  min-height: 100svh;
+  height: auto !important;
+  padding-bottom: 24px;
+}
+
+body:has(#wishGrid) .landing > footer {
+  position: relative;
+  inset: auto;
+  align-self: stretch;
+  width: 100%;
+  margin: auto 0 0;
+  padding-top: 28px;
+}
