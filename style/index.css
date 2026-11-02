@@ -1178,8 +1178,8 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moo
 
 /* Five floating sky lanterns — varied scale and depth */ 
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns {
-  position: absolute;
-  inset: 0;
+  position: fixed;
+  inset: 0; width: 100%; height: 100vh; height: 100dvh;
   z-index: 1;
   overflow: hidden;
   pointer-events: none;
