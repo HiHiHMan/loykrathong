@@ -378,7 +378,7 @@ if (gl) {
 
     const itemWidth = krathongs[0]?.getBoundingClientRect().width || 100;
     const travelDistance = grid.clientWidth * 3 + itemWidth + 24;
-    const duration = krathongs.length === 1 ? 90 : 216;
+    const duration = krathongs.length === 1 ? 120 : 216;
     const launchPhases = [];
 
     if (krathongs.length === 1) {
