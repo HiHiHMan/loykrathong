@@ -455,7 +455,7 @@ if (gl) {
     isLoadingWishes = true;
 
     try {
-      const items = await window.LoyKrathongDB.getWishes();
+      const items = await window.LoyKrathongDB.getWishes(BATCH_SIZE);
       items.sort((a, b) => Number(b.createdAt || 0) - Number(a.createdAt || 0));
 
       if (!hasLoadedOnce) {
