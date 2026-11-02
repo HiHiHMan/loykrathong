@@ -43,7 +43,8 @@
     });
 
     const placed = [];
-    const deviceShortSide = Math.min(window.screen.width, window.screen.height);\n    const minDistance = deviceShortSide <= 600 ? 0.15 : 0.13;
+    const deviceShortSide = Math.min(window.screen.width, window.screen.height);
+    const minDistance = deviceShortSide <= 600 ? 0.15 : 0.13;
     const maxAttempts = 80;
 
     lanterns.forEach((lantern, index) => {
