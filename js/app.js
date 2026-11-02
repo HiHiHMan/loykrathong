@@ -294,11 +294,8 @@ if (gl) {
   const grid = document.getElementById("latestWishesGrid");
   const count = document.getElementById("latestWishesCount");
   const waterArea = document.querySelector(".cartoon-water");
-
-  
   if (!grid || !count) return;
 
-  
   if (waterArea) {
     waterArea.appendChild(grid);
     grid.classList.add("latest-wishes-waterline");
@@ -315,11 +312,7 @@ if (gl) {
   function escapeHtml(value) {
     return String(value ?? "").replace(/[&<>"']/g, function (char) {
       return {
-        "&": "&amp;",
-        "<": "&lt;",
-        ">": "&gt;",
-        '"': "&quot;",
-        "'": "&#39;"
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
       }[char];
     });
   }
@@ -347,163 +340,156 @@ if (gl) {
   const MAX_WISHES = 10;
   const BATCH_SIZE = 5;
   const REFRESH_INTERVAL = 10000;
+  const ANIMATION_DURATION = 72;
   let displayedWishes = [];
   let isLoadingWishes = false;
   let hasLoadedOnce = false;
+  let nextLaneIndex = 0;
 
   function getWishId(item) {
     return String(item.id || item.key || [
-      item.createdAt || "",
-      item.fullName || "",
-      item.wish || ""
+      item.createdAt || "", item.fullName || "", item.wish || ""
     ].join("|"));
   }
 
-  function renderWishes(items) {
-    if (!Array.isArray(items) || items.length === 0) {
-      grid.innerHTML = '<div class="state-message">ยังไม่มีคำอธิษฐานให้แสดงในขณะนี้</div>';
+  function createKrathong(item, laneIndex) {
+    const flower = getKrathong(item.krathongType);
+    const top = [
+      "calc(30px + -9.667%)", "calc(30px + 22%)", "calc(30px + 43.667%)"
+    ][laneIndex % 3];
+    const html = [
+      '<article class="lalaloy latest-wish-krathong is-waiting" style="--wish-float-top:', top, '; animation-delay:0s">',
+      '<button class="lalaloy-motion latest-wish-trigger" type="button" aria-label="เปิดคำอธิษฐานของ ',
+      escapeHtml(item.fullName || "ผู้ร่วมงาน"), '" aria-expanded="false">',
+      '<img class="latest-wish-krathong-image" src="', flower.image, '" alt="', flower.label, '" loading="lazy">',
+      '</button><span class="krathong-owner-name">', escapeHtml(item.fullName || "ไม่ระบุชื่อ"), '</span>',
+      '<div class="tooltip-card" role="group" aria-label="รายละเอียดคำอธิษฐาน">',
+      '<p class="tooltip-label">✦ คำอธิษฐาน</p><p class="tooltip-wish">“',
+      escapeHtml(item.wish || "ขอให้พบเจอแต่สิ่งดี ๆ"), '”</p>',
+      '<div class="tooltip-divider" aria-hidden="true">✧</div><div class="tooltip-footer"><div>',
+      '<p class="tooltip-name">', escapeHtml(item.fullName || "ไม่ระบุชื่อ"), '</p>',
+      '<p class="tooltip-date">', escapeHtml(formatWishDate(item.createdAt)), '</p></div>',
+      '<span class="tooltip-type"><img class="latest-wish-krathong-image" src="', flower.image,
+      '" alt="', flower.label, '" loading="lazy"> ', flower.label, '</span></div></div></article>'
+    ].join("");
+
+    const stagingArea = document.createElement("div");
+    stagingArea.innerHTML = html;
+    const element = stagingArea.firstElementChild;
+    element.dataset.wishId = getWishId(item);
+    krathongLanes[laneIndex % krathongLanes.length].appendChild(element);
+    return element;
+  }
+
+  function prepareKrathong(item) {
+    const element = createKrathong(item, nextLaneIndex++);
+    const itemWidth = element.getBoundingClientRect().width || 100;
+    const travelDistance = grid.clientWidth + itemWidth + 24;
+    element.style.setProperty("--krathong-travel", travelDistance + "px");
+    element.style.left = (-itemWidth - 12) + "px";
+    element.style.animation = "none";
+    element.style.visibility = "hidden";
+    element.style.opacity = "0";
+    element.style.pointerEvents = "none";
+    return { element, itemWidth, travelDistance };
+  }
+
+  function startKrathong(element, duration, delaySeconds) {
+    element.classList.remove("is-waiting");
+    element.style.animation = "lalaloy-drift " + duration + "s linear infinite";
+    element.style.animationDelay = delaySeconds.toFixed(2) + "s";
+    element.style.visibility = "visible";
+    element.style.opacity = "1";
+    element.style.pointerEvents = "auto";
+  }
+
+  function renderInitialWishes(items) {
+    const prepared = items.map(prepareKrathong);
+    if (!prepared.length) {
       count.textContent = "0 คำอธิษฐาน";
       return;
     }
 
-    const latestItems = [...items].slice(-MAX_WISHES);
-    for (let i = latestItems.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [latestItems[i], latestItems[j]] = [latestItems[j], latestItems[i]];
-    }
-    count.textContent = latestItems.length + " คำอธิษฐาน";
+    const duration = prepared.length === 1 ? 40 : ANIMATION_DURATION;
+    const phases = [];
 
-    const krathongMarkup = latestItems.map(function (item, index) {
-      const krathong = getKrathong(item.krathongType);
-      const laneIndex = index % 3;
-      const top = [
-        "calc(30px + -9.667%)",
-        "calc(30px + 22%)",
-        "calc(30px + 43.667%)"
-      ][laneIndex];
-
-      return `
-        <article class="lalaloy latest-wish-krathong is-waiting"
-          style="--wish-float-top:${top}; animation-delay:0s">
-          <button class="lalaloy-motion latest-wish-trigger" type="button"
-            aria-label="เปิดคำอธิษฐานของ ${escapeHtml(item.fullName || "ผู้ร่วมงาน")}"
-            aria-expanded="false">
-            <img class="latest-wish-krathong-image" src="${krathong.image}" alt="${krathong.label}" loading="lazy">
-          </button>
-          <span class="krathong-owner-name">${escapeHtml(item.fullName || "ไม่ระบุชื่อ")}</span>
-          <div class="tooltip-card" role="group" aria-label="รายละเอียดคำอธิษฐาน">
-            <p class="tooltip-label">✦ คำอธิษฐาน</p>
-            <p class="tooltip-wish">“${escapeHtml(item.wish || "ขอให้พบเจอแต่สิ่งดี ๆ")}”</p>
-            <div class="tooltip-divider" aria-hidden="true">✧</div>
-            <div class="tooltip-footer">
-              <div>
-                <p class="tooltip-name">${escapeHtml(item.fullName || "ไม่ระบุชื่อ")}</p>
-                <p class="tooltip-date">${escapeHtml(formatWishDate(item.createdAt))}</p>
-              </div>
-              <span class="tooltip-type"><img class="latest-wish-krathong-image" src="${krathong.image}" alt="${krathong.label}" loading="lazy"> ${krathong.label}</span>
-            </div>
-          </div>
-        </article>
-      `;
-    }).join("");
-
-    krathongLanes.forEach(lane => lane.replaceChildren());
-    const stagingArea = document.createElement("div");
-    stagingArea.innerHTML = krathongMarkup;
-    const krathongs = Array.from(stagingArea.children);
-
-    krathongs.forEach((krathong, index) => {
-      krathongLanes[index % krathongLanes.length].appendChild(krathong);
-    });
-
-    const itemWidth = krathongs[0]?.getBoundingClientRect().width || 100;
-    const travelDistance = grid.clientWidth + itemWidth + 24;
-    const duration = krathongs.length === 1 ? 40 : 72;
-    const launchPhases = [];
-
-    if (krathongs.length === 1) {
+    if (prepared.length === 1) {
+      const { itemWidth, travelDistance } = prepared[0];
       const targetX = grid.clientWidth * 0.2;
-      const targetTranslateX = itemWidth + 12 + targetX;
-      const progress = Math.min(1, Math.max(0,
-        (targetTranslateX + 60) / (travelDistance + 60)
-      ));
-      launchPhases.push(progress * duration);
+      phases.push(Math.min(1, Math.max(0, (itemWidth + 12 + targetX) / travelDistance)) * duration);
     } else {
+      const { itemWidth, travelDistance } = prepared[0];
       const minGapSeconds = Math.max(8.5, ((itemWidth + 48) / travelDistance) * duration);
-      const maxPhaseAttempts = 2000;
-
-      for (let attempt = 0; attempt < maxPhaseAttempts && launchPhases.length < krathongs.length; attempt++) {
+      for (let attempt = 0; attempt < 2000 && phases.length < prepared.length; attempt++) {
         const phase = Math.random() * duration;
-        const hasEnoughSpace = launchPhases.every(existing => {
-          const directGap = Math.abs(phase - existing);
-          const circularGap = Math.min(directGap, duration - directGap);
-          return circularGap >= minGapSeconds;
+        const enoughSpace = phases.every(existing => {
+          const gap = Math.abs(phase - existing);
+          return Math.min(gap, duration - gap) >= minGapSeconds;
         });
-
-        if (hasEnoughSpace) launchPhases.push(phase);
+        if (enoughSpace) phases.push(phase);
       }
-
-      if (launchPhases.length < krathongs.length) {
-        launchPhases.length = 0;
-        const safeGap = duration / krathongs.length;
-        for (let index = 0; index < krathongs.length; index++) {
-          launchPhases.push(index * safeGap);
-        }
+      if (phases.length < prepared.length) {
+        phases.length = 0;
+        const safeGap = duration / prepared.length;
+        for (let index = 0; index < prepared.length; index++) phases.push(index * safeGap);
       }
-
-      launchPhases.sort((a, b) => a - b);
+      phases.sort((a, b) => a - b);
     }
-
-    krathongs.forEach(item => {
-      item.style.setProperty("--krathong-travel", travelDistance + "px");
-      item.style.animation = "none";
-      item.style.left = (-itemWidth - 12) + "px";
-      item.style.visibility = "hidden";
-      item.style.opacity = "0";
-      item.style.pointerEvents = "none";
-    });
 
     void grid.offsetWidth;
+    prepared.forEach(({ element }, index) => startKrathong(element, duration, -phases[index]));
+    count.textContent = items.length + " คำอธิษฐาน";
+  }
 
-    krathongs.forEach((item, index) => {
-      item.classList.remove("is-waiting");
-      item.style.animation = "lalaloy-drift " + duration + "s linear infinite";
-      item.style.animationDelay = (-launchPhases[index]).toFixed(2) + "s";
-      item.style.visibility = "visible";
-      item.style.opacity = "1";
-      item.style.pointerEvents = "auto";
+  function appendNewWishes(items) {
+    if (!items.length) return;
+    const prepared = items.map(prepareKrathong);
+    const first = prepared[0];
+    const minGapSeconds = Math.max(
+      8.5, ((first.itemWidth + 48) / first.travelDistance) * ANIMATION_DURATION
+    );
+
+    // Preserve existing elements and animations; each new krathong enters from beyond the left edge.
+    void grid.offsetWidth;
+    prepared.forEach(({ element }, index) => {
+      startKrathong(element, ANIMATION_DURATION, index * minGapSeconds);
     });
+    count.textContent = displayedWishes.length + " คำอธิษฐาน";
   }
 
   async function loadLatestWishes() {
     if (isLoadingWishes) return;
     isLoadingWishes = true;
-
     try {
       const items = await window.LoyKrathongDB.getWishes(BATCH_SIZE);
       items.sort((a, b) => Number(b.createdAt || 0) - Number(a.createdAt || 0));
 
-      let shouldRender = false;
-
       if (!hasLoadedOnce) {
         displayedWishes = items.slice(0, BATCH_SIZE);
         hasLoadedOnce = true;
-        shouldRender = true;
+        renderInitialWishes(displayedWishes);
       } else {
         const knownIds = new Set(displayedWishes.map(getWishId));
         const newItems = items
           .filter(item => !knownIds.has(getWishId(item)))
-          .slice(0, BATCH_SIZE);
+          .sort((a, b) => Number(a.createdAt || 0) - Number(b.createdAt || 0));
 
-        if (newItems.length > 0) {
-          displayedWishes = [...newItems, ...displayedWishes].slice(0, MAX_WISHES);
-          shouldRender = true;
+        if (newItems.length) {
+          const combined = [...displayedWishes, ...newItems];
+          const removedItems = combined.slice(0, Math.max(0, combined.length - MAX_WISHES));
+          displayedWishes = combined.slice(-MAX_WISHES);
+
+          const removedIds = new Set(removedItems.map(getWishId));
+          if (removedIds.size) {
+            grid.querySelectorAll(".latest-wish-krathong").forEach(element => {
+              if (removedIds.has(element.dataset.wishId)) element.remove();
+            });
+          }
+
+          appendNewWishes(newItems);
+          count.textContent = displayedWishes.length + " คำอธิษฐาน";
         }
       }
-
-      // Do not rebuild the krathongs on an unchanged poll.
-      // Rebuilding resets their CSS animation and sends them back to the left.
-      if (shouldRender) renderWishes(displayedWishes);
     } catch (error) {
       console.error("Load latest wishes error:", error);
       if (!hasLoadedOnce) {
@@ -518,22 +504,18 @@ if (gl) {
   loadLatestWishes();
   window.setInterval(loadLatestWishes, REFRESH_INTERVAL);
 
-  // Tap a floating lalaloy krathong to open/close its wish.
   grid.addEventListener("click", function (event) {
     const trigger = event.target.closest(".latest-wish-trigger");
     if (!trigger) return;
-
     const item = trigger.closest(".latest-wish-krathong");
     if (!item) return;
 
     const shouldOpen = !item.classList.contains("is-open");
-
     grid.querySelectorAll(".latest-wish-krathong.is-open").forEach(function (openItem) {
       openItem.classList.remove("is-open");
       const openTrigger = openItem.querySelector(".latest-wish-trigger");
       if (openTrigger) openTrigger.setAttribute("aria-expanded", "false");
     });
-
     if (shouldOpen) {
       item.classList.add("is-open");
       trigger.setAttribute("aria-expanded", "true");
