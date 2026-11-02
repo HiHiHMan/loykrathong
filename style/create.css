@@ -486,8 +486,10 @@
 
 
    .wish-form input,
-   .wish-form textarea {
+   .wish-form textarea,
+   .wish-form select {
 
+     box-sizing: border-box;
      min-height: 44px;
      font-size: 16px;
    
