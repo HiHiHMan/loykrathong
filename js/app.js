@@ -1,6 +1,30 @@
 
 "use strict";
 
+/* Read the device screen size separately from the browser viewport. */
+(function detectDeviceScreen() {
+    const screenWidth = window.screen.width;
+    const screenHeight = window.screen.height;
+    const root = document.documentElement;
+
+    root.dataset.deviceScreen = Math.min(screenWidth, screenHeight) <= 600
+        ? "small"
+        : Math.min(screenWidth, screenHeight) <= 900
+            ? "medium"
+            : "large";
+
+    root.style.setProperty("--device-screen-width", screenWidth + "px");
+    root.style.setProperty("--device-screen-height", screenHeight + "px");
+
+    console.info("Device screen:", {
+        width: screenWidth,
+        height: screenHeight,
+        pixelRatio: window.devicePixelRatio || 1,
+        viewportWidth: window.innerWidth,
+        viewportHeight: window.innerHeight
+    });
+})();
+
 /* Randomize sky lantern positions on every page load */
 (function randomizeSkyLanterns() {
     const container = document.querySelector('.sky-lanterns');
@@ -19,7 +43,7 @@
     });
 
     const placed = [];
-    const minDistance = window.innerWidth <= 600 ? 0.15 : 0.13;
+    const deviceShortSide = Math.min(window.screen.width, window.screen.height);\n    const minDistance = deviceShortSide <= 600 ? 0.15 : 0.13;
     const maxAttempts = 80;
 
     lanterns.forEach((lantern, index) => {
