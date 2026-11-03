@@ -1773,3 +1773,10 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .moon-star-5 {
     opacity: 0.78;
   }
 }
+
+
+/* Shift the home-page moon slightly to the left without affecting create page. */
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image {
+  left: calc(50% - clamp(28px, 5vw, 64px)) !important;
+  transform: translateX(-50%);
+}
