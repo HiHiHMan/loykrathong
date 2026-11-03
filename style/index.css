@@ -1780,3 +1780,16 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moo
   left: calc(50% - clamp(28px, 5vw, 64px)) !important;
   transform: translateX(-50%);
 }
+
+
+/* Move the home-page moon much farther left. */
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image {
+  left: calc(50% - clamp(110px, 18vw, 220px)) !important;
+  transform: translateX(-50%);
+}
+
+@media (max-width: 600px) {
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image {
+    left: calc(50% - 76px) !important;
+  }
+}
