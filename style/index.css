@@ -1798,3 +1798,8 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moo
 /* Further left positioning for the home-page moon. */
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image { left: calc(50% - clamp(180px, 26vw, 320px)) !important; transform: translateX(-50%); }
 @media (max-width: 600px) { body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image { left: calc(50% - 132px) !important; } }
+
+
+/* Shift the home-page moon substantially farther left. */
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image { left: calc(50% - clamp(260px, 34vw, 420px)) !important; transform: translateX(-50%); }
+@media (max-width: 600px) { body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image { left: calc(50% - 190px) !important; } }
