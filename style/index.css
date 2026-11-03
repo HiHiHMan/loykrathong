@@ -1822,3 +1822,9 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moo
     width: clamp(76px, 25vw, 150px) !important;
   }
 }
+
+
+/* Lower the home-page moon slightly without affecting the create page. */
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image {
+  transform: translate(-50%, 18px) !important;
+}
