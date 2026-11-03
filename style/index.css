@@ -1834,3 +1834,14 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moo
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image {
   transform: translate(-50%, 36px) !important;
 }
+
+
+/* Reduce the home-page moon size on large screens; keep the mobile scale unchanged. */
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image {
+  width: clamp(96px, 16vw, 240px) !important;
+}
+@media (max-width: 600px) {
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image {
+    width: clamp(76px, 25vw, 150px) !important;
+  }
+}
