@@ -1811,3 +1811,14 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moo
     left: calc(50% - clamp(80px, 32vw, 190px)) !important;
   }
 }
+
+
+/* Scale the home-page moon down smoothly as the viewport gets narrower. */
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image {
+  width: clamp(96px, 18vw, 288px) !important;
+}
+@media (max-width: 600px) {
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image {
+    width: clamp(76px, 25vw, 150px) !important;
+  }
+}
