@@ -1828,3 +1828,9 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moo
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image {
   transform: translate(-50%, 18px) !important;
 }
+
+
+/* Lower the home-page moon a little further. */
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image {
+  transform: translate(-50%, 36px) !important;
+}
