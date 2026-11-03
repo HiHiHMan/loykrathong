@@ -1803,3 +1803,11 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moo
 /* Shift the home-page moon substantially farther left. */
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image { left: calc(50% - clamp(260px, 34vw, 420px)) !important; transform: translateX(-50%); }
 @media (max-width: 600px) { body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image { left: calc(50% - 190px) !important; } }
+
+
+/* On narrower screens, progressively bring the home-page moon back to the right. */
+@media (max-width: 600px) {
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image {
+    left: calc(50% - clamp(80px, 32vw, 190px)) !important;
+  }
+}
