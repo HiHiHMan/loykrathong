@@ -1851,3 +1851,12 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moo
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image {
   transform: translate(-50%, 54px) !important;
 }
+
+
+/* Anchor home-page lanterns to the landing scene like the moon and temple. */
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+}
