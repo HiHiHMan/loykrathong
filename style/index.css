@@ -1914,7 +1914,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .templ
 @media (max-width: 760px) {
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
     height: 112px;
-    margin-top: -182px !important;
+    margin-top: -202px !important;
     margin-bottom: -112px !important;
     clip-path: polygon(43% 0, 57% 0, 100% 100%, 0 100%);
   }
@@ -1961,7 +1961,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 @media (max-width: 760px) {
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
     height: 112px;
-    margin-top: -172px !important;
+    margin-top: -192px !important;
     margin-bottom: -112px !important;
     clip-path: polygon(43% 0, 57% 0, 100% 100%, 0 100%);
   }
@@ -1975,5 +1975,5 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 
 /* Raise the temple artwork on the home scene. */
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
-  transform: translateY(-40px) !important;
+  transform: translateY(-60px) !important;
 }
