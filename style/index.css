@@ -2245,7 +2245,7 @@ body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop
 /* Lower the create button and brown road on the 800x1230 home viewport. */
 @media (width: 800px) and (height: 1230px) {
   body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop {
-    transform: translateY(166px) !important;
+    transform: translateY(186px) !important;
   }
 
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
