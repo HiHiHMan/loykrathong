@@ -1895,7 +1895,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .templ
   left: 50%;
   width: 100vw;
   height: clamp(48px, 5.5vw, 111px);
-  margin-top: -208px !important;
+  margin-top: -198px !important;
   margin-bottom: calc(0px - clamp(110px, 13vw, 176px)) !important;
   transform: translateX(-50%);
   pointer-events: none;
