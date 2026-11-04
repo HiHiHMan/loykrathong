@@ -1929,7 +1929,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .templ
   width: 100vw;
   height: clamp(110px, 13vw, 176px);
   margin-top: -178px !important;
-  margin-bottom: clamp(110px, 13vw, 176px) * -1 !important;
+  margin-bottom: calc(0px - clamp(110px, 13vw, 176px)) !important;
   transform: translateX(-50%);
   pointer-events: none;
   clip-path: polygon(46.5% 0, 53.5% 0, 100% 100%, 0 100%);
