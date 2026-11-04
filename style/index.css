@@ -1914,7 +1914,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .templ
 @media (max-width: 760px) {
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
     height: 112px;
-    margin-top: -55px !important;
+    margin-top: -142px !important;
     margin-bottom: -112px !important;
     clip-path: polygon(43% 0, 57% 0, 100% 100%, 0 100%);
   }
@@ -1924,11 +1924,11 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .templ
 /* Final home-scene road placement: connect obj01 to the water without covering the waves. */
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
   position: relative !important;
-  z-index: 1 !important;
+  z-index: -1 !important;
   left: 50%;
   width: 100vw;
   height: clamp(110px, 13vw, 176px);
-  margin-top: -70px !important;
+  margin-top: -142px !important;
   margin-bottom: calc(0px - clamp(110px, 13vw, 176px)) !important;
   transform: translateX(-50%);
   pointer-events: none;
@@ -1970,5 +1970,5 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 
 /* Move the entire home-page water section substantially farther down. */
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .cartoon-water {
-  transform: translate(-50%, 130px) !important;
+  transform: translate(-50%, 115px) !important;
 }
