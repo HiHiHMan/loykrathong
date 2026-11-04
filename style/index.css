@@ -2017,3 +2017,20 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky
     top: 56% !important;
   }
 }
+
+
+/* Raise the lower sky lanterns a little further. */
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image.sky-lantern-10 {
+  top: 52% !important;
+}
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image.sky-lantern-12 {
+  top: 52% !important;
+}
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image.sky-lantern-14 {
+  top: 54% !important;
+}
+@media (max-width: 600px) {
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image:is(.sky-lantern-10, .sky-lantern-12, .sky-lantern-14) {
+    top: 50% !important;
+  }
+}
