@@ -2000,3 +2000,20 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moo
     max-width: 24px !important;
   }
 }
+
+
+/* Raise the lowest sky lanterns higher in the scene. */
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image.sky-lantern-10 {
+  top: 58% !important;
+}
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image.sky-lantern-12 {
+  top: 58% !important;
+}
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image.sky-lantern-14 {
+  top: 60% !important;
+}
+@media (max-width: 600px) {
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image:is(.sky-lantern-10, .sky-lantern-12, .sky-lantern-14) {
+    top: 56% !important;
+  }
+}
