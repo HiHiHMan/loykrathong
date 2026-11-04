@@ -1959,12 +1959,22 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 }
 
 @media (max-width: 760px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
-    height: 140px;
-    margin-top: -232px !important;
-    margin-bottom: -140px !important;
-    clip-path: polygon(43% 0, 57% 0, 100% 100%, 0 100%);
-  }
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-road {
+  position: relative;
+  z-index: 2;
+  left: 50%;
+  width: 100vw;
+  height: clamp(48px, 5.5vw, 76px);
+  margin-top: -112px;
+  margin-bottom: calc(clamp(48px, 5.5vw, 76px) * -1);
+  transform: translateX(-50%);
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(235, 190, 126, 0.62) 0%, rgba(142, 91, 51, 0.18) 12%, transparent 22%),
+    radial-gradient(ellipse at 50% 20%, rgba(190, 133, 79, 0.72), transparent 68%),
+    linear-gradient(180deg, #98643f 0%, #75472f 46%, #543323 100%);
+  clip-path: polygon(0 28%, 50% 0, 100% 28%, 100% 100%, 0 100%);
+  box-shadow: 0 -5px 12px rgba(25, 15, 27, 0.2);
 }
 
 
