@@ -1544,6 +1544,14 @@ body:has(.landing > .moon-image) .refresh-actions-backdrop > .refresh-btn:active
   }
 }
 
+/* Make the create-krathong button smaller and lower on mobile. */
+@media (max-width: 600px) {
+  body:has(.landing > .moon-image) .refresh-actions-backdrop > .refresh-btn {
+    max-width: min(48vw, 180px);
+    top: 10px !important;
+  }
+}
+
 /* Slightly reduce the temple artwork on small screens. */
 @media (max-width: 760px) {
   .temple-image img {
