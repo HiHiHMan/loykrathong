@@ -2334,3 +2334,11 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
   max-width: 100vw !important;
   height: auto;
 }
+
+
+/* Lower the home-page water by another 20px on the 1920x1080 viewport. */
+@media (width: 1920px) and (height: 1080px) {
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .cartoon-water {
+    transform: translate(-50%, 115px) !important;
+  }
+}
