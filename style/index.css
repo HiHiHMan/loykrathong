@@ -1908,10 +1908,14 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
   transform: translate(-50%, 95px) !important;
 }
 
-/* Move the water a little farther down on small screens. */
+/* Set road and water positions on mobile screens. */
 @media (max-width: 600px) {
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
+    margin-top: -175px !important;
+  }
+
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .cartoon-water {
-    transform: translate(-50%, 145px) !important;
+    transform: translate(-50%, 114px) !important;
   }
 }
 
