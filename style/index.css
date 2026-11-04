@@ -2073,3 +2073,9 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky
     display: none !important;
   }
 }
+
+/* Lower the create-krathong image button slightly on all screen sizes. */
+body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop > .refresh-btn {
+  top: 0 !important;
+  margin-top: 10px;
+}
