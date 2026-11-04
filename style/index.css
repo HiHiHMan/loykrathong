@@ -1908,6 +1908,13 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
   transform: translate(-50%, 95px) !important;
 }
 
+/* Move the water a little farther down on small screens. */
+@media (max-width: 600px) {
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .cartoon-water {
+    transform: translate(-50%, 115px) !important;
+  }
+}
+
 /* Raise the temple artwork on the home scene. */
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
   transform: translateY(-60px) !important;
