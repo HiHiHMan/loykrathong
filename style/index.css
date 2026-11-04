@@ -2040,3 +2040,9 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image:is(.sky-lantern-10, .sky-lantern-12, .sky-lantern-14) {
   top: 30% !important;
 }
+
+
+/* Move the lower sky lantern group to 20% from the top. */
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image:is(.sky-lantern-10, .sky-lantern-12, .sky-lantern-14) {
+  top: 20% !important;
+}
