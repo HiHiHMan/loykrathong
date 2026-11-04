@@ -2358,3 +2358,11 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
     margin-top: -143px !important;
   }
 }
+
+
+/* Lower the home-page refresh actions another 15px on the 1920x1080 viewport. */
+@media (width: 1920px) and (height: 1080px) {
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop {
+    transform: translateY(111px) !important;
+  }
+}
