@@ -2116,14 +2116,14 @@ body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop
 }
 
 
-/* Lower the water and the brown road together on viewports up to 750px. */
-@media (max-width: 750px) {
+/* Lower the water and restore the brown road position on 601–750px screens. */
+@media (min-width: 601px) and (max-width: 750px) {
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .cartoon-water {
     transform: translate(-50%, 100px) !important;
   }
 
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
-    margin-top: -188px !important;
+    margin-top: -178px !important;
   }
 }
 
