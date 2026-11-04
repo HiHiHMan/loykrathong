@@ -2098,3 +2098,11 @@ body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop
     max-width: min(42vw, 160px) !important;
   }
 }
+
+
+/* Push the water much lower on iPad/tablet-sized screens. */
+@media (min-width: 601px) and (max-width: 1024px) {
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .cartoon-water {
+    transform: translate(-50%, 190px) !important;
+  }
+}
