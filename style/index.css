@@ -2082,5 +2082,19 @@ body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop
 
 /* Move the entire home action backdrop further down. */
 body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop {
-  transform: translateY(72px) !important;
+  transform: translateY(96px) !important;
+}
+
+
+/* Reduce the home create-krathong button size. */
+body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop > .refresh-btn {
+  width: min(48vw, 190px) !important;
+  max-width: min(48vw, 190px) !important;
+}
+
+@media (max-width: 600px) {
+  body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop > .refresh-btn {
+    width: min(42vw, 160px) !important;
+    max-width: min(42vw, 160px) !important;
+  }
 }
