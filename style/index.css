@@ -2214,9 +2214,17 @@ body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop
   }
 }
 
-/* Slightly reduce obj01 artwork on the 375x812 home viewport. */
+/* Set obj01 size and lower the road and water on the 375x812 home viewport. */
 @media (width: 375px) and (height: 812px) {
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image img {
-    width: 1680px !important;
+    width: 1330px !important;
+  }
+
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
+    margin-top: -160px !important;
+  }
+
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .cartoon-water {
+    transform: translate(-50%, 136px) !important;
   }
 }
