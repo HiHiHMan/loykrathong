@@ -2203,6 +2203,6 @@ body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop
 @media (width: 412px) and (height: 915px) {
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing {
     position: relative;
-    top: 10px;
+    top: 20px;
   }
 }
