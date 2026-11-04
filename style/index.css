@@ -2052,3 +2052,9 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image:is(.sky-lantern-10, .sky-lantern-12, .sky-lantern-14) {
   top: 10% !important;
 }
+
+
+/* Move every visible home-page sky lantern 20px upward without changing its base position or float animation. */
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image {
+  translate: 0 -20px;
+}
