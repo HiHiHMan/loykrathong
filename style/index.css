@@ -2319,3 +2319,10 @@ body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop
     top: -30px !important;
   }
 }
+
+/* Raise the brown road on the 1920x1080 home viewport. */
+@media (width: 1920px) and (height: 1080px) {
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
+    margin-top: -208px !important;
+  }
+}
