@@ -2252,3 +2252,15 @@ body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop
     margin-top: -188px !important;
   }
 }
+
+
+/* Lower the water and create button on the 810x1080 home viewport. */
+@media (width: 810px) and (height: 1080px) {
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .cartoon-water {
+    transform: translate(-50%, 135px) !important;
+  }
+
+  body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop {
+    transform: translateY(116px) !important;
+  }
+}
