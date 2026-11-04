@@ -2066,3 +2066,10 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image.sky-lantern-4 { top: 9% !important; }
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image.sky-lantern-5 { top: 30% !important; }
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image.sky-lantern-6 { top: 30% !important; }
+
+/* Show only four sky lanterns on small screens. */
+@media (max-width: 600px) {
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image:is(.sky-lantern-5, .sky-lantern-6) {
+    display: none !important;
+  }
+}
