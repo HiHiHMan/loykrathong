@@ -2355,7 +2355,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 /* Lower the brown road another 30px on the 1920x1080 home viewport. */
 @media (width: 1920px) and (height: 1080px) {
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
-    margin-top: -113px !important;
+    margin-top: -128px !important;
   }
 }
 
