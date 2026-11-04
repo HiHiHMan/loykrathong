@@ -2378,3 +2378,16 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
     margin-top: -138px !important;
   }
 }
+
+
+/* Reduce the create button and action text on the 1536x864 home viewport. */
+@media (width: 1536px) and (height: 864px) {
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop > .refresh-btn {
+    width: 150px !important;
+    max-width: 150px !important;
+  }
+
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop .text-button {
+    font-size: 14px !important;
+  }
+}
