@@ -2232,3 +2232,11 @@ body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop
     transform: translate(-50%, 116px) !important;
   }
 }
+
+
+/* Lower the water slightly on the 800x1230 home viewport. */
+@media (width: 800px) and (height: 1230px) {
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .cartoon-water {
+    transform: translate(-50%, 135px) !important;
+  }
+}
