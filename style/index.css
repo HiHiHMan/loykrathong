@@ -2198,3 +2198,11 @@ body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop
     max-width: 21px !important;
   }
 }
+
+/* Slightly lower the complete home scene on 412x915 screens. */
+@media (width: 412px) and (height: 915px) {
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing {
+    position: relative;
+    top: 10px;
+  }
+}
