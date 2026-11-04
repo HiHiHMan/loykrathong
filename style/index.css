@@ -2213,3 +2213,10 @@ body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop
     transform: translate(-50%, 116px) !important;
   }
 }
+
+/* Slightly reduce obj01 artwork on the 375x812 home viewport. */
+@media (width: 375px) and (height: 812px) {
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image img {
+    width: 1680px !important;
+  }
+}
