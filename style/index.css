@@ -2206,10 +2206,10 @@ body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop
   }
 
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
-    margin-top: -100px !important;
+    margin-top: -80px !important;
   }
 
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .cartoon-water {
-    transform: translate(-50%, 136px) !important;
+    transform: translate(-50%, 116px) !important;
   }
 }
