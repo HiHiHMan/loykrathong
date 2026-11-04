@@ -2129,7 +2129,7 @@ body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop
 
 @media (max-width: 600px) {
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .cartoon-water {
-    transform: translate(-50%, 84px) !important;
+    transform: translate(-50%, 74px) !important;
   }
 
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
