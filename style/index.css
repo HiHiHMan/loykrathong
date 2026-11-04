@@ -2199,10 +2199,17 @@ body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop
   }
 }
 
-/* Slightly lower the complete home scene on 412x915 screens. */
+/* On 412x915 screens, keep the scene in its original position and lower only the temple, road, and water. */
 @media (width: 412px) and (height: 915px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing {
-    position: relative;
-    top: 20px;
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
+    transform: translateY(-40px) !important;
+  }
+
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
+    margin-top: -160px !important;
+  }
+
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .cartoon-water {
+    transform: translate(-50%, 136px) !important;
   }
 }
