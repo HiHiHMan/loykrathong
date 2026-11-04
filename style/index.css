@@ -2288,3 +2288,16 @@ body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop
     margin-top: -187px !important;
   }
 }
+
+
+/* Move the temple and road up on the 1440x800 home viewport. */
+@media (width: 1440px) and (height: 800px) {
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
+    position: relative;
+    top: -10px !important;
+  }
+
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
+    margin-top: -228px !important;
+  }
+}
