@@ -1914,7 +1914,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .templ
 @media (max-width: 760px) {
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
     height: 112px;
-    margin-top: -162px !important;
+    margin-top: -182px !important;
     margin-bottom: -112px !important;
     clip-path: polygon(43% 0, 57% 0, 100% 100%, 0 100%);
   }
@@ -1961,7 +1961,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 @media (max-width: 760px) {
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
     height: 112px;
-    margin-top: -152px !important;
+    margin-top: -172px !important;
     margin-bottom: -112px !important;
     clip-path: polygon(43% 0, 57% 0, 100% 100%, 0 100%);
   }
@@ -1970,10 +1970,10 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 
 /* Move the entire home-page water section substantially farther down. */
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .cartoon-water {
-  transform: translate(-50%, 95px) !important;
+  transform: translate(-50%, 75px) !important;
 }
 
 /* Raise the temple artwork on the home scene. */
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
-  transform: translateY(-20px) !important;
+  transform: translateY(-40px) !important;
 }
