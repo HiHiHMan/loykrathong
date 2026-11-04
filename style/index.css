@@ -2082,5 +2082,5 @@ body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop
 
 /* Move the entire home action backdrop further down. */
 body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop {
-  transform: translateY(48px) !important;
+  transform: translateY(72px) !important;
 }
