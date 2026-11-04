@@ -2316,6 +2316,6 @@ body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop
 /* Lower the home-page create button on the 1440x900 viewport. */
 @media (width: 1440px) and (height: 900px) {
   body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop {
-    top: -61px !important;
+    top: -30px !important;
   }
 }
