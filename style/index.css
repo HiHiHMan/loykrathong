@@ -2202,11 +2202,11 @@ body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop
 /* On 412x915 screens, lower only the temple artwork and road; keep other elements fixed. */
 @media (width: 412px) and (height: 915px) {
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
-    transform: translateY(-20px) !important;
+    transform: translateY(0) !important;
   }
 
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
-    margin-top: -140px !important;
+    margin-top: -120px !important;
   }
 
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .cartoon-water {
