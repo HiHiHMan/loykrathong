@@ -1966,3 +1966,9 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
     clip-path: polygon(43% 0, 57% 0, 100% 100%, 0 100%);
   }
 }
+
+
+/* Lower the entire home-page water section a little further. */
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .cartoon-water {
+  transform: translate(-50%, 50px) !important;
+}
