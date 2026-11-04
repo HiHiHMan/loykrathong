@@ -2391,3 +2391,11 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
     font-size: 14px !important;
   }
 }
+
+
+/* Move only the create button down by 15px on the 1536x864 home viewport. */
+@media (width: 1536px) and (height: 864px) {
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop > .refresh-btn {
+    transform: translateY(15px) !important;
+  }
+}
