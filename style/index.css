@@ -2079,3 +2079,8 @@ body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop
   top: 0 !important;
   margin-top: 10px;
 }
+
+/* Move the entire home action backdrop further down. */
+body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop {
+  transform: translateY(48px) !important;
+}
