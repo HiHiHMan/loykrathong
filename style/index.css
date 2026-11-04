@@ -1901,6 +1901,11 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .templ
   pointer-events: none;
   clip-path: polygon(46.5% 0, 53.5% 0, 100% 100%, 0 100%);
   background:
+    radial-gradient(ellipse at 18% 38%, rgba(224, 174, 119, 0.24) 0 1px, transparent 2px),
+    radial-gradient(ellipse at 72% 62%, rgba(39, 22, 14, 0.22) 0 1px, transparent 2.5px),
+    radial-gradient(ellipse at 43% 76%, rgba(235, 190, 137, 0.18) 0 1px, transparent 3px),
+    repeating-radial-gradient(ellipse at 35% 45%, rgba(52, 31, 20, 0.12) 0 1px, transparent 1px 5px),
+    repeating-linear-gradient(166deg, transparent 0 7px, rgba(52, 31, 20, 0.09) 8px, transparent 10px 16px),
     linear-gradient(90deg, rgba(42, 25, 18, 0.32), transparent 22%, transparent 78%, rgba(42, 25, 18, 0.32)),
     linear-gradient(180deg, #b8875c 0%, #98623f 48%, #69412e 100%);
   filter: drop-shadow(0 -3px 6px rgba(25, 15, 27, 0.3));
