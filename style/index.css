@@ -1868,7 +1868,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
   z-index: 2;
   left: 50%;
   width: 100vw;
-  height: clamp(48px, 5.5vw, 76px);
+  height: clamp(48px, 8.5vw, 117px);
   margin-top: -112px;
   margin-bottom: calc(clamp(48px, 5.5vw, 76px) * -1);
   transform: translateX(-50%);
@@ -1881,54 +1881,13 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
   box-shadow: 0 -5px 12px rgba(25, 15, 27, 0.2);
 }
 
-
-/* Clear perspective dirt road from the temple down to the water. */
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
-  position: relative !important;
-  z-index: 5 !important;
-  left: 50%;
-  width: 100vw;
-  height: clamp(110px, 14vw, 190px);
-  margin-top: -178px !important;
-  margin-bottom: calc(clamp(110px, 14vw, 190px) * -1) !important;
-  transform: translateX(-50%);
-  pointer-events: none;
-  background:
-    linear-gradient(90deg, rgba(39, 24, 20, 0.3), transparent 24%, transparent 76%, rgba(39, 24, 20, 0.3)),
-    linear-gradient(180deg, #a87950 0%, #96613d 45%, #70442e 100%);
-  clip-path: polygon(46.5% 0, 53.5% 0, 100% 100%, 0 100%);
-  filter: drop-shadow(0 -3px 5px rgba(25, 15, 27, 0.28));
-}
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(
-    174deg,
-    transparent 0 16px,
-    rgba(222, 174, 119, 0.12) 17px 19px,
-    transparent 20px 34px
-  );
-  opacity: 0.8;
-}
-@media (max-width: 760px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
-    height: 112px;
-    margin-top: -222px !important;
-    margin-bottom: -112px !important;
-    clip-path: polygon(43% 0, 57% 0, 100% 100%, 0 100%);
-  }
-}
-
-
-/* Final home-scene road placement: connect obj01 to the water without covering the waves. */
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
   position: relative !important;
   z-index: -1 !important;
   left: 50%;
   width: 100vw;
   height: clamp(48px, 5.5vw, 111px);
-  margin-top: -182px !important;
+  margin-top: -218px !important;
   margin-bottom: calc(0px - clamp(110px, 13vw, 176px)) !important;
   transform: translateX(-50%);
   pointer-events: none;
@@ -1939,34 +1898,10 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .templ
   filter: drop-shadow(0 -3px 6px rgba(25, 15, 27, 0.3));
 }
 
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    repeating-linear-gradient(
-      174deg,
-      transparent 0 17px,
-      rgba(232, 190, 139, 0.14) 18px 20px,
-      transparent 21px 38px
-    );
-  opacity: 0.85;
-}
-
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .cartoon-water {
   position: relative;
   z-index: 2;
 }
-
-@media (max-width: 760px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
-    height: 140px;
-    margin-top: -232px !important;
-    margin-bottom: -140px !important;
-    clip-path: polygon(43% 0, 57% 0, 100% 100%, 0 100%);
-  }
-}
-
 
 /* Move the entire home-page water section substantially farther down. */
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .cartoon-water {
