@@ -2326,9 +2326,3 @@ body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop
     margin-top: -218px !important;
   }
 }
-
-/* Scale the home temple artwork with the viewport width. */
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image img {
-  width: min(100vw, 1920px) !important;
-  max-width: none !important;
-}
