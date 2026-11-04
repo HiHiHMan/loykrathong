@@ -1964,9 +1964,9 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
   z-index: -1 !important;
   left: 50%;
   width: 100vw;
-  height: clamp(48px, 5.5vw, 111px);
+  height: clamp(140px, 16vw, 210px);
   margin-top: -182px !important;
-  margin-bottom: calc(0px - clamp(48px, 5.5vw, 111px)) !important;
+  margin-bottom: calc(0px - clamp(140px, 16vw, 210px)) !important;
   transform: translateX(-50%);
   pointer-events: none;
   clip-path: polygon(46.5% 0, 53.5% 0, 100% 100%, 0 100%);
