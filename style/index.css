@@ -1924,7 +1924,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .templ
 /* Final home-scene road placement: connect obj01 to the water without covering the waves. */
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
   position: relative !important;
-  z-index: 1 !important;
+  z-index: 0 !important;
   left: 50%;
   width: 100vw;
   height: clamp(110px, 13vw, 176px);
