@@ -1914,7 +1914,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .templ
 @media (max-width: 760px) {
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
     height: 112px;
-    margin-top: -132px !important;
+    margin-top: -55px !important;
     margin-bottom: -112px !important;
     clip-path: polygon(43% 0, 57% 0, 100% 100%, 0 100%);
   }
@@ -1928,7 +1928,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .templ
   left: 50%;
   width: 100vw;
   height: clamp(110px, 13vw, 176px);
-  margin-top: -178px !important;
+  margin-top: -70px !important;
   margin-bottom: calc(0px - clamp(110px, 13vw, 176px)) !important;
   transform: translateX(-50%);
   pointer-events: none;
