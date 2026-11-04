@@ -2214,10 +2214,10 @@ body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop
   }
 }
 
-/* Lower obj01, road, and water significantly on the 375x812 home viewport. */
+/* Lower obj01 and road further on the 375x812 home viewport; keep water fixed. */
 @media (width: 375px) and (height: 812px) {
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
-    transform: translateY(20px) !important;
+    transform: translateY(80px) !important;
   }
 
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image img {
@@ -2225,7 +2225,7 @@ body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop
   }
 
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
-    margin-top: -80px !important;
+    margin-top: -20px !important;
   }
 
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .cartoon-water {
