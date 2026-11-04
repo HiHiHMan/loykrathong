@@ -1962,3 +1962,22 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moo
     width: clamp(68px, 22.5vw, 135px) !important;
   }
 }
+
+
+/* Reduce sky lantern sizes further on small screens. */
+@media (max-width: 600px) {
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image.sky-lantern-1 {
+    width: 64px !important;
+    max-width: 64px !important;
+  }
+
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image:is(.sky-lantern-3, .sky-lantern-5, .sky-lantern-6, .sky-lantern-8, .sky-lantern-10, .sky-lantern-12) {
+    width: 48px !important;
+    max-width: 48px !important;
+  }
+
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image:is(.sky-lantern-2, .sky-lantern-4, .sky-lantern-7, .sky-lantern-9, .sky-lantern-11, .sky-lantern-13, .sky-lantern-14, .sky-lantern-15) {
+    width: 32px !important;
+    max-width: 32px !important;
+  }
+}
