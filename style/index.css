@@ -2034,3 +2034,9 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky
     top: 50% !important;
   }
 }
+
+
+/* Set the lower sky lantern group to 30% vertical position. */
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image:is(.sky-lantern-10, .sky-lantern-12, .sky-lantern-14) {
+  top: 30% !important;
+}
