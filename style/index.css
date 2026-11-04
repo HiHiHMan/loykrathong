@@ -2107,3 +2107,10 @@ body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop
     transform: translate(-50%, 115px) !important;
   }
 }
+
+/* Fine-tune water position at 750px viewport width. */
+@media (min-width: 740px) and (max-width: 760px) {
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .cartoon-water {
+    transform: translate(-50%, 130px) !important;
+  }
+}
