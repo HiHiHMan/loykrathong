@@ -1915,6 +1915,14 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
   }
 }
 
+/* Keep the brown road visible and higher on mobile screens. */
+@media (max-width: 600px) {
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
+    z-index: 1 !important;
+    margin-top: -248px !important;
+  }
+}
+
 /* Raise the temple artwork on the home scene. */
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
   transform: translateY(-60px) !important;
