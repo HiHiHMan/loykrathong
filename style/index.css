@@ -1968,7 +1968,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 }
 
 
-/* Lower the entire home-page water section a little further. */
+/* Move the entire home-page water section substantially farther down. */
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .cartoon-water {
-  transform: translate(-50%, 50px) !important;
+  transform: translate(-50%, 130px) !important;
 }
