@@ -2326,3 +2326,11 @@ body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop
     margin-top: -218px !important;
   }
 }
+
+
+/* Scale obj01 proportionally to the viewport width on the home page. */
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image img {
+  width: min(100vw, 1920px) !important;
+  max-width: 100vw !important;
+  height: auto;
+}
