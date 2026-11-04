@@ -1911,21 +1911,18 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .templ
   filter: drop-shadow(0 -3px 6px rgba(25, 15, 27, 0.3));
 }
 
-/* Make the road's dry soil texture clearly visible. */
+/* Keep only subtle natural soil grain; remove visible gravel dots. */
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road::after {
   content: "";
   position: absolute;
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  opacity: 0.78;
+  opacity: 0.5;
   background-image:
-    radial-gradient(circle at 8px 7px, rgba(45, 26, 16, 0.62) 0 1.2px, transparent 1.8px),
-    radial-gradient(circle at 19px 15px, rgba(239, 194, 139, 0.72) 0 1.1px, transparent 2px),
-    radial-gradient(circle at 3px 21px, rgba(65, 39, 24, 0.48) 0 1px, transparent 1.8px),
     repeating-linear-gradient(12deg, transparent 0 11px, rgba(54, 32, 19, 0.2) 12px, transparent 14px 23px),
     url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.78' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.42'/%3E%3C/svg%3E");
-  background-size: 27px 27px, 31px 31px, 23px 23px, 100% 100%, 110px 110px;
+  background-size: 100% 100%, 110px 110px;
   mix-blend-mode: soft-light;
 }
 
