@@ -1932,3 +1932,13 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
   transform: translateY(-60px) !important;
 }
+
+/* Slightly reduce the home-page moon size on all screen sizes. */
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image {
+  width: clamp(86px, 14.4vw, 216px) !important;
+}
+@media (max-width: 600px) {
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image {
+    width: clamp(68px, 22.5vw, 135px) !important;
+  }
+}
