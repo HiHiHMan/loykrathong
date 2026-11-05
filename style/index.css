@@ -2211,9 +2211,9 @@ body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop
     transform: translateX(-50%) !important;
   }
 
-  /* Move the intro section up by 50px on the 412x915 viewport. */
+  /* Move the intro section up by another 20px on the 412x915 viewport. */
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro {
-    transform: translateY(-50px) !important;
+    transform: translateY(-70px) !important;
   }
 
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
