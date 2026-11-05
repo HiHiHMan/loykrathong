@@ -2458,3 +2458,11 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
     top: -15px !important;
   }
 }
+
+
+/* Lower obj01 by 300px on the 810x1080 home viewport. */
+@media (width: 810px) and (height: 1080px) {
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
+    transform: translateY(240px) !important;
+  }
+}
