@@ -2438,6 +2438,6 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
   }
 
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
-    top: 50px !important;
+    top: 65px !important;
   }
 }
