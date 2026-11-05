@@ -2375,7 +2375,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 /* Move obj01 up by 30px on 1537–1920px screens. */
 @media (min-width: 1537px) and (max-width: 1920px) {
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
-    transform: translateY(-70px) !important;
+    transform: translateY(-110px) !important;
   }
 }
 
@@ -2383,7 +2383,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 /* Move the brown road up by 30px on 1537–1920px screens. */
 @media (min-width: 1537px) and (max-width: 1920px) {
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
-    margin-top: -228px !important;
+    margin-top: -268px !important;
   }
 }
 
