@@ -2452,9 +2452,9 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 
 
 
-/* Move the refresh actions backdrop down by 100px on the 768x1024 home viewport. */
+/* Set the refresh actions backdrop top position on the 768x1024 home viewport. */
 @media (width: 768px) and (height: 1024px) {
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop {
-    transform: translateY(100px) !important;
+    top: -15px !important;
   }
 }
