@@ -5865,4 +5865,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 
 }
 
-
+/* Reduce landing padding on the create page only. */
+body:has(#webgl-canvas-create) .landing {
+  padding: 24px 12px 40px !important;
+}
