@@ -2271,6 +2271,10 @@ body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
     margin-top: 112px !important;
   }
+
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop {
+    top: -20px !important;
+  }
 }
 
 
