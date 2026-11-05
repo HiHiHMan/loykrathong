@@ -5869,3 +5869,16 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 body:has(#webgl-canvas-create) .landing {
   padding: 24px 12px 40px !important;
 }
+
+/* Tighten the Create page content's vertical spacing. */
+body:has(#webgl-canvas-create) .landing {
+  padding-top: 12px !important;
+  padding-bottom: 16px !important;
+}
+
+body:has(#webgl-canvas-create) .landing > .content {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin-top: 0;
+  margin-bottom: 0;
+}
