@@ -5742,10 +5742,10 @@ body:not(:has(#webgl-canvas-create)) .landing > .moon-image::before {
   border-radius: 50%;
   background: radial-gradient(
     ellipse at center,
-    rgba(255, 231, 165, 1) 0%,
-    rgba(255, 215, 130, 0.72) 24%,
-    rgba(255, 195, 95, 0.42) 46%,
-    rgba(245, 175, 75, 0.18) 62%,
+    rgba(214, 169, 111, 0.92) 0%,
+    rgba(181, 128, 75, 0.68) 24%,
+    rgba(145, 94, 49, 0.40) 46%,
+    rgba(112, 69, 34, 0.18) 62%,
     transparent 76%
   );
   filter: blur(14px);
@@ -5763,14 +5763,14 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moo
   user-select: none;
   -webkit-user-drag: none;
   filter:
-    sepia(0.82)
-    saturate(2.7)
-    hue-rotate(8deg)
-    brightness(1.38)
-    contrast(1.08)
-    drop-shadow(0 0 12px rgba(255, 220, 125, 1))
-    drop-shadow(0 0 30px rgba(255, 195, 85, 0.88))
-    drop-shadow(0 0 56px rgba(255, 175, 55, 0.58)) !important;
+    sepia(1)
+    saturate(1.75)
+    hue-rotate(18deg)
+    brightness(1.08)
+    contrast(1.22)
+    drop-shadow(0 0 12px rgba(190, 137, 70, 0.95))
+    drop-shadow(0 0 30px rgba(155, 101, 48, 0.78))
+    drop-shadow(0 0 56px rgba(120, 75, 35, 0.52)) !important;
 
 }
 
