@@ -384,6 +384,23 @@ wishForm.addEventListener("submit", async  (event) => {
         selectionView.hidden = true;
         successView.hidden = false;
 
+        const countdownElement = document.querySelector("#success-countdown");
+        let remainingSeconds = 3;
+
+        countdownElement.textContent = `กำลังกลับหน้าหลักใน ${remainingSeconds} วินาที`;
+
+        const redirectTimer = window.setInterval(() => {
+            remainingSeconds -= 1;
+
+            if (remainingSeconds <= 0) {
+                window.clearInterval(redirectTimer);
+                window.location.href = "../index.html";
+                return;
+            }
+
+            countdownElement.textContent = `กำลังกลับหน้าหลักใน ${remainingSeconds} วินาที`;
+        }, 1000);
+
         formMessage.textContent = "บันทึกคำอธิษฐานเรียบร้อยแล้ว";
 
         window.scrollTo({
