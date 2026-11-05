@@ -2429,3 +2429,15 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
     margin-top: -128px !important;
   }
 }
+
+
+/* Adjust the road and obj01 position on the 1440x900 home viewport. */
+@media (width: 1440px) and (height: 900px) {
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
+    margin-top: -138px !important;
+  }
+
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
+    top: 50px !important;
+  }
+}
