@@ -2399,3 +2399,25 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
     transform: translateY(15px) !important;
   }
 }
+
+
+/* Apply the requested action layout on the 1536x864 home viewport. */
+@media (width: 1536px) and (height: 864px) {
+  body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop {
+    position: relative;
+    top: -75px;
+    z-index: 1000 !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: fit-content;
+    max-width: calc(100% - 32px);
+    margin: 0 auto;
+    isolation: isolate;
+  }
+
+  body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop .refresh-row {
+    margin-top: -8px !important;
+  }
+}
