@@ -5733,25 +5733,7 @@ body:not(:has(#webgl-canvas-create)) .landing > .moon-image {
 }
 
 
-body:not(:has(#webgl-canvas-create)) .landing > .moon-image::before {
 
-  content: "";
-  position: absolute;
-  z-index: -1;
-  inset: -24%;
-  border-radius: 50%;
-  background: radial-gradient(
-    ellipse at center,
-    rgba(214, 169, 111, 0.92) 0%,
-    rgba(181, 128, 75, 0.68) 24%,
-    rgba(145, 94, 49, 0.40) 46%,
-    rgba(112, 69, 34, 0.18) 62%,
-    transparent 76%
-  );
-  filter: blur(14px);
-  opacity: 1;
-
-}
 
 
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image img {
@@ -5762,15 +5744,6 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moo
   object-fit: contain;
   user-select: none;
   -webkit-user-drag: none;
-  filter:
-    sepia(1)
-    saturate(1.75)
-    hue-rotate(18deg)
-    brightness(0.88)
-    contrast(1.22)
-    drop-shadow(0 0 12px rgba(160, 112, 62, 0.78))
-    drop-shadow(0 0 30px rgba(135, 87, 43, 0.62))
-    drop-shadow(0 0 56px rgba(105, 66, 34, 0.42)) !important;
 
 }
 
