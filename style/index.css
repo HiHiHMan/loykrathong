@@ -2253,10 +2253,10 @@ body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop
   }
 }
 
-/* Raise obj01 by another 100px on the 800x1230 home viewport. */
+/* Lower obj01 by 50px on the 800x1230 home viewport. */
 @media (width: 800px) and (height: 1230px) {
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
-    transform: translateY(350px) !important;
+    transform: translateY(400px) !important;
   }
 }
 
