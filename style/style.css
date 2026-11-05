@@ -5766,11 +5766,11 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moo
     sepia(1)
     saturate(1.75)
     hue-rotate(18deg)
-    brightness(1.08)
+    brightness(0.88)
     contrast(1.22)
-    drop-shadow(0 0 12px rgba(190, 137, 70, 0.95))
-    drop-shadow(0 0 30px rgba(155, 101, 48, 0.78))
-    drop-shadow(0 0 56px rgba(120, 75, 35, 0.52)) !important;
+    drop-shadow(0 0 12px rgba(160, 112, 62, 0.78))
+    drop-shadow(0 0 30px rgba(135, 87, 43, 0.62))
+    drop-shadow(0 0 56px rgba(105, 66, 34, 0.42)) !important;
 
 }
 
