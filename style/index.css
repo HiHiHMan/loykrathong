@@ -2460,9 +2460,9 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 }
 
 
-/* Raise obj01 by another 50px on the 810x1080 home viewport. */
+/* Lower obj01 by 20px on the 810x1080 home viewport. */
 @media (width: 810px) and (height: 1080px) {
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
-    transform: translateY(160px) !important;
+    transform: translateY(180px) !important;
   }
 }
