@@ -2455,3 +2455,11 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
     transform: translateY(70px) !important;
   }
 }
+
+/* Move the secondary text buttons down by 50px on the 768x1024 home viewport. */
+@media (width: 768px) and (height: 1024px) {
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop .text-button {
+    position: relative;
+    top: 50px !important;
+  }
+}
