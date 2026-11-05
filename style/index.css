@@ -2475,3 +2475,27 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
     transform: translateY(180px) !important;
   }
 }
+
+/* Match the 412x915 scene positioning on 440x956 for the Index page only. */
+@media (min-width: 413px) and (max-width: 440px) {
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
+    transform: translateY(310px) !important;
+  }
+
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image img {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
+
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro {
+    transform: translateY(-70px) !important;
+  }
+
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
+    margin-top: 280px !important;
+  }
+
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .cartoon-water {
+    transform: translate(-50%, 116px) !important;
+  }
+}
