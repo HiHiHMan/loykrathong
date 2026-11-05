@@ -2205,6 +2205,12 @@ body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop
     transform: translateY(310px) !important;
   }
 
+  /* Center obj01 horizontally within the 412x915 viewport. */
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image img {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
+
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
     margin-top: 280px !important;
   }
