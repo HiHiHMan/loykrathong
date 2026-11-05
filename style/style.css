@@ -5870,10 +5870,9 @@ body:has(#webgl-canvas-create) .landing {
   padding: 24px 12px 40px !important;
 }
 
-/* Tighten the Create page content's vertical spacing. */
+/* Reduce Create page landing padding. */
 body:has(#webgl-canvas-create) .landing {
-  padding-top: 12px !important;
-  padding-bottom: 16px !important;
+  padding: 10px 12px !important;
 }
 
 body:has(#webgl-canvas-create) .landing > .content {
