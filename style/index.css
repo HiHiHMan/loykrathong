@@ -2448,3 +2448,10 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
     transform: translateY(260px) !important;
   }
 }
+
+/* Move only the create-krathong button down by 180px on the 768x1024 home viewport. */
+@media (width: 768px) and (height: 1024px) {
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop > .refresh-btn {
+    transform: translateY(180px) !important;
+  }
+}
