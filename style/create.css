@@ -1624,3 +1624,28 @@ body:has(#webgl-canvas-create) textarea {
     height: 82px;
   }
 }
+
+/* Reduce the overall size of the krathong selection cards. */
+body:has(#webgl-canvas-create) .krathong {
+  min-height: 124px;
+  padding: 12px 6px;
+  gap: 3px;
+}
+
+body:has(#webgl-canvas-create) .krathong .loykrathong {
+  width: 76px;
+  height: 76px;
+  min-height: 0;
+}
+
+@media (max-width: 600px) {
+  body:has(#webgl-canvas-create) .krathong {
+    min-height: 116px;
+    padding: 10px 4px;
+  }
+
+  body:has(#webgl-canvas-create) .krathong .loykrathong {
+    width: 68px;
+    height: 68px;
+  }
+}
