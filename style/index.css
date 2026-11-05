@@ -2442,22 +2442,3 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
   }
 }
 
-
-/* Balance the home scene spacing for the 768x1024 portrait tablet viewport. */
-@media (width: 768px) and (height: 1024px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
-    transform: translateY(-20px) !important;
-  }
-
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
-    margin-top: -188px !important;
-  }
-
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .cartoon-water {
-    transform: translate(-50%, 115px) !important;
-  }
-
-  body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop {
-    transform: translateY(116px) !important;
-  }
-}
