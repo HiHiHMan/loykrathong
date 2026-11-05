@@ -2372,18 +2372,18 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 }
 
 
-/* Lower obj01 another 30px on the 1920x1080 home viewport. */
+/* Move obj01 up by 30px on 1537–1920px screens. */
 @media (min-width: 1537px) and (max-width: 1920px) {
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
-    transform: translateY(30px) !important;
+    transform: translateY(0px) !important;
   }
 }
 
 
-/* Lower the brown road another 30px on the 1920x1080 home viewport. */
+/* Move the brown road up by 30px on 1537–1920px screens. */
 @media (min-width: 1537px) and (max-width: 1920px) {
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
-    margin-top: -128px !important;
+    margin-top: -158px !important;
   }
 }
 
