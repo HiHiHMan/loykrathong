@@ -2242,21 +2242,21 @@ body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop
 }
 
 
-/* Lower the create button and brown road on the 800x1230 home viewport. */
+/* Raise the brown road on the 800x1230 home viewport. */
 @media (width: 800px) and (height: 1230px) {
   body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop {
     transform: translateY(186px) !important;
   }
 
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
-    margin-top: 352px !important;
+    margin-top: 252px !important;
   }
 }
 
-/* Lower obj01 by another 10px on the 800x1230 home viewport. */
+/* Raise obj01 by 100px on the 800x1230 home viewport. */
 @media (width: 800px) and (height: 1230px) {
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
-    transform: translateY(410px) !important;
+    transform: translateY(310px) !important;
   }
 }
 
