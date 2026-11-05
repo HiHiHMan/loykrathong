@@ -2423,9 +2423,9 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 }
 
 
-/* Raise the brown road by 20px on the 1440x900 home viewport. */
+/* Raise the brown road by another 20px on the 1440x900 home viewport. */
 @media (width: 1440px) and (height: 900px) {
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
-    margin-top: -108px !important;
+    margin-top: -128px !important;
   }
 }
