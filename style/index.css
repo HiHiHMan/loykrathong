@@ -2551,3 +2551,25 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro
   margin: 0 auto;
   text-align: center;
 }
+
+
+/* Ensure the full ornament, including both decorative lines, fits below the title. */
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro .ornament {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: min(480px, 78vw);
+  max-width: 100%;
+  flex: 0 0 auto;
+  gap: 18px;
+  margin: 4px auto 16px;
+  white-space: nowrap;
+  overflow: visible;
+}
+
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro .ornament::before,
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro .ornament::after {
+  display: block;
+  flex: 1 1 0;
+  min-width: 12px;
+}
