@@ -2640,3 +2640,35 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro
     animation: none !important;
   }
 }
+
+
+/* Apply the same seamless duplicated obj01 loop to desktop viewport sizes. */
+@media
+  (width: 1920px) and (height: 1080px),
+  (width: 1536px) and (height: 864px),
+  (width: 1440px) and (height: 900px) {
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
+    overflow: hidden !important;
+  }
+
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track {
+    display: flex;
+    width: max-content;
+    height: auto;
+    will-change: transform;
+    animation: obj01SeamlessLoop 180s linear infinite;
+  }
+
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track img {
+    display: block;
+    position: static !important;
+    flex: 0 0 210vw;
+    width: 210vw !important;
+    max-width: none !important;
+    height: auto;
+    left: auto !important;
+    transform: none !important;
+    translate: none !important;
+    animation: none !important;
+  }
+}
