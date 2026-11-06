@@ -128,7 +128,7 @@
       return Object.entries(snapshot.val())
         .map(([key, value]) => ({
           ...value,
-          id: value && value.id ? value.id : key
+          id: key
         }))
         .sort((a, b) => Number(b.createdAt || 0) - Number(a.createdAt || 0));
     },
