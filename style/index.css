@@ -2718,7 +2718,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
     width: 55vw !important;
     max-width: none !important;
     height: auto !important;
-    transform: translateY(-30px) !important;
+    transform: translateY(-45px) !important;
   }
 }
 
