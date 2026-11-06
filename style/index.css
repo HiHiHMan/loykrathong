@@ -2922,3 +2922,14 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
     max-width: 90vw !important;
   }
 }
+
+/* Lower obj01 and the brown road by 50px on the 1920x1080 viewport. */
+@media (width: 1920px) and (height: 1080px) {
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
+    transform: translateY(-60px) !important;
+  }
+
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
+    margin-top: -218px !important;
+  }
+}
