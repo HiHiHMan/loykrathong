@@ -2501,13 +2501,25 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 }
 
 
-/* Set obj01 artwork to 210vw on the 768x1024 home viewport without changing scene positioning. */
+/* Give obj01 a very slow, gentle left-right drift, like the movement of water. */
+@keyframes obj01WaterDrift {
+  0% {
+    left: 50%;
+  }
+  100% {
+    left: calc(50% - 32px);
+  }
+}
+
+/* Keep the slow water-like drift limited to the 768px home viewport. */
 @media (min-width: 761px) and (max-width: 768px) {
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image img {
     width: 210vw !important;
     max-width: none !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
+    animation: obj01WaterDrift 55s ease-in-out infinite alternate;
+    will-change: left;
   }
 }
 
