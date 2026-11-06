@@ -2507,7 +2507,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
     left: 50%;
   }
   100% {
-    left: calc(50% - 32px);
+    left: calc(50% - 44px);
   }
 }
 
@@ -2518,7 +2518,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
     max-width: none !important;
     left: 50%;
     transform: translateX(-50%) !important;
-    animation: obj01WaterDrift 55s ease-in-out infinite alternate;
+    animation: obj01WaterDrift 38s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;
     will-change: left;
   }
 }
