@@ -2813,6 +2813,9 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
     height: auto !important;
     transform: translateY(-30px) !important;
   }
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro .ornament {
+    transform: translateY(-20px) !important;
+  }
 }
 
 /* Set the intro top position on the 800x1230 home viewport. */
