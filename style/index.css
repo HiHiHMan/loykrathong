@@ -2839,10 +2839,10 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 /* Raise obj01 and the brown road by 60px on the 412x915 home viewport. */
 @media (width: 412px) and (height: 915px) {
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
-    transform: translateY(230px) !important;
+    transform: translateY(200px) !important;
   }
 
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
-    margin-top: 200px !important;
+    margin-top: 170px !important;
   }
 }
