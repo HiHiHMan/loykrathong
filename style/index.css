@@ -2711,3 +2711,10 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
     max-width: none !important;
   }
 }
+
+/* Raise the title artwork slightly on the 768x1024 home viewport. */
+@media (width: 768px) and (height: 1024px) {
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro .title-image {
+    transform: translateY(-15px) !important;
+  }
+}
