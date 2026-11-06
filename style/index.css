@@ -2834,3 +2834,15 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
     max-width: none !important;
   }
 }
+
+
+/* Raise obj01 and the brown road by 60px on the 412x915 home viewport. */
+@media (width: 412px) and (height: 915px) {
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
+    transform: translateY(250px) !important;
+  }
+
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
+    margin-top: 220px !important;
+  }
+}
