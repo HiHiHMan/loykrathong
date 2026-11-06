@@ -2519,7 +2519,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
     left: 50% !important;
     transform: translateX(-50%) !important;
     translate: 0 0;
-    animation: obj01WaterDrift 32s linear infinite;
+    animation: obj01WaterDrift 18s linear infinite;
     will-change: translate;
   }
 }
