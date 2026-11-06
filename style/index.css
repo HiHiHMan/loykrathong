@@ -2607,11 +2607,11 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro
 }
 
 
-/* Reduce the continuous obj01 artwork size on 1920x1080 screens. */
-@media (min-width: 1920px) and (max-height: 1080px) {
+/* Reduce the continuous obj01 artwork size on screens at least 1920x1080. */
+@media (min-width: 1920px) and (min-height: 1080px) {
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track img {
-    flex-basis: 100vw !important;
-    width: 100vw !important;
+    flex-basis: 85vw !important;
+    width: 85vw !important;
   }
 }
 
