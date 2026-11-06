@@ -2867,7 +2867,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 
 @media (width: 375px) and (height: 812px) {
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
-    transform: translateY(215px) !important;
+    transform: translateY(265px) !important;
   }
 
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
