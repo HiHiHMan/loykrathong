@@ -2753,7 +2753,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
   }
 
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop {
-    top: -65px !important;
+    top: 63px !important;
     transform: none !important;
   }
 
