@@ -2765,3 +2765,49 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
   }
 }
 
+/* Match the 810x1080 home layout on the 800x1230 viewport. */
+@media (width: 800px) and (height: 1230px) {
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
+    margin-top: -57px !important;
+  }
+
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
+    transform: translateY(40px) !important;
+    overflow: hidden !important;
+  }
+
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track {
+    display: flex;
+    width: max-content;
+    height: auto;
+    margin-left: -35vw;
+    will-change: transform;
+    animation: obj01SeamlessLoop 180s linear infinite;
+  }
+
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track img {
+    display: block;
+    position: static !important;
+    flex: 0 0 170vw !important;
+    width: 170vw !important;
+    max-width: none !important;
+    height: auto;
+    left: auto !important;
+    transform: none !important;
+    translate: none !important;
+    animation: none !important;
+  }
+
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop {
+    top: 63px !important;
+    transform: none !important;
+  }
+
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro .title-image {
+    width: 55vw !important;
+    max-width: none !important;
+    height: auto !important;
+    transform: translateY(-30px) !important;
+  }
+}
+
