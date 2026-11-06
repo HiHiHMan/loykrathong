@@ -2510,3 +2510,31 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
     transform: translateX(-50%) !important;
   }
 }
+
+
+/* Use the title artwork instead of the text intro on the home page. */
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro::before {
+  display: none !important;
+}
+
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro .title-image {
+  display: block;
+  width: clamp(240px, 42vw, 560px);
+  max-width: min(82vw, 560px);
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+@media (max-width: 600px) {
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro .title-image {
+    width: min(76vw, 390px);
+    max-width: 76vw;
+  }
+}
