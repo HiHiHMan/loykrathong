@@ -2451,10 +2451,10 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
   }
 }
 
-/* Move obj01 up by 20px on the 768x1024 home viewport only. */
+/* Move obj01 slightly higher on the 768x1024 home viewport only. */
 @media (width: 768px) and (height: 1024px) {
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
-    transform: translateY(50px) !important;
+    transform: translateY(40px) !important;
   }
 }
 
