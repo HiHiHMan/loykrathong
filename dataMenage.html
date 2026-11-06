@@ -79,6 +79,7 @@
     <section class="panel">
       <div class="toolbar">
         <input class="search" id="searchInput" type="search" placeholder="ค้นหาชื่อ รหัสพนักงาน แผนก หรือคำอธิษฐาน...">
+        <button class="btn" id="exportButton" type="button">⇩ Export XLSX</button>
         <button class="btn" id="refreshButton" type="button">↻ โหลดข้อมูลใหม่</button>
       </div>
       <div class="table-wrap">
@@ -121,6 +122,7 @@
   <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-database-compat.js"></script>
   <script src="./js/firebase.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
   <script>
     "use strict";
     const tableBody = document.getElementById("wishesTable");
@@ -130,6 +132,42 @@
     let allWishes = [];
     const pageSize = 20;
     let currentPage = 1;
+
+    function exportWishes() {
+      if (!allWishes.length) {
+        pageStatus.className = "status";
+        pageStatus.textContent = "ไม่มีข้อมูลสำหรับส่งออก";
+        return;
+      }
+      if (!window.XLSX) {
+        pageStatus.className = "status error";
+        pageStatus.textContent = "ไม่สามารถโหลดเครื่องมือ Export Excel ได้ กรุณารีเฟรชหน้าเว็บ";
+        return;
+      }
+
+      const exportRows = allWishes.map((item, index) => ({
+        "ลำดับ": index + 1,
+        "รหัสข้อมูล": item.id || "",
+        "ชื่อ - นามสกุล": item.fullName || "",
+        "รหัสพนักงาน": item.employeeCode || "",
+        "แผนก": item.department || "",
+        "คลัง / สถานที่": item.whName || "",
+        "ประเภทกระทง": item.krathongType || "",
+        "คำอธิษฐาน": item.wish || "",
+        "วันที่สร้าง": formatDate(item.createdAt)
+      }));
+
+      const worksheet = XLSX.utils.json_to_sheet(exportRows);
+      worksheet["!cols"] = [
+        { wch: 8 }, { wch: 28 }, { wch: 24 }, { wch: 18 },
+        { wch: 24 }, { wch: 22 }, { wch: 20 }, { wch: 60 }, { wch: 24 }
+      ];
+      const workbook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(workbook, worksheet, "Wishes");
+      XLSX.writeFile(workbook, `LoyKrathong_Wishes_${new Date().toISOString().slice(0, 10)}.xlsx`);
+      pageStatus.className = "status";
+      pageStatus.textContent = `ส่งออกข้อมูล ${allWishes.length.toLocaleString("th-TH")} รายการเรียบร้อยแล้ว`;
+    }
 
     function escapeHtml(value) {
       return String(value ?? "").replace(/[&<>"']/g, char => ({
@@ -303,6 +341,7 @@
       currentPage = Number(button.dataset.page);
       renderRows();
     });
+    document.getElementById("exportButton").addEventListener("click",exportWishes);
     document.getElementById("refreshButton").addEventListener("click",loadWishes);
     document.getElementById("closeModal").addEventListener("click",closeEditor);
     document.getElementById("cancelEdit").addEventListener("click",closeEditor);
