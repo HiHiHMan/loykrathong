@@ -2501,10 +2501,10 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 }
 
 
-/* Enlarge obj01 artwork on the 768x1024 home viewport without changing scene positioning. */
+/* Enlarge obj01 artwork further on the 768x1024 home viewport without changing scene positioning. */
 @media (min-width: 761px) and (max-width: 768px) {
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image img {
-    width: 115vw !important;
+    width: 125vw !important;
     max-width: none !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
