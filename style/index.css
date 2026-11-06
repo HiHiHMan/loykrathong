@@ -2913,3 +2913,12 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track {
   margin-left: -10vw !important;
 }
+
+/* Reduce obj01 artwork size by 10% on the 1920x1080 viewport only. */
+@media (width: 1920px) and (height: 1080px) {
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track img {
+    flex: 0 0 90vw !important;
+    width: 90vw !important;
+    max-width: 90vw !important;
+  }
+}
