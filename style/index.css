@@ -2501,7 +2501,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 }
 
 
-/* Seamless continuous leftward loop for duplicated obj01 artwork on 768x1024. */
+/* Seamless continuous leftward loop for obj01 on every home-page viewport. */
 @keyframes obj01SeamlessLoop {
   from {
     transform: translateX(0);
@@ -2511,31 +2511,29 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
   }
 }
 
-@media (width: 768px) and (height: 1024px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
-    overflow: hidden !important;
-  }
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
+  overflow: hidden !important;
+}
 
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track {
-    display: flex;
-    width: max-content;
-    height: auto;
-    will-change: transform;
-    animation: obj01SeamlessLoop 180s linear infinite;
-  }
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track {
+  display: flex;
+  width: max-content;
+  height: auto;
+  will-change: transform;
+  animation: obj01SeamlessLoop 180s linear infinite;
+}
 
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track img {
-    display: block;
-    position: static !important;
-    flex: 0 0 210vw;
-    width: 210vw !important;
-    max-width: none !important;
-    height: auto;
-    left: auto !important;
-    transform: none !important;
-    translate: none !important;
-    animation: none !important;
-  }
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track img {
+  display: block;
+  position: static !important;
+  flex: 0 0 210vw;
+  width: 210vw !important;
+  max-width: none !important;
+  height: auto;
+  left: auto !important;
+  transform: none !important;
+  translate: none !important;
+  animation: none !important;
 }
 
 
