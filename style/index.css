@@ -2895,4 +2895,16 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
     width: 170vw !important;
     max-width: none !important;
   }
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track img {
+    display: block;
+    position: static !important;
+    flex: 0 0 min(100vw, 1920px);
+    width: min(245vw, 1920px) !important;
+    max-width: 211vw !important;
+    height: auto;
+    left: auto !important;
+    transform: none !important;
+    translate: none !important;
+    animation: none !important;
+  }
 }
