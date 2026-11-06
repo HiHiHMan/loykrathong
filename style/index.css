@@ -396,9 +396,9 @@ body:has(.landing > .moon-image) .landing .intro::before {
   pointer-events: none;
   background: radial-gradient(
     ellipse at center,
-    rgba(2, 9, 21, 0.52) 0%,
-    rgba(2, 9, 21, 0.32) 48%,
-    rgba(2, 9, 21, 0.12) 72%,
+    rgba(0, 0, 0, 0.62) 0%,
+    rgba(0, 0, 0, 0.40) 48%,
+    rgba(0, 0, 0, 0.16) 72%,
     transparent 100%
   );
 
@@ -436,9 +436,9 @@ body:has(.landing > .moon-image) .landing .intro .ornament {
     inset: -22px -14px;
     background: radial-gradient(
       ellipse at center,
-      rgba(2, 9, 21, 0.56) 0%,
-      rgba(2, 9, 21, 0.34) 50%,
-      rgba(2, 9, 21, 0.12) 76%,
+      rgba(0, 0, 0, 0.64) 0%,
+      rgba(0, 0, 0, 0.42) 50%,
+      rgba(0, 0, 0, 0.18) 76%,
       transparent 100%
     );
   
