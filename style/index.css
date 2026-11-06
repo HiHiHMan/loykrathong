@@ -2718,11 +2718,11 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
     width: 55vw !important;
     max-width: none !important;
     height: auto !important;
-    transform: translateY(-60px) !important;
+    transform: translateY(-75px) !important;
   }
 
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro .ornament {
-    transform: translateY(-60px) !important;
+    transform: translateY(-75px) !important;
   }
 }
 
