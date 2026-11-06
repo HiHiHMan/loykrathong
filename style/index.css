@@ -2538,3 +2538,16 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro
     max-width: 76vw;
   }
 }
+
+
+/* Place the ornament directly underneath the title artwork. */
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro {
+  flex-direction: column;
+  gap: 8px;
+}
+
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro .ornament {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
