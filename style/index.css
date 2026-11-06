@@ -2503,10 +2503,10 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 
 /* Give obj01 a very slow, gentle left-right drift, like the movement of water. */
 @keyframes obj01WaterDrift {
-  0%, 100% {
+  from {
     translate: 0 0;
   }
-  50% {
+  to {
     translate: -44px 0;
   }
 }
@@ -2519,7 +2519,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
     left: 50% !important;
     transform: translateX(-50%) !important;
     translate: 0 0;
-    animation: obj01WaterDrift 32s ease-in-out infinite;
+    animation: obj01WaterDrift 32s linear infinite;
     will-change: translate;
   }
 }
