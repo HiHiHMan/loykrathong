@@ -2503,11 +2503,11 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 
 /* Give obj01 a very slow, gentle left-right drift, like the movement of water. */
 @keyframes obj01WaterDrift {
-  0% {
-    left: 50%;
+  0%, 100% {
+    translate: 0 0;
   }
-  100% {
-    left: calc(50% - 44px);
+  50% {
+    translate: -44px 0;
   }
 }
 
@@ -2516,10 +2516,11 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image img {
     width: 210vw !important;
     max-width: none !important;
-    left: 50%;
+    left: 50% !important;
     transform: translateX(-50%) !important;
-    animation: obj01WaterDrift 38s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;
-    will-change: left;
+    translate: 0 0;
+    animation: obj01WaterDrift 50s ease-in-out infinite;
+    will-change: translate;
   }
 }
 
