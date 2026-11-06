@@ -2614,3 +2614,12 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro
     width: 100vw !important;
   }
 }
+
+
+/* Reduce the title artwork size on the exact 1920x1080 home viewport. */
+@media (width: 1920px) and (height: 1080px) {
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro .title-image {
+    width: 450px !important;
+    max-width: 450px !important;
+  }
+}
