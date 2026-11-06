@@ -2891,8 +2891,8 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
     object-fit: contain;
   }
   .temple-track img {
-    flex: 0 0 150vw !important;
-    width: 150vw !important;
+    flex: 0 0 170vw !important;
+    width: 170vw !important;
     max-width: none !important;
   }
 }
