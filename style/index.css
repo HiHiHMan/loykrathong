@@ -2863,3 +2863,31 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
     object-fit: contain;
   }
 }
+
+
+@media (width: 375px) and (height: 812px) {
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
+    transform: translateY(215px) !important;
+  }
+
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
+    margin-top: 170px !important;
+  }
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .intro {
+    top: -110px !important;
+  }
+  .refresh-actions-backdrop {
+    top: -30px !important;
+  }
+  body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop {
+    transform: translateY(60px) !important;
+  }
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro .title-image {
+    display: block;
+    width: clamp(268px, 48vw, 560px);
+    max-width: min(82vw, 430px);
+    height: auto;
+    margin: 0 auto;
+    object-fit: contain;
+  }
+}
