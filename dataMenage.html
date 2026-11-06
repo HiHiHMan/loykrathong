@@ -179,6 +179,21 @@
       if (!Number.isFinite(date.getTime()) || !value) return "—";
       return new Intl.DateTimeFormat("th-TH", {dateStyle:"medium",timeStyle:"short"}).format(date);
     }
+
+    function getErrorDetails(error) {
+      const code = error && error.code ? String(error.code) : "";
+      const message = error && error.message ? String(error.message) : "ไม่ทราบสาเหตุ";
+      return code ? "[" + code + "] " + message : message;
+    }
+
+    function showOperationError(action, error) {
+      const details = getErrorDetails(error);
+      const message = action + "ไม่สำเร็จ: " + details;
+      console.error(message, error);
+      pageStatus.className = "status error";
+      pageStatus.textContent = message;
+      window.alert(message);
+    }
     function renderRows() {
       const keyword = searchInput.value.trim().toLocaleLowerCase();
       const rows = allWishes.filter(item => [
@@ -292,9 +307,7 @@
         pageStatus.className = "status";
         pageStatus.textContent = "ลบข้อมูลเรียบร้อยแล้ว";
       } catch (error) {
-        console.error(error);
-        pageStatus.className = "status error";
-        pageStatus.textContent = "ลบข้อมูลไม่สำเร็จ: " + (error.message || "เกิดข้อผิดพลาด");
+        showOperationError("ลบข้อมูล", error);
         button.disabled = false;
       }
     });
@@ -322,9 +335,7 @@
         pageStatus.className = "status";
         pageStatus.textContent = "บันทึกการแก้ไขเรียบร้อยแล้ว";
       } catch (error) {
-        console.error(error);
-        pageStatus.className = "status error";
-        pageStatus.textContent = "บันทึกไม่สำเร็จ: " + (error.message || "เกิดข้อผิดพลาด");
+        showOperationError("บันทึกการแก้ไข", error);
       } finally {
         button.disabled = false;
         button.textContent = "บันทึกการแก้ไข";
