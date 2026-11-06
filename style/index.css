@@ -2908,3 +2908,8 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
     animation: none !important;
   }
 }
+
+/* Keep obj01 shifted 10vw to the left across desktop, tablet, and mobile. */
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track {
+  margin-left: -10vw !important;
+}
