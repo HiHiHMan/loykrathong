@@ -2699,3 +2699,8 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
   translate: none !important;
   animation: none !important;
 }
+
+/* Set the home-page intro position. */
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .intro {
+  top: -153px !important;
+}
