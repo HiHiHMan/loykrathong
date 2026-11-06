@@ -2512,7 +2512,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 }
 
 /* Keep the slow water-like drift limited to the 768px home viewport. */
-@media (min-width: 761px) and (max-width: 768px) {
+@media (width: 768px) and (height: 1024px) {
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image img {
     width: 210vw !important;
     max-width: none !important;
