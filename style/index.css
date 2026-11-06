@@ -2851,4 +2851,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
   .refresh-actions-backdrop {
     top: -30px !important;
   }
+  body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop {
+    transform: translateY(65px) !important;
+  }
 }
