@@ -2854,4 +2854,12 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
   body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop {
     transform: translateY(60px) !important;
   }
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro .title-image {
+    display: block;
+    width: clamp(268px, 48vw, 560px);
+    max-width: min(82vw, 430px);
+    height: auto;
+    margin: 0 auto;
+    object-fit: contain;
+  }
 }
