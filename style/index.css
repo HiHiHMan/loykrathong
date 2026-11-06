@@ -2607,3 +2607,36 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro
     top: -112px !important;
   }
 }
+
+
+/* Apply the same seamless duplicated obj01 loop to additional target viewports. */
+@media
+  (width: 810px) and (height: 1080px),
+  (width: 800px) and (height: 1230px),
+  (width: 412px) and (height: 915px),
+  (width: 375px) and (height: 812px) {
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
+    overflow: hidden !important;
+  }
+
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track {
+    display: flex;
+    width: max-content;
+    height: auto;
+    will-change: transform;
+    animation: obj01SeamlessLoop 180s linear infinite;
+  }
+
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track img {
+    display: block;
+    position: static !important;
+    flex: 0 0 210vw;
+    width: 210vw !important;
+    max-width: none !important;
+    height: auto;
+    left: auto !important;
+    transform: none !important;
+    translate: none !important;
+    animation: none !important;
+  }
+}
