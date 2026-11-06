@@ -2890,4 +2890,9 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
     margin: 0 auto;
     object-fit: contain;
   }
+  .temple-track img {
+    flex: 0 0 150vw !important;
+    width: 150vw !important;
+    max-width: none !important;
+  }
 }
