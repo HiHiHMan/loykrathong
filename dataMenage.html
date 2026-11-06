@@ -39,6 +39,12 @@
     .name{font-weight:400}.sub{display:block;color:var(--muted);font-size:12px}
     .wish-text{max-width:360px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#d9dce3}
     .actions{display:flex;gap:7px}.actions .btn{padding:7px 11px;font-size:12px}
+    .pagination{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:7px;padding:18px 0 4px}
+    .pagination-info{width:100%;text-align:center;color:var(--muted);font-size:12px;margin-bottom:5px}
+    .page-btn{min-width:36px;height:36px;padding:0 10px;border:1px solid var(--line);border-radius:9px;color:var(--text);background:rgba(217,184,108,.06);cursor:pointer}
+    .page-btn:hover:not(:disabled){background:rgba(217,184,108,.18)}
+    .page-btn.active{background:var(--gold);border-color:var(--gold);color:#15120a;font-weight:500}
+    .page-btn:disabled{opacity:.35;cursor:not-allowed}
     .empty,.status{padding:28px;text-align:center;color:var(--muted)}
     .status.error{color:#ffaaaa}
     .modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.72);display:none;align-items:center;justify-content:center;padding:18px;z-index:10}
@@ -81,6 +87,7 @@
           <tbody id="wishesTable"><tr><td colspan="6" class="empty">กำลังโหลดข้อมูล...</td></tr></tbody>
         </table>
       </div>
+      <nav class="pagination" id="pagination" aria-label="เปลี่ยนหน้ารายการ"></nav>
       <div class="status" id="pageStatus" role="status"></div>
     </section>
   </main>
@@ -121,6 +128,8 @@
     const pageStatus = document.getElementById("pageStatus");
     const backdrop = document.getElementById("editBackdrop");
     let allWishes = [];
+    const pageSize = 10;
+    let currentPage = 1;
 
     function escapeHtml(value) {
       return String(value ?? "").replace(/[&<>"']/g, char => ({
@@ -139,11 +148,16 @@
       ].some(value => String(value || "").toLocaleLowerCase().includes(keyword)));
       document.getElementById("totalCount").textContent = allWishes.length.toLocaleString("th-TH");
       document.getElementById("filteredCount").textContent = rows.length.toLocaleString("th-TH");
+      const totalPages = Math.ceil(rows.length / pageSize);
+      currentPage = Math.min(Math.max(currentPage, 1), Math.max(totalPages, 1));
       if (!rows.length) {
         tableBody.innerHTML = '<tr><td colspan="6" class="empty">ไม่พบข้อมูลคำอธิษฐาน</td></tr>';
+        renderPagination(0);
         return;
       }
-      tableBody.innerHTML = rows.map(item => `
+      const startIndex = (currentPage - 1) * pageSize;
+      const pageRows = rows.slice(startIndex, startIndex + pageSize);
+      tableBody.innerHTML = pageRows.map(item => `
         <tr>
           <td><span class="name">${escapeHtml(item.fullName || "ไม่ระบุชื่อ")}</span><span class="sub">${escapeHtml(item.employeeCode || "ไม่มีรหัสพนักงาน")}</span></td>
           <td>${escapeHtml(item.department || "—")}<span class="sub">${escapeHtml(item.whName || "")}</span></td>
@@ -155,7 +169,32 @@
             <button class="btn btn-danger" type="button" data-action="delete" data-id="${escapeHtml(item.id)}">ลบ</button>
           </div></td>
         </tr>`).join("");
+      renderPagination(rows.length);
     }
+
+    function renderPagination(totalItems) {
+      const container = document.getElementById("pagination");
+      const totalPages = Math.ceil(totalItems / pageSize);
+      if (totalPages <= 1) {
+        container.innerHTML = totalItems
+          ? `<div class="pagination-info">แสดง 1–${totalItems} จาก ${totalItems} รายการ</div>`
+          : "";
+        return;
+      }
+
+      const start = (currentPage - 1) * pageSize + 1;
+      const end = Math.min(currentPage * pageSize, totalItems);
+      const buttons = [];
+      buttons.push(`<button class="page-btn" type="button" data-page="${currentPage - 1}" ${currentPage === 1 ? "disabled" : ""} aria-label="หน้าก่อนหน้า">‹</button>`);
+
+      for (let page = 1; page <= totalPages; page++) {
+        buttons.push(`<button class="page-btn ${page === currentPage ? "active" : ""}" type="button" data-page="${page}" ${page === currentPage ? 'aria-current="page"' : ""}>${page}</button>`);
+      }
+
+      buttons.push(`<button class="page-btn" type="button" data-page="${currentPage + 1}" ${currentPage === totalPages ? "disabled" : ""} aria-label="หน้าถัดไป">›</button>`);
+      container.innerHTML = `<div class="pagination-info">แสดง ${start}–${end} จาก ${totalItems.toLocaleString("th-TH")} รายการ · หน้า ${currentPage} / ${totalPages}</div>${buttons.join("")}`;
+    }
+
     async function loadWishes() {
       const button = document.getElementById("refreshButton");
       button.disabled = true;
@@ -163,7 +202,7 @@
       pageStatus.textContent = "กำลังโหลดข้อมูล...";
       try {
         if (!window.LoyKrathongDB) throw new Error("Firebase ไม่พร้อมใช้งาน กรุณาตรวจสอบการเชื่อมต่อ");
-        allWishes = await window.LoyKrathongDB.getWishes();
+        allWishes = await window.LoyKrathongDB.getWishes();\n        currentPage = 1;
         document.getElementById("connectionState").textContent = window.LoyKrathongDB.mode === "mock" ? "จำลอง" : "เชื่อมต่อแล้ว";
         renderRows();
         pageStatus.textContent = allWishes.length ? "" : "ยังไม่มีข้อมูลคำอธิษฐาน";
@@ -253,7 +292,16 @@
       }
     });
 
-    searchInput.addEventListener("input",renderRows);
+    searchInput.addEventListener("input",() => {
+      currentPage = 1;
+      renderRows();
+    });
+    document.getElementById("pagination").addEventListener("click", event => {
+      const button = event.target.closest("button[data-page]");
+      if (!button || button.disabled) return;
+      currentPage = Number(button.dataset.page);
+      renderRows();
+    });
     document.getElementById("refreshButton").addEventListener("click",loadWishes);
     document.getElementById("closeModal").addEventListener("click",closeEditor);
     document.getElementById("cancelEdit").addEventListener("click",closeEditor);
