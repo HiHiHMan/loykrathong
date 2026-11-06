@@ -202,7 +202,8 @@
       pageStatus.textContent = "กำลังโหลดข้อมูล...";
       try {
         if (!window.LoyKrathongDB) throw new Error("Firebase ไม่พร้อมใช้งาน กรุณาตรวจสอบการเชื่อมต่อ");
-        allWishes = await window.LoyKrathongDB.getWishes();\n        currentPage = 1;
+        allWishes = await window.LoyKrathongDB.getWishes();
+        currentPage = 1;
         document.getElementById("connectionState").textContent = window.LoyKrathongDB.mode === "mock" ? "จำลอง" : "เชื่อมต่อแล้ว";
         renderRows();
         pageStatus.textContent = allWishes.length ? "" : "ยังไม่มีข้อมูลคำอธิษฐาน";
