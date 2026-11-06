@@ -2697,3 +2697,17 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .intro {
   top: -153px !important;
 }
+
+
+/* Enlarge and center obj01 artwork on the 768x1024 home viewport. */
+@media (width: 768px) and (height: 1024px) {
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track {
+    margin-left: -10vw;
+  }
+
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track img {
+    flex-basis: 120vw !important;
+    width: 120vw !important;
+    max-width: none !important;
+  }
+}
