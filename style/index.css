@@ -2573,3 +2573,10 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro
   flex: 1 1 0;
   min-width: 12px;
 }
+
+/* Set intro position to -112px on the 768x1024 home viewport. */
+@media (min-width: 413px) and (max-width: 768px) {
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .intro {
+    top: -112px !important;
+  }
+}
