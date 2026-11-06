@@ -2829,8 +2829,8 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 /* Double obj01 artwork size on the 412x915 home viewport. */
 @media (width: 412px) and (height: 915px) {
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track img {
-    flex: 0 0 240vw !important;
-    width: 240vw !important;
+    flex: 0 0 220vw !important;
+    width: 220vw !important;
     max-width: none !important;
   }
 }
