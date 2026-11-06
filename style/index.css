@@ -2501,26 +2501,40 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 }
 
 
-/* Give obj01 a very slow, gentle left-right drift, like the movement of water. */
-@keyframes obj01WaterDrift {
+/* Seamless continuous leftward loop for duplicated obj01 artwork on 768x1024. */
+@keyframes obj01SeamlessLoop {
   from {
-    translate: 0 0;
+    transform: translateX(0);
   }
   to {
-    translate: -44px 0;
+    transform: translateX(-50%);
   }
 }
 
-/* Keep the slow water-like drift limited to the 768px home viewport. */
 @media (width: 768px) and (height: 1024px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image img {
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
+    overflow: hidden !important;
+  }
+
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track {
+    display: flex;
+    width: max-content;
+    height: auto;
+    will-change: transform;
+    animation: obj01SeamlessLoop 180s linear infinite;
+  }
+
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track img {
+    display: block;
+    position: static !important;
+    flex: 0 0 210vw;
     width: 210vw !important;
     max-width: none !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    translate: 0 0;
-    animation: obj01WaterDrift 18s linear infinite;
-    will-change: translate;
+    height: auto;
+    left: auto !important;
+    transform: none !important;
+    translate: none !important;
+    animation: none !important;
   }
 }
 
