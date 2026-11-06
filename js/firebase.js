@@ -44,6 +44,30 @@
         const items = JSON.parse(localStorage.getItem(MOCK_KEY) || "[]")
           .sort((a, b) => Number(b.createdAt || 0) - Number(a.createdAt || 0));
         return Number.isInteger(limit) && limit > 0 ? items.slice(0, limit) : items;
+      },
+
+      async updateWish(id, data) {
+        const items = JSON.parse(localStorage.getItem(MOCK_KEY) || "[]");
+        const index = items.findIndex(item => item.id === id);
+        if (index < 0) throw new Error("ไม่พบคำอธิษฐานที่ต้องการแก้ไข");
+        items[index] = {
+          ...items[index],
+          fullName: String(data.fullName || "").trim(),
+          employeeCode: String(data.employeeCode || "").trim(),
+          department: String(data.department || "").trim(),
+          whName: String(data.whName || "").trim(),
+          krathongType: String(data.krathongType || "").trim(),
+          wish: String(data.wish || "").trim()
+        };
+        localStorage.setItem(MOCK_KEY, JSON.stringify(items));
+        return items[index];
+      },
+
+      async deleteWish(id) {
+        const items = JSON.parse(localStorage.getItem(MOCK_KEY) || "[]");
+        const filtered = items.filter(item => item.id !== id);
+        if (filtered.length === items.length) throw new Error("ไม่พบคำอธิษฐานที่ต้องการลบ");
+        localStorage.setItem(MOCK_KEY, JSON.stringify(filtered));
       }
     };
 
@@ -107,6 +131,23 @@
           id: value && value.id ? value.id : key
         }))
         .sort((a, b) => Number(b.createdAt || 0) - Number(a.createdAt || 0));
+    },
+
+    async updateWish(id, data) {
+      const updates = {
+        fullName: String(data.fullName || "").trim(),
+        employeeCode: String(data.employeeCode || "").trim(),
+        department: String(data.department || "").trim(),
+        whName: String(data.whName || "").trim(),
+        krathongType: String(data.krathongType || "").trim(),
+        wish: String(data.wish || "").trim()
+      };
+      await wishesRef.child(id).update(updates);
+      return { id, ...updates };
+    },
+
+    async deleteWish(id) {
+      await wishesRef.child(id).remove();
     }
   };
 })();
