@@ -2516,7 +2516,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image img {
     width: 210vw !important;
     max-width: none !important;
-    left: 50% !important;
+    left: 50%;
     transform: translateX(-50%) !important;
     animation: obj01WaterDrift 55s ease-in-out infinite alternate;
     will-change: left;
