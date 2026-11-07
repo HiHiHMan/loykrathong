@@ -1,0 +1,69 @@
+/* Shared responsive tiers for every Loy Krathong page.
+   Width ranges are continuous and non-overlapping.
+   Existing component-specific and exact-resolution rules remain in their page stylesheets. */
+
+:root {
+  --responsive-screen-tier: "mobile";
+  --responsive-nav-gutter: 16px;
+}
+
+/* Mobile: 320px–440px */
+@media (min-width: 320px) and (max-width: 440px) {
+  :root {
+    --responsive-screen-tier: "mobile";
+    --responsive-nav-gutter: 16px;
+  }
+}
+
+/* Tablet: 441px–810px */
+@media (min-width: 441px) and (max-width: 810px) {
+  :root {
+    --responsive-screen-tier: "tablet";
+    --responsive-nav-gutter: 20px;
+  }
+}
+
+/* Laptop: 811px–1440px */
+@media (min-width: 811px) and (max-width: 1440px) {
+  :root {
+    --responsive-screen-tier: "laptop";
+    --responsive-nav-gutter: 24px;
+  }
+}
+
+/* Desktop: 1441px–1536px */
+@media (min-width: 1441px) and (max-width: 1536px) {
+  :root {
+    --responsive-screen-tier: "desktop";
+    --responsive-nav-gutter: 28px;
+  }
+}
+
+/* Large desktop: 1537px–1920px */
+@media (min-width: 1537px) and (max-width: 1920px) {
+  :root {
+    --responsive-screen-tier: "large-desktop";
+    --responsive-nav-gutter: 32px;
+  }
+}
+
+/* Ultra-wide: 1921px and above */
+@media (min-width: 1921px) {
+  :root {
+    --responsive-screen-tier: "ultra-wide";
+    --responsive-nav-gutter: 40px;
+  }
+}
+
+/* Shared navigation spacing follows the same tier on all pages. */
+.top-nav {
+  padding-inline: var(--responsive-nav-gutter);
+}
+
+/* Very narrow screens below the normal mobile range remain usable. */
+@media (max-width: 319px) {
+  :root {
+    --responsive-screen-tier: "compact";
+    --responsive-nav-gutter: 10px;
+  }
+}
