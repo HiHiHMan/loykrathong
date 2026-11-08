@@ -1313,7 +1313,7 @@ body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-back
   }
 
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .cartoon-water {
-    bottom: 161px;
+    bottom: 171px;
   }
 }
 
