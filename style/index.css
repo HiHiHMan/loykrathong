@@ -1414,6 +1414,17 @@ body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-back
   transform: translateX(-50%);
 }
 
+/* Anchor obj01 directly above the road so the artwork always touches its top edge. */
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
+  position: fixed;
+  left: 50%;
+  bottom: calc(170px + clamp(180px, 24svh, 260px) - 50px + clamp(38px, 6svh, 72px));
+  z-index: 1;
+  width: 100vw;
+  margin: 0;
+  transform: translateX(-50%);
+}
+
 /* Pin the home-page animated water to the viewport bottom on every screen size. */
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .cartoon-water {
   position: fixed;
