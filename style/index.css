@@ -381,30 +381,7 @@ body:has(.landing > .moon-image) .landing .intro .ornament {
 }
 
 
-@media (max-width: 600px) {
 
-  body:has(.landing > .moon-image) .landing .intro::before {
-
-    inset: -22px -14px;
-    background: radial-gradient(
-      ellipse at center,
-      rgba(0, 0, 0, 0.64) 0%,
-      rgba(0, 0, 0, 0.42) 50%,
-      rgba(0, 0, 0, 0.18) 76%,
-      transparent 100%
-    );
-  
-}
-
-
-  body:has(.landing > .moon-image) .landing .intro .description {
-
-    font-size: 13px;
-    line-height: 1.9;
-  
-}
-
-}
 
 
  #webgl-canvas {
@@ -789,157 +766,23 @@ body:has(.landing > .moon-image) .landing .intro .ornament {
 }
 
 
-@media (max-width: 600px) {
-
-  body:has(.landing > .moon-image) .landing .intro::before {
-
-    inset: -24px -18px;
-    background: radial-gradient(
-      ellipse at center,
-      rgba(2, 9, 21, 0.34) 0%,
-      rgba(2, 9, 21, 0.18) 54%,
-      transparent 88%
-    );
-    filter: blur(8px);
-  
-}
-
-
-  body:has(.landing > .moon-image) .landing .intro .description {
-
-    font-size: 13px;
-    line-height: 1.9;
-  
-}
-
-}
 
 
 
 
-@media (max-width: 760px) {
-
-  body:has(.landing > .moon-image) {
-
-  
-}
-
-
-  body:has(.landing > .moon-image) .landing {
-
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    overflow: visible !important;
-    padding-bottom: max(12px, env(safe-area-inset-bottom));
-  
-}
-
-
-  body:has(.landing > .moon-image) .landing > .content {
-
-    position: relative;
-    flex: 0 0 auto;
-    width: 100%;
-    min-width: 0;
-    padding-bottom: 24px;
-  
-}
-
-
-  
-  body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop {
-
-    top: 0 !important;
-    margin-top: clamp(28px, 6vh, 54px) !important;
-    margin-bottom: 0 !important;
-    max-width: calc(100% - 28px);
-  
-}
-
-
-  body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop .refresh-row {
-
-    margin-top: 0 !important;
-  
-}
-
-
-  body:has(.landing > .moon-image) .landing > footer {
-
-    position: relative !important;
-    inset: auto !important;
-    flex: 0 0 auto;
-    width: 100%;
-    margin: auto 0 0 !important;
-    padding: 18px 12px max(14px, env(safe-area-inset-bottom));
-    text-align: center;
-    line-height: 1.6;
-    overflow-wrap: anywhere;
-  
-}
-
-}
-
-
-@media (max-width: 390px) {
-
-  body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop {
-
-    margin-top: 38px !important;
-    gap: 10px;
-  
-}
-
-
-  body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop .refresh-btn,
-  body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop .text-button {
-
-    max-width: calc(100vw - 36px);
-    white-space: normal;
-    text-align: center;
-  
-}
-
-
-  body:has(.landing > .moon-image) .landing > footer {
-
-    font-size: 11px;
-  
-}
-
-}
 
 
 
 
-@media (max-width: 760px) {
-
-  body:has(.landing > .moon-image) .landing > .content {
-
-    padding-top: clamp(42px, 8vh, 76px) !important;
-  
-}
 
 
-  body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop {
-
-    margin-top: clamp(28px, 5vh, 48px) !important;
-  
-}
-
-}
 
 
-@media (max-width: 390px) {
 
-  body:has(.landing > .moon-image) .landing > .content {
 
-    padding-top: clamp(34px, 6vh, 56px) !important;
-  
-}
 
-}
+
+
 
 
 
@@ -950,15 +793,7 @@ body:has(.landing > .moon-image) .landing > .moon-image {
 }
 
 
-@media (max-width: 600px) {
 
-  body:has(.landing > .moon-image) .landing > .moon-image {
-
-    top: 12px !important;
-  
-}
-
-}
 
 
 
@@ -969,59 +804,20 @@ body:has(.landing > .moon-image) .landing > .moon-image {
 }
 
 
-@media (max-width: 600px) {
-
-  body:has(.landing > .moon-image) .landing > .moon-image {
-
-    top: 48px !important;
-  
-}
-
-
-  body:has(.landing > .moon-image) .landing > .moon-image::before {
-
-    inset: -18%;
-  
-}
-
-}
 
 
 
 
-@media (max-width: 760px) {
-
-  body:has(.landing > .moon-image) .landing > .content {
-
-    padding-top: clamp(120px, 22vh, 190px) !important;
-  
-}
-
-}
-
-
-@media (max-width: 390px) {
-
-  body:has(.landing > .moon-image) .landing > .content {
-
-    padding-top: clamp(100px, 18vh, 150px) !important;
-  
-}
-
-}
 
 
 
 
-@media (min-width: 761px) {
 
-  body:has(.landing > .moon-image) .landing > .content {
 
-    padding-top: clamp(110px, 16vh, 190px) !important;
-  
-}
 
-}
+
+
+
 
 
 
@@ -1033,26 +829,10 @@ body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop
 }
 
 
-@media (max-width: 760px) {
-
-  body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop {
-
-    margin-top: clamp(32px, 5vh, 56px) !important;
-  
-}
-
-}
 
 
-@media (max-width: 390px) {
 
-  body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop {
 
-    margin-top: 36px !important;
-  
-}
-
-}
 
 
 
@@ -1068,11 +848,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moo
   width: clamp(144px, 22vw, 288px);
 }
 
-@media (max-width: 600px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image {
-    width: clamp(120px, 37vw, 184px);
-  }
-}
+
 
 /* Five floating sky lanterns — varied scale and depth */ 
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns {
@@ -1158,13 +934,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .sky-lantern-im
   50% { transform: translate3d(-10px, -22px, 0) rotate(3deg); }
 }
 
-@media (max-width: 600px) {
-  .sky-lantern-1 { top: 26%; right: 3%; width: clamp(56px, 15vw, 76px); }
-  .sky-lantern-2 { top: 15%; left: 4%; width: clamp(36px, 10vw, 48px); }
-  .sky-lantern-3 { top: 38%; left: 18%; width: clamp(42px, 12vw, 60px); }
-  .sky-lantern-4 { top: 11%; right: 25%; width: clamp(30px, 8vw, 38px); }
-  .sky-lantern-5 { top: 42%; right: 14%; width: clamp(32px, 9vw, 44px); }
-}
+
 
 
 /* Additional lanterns for a fuller, layered night sky */
@@ -1223,13 +993,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .sky-lantern-im
   animation-delay: -8s;
 }
 
-@media (max-width: 600px) {
-  .sky-lantern-6 { top: 49%; left: 9%; width: clamp(36px, 10vw, 48px); }
-  .sky-lantern-7 { top: 18%; right: 10%; width: clamp(30px, 8vw, 40px); }
-  .sky-lantern-8 { top: 58%; right: 3%; width: clamp(38px, 10vw, 52px); }
-  .sky-lantern-9 { top: 29%; left: 58%; width: clamp(28px, 7.5vw, 36px); }
-  .sky-lantern-10 { top: 64%; left: 40%; width: clamp(30px, 8vw, 38px); }
-}
+
 
 
 /* Five more distant lanterns to enrich the sky depth */
@@ -1288,13 +1052,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .sky-lantern-im
   animation-delay: -9s;
 }
 
-@media (max-width: 600px) {
-  .sky-lantern-11 { top: 34%; left: 35%; width: clamp(28px, 7.5vw, 36px); }
-  .sky-lantern-12 { top: 64%; left: 12%; width: clamp(32px, 8.5vw, 42px); }
-  .sky-lantern-13 { top: 48%; right: 9%; width: clamp(26px, 7vw, 34px); }
-  .sky-lantern-14 { top: 68%; right: 37%; width: clamp(32px, 8.5vw, 42px); }
-  .sky-lantern-15 { top: 18%; left: 21%; width: clamp(24px, 6vw, 30px); }
-}
+
 
 
 /* Keep sky lanterns visible in front of the temple while the intro stays above them. */
@@ -1391,11 +1149,7 @@ body:has(.landing > .moon-image) .refresh-actions-backdrop > .refresh-btn:focus-
   border-radius: 12px;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  body:has(.landing > .moon-image) .refresh-actions-backdrop > .refresh-btn img {
-    transition: none;
-  }
-}
+
 
 
 /* Make the create-krathong image button feel inviting and tactile. */
@@ -1430,20 +1184,10 @@ body:has(.landing > .moon-image) .refresh-actions-backdrop > .refresh-btn:active
   50% { transform: translateY(-3px) scale(1.015); }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  body:has(.landing > .moon-image) .refresh-actions-backdrop > .refresh-btn {
-    animation: none;
-    transition: none;
-  }
-}
+
 
 /* Make the create-krathong button smaller and lower on mobile. */
-@media (max-width: 600px) {
-  body:has(.landing > .moon-image) .refresh-actions-backdrop > .refresh-btn {
-    max-width: min(48vw, 180px);
-    top: 10px !important;
-  }
-}
+
 
 /* Slightly reduce the temple artwork on small screens. */
 
@@ -1641,12 +1385,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .moon-star-5 {
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .moon-star {
-    animation: none;
-    opacity: 0.78;
-  }
-}
+
 
 
 /* Shift the home-page moon slightly to the left without affecting create page. */
@@ -1662,40 +1401,28 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moo
   transform: translateX(-50%);
 }
 
-@media (max-width: 600px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image {
-    left: calc(50% - 76px) !important;
-  }
-}
+
 
 
 /* Further left positioning for the home-page moon. */
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image { left: calc(50% - clamp(180px, 26vw, 320px)) !important; transform: translateX(-50%); }
-@media (max-width: 600px) { body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image { left: calc(50% - 132px) !important; } }
+
 
 
 /* Shift the home-page moon substantially farther left. */
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image { left: calc(50% - clamp(260px, 34vw, 420px)) !important; transform: translateX(-50%); }
-@media (max-width: 600px) { body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image { left: calc(50% - 190px) !important; } }
+
 
 
 /* On narrower screens, progressively bring the home-page moon back to the right. */
-@media (max-width: 600px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image {
-    left: calc(50% - clamp(80px, 32vw, 190px)) !important;
-  }
-}
+
 
 
 /* Scale the home-page moon down smoothly as the viewport gets narrower. */
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image {
   width: clamp(96px, 18vw, 288px) !important;
 }
-@media (max-width: 600px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image {
-    width: clamp(76px, 25vw, 150px) !important;
-  }
-}
+
 
 
 /* Lower the home-page moon slightly without affecting the create page. */
@@ -1714,11 +1441,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moo
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image {
   width: clamp(96px, 16vw, 240px) !important;
 }
-@media (max-width: 600px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image {
-    width: clamp(76px, 25vw, 150px) !important;
-  }
-}
+
 
 
 /* Move the home-page moon further down. */
@@ -1815,49 +1538,15 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image {
   width: clamp(86px, 14.4vw, 216px) !important;
 }
-@media (max-width: 600px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image {
-    width: clamp(68px, 22.5vw, 135px) !important;
-  }
-}
+
 
 
 /* Reduce sky lantern sizes further on small screens. */
-@media (max-width: 600px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image.sky-lantern-1 {
-    width: 64px !important;
-    max-width: 64px !important;
-  }
 
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image:is(.sky-lantern-3, .sky-lantern-5, .sky-lantern-6, .sky-lantern-8, .sky-lantern-10, .sky-lantern-12) {
-    width: 48px !important;
-    max-width: 48px !important;
-  }
-
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image:is(.sky-lantern-2, .sky-lantern-4, .sky-lantern-7, .sky-lantern-9, .sky-lantern-11, .sky-lantern-13, .sky-lantern-14, .sky-lantern-15) {
-    width: 32px !important;
-    max-width: 32px !important;
-  }
-}
 
 
 /* Further reduce sky lantern sizes on very small screens. */
-@media (max-width: 600px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image.sky-lantern-1 {
-    width: 48px !important;
-    max-width: 48px !important;
-  }
 
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image:is(.sky-lantern-3, .sky-lantern-5, .sky-lantern-6, .sky-lantern-8, .sky-lantern-10, .sky-lantern-12) {
-    width: 36px !important;
-    max-width: 36px !important;
-  }
-
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image:is(.sky-lantern-2, .sky-lantern-4, .sky-lantern-7, .sky-lantern-9, .sky-lantern-11, .sky-lantern-13, .sky-lantern-14, .sky-lantern-15) {
-    width: 24px !important;
-    max-width: 24px !important;
-  }
-}
 
 
 /* Raise the lowest sky lanterns higher in the scene. */
@@ -1870,11 +1559,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image.sky-lantern-14 {
   top: 60% !important;
 }
-@media (max-width: 600px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image:is(.sky-lantern-10, .sky-lantern-12, .sky-lantern-14) {
-    top: 56% !important;
-  }
-}
+
 
 
 /* Raise the lower sky lanterns a little further. */
@@ -1887,11 +1572,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image.sky-lantern-14 {
   top: 54% !important;
 }
-@media (max-width: 600px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image:is(.sky-lantern-10, .sky-lantern-12, .sky-lantern-14) {
-    top: 50% !important;
-  }
-}
+
 
 
 /* Set the lower sky lantern group to 30% vertical position. */
@@ -1926,11 +1607,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image.sky-lantern-6 { top: 30% !important; }
 
 /* Show only four sky lanterns on small screens. */
-@media (max-width: 600px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image:is(.sky-lantern-5, .sky-lantern-6) {
-    display: none !important;
-  }
-}
+
 
 /* Lower the create-krathong image button slightly on all screen sizes. */
 body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop > .refresh-btn {
@@ -1950,12 +1627,7 @@ body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop
   max-width: min(48vw, 190px) !important;
 }
 
-@media (max-width: 600px) {
-  body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop > .refresh-btn {
-    width: min(42vw, 160px) !important;
-    max-width: min(42vw, 160px) !important;
-  }
-}
+
 
 
 
@@ -1973,65 +1645,13 @@ body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop
 
 
 /* Scale the five visible home-page lanterns with the viewport width. */
-@media (max-width: 1024px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image.sky-lantern-1 {
-    width: 64px !important;
-    max-width: 64px !important;
-  }
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image:is(.sky-lantern-3, .sky-lantern-5) {
-    width: 48px !important;
-    max-width: 48px !important;
-  }
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image:is(.sky-lantern-2, .sky-lantern-4) {
-    width: 34px !important;
-    max-width: 34px !important;
-  }
-}
 
-@media (max-width: 750px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image.sky-lantern-1 {
-    width: 56px !important;
-    max-width: 56px !important;
-  }
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image:is(.sky-lantern-3, .sky-lantern-5) {
-    width: 42px !important;
-    max-width: 42px !important;
-  }
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image:is(.sky-lantern-2, .sky-lantern-4) {
-    width: 30px !important;
-    max-width: 30px !important;
-  }
-}
 
-@media (max-width: 600px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image.sky-lantern-1 {
-    width: 44px !important;
-    max-width: 44px !important;
-  }
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image:is(.sky-lantern-3, .sky-lantern-5) {
-    width: 34px !important;
-    max-width: 34px !important;
-  }
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image:is(.sky-lantern-2, .sky-lantern-4) {
-    width: 24px !important;
-    max-width: 24px !important;
-  }
-}
 
-@media (max-width: 400px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image.sky-lantern-1 {
-    width: 38px !important;
-    max-width: 38px !important;
-  }
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image:is(.sky-lantern-3, .sky-lantern-5) {
-    width: 29px !important;
-    max-width: 29px !important;
-  }
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image:is(.sky-lantern-2, .sky-lantern-4) {
-    width: 21px !important;
-    max-width: 21px !important;
-  }
-}
+
+
+
+
 
 /* On 412x915 screens, lower only the temple artwork and road; keep other elements fixed. */
 
@@ -2045,32 +1665,18 @@ body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop
 
 
 /* Raise the brown road on the 800x1230 home viewport. */
-@media (min-width: 769px) and (max-width: 800px) {
-  body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop {
-    transform: translateY(186px) !important;
-  }
-}
+
 
 /* Raise obj01 by 100px on the 800x1230 home viewport. */
 
 
 
 /* Adjust water and create button on the 810x1080 home viewport. */
-@media (min-width: 801px) and (max-width: 810px) {
 
-  body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop {
-    transform: translateY(116px) !important;
-  }
-}
 
 
 /* Lower the brown road by another 100px on the 810x1080 home viewport. */
-@media (min-width: 801px) and (max-width: 810px) {
 
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop {
-    top: -20px !important;
-  }
-}
 
 
 /* Lower the water slightly on the 1440x800 home viewport. */
@@ -2088,11 +1694,7 @@ body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop
 
 
 /* Lower the home-page create button on the 1440x900 viewport. */
-@media (min-width: 811px) and (max-width: 1440px) {
-  body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop {
-    top: -30px !important;
-  }
-}
+
 
 /* Raise the brown road on the 1920x1080 home viewport. */
 
@@ -2119,11 +1721,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 
 
 /* Set the home-page refresh actions position on the 1920x1080 viewport. */
-@media (min-width: 1537px) and (max-width: 1920px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop {
-    transform: translateY(135px) !important;
-  }
-}
+
 
 
 /* Lower obj01 and the brown road by 60px on the 1536x864 home viewport. */
@@ -2131,46 +1729,15 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 
 
 /* Reduce the create button and action text on the 1536x864 home viewport. */
-@media (min-width: 1441px) and (max-width: 1536px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop > .refresh-btn {
-    width: 150px !important;
-    max-width: 150px !important;
-  }
 
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop .text-button {
-    font-size: 14px !important;
-  }
-}
 
 
 /* Move only the create button down by 15px on the 1536x864 home viewport. */
-@media (min-width: 1441px) and (max-width: 1536px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop > .refresh-btn {
-    transform: translateY(15px) !important;
-  }
-}
+
 
 
 /* Apply the requested action layout on the 1536x864 home viewport. */
-@media (min-width: 1441px) and (max-width: 1536px) {
-  body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop {
-    position: relative;
-    top: -75px;
-    z-index: 1000 !important;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    width: fit-content;
-    max-width: calc(100% - 32px);
-    margin: 0 auto;
-    isolation: isolate;
-  }
 
-  body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop .refresh-row {
-    margin-top: -8px !important;
-  }
-}
 
 
 /* Raise the brown road by another 20px on the 1440x900 home viewport. */
@@ -2187,11 +1754,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 
 
 /* Set the refresh actions backdrop top position to -65px on the 768x1024 home viewport only. */
-@media (width: 768px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop {
-    top: -65px !important;
-  }
-}
+
 
 
 /* Lower obj01 by 20px on the 810x1080 home viewport. */
@@ -2320,22 +1883,10 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 
 
 /* Match the 768x1024 home layout on the 810x1080 viewport. */
-@media (width: 810px) {
 
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop {
-    top: 63px !important;
-    transform: none !important;
-  }
-}
 
 /* Match the 810x1080 home layout on the 800x1230 viewport. */
-@media (width: 800px) {
 
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop {
-    top: 63px !important;
-    transform: none !important;
-  }
-}
 
 /* Set the intro top position on the 800x1230 home viewport. */
 
@@ -2343,16 +1894,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 
 /* Use the 412x915 home composition across the full mobile range.
    Vertical offsets scale with viewport height to preserve the same proportions. */
-@media (min-width: 320px) and (max-width: 440px) {
 
-  .refresh-actions-backdrop {
-    top: -30px !important;
-  }
-
-  body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop {
-    transform: translateY(6.557svh) !important;
-  }
-}
 
 /* Keep obj01 shifted 10vw to the left across desktop, tablet, and mobile. */
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track {
