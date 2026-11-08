@@ -58,15 +58,4 @@ body .wish-form textarea {
   line-height: 1.7;
 }
 
-@media (max-width: 600px) {
-  body {
-    font-size: 17px;
-  }
 
-  body :is(.description, .form-description, .success-description, .tooltip-wish) {
-    line-height: 1.8;
-  }
-
-  body :is(.nav-link, .start-button, .refresh-btn, .text-button) {
-  }
-}
