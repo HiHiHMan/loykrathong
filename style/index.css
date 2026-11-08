@@ -231,6 +231,22 @@ animation-duration: 82s;
 
 
 
+/* Position each lantern independently inside the sky container. */
+.sky-lantern-image {
+  position: absolute;
+  display: block;
+  animation-name: sky-lantern-float;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  will-change: transform;
+}
+
+.sky-lantern-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 /* Five floating sky lanterns — varied scale and depth */
 
 .sky-lantern-1 {
