@@ -1470,8 +1470,8 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 /* Enlarge obj01 artwork on narrow mobile screens without affecting tablet/desktop. */
 @media (max-width: 600px) {
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track img {
-    flex-basis: 120vw;
-    width: 120vw;
-    margin-left: -10vw;
+    flex-basis: 180vw;
+    width: 180vw;
+    margin-left: -40vw;
   }
 }
