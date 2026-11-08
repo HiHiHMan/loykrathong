@@ -1409,3 +1409,17 @@ body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-back
   transform: translateX(-50%);
 }
 
+/* Pin the home-page animated water to the viewport bottom on every screen size. */
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .cartoon-water {
+  position: fixed;
+  left: 50%;
+  right: auto;
+  bottom: 0;
+  top: auto;
+  z-index: 3;
+  width: 100vw;
+  height: clamp(180px, 24svh, 260px);
+  margin: 0;
+  transform: translateX(-50%);
+}
+
