@@ -1466,3 +1466,12 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
   min-height: 70px;
   font-size: 38px;
 }
+
+/* Enlarge obj01 artwork on narrow mobile screens without affecting tablet/desktop. */
+@media (max-width: 600px) {
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track img {
+    flex-basis: 120vw;
+    width: 120vw;
+    margin-left: -10vw;
+  }
+}
