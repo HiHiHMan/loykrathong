@@ -1368,8 +1368,6 @@
 
    .landing {
 
-     min-height: calc(100vh - 60px);
-     min-height: calc(100dvh - 60px);
      padding: 24px 14px calc(78px + env(safe-area-inset-bottom));
      overflow: clip;
    
@@ -1725,7 +1723,6 @@
 
    .landing {
 
-     min-height: calc(100dvh - 48px);
      padding-top: 24px;
      padding-bottom: calc(76px + env(safe-area-inset-bottom));
    
@@ -1824,7 +1821,6 @@
 
    .landing {
 
-     min-height: calc(100dvh - 52px);
      padding-top: 28px;
      padding-bottom: calc(80px + env(safe-area-inset-bottom));
    
@@ -4135,8 +4131,6 @@ oot {
 
    .landing {
 
-     min-height: calc(100vh - 60px);
-     min-height: calc(100dvh - 60px);
      padding: 24px 14px calc(78px + env(safe-area-inset-bottom));
      overflow: clip;
    
@@ -4492,7 +4486,6 @@ oot {
 
    .landing {
 
-     min-height: calc(100dvh - 48px);
      padding-top: 24px;
      padding-bottom: calc(76px + env(safe-area-inset-bottom));
    
@@ -4591,7 +4584,6 @@ oot {
 
    .landing {
 
-     min-height: calc(100dvh - 52px);
      padding-top: 28px;
      padding-bottom: calc(80px + env(safe-area-inset-bottom));
    
