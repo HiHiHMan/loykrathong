@@ -1437,7 +1437,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-road {
   position: fixed;
   left: 50%;
-  bottom: calc(170px + clamp(180px, 24svh, 260px) - 40px);
+  bottom: calc(170px + clamp(180px, 24svh, 260px) - 50px);
   z-index: 2;
   width: 100vw;
   height: clamp(42px, 8vw, 110px);
