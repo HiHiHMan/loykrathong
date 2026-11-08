@@ -1186,3 +1186,40 @@ body:has(#webgl-canvas-create) .krathong-detail {
   line-height: 1.35;
   margin-top: 2px;
 }
+
+/* Fluid Create page layout: cards and form adapt without device-specific rules. */
+body:has(#webgl-canvas-create) .krathong-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 136px), 1fr));
+  gap: clamp(10px, 2vw, 14px);
+  width: min(100%, 760px);
+  max-width: 760px;
+  margin-inline: auto;
+}
+
+body:has(#webgl-canvas-create) .krathong {
+  min-width: 0;
+  min-height: clamp(112px, 16vw, 150px);
+  padding: clamp(10px, 1.5vw, 19px) clamp(6px, 1vw, 12px);
+}
+
+body:has(#webgl-canvas-create) .krathong .loykrathong {
+  width: clamp(56px, 8vw, 76px);
+  height: clamp(56px, 8vw, 76px);
+  min-height: 0;
+}
+
+body:has(#webgl-canvas-create) .wish-form {
+  width: 100%;
+  max-width: min(460px, 100%);
+  margin-inline: auto;
+}
+
+body:has(#webgl-canvas-create) .wish-form h2 {
+  font-size: clamp(22px, 4vw, 30px);
+}
+
+body:has(#webgl-canvas-create) .selected-preview {
+  min-width: 0;
+  flex-wrap: wrap;
+}
