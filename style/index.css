@@ -1346,7 +1346,7 @@ body:not(:has(#webgl-canvas-create)) .landing > footer {
 
 /* Reduce the visible create-krathong image button by one third. */
 body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop > a:first-child img {
-  transform: scale(0.666667);
+  transform: scale(0.8);
   transform-origin: center;
 }
 
