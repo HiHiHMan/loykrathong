@@ -58,6 +58,37 @@ body .wish-form textarea {
   line-height: 1.7;
 }
 
+/* Match the prayer form typography to the compact selection screen. */
+body:has(#webgl-canvas-create) .wish-form h2 {
+  font-size: 18px !important;
+  line-height: 1.5;
+}
+
+body:has(#webgl-canvas-create) .wish-form :is(
+  label,
+  input,
+  textarea,
+  select,
+  .form-description,
+  .preview-label,
+  .form-note,
+  .text-button,
+  .hint
+) {
+  font-size: 14px !important;
+  line-height: 1.5;
+}
+
+body:has(#webgl-canvas-create) .wish-form .form-step {
+  font-size: 13px !important;
+  line-height: 1.5;
+}
+
+body:has(#webgl-canvas-create) .wish-form input,
+body:has(#webgl-canvas-create) .wish-form select {
+  min-height: 42px;
+}
+
 /* Refined typography for the Create page selection screen. */
 body:has(#webgl-canvas-create) .section-label .description {
   font-size: 14px !important;
