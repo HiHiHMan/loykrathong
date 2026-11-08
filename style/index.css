@@ -1306,6 +1306,17 @@ body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-back
   }
 }
 
+/* Tablet layout: reduce title size and lower the water slightly. */
+@media (min-width: 601px) and (max-width: 1000px) {
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro .title-image {
+    width: min(55vw, 320px);
+  }
+
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .cartoon-water {
+    bottom: 161px;
+  }
+}
+
 /* Lower the home scene slightly on wide screens. */
 @media (min-width: 1001px) {
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
