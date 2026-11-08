@@ -1262,19 +1262,21 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
   font-size: 38px;
 }
 
-/* Use the same 235vw obj01 artwork scale on every viewport size. */
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track img {
-  flex-basis: 235vw;
-  width: 235vw;
-}
+/* Enlarge obj01 artwork on narrow mobile screens without affecting tablet/desktop. */
+@media (max-width: 600px) {
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track img {
+    flex-basis: 235vw;
+    width: 235vw;
+  }
 
-/* Keep the duplicated artwork aligned for a seamless loop on every screen. */
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track img:first-child {
-  margin-left: -60vw;
-}
+  /* Offset only the first duplicated obj01 image; keep the second aligned. */
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track img:first-child {
+    margin-left: -60vw;
+  }
 
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track img:nth-child(2) {
-  margin-left: 0;
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track img:nth-child(2) {
+    margin-left: 0;
+  }
 }
 
 /* Reduce the home intro offset on phones; keep the desktop spacing unchanged. */
