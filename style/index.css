@@ -1319,6 +1319,12 @@ body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-back
   body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop > a:first-child img {
     width: 175px !important;
   }
+
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro .title-image {
+    width: min(75vw, 460px);
+    position: relative;
+    top: -20px;
+  }
 }
 
 /* Make the home-page text button slightly smaller and higher. */
