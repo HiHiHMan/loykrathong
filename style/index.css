@@ -1289,6 +1289,6 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 /* Move the road lower on taller viewports. */
 @media (min-height: 851px) {
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-road {
-    bottom: calc(170px + clamp(180px, 24svh, 260px) - 80px);
+    bottom: calc(170px + clamp(180px, 24svh, 260px) - 65px);
   }
 }
