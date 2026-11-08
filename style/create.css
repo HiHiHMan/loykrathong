@@ -281,58 +281,10 @@
 
 
 
- @media (max-width: 600px) {
+ 
 
 
-   .krathong-list {
-
-     gap: 8px;
-     margin-bottom: 28px;
-   
-}
-
-
-   .krathong {
-
-     padding: 13px 4px 12px;
-   
-}
-
-
-   .wish-form {
-
-     margin-top: 18px;
-   
-}
-
-
-   .wish-form h2 {
-
-     font-size: 27px;
-   
-}
-
-
-   .wish-form .start-button {
-
-     max-width: none;
-   
-}
-
-}
-
-
- @media (max-width: 360px) {
-
-
-   .selected-preview {
-
-     gap: 8px;
-     padding: 9px;
-   
-}
-
-}
+ 
 
 
 
@@ -444,85 +396,13 @@
 }
 
 
- @media (prefers-reduced-motion: reduce) {
+ 
 
 
-   .success-view,
-   .success-krathong,
-   .success-sparkle {
-
-     animation: none;
-   
-}
-
-}
+ 
 
 
- @media (max-width: 520px) {
-
-
-   .krathong-list {
-
-     grid-template-columns: repeat(2, minmax(0, 1fr));
-     width: 100%;
-   
-}
-
-
-   .krathong {
-
-     padding: 12px 6px;
-   
-}
-
-
-   .wish-form {
-
-     width: 100%;
-     max-width: 100%;
-   
-}
-
-
-   .wish-form input,
-   .wish-form textarea,
-   .wish-form select {
-
-     box-sizing: border-box;
-     font-size: 16px;
-   
-}
-
-
-   .wish-form textarea {
-
-   
-}
-
-
-   .success-view {
-
-     padding-right: 4px;
-     padding-left: 4px;
-   
-}
-
-}
-
-
- @media (hover: none) and (pointer: coarse) {
-
-
-   .krathong:hover,
-   .start-button:hover,
-   .refresh-btn:hover,
-   .nav-link:hover {
-
-     transform: none;
-   
-}
-
-}
+ 
 
 
  .intro,
@@ -568,117 +448,26 @@
 
 
  
- @media (max-width: 389px) {
-
-
-   .krathong-list {
-
-     grid-template-columns: repeat(2, minmax(0, 1fr));
-     gap: 8px;
-   
-}
-
-
-   .krathong {
-
-     padding: 12px 6px;
-   
-}
-
-
-   .wish-form h2 {
-
-     font-size: clamp(23px, 7vw, 28px);
-   
-}
-
-
-   .selected-preview {
-
-     flex-wrap: wrap;
-   
-}
-
-}
-
-
  
- @media (min-width: 390px) and (max-width: 599px) {
-
-
-   .krathong-list {
-
-     grid-template-columns: repeat(2, minmax(0, 1fr));
-     gap: 10px;
-   
-}
-
-
-   .krathong {
-
-     padding: 14px 8px;
-   
-}
-
-}
-
-
- 
- @media (min-width: 600px) and (max-width: 899px) {
-
-
-   .krathong-list {
-
-     grid-template-columns: repeat(2, minmax(0, 1fr));
-     gap: 12px;
-   
-}
-
-
-   .wish-form {
-
-     max-width: 520px;
-   
-}
-
-}
-
-
- 
- @media (min-width: 900px) {
-
-
-   .krathong-list {
-
-     grid-template-columns: repeat(2);
-     gap: 16px;
-   
-}
-
-
-   .wish-form {
-
-     max-width: 520px;
-   
-}
-
-}
 
 
  
  
 
 
- @media (prefers-reduced-motion: reduce) {
+ 
+ 
 
 
-   .success-krathong {
+ 
+ 
 
-     left: calc(50% - 22px);
-   
-}
 
-}
+ 
+ 
+
+
+ 
 
 
  #selection-view {
@@ -1042,58 +831,10 @@ body:has(#webgl-canvas-create) select {
 
 
 
- @media (max-width: 600px) {
+ 
 
 
-   .krathong-list {
-
-     gap: 8px;
-     margin-bottom: 28px;
-   
-}
-
-
-   .krathong {
-
-     padding: 13px 4px 12px;
-   
-}
-
-
-   .wish-form {
-
-     margin-top: 18px;
-   
-}
-
-
-   .wish-form h2 {
-
-     font-size: 27px;
-   
-}
-
-
-   .wish-form .start-button {
-
-     max-width: none;
-   
-}
-
-}
-
-
- @media (max-width: 360px) {
-
-
-   .selected-preview {
-
-     gap: 8px;
-     padding: 9px;
-   
-}
-
-}
+ 
 
 
 
@@ -1205,83 +946,13 @@ body:has(#webgl-canvas-create) select {
 }
 
 
- @media (prefers-reduced-motion: reduce) {
+ 
 
 
-   .success-view,
-   .success-krathong,
-   .success-sparkle {
-
-     animation: none;
-   
-}
-
-}
+ 
 
 
- @media (max-width: 520px) {
-
-
-   .krathong-list {
-
-     grid-template-columns: repeat(2, minmax(0, 1fr));
-     width: 100%;
-   
-}
-
-
-   .krathong {
-
-     padding: 12px 6px;
-   
-}
-
-
-   .wish-form {
-
-     width: 100%;
-     max-width: 100%;
-   
-}
-
-
-   .wish-form input,
-   .wish-form textarea {
-
-     font-size: 16px;
-   
-}
-
-
-   .wish-form textarea {
-
-   
-}
-
-
-   .success-view {
-
-     padding-right: 4px;
-     padding-left: 4px;
-   
-}
-
-}
-
-
- @media (hover: none) and (pointer: coarse) {
-
-
-   .krathong:hover,
-   .start-button:hover,
-   .refresh-btn:hover,
-   .nav-link:hover {
-
-     transform: none;
-   
-}
-
-}
+ 
 
 
  .intro,
@@ -1327,117 +998,26 @@ body:has(#webgl-canvas-create) select {
 
 
  
- @media (max-width: 389px) {
-
-
-   .krathong-list {
-
-     grid-template-columns: repeat(2, minmax(0, 1fr));
-     gap: 8px;
-   
-}
-
-
-   .krathong {
-
-     padding: 12px 6px;
-   
-}
-
-
-   .wish-form h2 {
-
-     font-size: clamp(23px, 7vw, 28px);
-   
-}
-
-
-   .selected-preview {
-
-     flex-wrap: wrap;
-   
-}
-
-}
-
-
  
- @media (min-width: 390px) and (max-width: 599px) {
-
-
-   .krathong-list {
-
-     grid-template-columns: repeat(2, minmax(0, 1fr));
-     gap: 10px;
-   
-}
-
-
-   .krathong {
-
-     padding: 14px 8px;
-   
-}
-
-}
-
-
- 
- @media (min-width: 600px) and (max-width: 899px) {
-
-
-   .krathong-list {
-
-     grid-template-columns: repeat(2, minmax(0, 1fr));
-     gap: 12px;
-   
-}
-
-
-   .wish-form {
-
-     max-width: 520px;
-   
-}
-
-}
-
-
- 
- @media (min-width: 900px) {
-
-
-   .krathong-list {
-
-     grid-template-columns: repeat(2);
-     gap: 16px;
-   
-}
-
-
-   .wish-form {
-
-     max-width: 520px;
-   
-}
-
-}
 
 
  
  
 
 
- @media (prefers-reduced-motion: reduce) {
+ 
+ 
 
 
-   .success-krathong {
+ 
+ 
 
-     left: calc(50% - 22px);
-   
-}
 
-}
+ 
+ 
+
+
+ 
 
 
  #selection-view {
@@ -1546,25 +1126,9 @@ body:has(#webgl-canvas-create) textarea {
   text-align: center;
 }
 
-@media (max-width: 600px) {
-  .krathong-list {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
-  }
 
-  .krathong {
-  }
-}
 
-@media (max-width: 360px) {
-  .krathong-name {
-    font-size: 13px;
-  }
 
-  .krathong-detail {
-    font-size: 10px;
-  }
-}
 
 
 /* Flower artwork replaces emoji in the six krathong choices and previews. */
@@ -1593,11 +1157,7 @@ body:has(#webgl-canvas-create) textarea {
   padding: 16px;
   object-fit: contain;
 }
-@media (max-width: 600px) {
-  .krathong .loykrathong {
-    width: 82px;
-  }
-}
+
 
 /* Reduce the overall size of the krathong selection cards. */
 body:has(#webgl-canvas-create) .krathong {
@@ -1612,15 +1172,7 @@ body:has(#webgl-canvas-create) .krathong .loykrathong {
   min-height: 0;
 }
 
-@media (max-width: 600px) {
-  body:has(#webgl-canvas-create) .krathong {
-    padding: 10px 4px;
-  }
 
-  body:has(#webgl-canvas-create) .krathong .loykrathong {
-    width: 68px;
-  }
-}
 
 
 /* Compact typography inside the Create page krathong cards. */
