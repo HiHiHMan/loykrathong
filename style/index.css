@@ -980,7 +980,7 @@ body:has(.landing > .content > .moon-image):not(:has(#webgl-canvas-create)) .lan
 
 body:has(.landing > .content > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .moon-image {
   position: absolute;
-  top: clamp(12px, 3svh, 36px);
+  top: clamp(28px, 5svh, 56px);
   left: 18%;
   z-index: 1;
   width: clamp(110px, 22vw, 260px);
