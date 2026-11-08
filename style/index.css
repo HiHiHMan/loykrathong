@@ -1075,7 +1075,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
   display: block;
   position: static;
   flex: 0 0 min(100vw, 1920px);
-  width: min(100vw, 1920px);
+  width: min(150vw, 1920px);
   max-width: none;
   height: auto;
   left: auto;
