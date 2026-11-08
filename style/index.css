@@ -1483,6 +1483,14 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track img {
     flex-basis: 180vw;
     width: 180vw;
+  }
+
+  /* Offset only the first duplicated obj01 image; keep the second aligned. */
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track img:first-child {
     margin-left: -40vw;
+  }
+
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track img:nth-child(2) {
+    margin-left: 0;
   }
 }
