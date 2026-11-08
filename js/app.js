@@ -25,58 +25,18 @@
     });
 })();
 
-/* Randomize sky lantern X/Y positions on every page load */
-(function randomizeSkyLanterns() {
-    const container = document.querySelector('.sky-lanterns');
-    if (!container) return;
+/* Randomize X/Y position of the first sky lantern on every page load */
+(function randomizeSkyLantern() {
+    const lantern = document.querySelector('.sky-lantern-image.sky-lantern-1');
+    if (!lantern) return;
 
-    const lanterns = Array.from(container.querySelectorAll('.sky-lantern-image'));
-    if (!lanterns.length) return;
+    // Randomize only this lantern; preserve its original obj04 image.
+    const x = 5 + Math.random() * 90;
+    const y = 7 + Math.random() * 34;
 
-    // Keep the established obj02 artwork on all six lanterns.
-    const shuffledLanterns = [...lanterns].sort(() => Math.random() - 0.5);
-    shuffledLanterns.forEach((lantern) => {
-        const image = lantern.querySelector('img');
-        if (image) image.src = './images/obj02.png';
-    });
-
-    const placed = [];
-    const isSmallScreen = Math.min(window.innerWidth, window.innerHeight) <= 600;
-    const minDistance = isSmallScreen ? 12 : 13;
-    const maxAttempts = 120;
-
-    // Two lanterns may sit around the upper temple silhouette; the rest stay higher.
-    shuffledLanterns.forEach((lantern, index) => {
-        const isMiddleLantern = index < 2;
-        const xRange = isMiddleLantern
-            ? { min: 28, max: 72 }
-            : { min: 5, max: 95 };
-        const yRange = isMiddleLantern
-            ? { min: 27, max: 39 }
-            : { min: 7, max: 28 };
-
-        let x = (xRange.min + xRange.max) / 2;
-        let y = (yRange.min + yRange.max) / 2;
-        let hasSpace = false;
-
-        for (let attempt = 0; attempt < maxAttempts; attempt++) {
-            x = xRange.min + Math.random() * (xRange.max - xRange.min);
-            y = yRange.min + Math.random() * (yRange.max - yRange.min);
-
-            hasSpace = placed.every((position) => {
-                const dx = (x - position.x) * window.innerWidth / window.innerHeight;
-                const dy = y - position.y;
-                return Math.hypot(dx, dy) >= minDistance;
-            });
-
-            if (hasSpace) break;
-        }
-
-        placed.push({ x, y });
-        lantern.style.left = `${x.toFixed(2)}%`;
-        lantern.style.top = `${y.toFixed(2)}%`;
-        lantern.style.right = 'auto';
-    });
+    lantern.style.left = `${x.toFixed(2)}%`;
+    lantern.style.top = `${y.toFixed(2)}%`;
+    lantern.style.right = 'auto';
 })();
 
  
