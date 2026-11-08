@@ -5699,23 +5699,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 }
 
 
-@media (max-width: 760px) {
 
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
-
-    margin-top: -410px !important;
-  
-}
-
-
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .cartoon-water {
-
-    margin-top: -164px !important;
-  
-}
-
-
-}
 
 /* Reduce landing padding on the create page only. */
 body:has(#webgl-canvas-create) .landing {
