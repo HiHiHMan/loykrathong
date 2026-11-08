@@ -369,3 +369,66 @@ body:has(#wishGrid) .landing > footer {
   margin: auto 0 0;
   padding-top: 28px;
 }
+
+/* Fluid Wishes page layout: keep cards readable on narrow and wide screens. */
+body:has(#wishGrid) .landing > section[aria-labelledby="wishes-title"] {
+  width: 100%;
+  max-width: 1000px;
+  min-width: 0;
+  margin-inline: auto;
+}
+
+body:has(#wishGrid) .wish-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: clamp(16px, 2.5vw, 28px);
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+}
+
+body:has(#wishGrid) .wish-item,
+body:has(#wishGrid) .wish-item:nth-child(odd),
+body:has(#wishGrid) .wish-item:nth-child(even) {
+  display: flex;
+  flex-wrap: wrap;
+  align-self: stretch;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(8px, 2vw, 14px);
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+body:has(#wishGrid) .wish-item:nth-child(odd) {
+  flex-direction: row-reverse;
+}
+
+body:has(#wishGrid) .wish-item:nth-child(even) {
+  flex-direction: row;
+}
+
+body:has(#wishGrid) .wish-item .tooltip-card {
+  flex: 1 1 220px;
+  width: min(440px, 100%);
+  min-width: 0;
+  max-width: 440px;
+  box-sizing: border-box;
+  overflow-wrap: anywhere;
+}
+
+body:has(#wishGrid) .wish-item .krathong-trigger {
+  flex: 0 1 clamp(76px, 12vw, 130px);
+  width: clamp(76px, 12vw, 130px);
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+body:has(#wishGrid) .wish-item .krathong-emoji {
+  width: 100%;
+  max-width: 100%;
+}
