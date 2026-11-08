@@ -1,51 +1,4 @@
 /* Styles used only by the home page */
-#webgl-canvas {
-
-   position: fixed;
-   inset: 0;
-   width: 100vw;
-   height: 100vh;
-   z-index: 2;
-   pointer-events: none;
- 
-}
-
-
- 
- #webgl-canvas {
-
-   width: 100%;
-   height: 100%;
-   height: 100dvh;
- 
-}
-
-
- #webgl-canvas {
-
-   width: 100%;
-   width: 100vw;
-   height: 100vh;
-   height: 100dvh;
- 
-}
-
-
-
- 
- .cartoon-water {
-
-   position: relative;
-   z-index: 0;
-   left: 50%;
-   width: 100vw;
-   height: 250px;
-   margin: -170px 0 28px;
-   overflow: hidden;
-   transform: translateX(-50%);
-   isolation: isolate;
- 
-}
 
 
  .wave-svg {
@@ -108,29 +61,6 @@ animation-duration: 82s;
 }
 
 
- 
- 
-
-
-
- 
- .cartoon-water {
-
-   overflow: visible;
- 
-}
-
-
-
-
-#webgl-canvas {
-
-  z-index: 0 !important;
-  pointer-events: none !important;
-
-}
-
-
 .moon-glow,
 .water,
 .cartoon-water,
@@ -287,149 +217,6 @@ animation-duration: 82s;
   visibility: visible;
   pointer-events: auto;
 
-}
-
-
-
-
-
-.temple-image {
-
-  width: 100vw;
-  max-width: none;
-  margin-inline: calc(50% - 50vw);
-  margin-top: -426px;
-  margin-bottom: 1.5rem;
-  padding: 0;
-  overflow: hidden;
-
-}
-
-
-.temple-image img {
-
-  display: block;
-  width: 1920px;
-  max-width: none;
-  height: auto;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  object-fit: contain;
-
-}
-
-
-
-body:has(.landing > .moon-image) .landing .intro {
-
-  position: relative;
-  z-index: 24;
-
-}
-
-
-
-body:has(.landing > .moon-image) .landing .intro {
-
-  position: relative;
-  z-index: 24;
-  isolation: isolate;
-
-}
-
-
-body:has(.landing > .moon-image) .landing .intro::before {
-
-  content: "";
-  position: absolute;
-  z-index: -1;
-  inset: -28px -48px;
-  pointer-events: none;
-  background: radial-gradient(
-    ellipse at center,
-    rgba(0, 0, 0, 0.62) 0%,
-    rgba(0, 0, 0, 0.40) 48%,
-    rgba(0, 0, 0, 0.16) 72%,
-    transparent 100%
-  );
-
-}
-
-
-body:has(.landing > .moon-image) .landing .intro h1 {
-
-  color: #fffaf0;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
-
-}
-
-
-body:has(.landing > .moon-image) .landing .intro .description {
-
-  color: #f7f1e7;
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.95);
-
-}
-
-
-body:has(.landing > .moon-image) .landing .intro .ornament {
-
-  color: #f0c76c;
-  text-shadow: 0 0 12px rgba(240, 199, 108, 0.3);
-
-}
-
-
-
-
-
- #webgl-canvas {
-
-   position: fixed;
-   inset: 0;
-   width: 100vw;
-   height: 100vh;
-   z-index: 2;
-   pointer-events: none;
- 
-}
-
-
- 
- #webgl-canvas {
-
-   width: 100%;
-   height: 100%;
-   height: 100dvh;
- 
-}
-
-
- #webgl-canvas {
-
-   width: 100%;
-   width: 100vw;
-   height: 100vh;
-   height: 100dvh;
- 
-}
-
-
-
- 
- .cartoon-water {
-
-   position: relative;
-   z-index: 0;
-   left: 50%;
-   width: 100vw;
-   height: 250px;
-   margin: -170px 0 28px;
-   overflow: hidden;
-   transform: translateX(-50%);
-   isolation: isolate;
- 
 }
 
 
@@ -492,29 +279,6 @@ body:has(.landing > .moon-image) .landing .intro .ornament {
 }
 
 
- 
- 
-
-
-
- 
- .cartoon-water {
-
-   overflow: visible;
- 
-}
-
-
-
-
-#webgl-canvas {
-
-  z-index: 0 !important;
-  pointer-events: none !important;
-
-}
-
-
 .moon-glow,
 .water,
 .cartoon-water,
@@ -673,208 +437,11 @@ body:has(.landing > .moon-image) .landing .intro .ornament {
 
 }
 
-
-
-
-
-.temple-image {
-
-  width: 100vw;
-  max-width: none;
-  margin-inline: calc(50% - 50vw);
-  margin-top: -426px;
-  margin-bottom: 1.5rem;
-  padding: 0;
-  overflow: hidden;
-
-}
-
-
-.temple-image img {
-
-  display: block;
-  width: 1920px;
-  max-width: none;
-  height: auto;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  object-fit: contain;
-
-}
-
-
-
-body:has(.landing > .moon-image) .landing .intro {
-
-  position: relative;
-  z-index: 24;
-
-}
-
-
-
-body:has(.landing > .moon-image) .landing .intro {
-
-  position: relative;
-  z-index: 24;
-  isolation: isolate;
-
-}
-
-
-body:has(.landing > .moon-image) .landing .intro::before {
-
-  content: "";
-  position: absolute;
-  z-index: -1;
-  inset: -34px -70px;
-  pointer-events: none;
-  background: radial-gradient(
-    ellipse at center,
-    rgba(2, 9, 21, 0.42) 0%,
-    rgba(2, 9, 21, 0.24) 42%,
-    rgba(2, 9, 21, 0.08) 68%,
-    transparent 88%
-  );
-  filter: blur(12px);
-
-}
-
-
-body:has(.landing > .moon-image) .landing .intro h1 {
-
-  color: #fffaf0;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
-
-}
-
-
-body:has(.landing > .moon-image) .landing .intro .description {
-
-  color: #f7f1e7;
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.95);
-
-}
-
-
-body:has(.landing > .moon-image) .landing .intro .ornament {
-
-  color: #f0c76c;
-  text-shadow: 0 0 12px rgba(240, 199, 108, 0.3);
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-body:has(.landing > .moon-image) .landing > .moon-image {
-
-  top: clamp(12px, 2vh, 24px) !important;
-
-}
-
-
-
-
-
-
-body:has(.landing > .moon-image) .landing > .moon-image {
-
-  top: clamp(54px, 7vh, 96px) !important;
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop {
-
-  margin-top: clamp(28px, 4vh, 52px) !important;
-
-}
-
-
-
-
-
-
-
-
-
-body:has(.landing > .moon-image) .landing > .content > .intro {
-
-  position: relative;
-  top: -35px;
-
-}
-
 /* Reduce moon size on the landing page */
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image {
-  width: clamp(144px, 22vw, 288px);
-}
 
 
 
-/* Five floating sky lanterns — varied scale and depth */ 
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns {
-  position: fixed;
-  inset: 0; width: 100%; height: 100vh; height: 100dvh;
-  z-index: 1;
-  overflow: hidden;
-  pointer-events: none;
-  user-select: none;
-}
-
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .sky-lantern-image {
-  position: absolute;
-  display: block;
-  aspect-ratio: 1;
-  pointer-events: none;
-  animation: sky-lantern-float 7s ease-in-out infinite;
-}
-
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .sky-lantern-image img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  -webkit-user-drag: none;
-}
+/* Five floating sky lanterns — varied scale and depth */
 
 .sky-lantern-1 {
   top: 25%;
@@ -1056,9 +623,6 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .sky-lantern-im
 
 
 /* Keep sky lanterns visible in front of the temple while the intro stays above them. */
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns {
-  z-index: 12;
-}
 
 
 /* Use the existing krathong artwork for floating wishes on the landing page. */
@@ -1081,32 +645,6 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky
 }
 
 /* Sky lantern sizes follow their visual depth: near 80px, middle 60px, far 40px. */
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image {
-  height: auto;
-  aspect-ratio: auto;
-}
-
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image:is(.sky-lantern-1) {
-  width: 80px !important;
-  max-width: 80px;
-}
-
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image:is(.sky-lantern-3, .sky-lantern-5, .sky-lantern-6, .sky-lantern-8, .sky-lantern-10, .sky-lantern-12) {
-  width: 60px !important;
-  max-width: 60px;
-}
-
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image:is(.sky-lantern-2, .sky-lantern-4, .sky-lantern-7, .sky-lantern-9, .sky-lantern-11, .sky-lantern-13, .sky-lantern-14, .sky-lantern-15) {
-  width: 40px !important;
-  max-width: 40px;
-}
-
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image img {
-  width: 100%;
-  height: auto;
-  max-width: none;
-  object-fit: contain;
-}
 
 /* Slightly reduce floating krathong size on the home page. */
 .cartoon-water .latest-wish-krathong.lalaloy {
@@ -1118,66 +656,11 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky
 
 
 /* Image button: start creating a krathong */
-body:has(.landing > .moon-image) .refresh-actions-backdrop > .refresh-btn {
-  display: block;
-  width: fit-content;
-  max-width: min(58vw, 220px);
-  margin-inline: auto;
-  padding: 0;
-  border: 0;
-  background: transparent;
-  box-shadow: none;
-  line-height: 0;
-}
-
-body:has(.landing > .moon-image) .refresh-actions-backdrop > .refresh-btn img {
-  display: block;
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  transition: transform 180ms ease, filter 180ms ease;
-}
-
-body:has(.landing > .moon-image) .refresh-actions-backdrop > .refresh-btn:hover img {
-  transform: translateY(-3px) scale(1.03);
-  filter: brightness(1.06);
-}
-
-body:has(.landing > .moon-image) .refresh-actions-backdrop > .refresh-btn:focus-visible {
-  outline: 2px solid #f5d98b;
-  outline-offset: 5px;
-  border-radius: 12px;
-}
 
 
 
 
 /* Make the create-krathong image button feel inviting and tactile. */
-body:has(.landing > .moon-image) .refresh-actions-backdrop > .refresh-btn {
-  position: relative;
-  top: -10px;
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-  touch-action: manipulation;
-  filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.28));
-  transition: filter 180ms ease, transform 180ms ease;
-  animation: create-krathong-cta 2.8s ease-in-out infinite;
-}
-
-body:has(.landing > .moon-image) .refresh-actions-backdrop > .refresh-btn img {
-  filter: drop-shadow(0 0 9px rgba(255, 205, 105, 0.42));
-}
-
-body:has(.landing > .moon-image) .refresh-actions-backdrop > .refresh-btn:hover {
-  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.38));
-  transform: translateY(-2px) scale(1.035);
-}
-
-body:has(.landing > .moon-image) .refresh-actions-backdrop > .refresh-btn:active {
-  transform: translateY(2px) scale(0.96);
-  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.3));
-  animation: none;
-}
 
 @keyframes create-krathong-cta {
   0%, 100% { transform: translateY(0) scale(1); }
@@ -1199,9 +682,6 @@ body:has(.landing > .moon-image) .refresh-actions-backdrop > .refresh-btn:active
 
 
 /* Home water: flatter, less frequent waves with krathongs between wave layers. */
-.cartoon-water {
-  height: 200px;
-}
 
 
 
@@ -1244,15 +724,9 @@ body:has(.landing > .moon-image) .refresh-actions-backdrop > .refresh-btn:active
 
 
 /* Move all water wave layers slightly downward together. */
-.cartoon-water .wave-svg {
-  transform: translateY(30px);
-}
 
 
 /* Move the entire water section downward while preserving horizontal centering. */
-.cartoon-water {
-  transform: translate(-50%, 30px);
-}
 
 
 /* Ten independently animated water-wave layers. */
@@ -1281,48 +755,20 @@ body:has(.landing > .moon-image) .refresh-actions-backdrop > .refresh-btn:active
 
 
 /* Move the home-page action buttons slightly downward. */
-body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop {
-  transform: translateY(16px);
-}
 
 /* Adjust the home-page action row spacing. */
-body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop .refresh-row {
-  margin-top: -23px !important;
-}
 
 
 /* Shift the temple artwork (obj01.png) slightly to the right. */
-.temple-image img {
-  transform: translateX(calc(-50% + 6px));
-}
 
 
 /* La La Land-inspired vivid violet and magenta twilight sky. */
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing {
-  background:
-    radial-gradient(ellipse at 50% 58%, rgba(255, 112, 160, 0.42) 0%, rgba(255, 112, 160, 0.12) 28%, transparent 56%),
-    radial-gradient(ellipse at 18% 38%, rgba(117, 65, 220, 0.34) 0%, transparent 48%),
-    radial-gradient(ellipse at 84% 30%, rgba(65, 74, 190, 0.32) 0%, transparent 46%),
-    linear-gradient(
-      180deg,
-      #17164f 0%,
-      #302078 22%,
-      #6230a0 43%,
-      #a33d9b 61%,
-      #d65391 73%,
-      #70406f 87%,
-      #101d3d 100%
-    );
-}
 
 
 
 
 
 /* Delicate golden stars orbiting the home-page moon — inspired by success-view sparkles. */
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image {
-  isolation: isolate;
-}
 
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .moon-star {
   position: absolute;
@@ -1389,28 +835,18 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .moon-star-5 {
 
 
 /* Shift the home-page moon slightly to the left without affecting create page. */
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image {
-  left: calc(50% - clamp(28px, 5vw, 64px)) !important;
-  transform: translateX(-50%);
-}
 
 
 /* Move the home-page moon much farther left. */
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image {
-  left: calc(50% - clamp(110px, 18vw, 220px)) !important;
-  transform: translateX(-50%);
-}
 
 
 
 
 /* Further left positioning for the home-page moon. */
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image { left: calc(50% - clamp(180px, 26vw, 320px)) !important; transform: translateX(-50%); }
 
 
 
 /* Shift the home-page moon substantially farther left. */
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image { left: calc(50% - clamp(260px, 34vw, 420px)) !important; transform: translateX(-50%); }
 
 
 
@@ -1419,125 +855,38 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moo
 
 
 /* Scale the home-page moon down smoothly as the viewport gets narrower. */
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image {
-  width: clamp(96px, 18vw, 288px) !important;
-}
 
 
 
 /* Lower the home-page moon slightly without affecting the create page. */
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image {
-  transform: translate(-50%, 18px) !important;
-}
 
 
 /* Lower the home-page moon a little further. */
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image {
-  transform: translate(-50%, 36px) !important;
-}
 
 
 /* Reduce the home-page moon size on large screens; keep the mobile scale unchanged. */
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image {
-  width: clamp(96px, 16vw, 240px) !important;
-}
 
 
 
 /* Move the home-page moon further down. */
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image {
-  transform: translate(-50%, 54px) !important;
-}
 
 
 /* Anchor home-page lanterns to the landing scene like the moon and temple. */
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns {
-  position: absolute !important;
-  inset: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-}
 
 
 /* Brown earthen path connecting the temple to the water on the home scene. */
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-road {
-  position: relative;
-  z-index: 2;
-  left: 50%;
-  width: 100vw;
-  height: clamp(48px, 8.5vw, 117px);
-  margin-top: -112px;
-  margin-bottom: calc(clamp(48px, 5.5vw, 76px) * -1);
-  transform: translateX(-50%);
-  pointer-events: none;
-  background:
-    linear-gradient(180deg, rgba(235, 190, 126, 0.62) 0%, rgba(142, 91, 51, 0.18) 12%, transparent 22%),
-    radial-gradient(ellipse at 50% 20%, rgba(190, 133, 79, 0.72), transparent 68%),
-    linear-gradient(180deg, #98643f 0%, #75472f 46%, #543323 100%);
-  clip-path: polygon(0 28%, 50% 0, 100% 28%, 100% 100%, 0 100%);
-  box-shadow: 0 -5px 12px rgba(25, 15, 27, 0.2);
-}
-
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
-  position: relative !important;
-  z-index: -1 !important;
-  left: 50%;
-  width: 100vw;
-  height: clamp(48px, 5.5vw, 111px);
-  margin-top: -198px !important;
-  margin-bottom: calc(0px - clamp(110px, 13vw, 176px)) !important;
-  transform: translateX(-50%);
-  pointer-events: none;
-  clip-path: polygon(46.5% 0, 53.5% 0, 100% 100%, 0 100%);
-  background:
-    radial-gradient(ellipse at 18% 38%, rgba(224, 174, 119, 0.24) 0 1px, transparent 2px),
-    radial-gradient(ellipse at 72% 62%, rgba(39, 22, 14, 0.22) 0 1px, transparent 2.5px),
-    radial-gradient(ellipse at 43% 76%, rgba(235, 190, 137, 0.18) 0 1px, transparent 3px),
-    repeating-radial-gradient(ellipse at 35% 45%, rgba(52, 31, 20, 0.12) 0 1px, transparent 1px 5px),
-    repeating-linear-gradient(166deg, transparent 0 7px, rgba(52, 31, 20, 0.09) 8px, transparent 10px 16px),
-    linear-gradient(90deg, rgba(42, 25, 18, 0.32), transparent 22%, transparent 78%, rgba(42, 25, 18, 0.32)),
-    linear-gradient(180deg, #b8875c 0%, #98623f 48%, #69412e 100%);
-  filter: drop-shadow(0 -3px 6px rgba(25, 15, 27, 0.3));
-}
 
 /* Keep only subtle natural soil grain; remove visible gravel dots. */
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  opacity: 0.5;
-  background-image:
-    repeating-linear-gradient(12deg, transparent 0 11px, rgba(54, 32, 19, 0.2) 12px, transparent 14px 23px),
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.78' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.42'/%3E%3C/svg%3E");
-  background-size: 100% 100%, 110px 110px;
-  mix-blend-mode: soft-light;
-}
-
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .cartoon-water {
-  position: relative;
-  z-index: 2;
-}
 
 /* Move the entire home-page water section substantially farther down. */
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .cartoon-water {
-  transform: translate(-50%, 95px) !important;
-}
 
 /* Set road and water positions on mobile screens. */
 
 
 
 /* Raise the temple artwork on the home scene. */
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
-  transform: translateY(-60px) !important;
-}
 
 /* Slightly reduce the home-page moon size on all screen sizes. */
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image {
-  width: clamp(86px, 14.4vw, 216px) !important;
-}
 
 
 
@@ -1550,82 +899,35 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moo
 
 
 /* Raise the lowest sky lanterns higher in the scene. */
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image.sky-lantern-10 {
-  top: 58% !important;
-}
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image.sky-lantern-12 {
-  top: 58% !important;
-}
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image.sky-lantern-14 {
-  top: 60% !important;
-}
 
 
 
 /* Raise the lower sky lanterns a little further. */
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image.sky-lantern-10 {
-  top: 52% !important;
-}
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image.sky-lantern-12 {
-  top: 52% !important;
-}
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image.sky-lantern-14 {
-  top: 54% !important;
-}
 
 
 
 /* Set the lower sky lantern group to 30% vertical position. */
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image:is(.sky-lantern-10, .sky-lantern-12, .sky-lantern-14) {
-  top: 30% !important;
-}
 
 
 /* Move the lower sky lantern group to 20% from the top. */
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image:is(.sky-lantern-10, .sky-lantern-12, .sky-lantern-14) {
-  top: 20% !important;
-}
 
 
 /* Keep the lowest-positioned sky lanterns closer to the top of the scene. */
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image:is(.sky-lantern-10, .sky-lantern-12, .sky-lantern-14) {
-  top: 10% !important;
-}
 
 
 /* Move every visible home-page sky lantern 20px upward without changing its base position or float animation. */
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image {
-  translate: 0 -20px;
-}
 
 /* Keep every visible home-page sky lantern within 30% from the top. */
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image.sky-lantern-1 { top: 25% !important; }
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image.sky-lantern-2 { top: 13% !important; }
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image.sky-lantern-3 { top: 30% !important; }
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image.sky-lantern-4 { top: 9% !important; }
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image.sky-lantern-5 { top: 30% !important; }
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns .sky-lantern-image.sky-lantern-6 { top: 30% !important; }
 
 /* Show only four sky lanterns on small screens. */
 
 
 /* Lower the create-krathong image button slightly on all screen sizes. */
-body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop > .refresh-btn {
-  top: 0 !important;
-  margin-top: 10px;
-}
 
 /* Move the entire home action backdrop further down. */
-body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop {
-  transform: translateY(96px) !important;
-}
 
 
 /* Reduce the home create-krathong button size. */
-body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop > .refresh-btn {
-  width: min(48vw, 190px) !important;
-  max-width: min(48vw, 190px) !important;
-}
 
 
 
@@ -1701,11 +1003,6 @@ body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop
 
 
 /* Scale obj01 proportionally to the viewport width on the home page. */
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image img {
-  width: min(100vw, 1920px) !important;
-  max-width: 100vw !important;
-  height: auto;
-}
 
 
 /* Lower the home-page water by another 20px on the 1920x1080 viewport. */
@@ -1778,59 +1075,12 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 
 
 /* Use the title artwork instead of the text intro on the home page. */
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro::before {
-  display: none !important;
-}
-
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro .title-image {
-  display: block;
-  width: clamp(240px, 42vw, 560px);
-  max-width: min(82vw, 430px);
-  height: auto;
-  margin: 0 auto;
-  object-fit: contain;
-}
 
 
 /* Place the ornament directly underneath the title artwork. */
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro {
-  flex-direction: column;
-  gap: 8px;
-}
-
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro .ornament {
-  display: block;
-  margin: 0 auto;
-  text-align: center;
-}
 
 
 /* Ensure the full ornament, including both decorative lines, fits below the title. */
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro .ornament {
-  display: flex !important;
-  align-items: center;
-  justify-content: center;
-  width: min(480px, 78vw);
-  max-width: 100%;
-  flex: 0 0 auto;
-  gap: 18px;
-  margin: 4px auto 16px;
-  white-space: nowrap;
-  overflow: visible;
-}
-
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro .ornament::before,
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro .ornament::after {
-  display: block;
-  flex: 1 1 0;
-  min-width: 12px;
-}
 
 /* Set intro position to -112px on the 768x1024 home viewport. */
 
@@ -1845,35 +1095,8 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro
 
 /* Enable seamless obj01 scrolling on every viewport while preserving the
    existing responsive artwork scale (100vw, capped at the original 1920px). */
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
-  overflow: hidden !important;
-}
-
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track {
-  display: flex;
-  width: max-content;
-  height: auto;
-  will-change: transform;
-  animation: obj01SeamlessLoop 180s linear infinite;
-}
-
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track img {
-  display: block;
-  position: static !important;
-  flex: 0 0 min(100vw, 1920px);
-  width: min(100vw, 1920px) !important;
-  max-width: 100vw !important;
-  height: auto;
-  left: auto !important;
-  transform: none !important;
-  translate: none !important;
-  animation: none !important;
-}
 
 /* Set the home-page intro position. */
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .intro {
-  top: -153px !important;
-}
 
 
 /* Enlarge and center obj01 artwork on the 768x1024 home viewport. */
@@ -1897,9 +1120,6 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 
 
 /* Keep obj01 shifted 10vw to the left across desktop, tablet, and mobile. */
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track {
-  margin-left: -10vw !important;
-}
 
 /* Reduce obj01 artwork size by 10% on the 1920x1080 viewport only. */
 
@@ -1907,12 +1127,112 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 /* Lower obj01 and the brown road by 50px on the 1920x1080 viewport. */
 
 /* Fluid scene sizing: preserve the artwork ratio at every viewport width. */
+
+.cartoon-water .latest-wish-krathong.lalaloy {
+  width: clamp(52px, 4.2vw, 80px);
+  height: clamp(52px, 4.2vw, 80px);
+}
+
+/* =========================================================
+   HOME SCENE RESET — mobile-first layout
+   Reset conflicting viewport-specific offsets; keep artwork,
+   wave layers, animations, and visual effects.
+   ========================================================= */
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+  min-height: 100dvh;
+  padding: 0;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image {
+  position: absolute;
+  top: clamp(12px, 3svh, 36px);
+  left: 50%;
+  z-index: 1;
+  width: clamp(110px, 22vw, 260px);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-glow {
+  top: 2%;
+  left: 50%;
+  z-index: 0;
+  width: clamp(180px, 36vw, 340px);
+  height: auto;
+  aspect-ratio: 1;
+  transform: translateX(-50%);
+}
+
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky-lanterns {
+  position: absolute;
+  inset: 0;
+  z-index: 12;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content {
+  position: relative;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+  margin: 0;
+  padding: clamp(28px, 5svh, 64px) 0 0;
+  text-align: center;
+}
+
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .intro {
+  position: relative;
+  top: auto;
+  z-index: 24;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto clamp(16px, 3svh, 32px);
+}
+
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro .title-image {
+  display: block;
+  width: min(82vw, 560px);
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro .ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: min(480px, 78vw);
+  max-width: 100%;
+  margin: 4px auto 12px;
+  gap: 18px;
+}
+
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
+  position: relative;
   width: 100vw;
   max-width: 100vw;
-  margin-inline: calc(50% - 50vw);
-  margin-top: clamp(-360px, -18.75vw, -90px) !important;
-  margin-bottom: clamp(12px, 1.5vw, 24px);
+  margin: 0 calc(50% - 50vw);
+  padding: 0;
   overflow: hidden;
 }
 
@@ -1920,44 +1240,87 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
   display: flex;
   width: max-content;
   max-width: none;
+  margin: 0;
+  will-change: transform;
+  animation: obj01SeamlessLoop 180s linear infinite;
 }
 
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track img {
+  display: block;
+  position: static;
   flex: 0 0 min(100vw, 1920px);
-  width: min(100vw, 1920px) !important;
-  max-width: 100vw !important;
+  width: min(100vw, 1920px);
+  max-width: none;
   height: auto;
+  left: auto;
+  transform: none;
+  translate: none;
   object-fit: contain;
+  animation: none;
 }
 
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-road {
+  position: relative;
+  z-index: 2;
+  left: 50%;
   width: 100vw;
-  height: clamp(48px, 8.5vw, 117px);
-  margin-top: clamp(-112px, -5.8vw, -28px);
-  margin-bottom: clamp(-76px, -4vw, -18px);
+  height: clamp(42px, 8vw, 110px);
+  margin: -1px 0 0;
+  transform: translateX(-50%);
+  pointer-events: none;
+  clip-path: polygon(46.5% 0, 53.5% 0, 100% 100%, 0 100%);
+  background:
+    radial-gradient(ellipse at 18% 38%, rgba(224, 174, 119, 0.24) 0 1px, transparent 2px),
+    radial-gradient(ellipse at 72% 62%, rgba(39, 22, 14, 0.22) 0 1px, transparent 2.5px),
+    radial-gradient(ellipse at 43% 76%, rgba(235, 190, 137, 0.18) 0 1px, transparent 3px),
+    repeating-radial-gradient(ellipse at 35% 45%, rgba(52, 31, 20, 0.12) 0 1px, transparent 1px 5px),
+    repeating-linear-gradient(166deg, transparent 0 7px, rgba(52, 31, 20, 0.09) 8px, transparent 10px 16px),
+    linear-gradient(90deg, rgba(42, 25, 18, 0.32), transparent 22%, transparent 78%, rgba(42, 25, 18, 0.32)),
+    linear-gradient(180deg, #b8875c 0%, #98623f 48%, #69412e 100%);
+  filter: drop-shadow(0 -3px 6px rgba(25, 15, 27, 0.3));
 }
 
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .cartoon-water {
+  position: relative;
+  z-index: 3;
+  left: 50%;
   width: 100vw;
-  height: clamp(160px, 13vw, 250px);
-  margin-top: clamp(-164px, -8.5vw, -36px) !important;
-  margin-bottom: clamp(16px, 1.5vw, 28px);
+  height: clamp(180px, 24svh, 260px);
+  margin: 0 0 0;
+  overflow: visible;
+  transform: translateX(-50%);
+  isolation: isolate;
 }
 
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro .title-image {
-  width: min(82vw, 560px);
-  max-width: min(82vw, 560px);
-  height: auto;
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .cartoon-water .wave-svg {
+  transform: none;
 }
 
-.cartoon-water .latest-wish-krathong.lalaloy {
-  width: clamp(52px, 4.2vw, 80px);
-  height: clamp(52px, 4.2vw, 80px);
+body:not(:has(#webgl-canvas-create)) .landing > .water {
+  position: absolute;
+  inset: auto 0 0;
+  z-index: 1;
+  pointer-events: none;
 }
 
-#webgl-canvas {
+body:not(:has(#webgl-canvas-create)) .landing > #webgl-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0 !important;
   width: 100vw;
-  max-width: none;
   height: 100vh;
   height: 100dvh;
+  pointer-events: none !important;
+}
+
+body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop {
+  position: relative;
+  top: auto;
+  z-index: 1000;
+  transform: none;
+  margin-top: clamp(12px, 2svh, 24px);
+}
+
+body:not(:has(#webgl-canvas-create)) .landing > footer {
+  z-index: 1001;
 }
