@@ -925,13 +925,6 @@
 }
 
 
- 
-
- @keyframes float {
- 
-}
-
-
  @keyframes ripple {
 
    0% {
@@ -1570,104 +1563,20 @@ oot {
 }
 
 
- @keyframes krathong-wave-rock {
- 
-}
-
-
- @keyframes appear {
- 
-}
 
 
 
- 
-
-
- 
-
-
- 
-
-
- @keyframes success-krathong-bob {
- 
-}
-
-
- @keyframes success-appear {
- 
-}
-
-
- @keyframes krathong-float {
- 
-}
-
-
- @keyframes sparkle {
- 
-}
-
-
- 
- @keyframes float {
- 
-}
-
-
- @keyframes krathong-float {
- 
-}
-
-
- @keyframes ripple {
- 
-}
-
-
- 
-
- @keyframes float {
- 
-}
-
-
- @keyframes ripple {
- 
-}
-
-
- 
-
-
- 
 
 
 
- 
- 
 
 
- 
- @keyframes cartoon-wave-drift {
- 
-}
 
 
-@keyframes lalaloy-drift {
-
-}
 
 
-@keyframes lalaloy-rock {
-
-}
 
 
-@keyframes homepage-content-appear {
-
-}
 
 
 body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop::before {
