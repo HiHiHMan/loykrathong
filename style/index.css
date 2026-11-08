@@ -109,16 +109,7 @@ animation-duration: 82s;
 
 
  
- @media (max-width: 760px) {
-
-   .cartoon-water {
-
-     margin-top: -170px;
-     margin-bottom: 0;
-   
-}
-
-}
+ 
 
 
 
@@ -237,34 +228,7 @@ animation-duration: 82s;
 }
 
 
-@media (max-width: 600px) {
 
-  .cartoon-water .latest-wish-krathong.lalaloy {
-
-    width: 76px;
-    font-size: 44px;
-  
-}
-
-
-  
-  .cartoon-water .latest-wish-krathong.lalaloy.is-waiting {
-
-    left: -160px;
-    top: 24%;
-    visibility: hidden;
-    pointer-events: none;
-  
-}
-
-
-  .cartoon-water .latest-wish-trigger {
-
-    font-size: 44px;
-  
-}
-
-}
 
 
 
@@ -278,17 +242,7 @@ animation-duration: 82s;
 }
 
 
-@media (max-width: 600px) {
 
-  .cartoon-water .latest-wish-krathong.lalaloy.is-waiting {
-
-    left: -160px;
-    top: 24%;
-    visibility: hidden;
-  
-}
-
-}
 
 
 
@@ -562,16 +516,7 @@ body:has(.landing > .moon-image) .landing .intro .ornament {
 
 
  
- @media (max-width: 760px) {
-
-   .cartoon-water {
-
-     margin-top: -170px;
-     margin-bottom: 0;
-   
-}
-
-}
+ 
 
 
 
@@ -690,34 +635,7 @@ body:has(.landing > .moon-image) .landing .intro .ornament {
 }
 
 
-@media (max-width: 600px) {
 
-  .cartoon-water .latest-wish-krathong.lalaloy {
-
-    width: 76px;
-    font-size: 44px;
-  
-}
-
-
-  
-  .cartoon-water .latest-wish-krathong.lalaloy.is-waiting {
-
-    left: -160px;
-    top: 24%;
-    visibility: hidden;
-    pointer-events: none;
-  
-}
-
-
-  .cartoon-water .latest-wish-trigger {
-
-    font-size: 44px;
-  
-}
-
-}
 
 
 
@@ -731,17 +649,7 @@ body:has(.landing > .moon-image) .landing .intro .ornament {
 }
 
 
-@media (max-width: 600px) {
 
-  .cartoon-water .latest-wish-krathong.lalaloy.is-waiting {
-
-    left: -160px;
-    top: 24%;
-    visibility: hidden;
-  
-}
-
-}
 
 
 
@@ -1448,11 +1356,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky
   height: 80px;
 }
 
-@media (max-width: 600px) {
-  .cartoon-water .latest-wish-krathong.lalaloy {
-    width: 64px;
-  }
-}
+
 
 
 /* Image button: start creating a krathong */
@@ -1542,11 +1446,7 @@ body:has(.landing > .moon-image) .refresh-actions-backdrop > .refresh-btn:active
 }
 
 /* Slightly reduce the temple artwork on small screens. */
-@media (max-width: 760px) {
-  .temple-image img {
-    width: 1728px;
-  }
-}
+
 
 /* Keep index-page krathongs above every water wave layer. */
 .cartoon-water #latestWishesGrid {
@@ -1559,10 +1459,7 @@ body:has(.landing > .moon-image) .refresh-actions-backdrop > .refresh-btn:active
   height: 200px;
 }
 
-@media (max-width: 760px) {
-  .cartoon-water {
-  }
-}
+
 
 /* Narrower individual wave shapes while keeping the layers independently scaled. */
 .cartoon-water .wave-svg {
@@ -1906,15 +1803,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 }
 
 /* Set road and water positions on mobile screens. */
-@media (max-width: 600px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
-    margin-top: -175px !important;
-  }
 
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .cartoon-water {
-    transform: translate(-50%, 114px) !important;
-  }
-}
 
 
 /* Raise the temple artwork on the home scene. */
@@ -2071,40 +1960,16 @@ body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop
 
 
 /* Slightly lower the water on iPad/tablet-sized screens. */
-@media (min-width: 601px) and (max-width: 1024px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .cartoon-water {
-    transform: translate(-50%, 115px) !important;
-  }
-}
+
 
 /* Fine-tune water position at 750px viewport width. */
-@media (min-width: 740px) and (max-width: 760px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .cartoon-water {
-    transform: translate(-50%, 130px) !important;
-  }
-}
+
 
 
 /* Lower the water and restore the brown road position on 601–750px screens. */
-@media (min-width: 601px) and (max-width: 750px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .cartoon-water {
-    transform: translate(-50%, 100px) !important;
-  }
 
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
-    margin-top: -178px !important;
-  }
-}
 
-@media (max-width: 600px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .cartoon-water {
-    transform: translate(-50%, 116px) !important;
-  }
 
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
-    margin-top: -180px !important;
-  }
-}
 
 
 /* Scale the five visible home-page lanterns with the viewport width. */
@@ -2169,63 +2034,14 @@ body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop
 }
 
 /* On 412x915 screens, lower only the temple artwork and road; keep other elements fixed. */
-@media (min-width: 376px) and (max-width: 412px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
-    transform: translateY(310px) !important;
-  }
 
-  /* Center obj01 horizontally within the 412x915 viewport. */
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image img {
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-  }
-
-  /* Move the intro section up by another 20px on the 412x915 viewport. */
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro {
-    transform: translateY(-70px) !important;
-  }
-
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
-    margin-top: 280px !important;
-  }
-
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .cartoon-water {
-    transform: translate(-50%, 116px) !important;
-  }
-}
 
 /* Match the 412x915 home layout positions on the 375x812 viewport. */
-@media (max-width: 375px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
-    transform: translateY(310px) !important;
-  }
 
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image img {
-    width: 1330px !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-  }
-
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro {
-    transform: translateY(-70px) !important;
-  }
-
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
-    margin-top: 280px !important;
-  }
-
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .cartoon-water {
-    transform: translate(-50%, 116px) !important;
-  }
-}
 
 
 /* Lower the water slightly on the 800x1230 home viewport. */
-@media (min-width: 769px) and (max-width: 800px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .cartoon-water {
-    transform: translate(-50%, 115px) !important;
-  }
-}
+
 
 
 /* Raise the brown road on the 800x1230 home viewport. */
@@ -2233,25 +2049,14 @@ body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop
   body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop {
     transform: translateY(186px) !important;
   }
-
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
-    margin-top: 252px !important;
-  }
 }
 
 /* Raise obj01 by 100px on the 800x1230 home viewport. */
-@media (min-width: 769px) and (max-width: 800px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
-    transform: translateY(310px) !important;
-  }
-}
+
 
 
 /* Adjust water and create button on the 810x1080 home viewport. */
 @media (min-width: 801px) and (max-width: 810px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .cartoon-water {
-    transform: translate(-50%, 115px) !important;
-  }
 
   body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop {
     transform: translateY(116px) !important;
@@ -2261,9 +2066,6 @@ body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop
 
 /* Lower the brown road by another 100px on the 810x1080 home viewport. */
 @media (min-width: 801px) and (max-width: 810px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
-    margin-top: 112px !important;
-  }
 
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop {
     top: -20px !important;
@@ -2272,43 +2074,18 @@ body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop
 
 
 /* Lower the water slightly on the 1440x800 home viewport. */
-@media (min-width: 811px) and (max-width: 1440px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .cartoon-water {
-    transform: translate(-50%, 115px) !important;
-  }
-}
+
 
 /* Lower the water by another 15px on the 768x1024 home viewport. */
-@media (min-width: 413px) and (max-width: 768px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .cartoon-water {
-    transform: translate(-50%, 110px) !important;
-  }
-}
+
 
 
 /* Move the brown road up by another 30px on the 768x1024 home viewport only. */
-@media (width: 768px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
-    margin-top: -57px !important;
-  }
-}
+
 
 
 /* Move the temple and road up significantly on the 1440x800 home viewport. */
-@media (min-width: 811px) and (max-width: 1440px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image img {
-    width: 1536px !important;
-  }
 
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
-    position: relative;
-    top: 10px !important;
-  }
-
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
-    margin-top: -218px !important;
-  }
-}
 
 /* Lower the home-page create button on the 1440x900 viewport. */
 @media (min-width: 811px) and (max-width: 1440px) {
@@ -2318,11 +2095,7 @@ body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop
 }
 
 /* Raise the brown road on the 1920x1080 home viewport. */
-@media (min-width: 1537px) and (max-width: 1920px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
-    margin-top: -218px !important;
-  }
-}
+
 
 
 /* Scale obj01 proportionally to the viewport width on the home page. */
@@ -2334,27 +2107,15 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 
 
 /* Lower the home-page water by another 20px on the 1920x1080 viewport. */
-@media (min-width: 1537px) and (max-width: 1920px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .cartoon-water {
-    transform: translate(-50%, 115px) !important;
-  }
-}
+
 
 
 /* Move obj01 up by 30px on 1537–1920px screens. */
-@media (min-width: 1537px) and (max-width: 1920px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
-    transform: translateY(-110px) !important;
-  }
-}
+
 
 
 /* Move the brown road up by 30px on 1537–1920px screens. */
-@media (min-width: 1537px) and (max-width: 1920px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
-    margin-top: -268px !important;
-  }
-}
+
 
 
 /* Set the home-page refresh actions position on the 1920x1080 viewport. */
@@ -2366,15 +2127,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 
 
 /* Lower obj01 and the brown road by 60px on the 1536x864 home viewport. */
-@media (min-width: 1441px) and (max-width: 1536px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
-    transform: translateY(0px) !important;
-  }
 
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
-    margin-top: -138px !important;
-  }
-}
 
 
 /* Reduce the create button and action text on the 1536x864 home viewport. */
@@ -2421,30 +2174,14 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 
 
 /* Raise the brown road by another 20px on the 1440x900 home viewport. */
-@media (min-width: 811px) and (max-width: 1440px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
-    margin-top: -128px !important;
-  }
-}
+
 
 
 /* Adjust the road and obj01 position on the 1440x900 home viewport. */
-@media (min-width: 811px) and (max-width: 1440px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
-    margin-top: -138px !important;
-  }
 
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
-    top: 65px !important;
-  }
-}
 
 /* Move obj01 slightly higher on the 768x1024 home viewport only. */
-@media (width: 768px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
-    transform: translateY(40px) !important;
-  }
-}
+
 
 
 
@@ -2458,35 +2195,10 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 
 
 /* Lower obj01 by 20px on the 810x1080 home viewport. */
-@media (min-width: 801px) and (max-width: 810px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
-    transform: translateY(180px) !important;
-  }
-}
+
 
 /* Match the 412x915 scene positioning on 440x956 for the Index page only. */
-@media (min-width: 413px) and (max-width: 440px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
-    transform: translateY(310px) !important;
-  }
 
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image img {
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-  }
-
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro {
-    transform: translateY(-70px) !important;
-  }
-
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
-    margin-top: 280px !important;
-  }
-
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .cartoon-water {
-    transform: translate(-50%, 116px) !important;
-  }
-}
 
 
 /* Seamless continuous leftward loop for duplicated obj01 artwork on 768x1024. */
@@ -2499,32 +2211,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
   }
 }
 
-@media (width: 768px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
-    overflow: hidden !important;
-  }
 
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track {
-    display: flex;
-    width: max-content;
-    height: auto;
-    will-change: transform;
-    animation: obj01SeamlessLoop 180s linear infinite;
-  }
-
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track img {
-    display: block;
-    position: static !important;
-    flex: 0 0 210vw;
-    width: 210vw !important;
-    max-width: none !important;
-    height: auto;
-    left: auto !important;
-    transform: none !important;
-    translate: none !important;
-    animation: none !important;
-  }
-}
 
 
 /* Use the title artwork instead of the text intro on the home page. */
@@ -2583,76 +2270,15 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro
 }
 
 /* Set intro position to -112px on the 768x1024 home viewport. */
-@media (min-width: 413px) and (max-width: 768px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .intro {
-    top: -112px !important;
-  }
-}
+
 
 
 /* Apply the same seamless duplicated obj01 loop to additional target viewports. */
-@media
-  (width: 810px),
-  (width: 800px),
-  (width: 412px),
-  (width: 375px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
-    overflow: hidden !important;
-  }
 
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track {
-    display: flex;
-    width: max-content;
-    height: auto;
-    will-change: transform;
-    animation: obj01SeamlessLoop 180s linear infinite;
-  }
-
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track img {
-    display: block;
-    position: static !important;
-    flex: 0 0 210vw;
-    width: 210vw !important;
-    max-width: none !important;
-    height: auto;
-    left: auto !important;
-    transform: none !important;
-    translate: none !important;
-    animation: none !important;
-  }
-}
 
 
 /* Apply the same seamless duplicated obj01 loop to desktop viewport sizes. */
-@media
-  (width: 1920px),
-  (width: 1536px),
-  (width: 1440px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
-    overflow: hidden !important;
-  }
 
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track {
-    display: flex;
-    width: max-content;
-    height: auto;
-    will-change: transform;
-    animation: obj01SeamlessLoop 180s linear infinite;
-  }
-
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track img {
-    display: block;
-    position: static !important;
-    flex: 0 0 min(100vw, 1920px);
-    width: min(100vw, 1920px) !important;
-    max-width: 100vw !important;
-    height: auto;
-    left: auto !important;
-    transform: none !important;
-    translate: none !important;
-    animation: none !important;
-  }
-}
 
 /* Enable seamless obj01 scrolling on every viewport while preserving the
    existing responsive artwork scale (100vw, capped at the original 1920px). */
@@ -2688,152 +2314,36 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 
 
 /* Enlarge and center obj01 artwork on the 768x1024 home viewport. */
-@media (width: 768px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track {
-    margin-left: -35vw;
-  }
 
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track img {
-    flex-basis: 170vw !important;
-    width: 170vw !important;
-    max-width: none !important;
-  }
-}
 
 /* Raise the title artwork further on the 768x1024 home viewport. */
-@media (width: 768px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro .title-image {
-    width: 55vw !important;
-    max-width: none !important;
-    height: auto !important;
-    transform: translateY(-75px) !important;
-  }
 
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro .ornament {
-    transform: translateY(-75px) !important;
-  }
-}
 
 /* Match the 768x1024 home layout on the 810x1080 viewport. */
 @media (width: 810px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
-    margin-top: -57px !important;
-  }
-
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
-    transform: translateY(40px) !important;
-    overflow: hidden !important;
-  }
-
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track {
-    display: flex;
-    width: max-content;
-    height: auto;
-    margin-left: -35vw;
-    will-change: transform;
-    animation: obj01SeamlessLoop 180s linear infinite;
-  }
-
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track img {
-    display: block;
-    position: static !important;
-    flex: 0 0 170vw !important;
-    width: 170vw !important;
-    max-width: none !important;
-    height: auto;
-    left: auto !important;
-    transform: none !important;
-    translate: none !important;
-    animation: none !important;
-  }
 
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop {
     top: 63px !important;
     transform: none !important;
-  }
-
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro .title-image {
-    transform: translateY(-30px) !important;
   }
 }
 
 /* Match the 810x1080 home layout on the 800x1230 viewport. */
 @media (width: 800px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
-    margin-top: -57px !important;
-  }
-
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
-    transform: translateY(40px) !important;
-    overflow: hidden !important;
-  }
-
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track {
-    display: flex;
-    width: max-content;
-    height: auto;
-    margin-left: -35vw;
-    will-change: transform;
-    animation: obj01SeamlessLoop 180s linear infinite;
-  }
-
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track img {
-    display: block;
-    position: static !important;
-    flex: 0 0 210vw !important;
-    width: 210vw !important;
-    max-width: none !important;
-    height: auto;
-    left: auto !important;
-    transform: none !important;
-    translate: none !important;
-    animation: none !important;
-  }
 
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop {
     top: 63px !important;
     transform: none !important;
   }
-
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro .title-image {
-    width: 55vw !important;
-    max-width: none !important;
-    height: auto !important;
-    transform: translateY(-30px) !important;
-  }
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro .ornament {
-    transform: translateY(-30px) !important;
-  }
 }
 
 /* Set the intro top position on the 800x1230 home viewport. */
-@media (width: 800px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .intro {
-    top: -170px !important;
-  }
-}
+
 
 
 /* Use the 412x915 home composition across the full mobile range.
    Vertical offsets scale with viewport height to preserve the same proportions. */
 @media (min-width: 320px) and (max-width: 440px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track img {
-    flex: 0 0 220vw !important;
-    width: 220vw !important;
-    max-width: none !important;
-  }
-
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
-    transform: translateY(23.497svh) !important;
-  }
-
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
-    margin-top: 18.579svh !important;
-  }
-
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .intro {
-    top: -12.022svh !important;
-  }
 
   .refresh-actions-backdrop {
     top: -30px !important;
@@ -2841,15 +2351,6 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 
   body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop {
     transform: translateY(6.557svh) !important;
-  }
-
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro .title-image {
-    display: block;
-    width: clamp(268px, 48vw, 560px);
-    max-width: min(82vw, 430px);
-    height: auto;
-    margin: 0 auto;
-    object-fit: contain;
   }
 }
 
@@ -2859,21 +2360,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 }
 
 /* Reduce obj01 artwork size by 10% on the 1920x1080 viewport only. */
-@media (width: 1920px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track img {
-    flex: 0 0 90vw !important;
-    width: 90vw !important;
-    max-width: 90vw !important;
-  }
-}
+
 
 /* Lower obj01 and the brown road by 50px on the 1920x1080 viewport. */
-@media (width: 1920px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
-    transform: translateY(-60px) !important;
-  }
 
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
-    margin-top: -218px !important;
-  }
-}
