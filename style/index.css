@@ -1306,6 +1306,17 @@ body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-back
   }
 }
 
+/* Lower the home scene slightly on wide screens. */
+@media (min-width: 1001px) {
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
+    bottom: calc(130px + clamp(180px, 24svh, 260px) - 50px + clamp(38px, 6svh, 72px) - 20px);
+  }
+
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .cartoon-water {
+    bottom: 171px;
+  }
+}
+
 /* Make the home-page text button slightly smaller and higher. */
 body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop .text-button {
   font-size: 10px;
