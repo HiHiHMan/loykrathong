@@ -1720,18 +1720,6 @@ body:has(.landing > footer) .landing > footer {
 
 
 
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image {
-
-  top: clamp(0px, 1vh, 16px) !important;
-
-}
-
-
-
-
-
-
-
 /* Reduce Create page landing padding. */
 body:has(#webgl-canvas-create) .landing {
   padding: 10px 12px !important;
