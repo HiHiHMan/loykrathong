@@ -669,8 +669,8 @@ body:has(#webgl-canvas-create) .krathong {
 }
 
 body:has(#webgl-canvas-create) .krathong .loykrathong {
-  width: clamp(56px, 8vw, 76px);
-  height: clamp(56px, 8vw, 76px);
+  width: clamp(68px, 10vw, 92px);
+  height: clamp(68px, 10vw, 92px);
   min-height: 0;
 }
 
