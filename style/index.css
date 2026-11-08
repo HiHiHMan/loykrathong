@@ -1419,7 +1419,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
   position: fixed;
   left: 50%;
   bottom: calc(130px + clamp(180px, 24svh, 260px) - 50px + clamp(38px, 6svh, 72px));
-  z-index: 1;
+  z-index: 2;
   width: 100vw;
   margin: 0;
   transform: translateX(-50%);
@@ -1449,7 +1449,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
   position: fixed;
   left: 50%;
   bottom: calc(170px + clamp(180px, 24svh, 260px) - 50px);
-  z-index: 2;
+  z-index: 1;
   width: 100vw;
   height: clamp(38px, 6svh, 72px);
   margin: 0;
