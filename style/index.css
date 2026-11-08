@@ -2814,34 +2814,35 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 }
 
 
-/* Double obj01 artwork size on the 412x915 home viewport. */
-@media (width: 412px) {
+/* Use the 412x915 home composition across the full mobile range.
+   Vertical offsets scale with viewport height to preserve the same proportions. */
+@media (min-width: 320px) and (max-width: 440px) {
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track img {
     flex: 0 0 220vw !important;
     width: 220vw !important;
     max-width: none !important;
   }
-}
 
-
-/* Raise obj01 and the brown road by 60px on the 412x915 home viewport. */
-@media (width: 412px) {
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
-    transform: translateY(215px) !important;
+    transform: translateY(23.497svh) !important;
   }
 
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
-    margin-top: 170px !important;
+    margin-top: 18.579svh !important;
   }
+
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .intro {
-    top: -110px !important;
+    top: -12.022svh !important;
   }
+
   .refresh-actions-backdrop {
     top: -30px !important;
   }
+
   body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop {
-    transform: translateY(60px) !important;
+    transform: translateY(6.557svh) !important;
   }
+
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro .title-image {
     display: block;
     width: clamp(268px, 48vw, 560px);
@@ -2849,51 +2850,6 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
     height: auto;
     margin: 0 auto;
     object-fit: contain;
-  }
-}
-
-
-@media (width: 375px) {
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
-    transform: translateY(245px) !important;
-  }
-
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
-    margin-top: 210px !important;
-  }
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .intro {
-    top: -36px !important;
-  }
-  .refresh-actions-backdrop {
-    top: -30px !important;
-  }
-  body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop {
-    transform: translateY(60px) !important;
-  }
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro .title-image {
-    display: block;
-    width: clamp(268px, 48vw, 560px);
-    max-width: min(82vw, 430px);
-    height: auto;
-    margin: 0 auto;
-    object-fit: contain;
-  }
-  .temple-track img {
-    flex: 0 0 170vw !important;
-    width: 170vw !important;
-    max-width: none !important;
-  }
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track img {
-    display: block;
-    position: static !important;
-    flex: 0 0 min(100vw, 1920px);
-    width: min(245vw, 1920px) !important;
-    max-width: 211vw !important;
-    height: auto;
-    left: auto !important;
-    transform: none !important;
-    translate: none !important;
-    animation: none !important;
   }
 }
 
