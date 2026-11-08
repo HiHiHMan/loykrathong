@@ -1286,7 +1286,8 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
   margin: -1px 0 0;
   transform: translateX(-50%);
   pointer-events: none;
-  clip-path: polygon(46.5% 0, 53.5% 0, 100% 100%, 0 100%);
+  clip-path: none;
+  border-radius: 0;
   background:
     radial-gradient(ellipse at 18% 38%, rgba(224, 174, 119, 0.24) 0 1px, transparent 2px),
     radial-gradient(ellipse at 72% 62%, rgba(39, 22, 14, 0.22) 0 1px, transparent 2.5px),
