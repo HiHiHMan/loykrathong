@@ -2299,7 +2299,7 @@ body:has(.landing > .moon-image) .landing > .content > .refresh-actions-backdrop
 
 
 /* Move the brown road up by another 30px on the 768x1024 home viewport only. */
-@media (width: 768px) and (height: 1024px) {
+@media (width: 768px) {
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
     margin-top: -57px !important;
   }
@@ -2452,7 +2452,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 }
 
 /* Move obj01 slightly higher on the 768x1024 home viewport only. */
-@media (width: 768px) and (height: 1024px) {
+@media (width: 768px) {
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
     transform: translateY(40px) !important;
   }
@@ -2462,7 +2462,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 
 
 /* Set the refresh actions backdrop top position to -65px on the 768x1024 home viewport only. */
-@media (width: 768px) and (height: 1024px) {
+@media (width: 768px) {
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop {
     top: -65px !important;
   }
@@ -2511,7 +2511,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
   }
 }
 
-@media (width: 768px) and (height: 1024px) {
+@media (width: 768px) {
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
     overflow: hidden !important;
   }
@@ -2604,10 +2604,10 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro
 
 /* Apply the same seamless duplicated obj01 loop to additional target viewports. */
 @media
-  (width: 810px) and (height: 1080px),
-  (width: 800px) and (height: 1230px),
-  (width: 412px) and (height: 915px),
-  (width: 375px) and (height: 812px) {
+  (width: 810px),
+  (width: 800px),
+  (width: 412px),
+  (width: 375px) {
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
     overflow: hidden !important;
   }
@@ -2637,9 +2637,9 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro
 
 /* Apply the same seamless duplicated obj01 loop to desktop viewport sizes. */
 @media
-  (width: 1920px) and (height: 1080px),
-  (width: 1536px) and (height: 864px),
-  (width: 1440px) and (height: 900px) {
+  (width: 1920px),
+  (width: 1536px),
+  (width: 1440px) {
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
     overflow: hidden !important;
   }
@@ -2700,7 +2700,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 
 
 /* Enlarge and center obj01 artwork on the 768x1024 home viewport. */
-@media (width: 768px) and (height: 1024px) {
+@media (width: 768px) {
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track {
     margin-left: -35vw;
   }
@@ -2713,7 +2713,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 }
 
 /* Raise the title artwork further on the 768x1024 home viewport. */
-@media (width: 768px) and (height: 1024px) {
+@media (width: 768px) {
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro .title-image {
     width: 55vw !important;
     max-width: none !important;
@@ -2727,7 +2727,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 }
 
 /* Match the 768x1024 home layout on the 810x1080 viewport. */
-@media (width: 810px) and (height: 1080px) {
+@media (width: 810px) {
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
     margin-top: -57px !important;
   }
@@ -2770,7 +2770,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 }
 
 /* Match the 810x1080 home layout on the 800x1230 viewport. */
-@media (width: 800px) and (height: 1230px) {
+@media (width: 800px) {
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .temple-road {
     margin-top: -57px !important;
   }
@@ -2819,7 +2819,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 }
 
 /* Set the intro top position on the 800x1230 home viewport. */
-@media (width: 800px) and (height: 1230px) {
+@media (width: 800px) {
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .intro {
     top: -170px !important;
   }
@@ -2827,7 +2827,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 
 
 /* Double obj01 artwork size on the 412x915 home viewport. */
-@media (width: 412px) and (height: 915px) {
+@media (width: 412px) {
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track img {
     flex: 0 0 220vw !important;
     width: 220vw !important;
@@ -2837,7 +2837,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 
 
 /* Raise obj01 and the brown road by 60px on the 412x915 home viewport. */
-@media (width: 412px) and (height: 915px) {
+@media (width: 412px) {
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
     transform: translateY(215px) !important;
   }
@@ -2865,7 +2865,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 }
 
 
-@media (width: 375px) and (height: 812px) {
+@media (width: 375px) {
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
     transform: translateY(245px) !important;
   }
@@ -2915,7 +2915,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 }
 
 /* Reduce obj01 artwork size by 10% on the 1920x1080 viewport only. */
-@media (width: 1920px) and (height: 1080px) {
+@media (width: 1920px) {
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track img {
     flex: 0 0 90vw !important;
     width: 90vw !important;
@@ -2924,7 +2924,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 }
 
 /* Lower obj01 and the brown road by 50px on the 1920x1080 viewport. */
-@media (width: 1920px) and (height: 1080px) {
+@media (width: 1920px) {
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
     transform: translateY(-60px) !important;
   }
