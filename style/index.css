@@ -1197,7 +1197,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop {
   position: absolute;
   left: 50%;
-  bottom: 30px;
+  bottom: 55px;
   top: auto;
   z-index: 1000;
   margin: 0;
