@@ -296,6 +296,12 @@ krathongs.forEach((button) => {
 
         status.textContent =
             `คุณเลือก${krathongData[selectedKrathong].name}แล้ว`;
+
+        startButton.focus({ preventScroll: true });
+        startButton.scrollIntoView({
+            behavior: "smooth",
+            block: "end",
+        });
     });
 });
  
