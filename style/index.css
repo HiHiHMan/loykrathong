@@ -1427,7 +1427,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
   transform: translateX(-50%);
 }
 
-/* Keep water fixed in its existing position and overlap it over the road edge. */
+/* Keep water at its original position; extend it over the road by 80px. */
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .cartoon-water {
   bottom: 170px;
   z-index: 3;
@@ -1436,7 +1436,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-road {
   position: fixed;
   left: 50%;
-  bottom: calc(170px + clamp(180px, 24svh, 260px) - 12px);
+  bottom: calc(170px + clamp(180px, 24svh, 260px) - 80px);
   z-index: 2;
   width: 100vw;
   height: clamp(42px, 8vw, 110px);
