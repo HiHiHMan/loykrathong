@@ -58,4 +58,23 @@ body .wish-form textarea {
   line-height: 1.7;
 }
 
+/* Refined typography for the Create page selection screen. */
+body:has(#webgl-canvas-create) .section-label .description {
+  font-size: 14px !important;
+  line-height: 1.5;
+}
 
+body:has(#webgl-canvas-create) .krathong-name {
+  font-size: 14px !important;
+  line-height: 1.4;
+}
+
+body:has(#webgl-canvas-create) .krathong-detail {
+  font-size: 12px !important;
+  line-height: 1.4;
+}
+
+body:has(#webgl-canvas-create) #status {
+  font-size: 13px !important;
+  line-height: 1.5;
+}
