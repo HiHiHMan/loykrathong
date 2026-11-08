@@ -1265,8 +1265,8 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 /* Enlarge obj01 artwork on narrow mobile screens without affecting tablet/desktop. */
 @media (max-width: 600px) {
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track img {
-    flex-basis: 220vw;
-    width: 220vw;
+    flex-basis: 235vw;
+    width: 235vw;
   }
 
   /* Offset only the first duplicated obj01 image; keep the second aligned. */
