@@ -1976,57 +1976,7 @@
 
 
  
- @media (max-height: 520px) and (orientation: landscape) {
-
-   .top-nav {
-
-     position: relative;
-     padding: 8px 16px;
-   
-}
-
-
-   .landing {
-
-     min-height: auto;
-     padding-top: 20px;
-     padding-bottom: 28px;
-   
-}
-
-
-   .intro {
-
-     margin-bottom: 18px;
-   
-}
-
-
-   .eyebrow {
-
-     margin-bottom: 12px;
-   
-}
-
-
-   .description {
-
-     margin-top: 10px;
-     margin-bottom: 18px;
-   
-}
-
-
-   footer {
-
-     position: relative;
-     inset: auto;
-     margin: 12px auto 0;
-   
-}
-
  
-}
 
 
  
@@ -4793,57 +4743,7 @@ oot {
 
 
  
- @media (max-height: 520px) and (orientation: landscape) {
-
-   .top-nav {
-
-     position: relative;
-     padding: 8px 16px;
-   
-}
-
-
-   .landing {
-
-     min-height: auto;
-     padding-top: 20px;
-     padding-bottom: 28px;
-   
-}
-
-
-   .intro {
-
-     margin-bottom: 18px;
-   
-}
-
-
-   .eyebrow {
-
-     margin-bottom: 12px;
-   
-}
-
-
-   .description {
-
-     margin-top: 10px;
-     margin-bottom: 18px;
-   
-}
-
-
-   footer {
-
-     position: relative;
-     inset: auto;
-     margin: 12px auto 0;
-   
-}
-
  
-}
 
 
  
