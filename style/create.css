@@ -471,7 +471,6 @@
 
    .krathong {
 
-     min-height: 150px;
      padding: 12px 6px;
    
 }
@@ -490,7 +489,6 @@
    .wish-form select {
 
      box-sizing: border-box;
-     min-height: 44px;
      font-size: 16px;
    
 }
@@ -498,7 +496,6 @@
 
    .wish-form textarea {
 
-     min-height: 110px;
    
 }
 
@@ -1235,7 +1232,6 @@ body:has(#webgl-canvas-create) select {
 
    .krathong {
 
-     min-height: 150px;
      padding: 12px 6px;
    
 }
@@ -1252,7 +1248,6 @@ body:has(#webgl-canvas-create) select {
    .wish-form input,
    .wish-form textarea {
 
-     min-height: 44px;
      font-size: 16px;
    
 }
@@ -1260,7 +1255,6 @@ body:has(#webgl-canvas-create) select {
 
    .wish-form textarea {
 
-     min-height: 110px;
    
 }
 
@@ -1559,7 +1553,6 @@ body:has(#webgl-canvas-create) textarea {
   }
 
   .krathong {
-    min-height: 140px;
   }
 }
 
@@ -1603,7 +1596,6 @@ body:has(#webgl-canvas-create) textarea {
 @media (max-width: 600px) {
   .krathong .loykrathong {
     width: 82px;
-    height: 82px;
   }
 }
 
@@ -1622,13 +1614,11 @@ body:has(#webgl-canvas-create) .krathong .loykrathong {
 
 @media (max-width: 600px) {
   body:has(#webgl-canvas-create) .krathong {
-    min-height: 116px;
     padding: 10px 4px;
   }
 
   body:has(#webgl-canvas-create) .krathong .loykrathong {
     width: 68px;
-    height: 68px;
   }
 }
 
