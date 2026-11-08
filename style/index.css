@@ -1278,3 +1278,10 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
     margin-left: 0;
   }
 }
+
+/* Reduce the home intro offset on phones; keep the desktop spacing unchanged. */
+@media (max-width: 600px) {
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content {
+    padding-top: clamp(110px, 14svh, 140px);
+  }
+}
