@@ -1289,14 +1289,14 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
   clip-path: none;
   border-radius: 0;
   background:
-    radial-gradient(ellipse at 12% 28%, rgba(205, 178, 145, 0.18) 0 2px, transparent 5px),
-    radial-gradient(ellipse at 31% 72%, rgba(48, 38, 29, 0.16) 0 3px, transparent 8px),
-    radial-gradient(ellipse at 58% 35%, rgba(190, 158, 122, 0.16) 0 2px, transparent 6px),
-    radial-gradient(ellipse at 83% 68%, rgba(43, 34, 26, 0.17) 0 3px, transparent 9px),
-    radial-gradient(ellipse at 45% 18%, rgba(215, 190, 158, 0.12) 0 1px, transparent 4px),
-    radial-gradient(ellipse at 68% 82%, rgba(49, 38, 29, 0.13) 0 2px, transparent 6px),
-    linear-gradient(90deg, rgba(38, 30, 23, 0.20), transparent 18%, transparent 82%, rgba(38, 30, 23, 0.20)),
-    linear-gradient(180deg, #92785e 0%, #80664e 48%, #624b38 100%);
+    radial-gradient(ellipse at 12% 28%, rgba(230, 199, 158, 0.18) 0 2px, transparent 5px),
+    radial-gradient(ellipse at 31% 72%, rgba(70, 47, 29, 0.13) 0 3px, transparent 8px),
+    radial-gradient(ellipse at 58% 35%, rgba(220, 183, 137, 0.15) 0 2px, transparent 6px),
+    radial-gradient(ellipse at 83% 68%, rgba(65, 43, 27, 0.14) 0 3px, transparent 9px),
+    radial-gradient(ellipse at 45% 18%, rgba(238, 211, 174, 0.12) 0 1px, transparent 4px),
+    radial-gradient(ellipse at 68% 82%, rgba(73, 49, 31, 0.11) 0 2px, transparent 6px),
+    linear-gradient(90deg, rgba(54, 35, 22, 0.17), transparent 18%, transparent 82%, rgba(54, 35, 22, 0.17)),
+    linear-gradient(180deg, #aa835b 0%, #98704b 48%, #785637 100%);
   filter: drop-shadow(0 -3px 6px rgba(25, 15, 27, 0.3));
 }
 
