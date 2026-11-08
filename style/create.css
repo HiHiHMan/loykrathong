@@ -507,8 +507,8 @@ body:has(#webgl-canvas-create) #webgl-canvas-create {
   width: 100dvw;
   height: 100dvh;
   margin: 0;
-  z-index: 999;
-  pointer-events: none;
+  z-index: 2147483647 !important;
+  pointer-events: none !important;
 
 }
 
