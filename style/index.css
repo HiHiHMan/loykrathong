@@ -1427,15 +1427,15 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
   transform: translateX(-50%);
 }
 
-/* Keep the road directly attached to the top edge of the water. */
+/* Keep the water at its existing 170px offset; move only the road to meet it. */
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .cartoon-water {
-  bottom: 0;
+  bottom: 170px;
 }
 
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-road {
   position: fixed;
   left: 50%;
-  bottom: clamp(180px, 24svh, 260px);
+  bottom: calc(170px + clamp(180px, 24svh, 260px));
   z-index: 2;
   width: 100vw;
   height: clamp(42px, 8vw, 110px);
