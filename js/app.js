@@ -25,46 +25,48 @@
     });
 })();
 
-/* Randomize sky lantern positions on every page load */
+/* Randomize sky lantern X/Y positions on every page load */
 (function randomizeSkyLanterns() {
     const container = document.querySelector('.sky-lanterns');
     if (!container) return;
 
     const lanterns = Array.from(container.querySelectorAll('.sky-lantern-image'));
+    if (!lanterns.length) return;
 
-    // Randomly select exactly 2 of the 6 lanterns to use obj02.
+    // Keep the established obj02 artwork on all six lanterns.
     const shuffledLanterns = [...lanterns].sort(() => Math.random() - 0.5);
-    const obj02Count = Math.min(2, lanterns.length);
-    shuffledLanterns.forEach((lantern, index) => {
+    shuffledLanterns.forEach((lantern) => {
         const image = lantern.querySelector('img');
-        if (image) {
-            image.src = './images/obj02.png';
-        }
+        if (image) image.src = './images/obj02.png';
     });
 
     const placed = [];
-    const deviceShortSide = Math.min(window.screen.width, window.screen.height);
-    const minDistance = deviceShortSide <= 600 ? 0.15 : 0.13;
-    const maxAttempts = 80;
+    const isSmallScreen = Math.min(window.innerWidth, window.innerHeight) <= 600;
+    const minDistance = isSmallScreen ? 12 : 13;
+    const maxAttempts = 120;
 
-    lanterns.forEach((lantern, index) => {
-        let x = 0;
-        let y = 0;
+    // Two lanterns may sit around the upper temple silhouette; the rest stay higher.
+    shuffledLanterns.forEach((lantern, index) => {
+        const isMiddleLantern = index < 2;
+        const xRange = isMiddleLantern
+            ? { min: 28, max: 72 }
+            : { min: 5, max: 95 };
+        const yRange = isMiddleLantern
+            ? { min: 27, max: 39 }
+            : { min: 7, max: 28 };
+
+        let x = (xRange.min + xRange.max) / 2;
+        let y = (yRange.min + yRange.max) / 2;
+        let hasSpace = false;
 
         for (let attempt = 0; attempt < maxAttempts; attempt++) {
-            // Keep a few lanterns around the temple silhouette; scatter the rest higher in the sky.
-            if (index < 2) {
-                x = 32 + Math.random() * 36;
-                y = 27 + Math.random() * 14;
-            } else {
-                x = 5 + Math.random() * 85;
-                y = 7 + Math.random() * 27;
-            }
+            x = xRange.min + Math.random() * (xRange.max - xRange.min);
+            y = yRange.min + Math.random() * (yRange.max - yRange.min);
 
-            const hasSpace = placed.every((position) => {
+            hasSpace = placed.every((position) => {
                 const dx = (x - position.x) * window.innerWidth / window.innerHeight;
                 const dy = y - position.y;
-                return Math.hypot(dx, dy) >= minDistance * 100;
+                return Math.hypot(dx, dy) >= minDistance;
             });
 
             if (hasSpace) break;
