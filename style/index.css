@@ -1288,10 +1288,15 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
   pointer-events: none;
   clip-path: none;
   border-radius: 0;
-  /* Subtle staggered stone-paver texture over the warm brown road. */
+  /* Organic, uneven earth-and-stone mottling; no geometric paving grid. */
   background:
-    repeating-linear-gradient(90deg, transparent 0 54px, rgba(55, 35, 25, 0.13) 55px 56px, transparent 57px 110px),
-    repeating-linear-gradient(0deg, transparent 0 17px, rgba(55, 35, 25, 0.11) 18px 19px, transparent 20px 36px),
+    radial-gradient(ellipse at 7% 62%, rgba(64, 42, 29, 0.22) 0 3%, transparent 12%),
+    radial-gradient(ellipse at 19% 22%, rgba(226, 185, 148, 0.17) 0 4%, transparent 15%),
+    radial-gradient(ellipse at 34% 78%, rgba(67, 43, 29, 0.18) 0 3%, transparent 13%),
+    radial-gradient(ellipse at 49% 35%, rgba(230, 190, 154, 0.13) 0 5%, transparent 17%),
+    radial-gradient(ellipse at 66% 72%, rgba(63, 41, 29, 0.20) 0 4%, transparent 14%),
+    radial-gradient(ellipse at 82% 24%, rgba(232, 190, 153, 0.15) 0 4%, transparent 16%),
+    radial-gradient(ellipse at 96% 66%, rgba(65, 42, 29, 0.17) 0 3%, transparent 12%),
     radial-gradient(ellipse at 12% 28%, rgba(239, 197, 160, 0.20) 0 2px, transparent 5px),
     radial-gradient(ellipse at 31% 72%, rgba(61, 38, 27, 0.14) 0 3px, transparent 8px),
     radial-gradient(ellipse at 58% 35%, rgba(226, 175, 137, 0.16) 0 2px, transparent 6px),
