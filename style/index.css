@@ -1428,24 +1428,24 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
   bottom: 170px;
 }
 
-/* Keep every floating krathong at one fixed size on all viewport dimensions. */
+/* Keep every floating krathong compact and at a fixed size on all screens. */
 .cartoon-water .lalaloy {
   box-sizing: border-box;
-  width: 100px !important;
-  min-width: 100px;
-  max-width: 100px;
-  height: 100px !important;
-  min-height: 100px;
-  max-height: 100px;
-  flex: 0 0 100px;
+  width: 80px !important;
+  min-width: 80px;
+  max-width: 80px;
+  height: 80px !important;
+  min-height: 80px;
+  max-height: 80px;
+  flex: 0 0 80px;
 }
 
 .cartoon-water .lalaloy .latest-wish-trigger,
 .cartoon-water .lalaloy.latest-wish-krathong .latest-wish-trigger {
   box-sizing: border-box;
-  width: 100px;
-  height: 100px;
-  min-width: 100px;
-  min-height: 100px;
-  font-size: 55px;
+  width: 80px;
+  height: 80px;
+  min-width: 80px;
+  min-height: 80px;
+  font-size: 44px;
 }
