@@ -1355,3 +1355,10 @@ body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-back
     bottom: calc(130px + clamp(180px, 24svh, 260px) - 50px + clamp(38px, 6svh, 72px) - 20px);
   }
 }
+
+/* Nudge obj01 slightly downward on tablet screens only. */
+@media (min-width: 601px) and (max-width: 1000px) {
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
+    bottom: calc(130px + clamp(180px, 24svh, 260px) - 50px + clamp(38px, 6svh, 72px) - 20px);
+  }
+}
