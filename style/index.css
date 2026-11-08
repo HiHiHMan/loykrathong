@@ -220,221 +220,11 @@ animation-duration: 82s;
 }
 
 
- .wave-svg {
-
-   position: absolute;
-   inset: 0 auto auto 0;
-   display: block;
-   
-   width: max(200%, 2880px);
-   height: 100%;
-   max-width: none;
-   overflow: visible;
-   border: 0;
-   outline: 0;
-   will-change: transform;
-   animation: cartoon-wave-drift 90s linear infinite;
- 
-}
-
-
- 
- .wave-layer-1 {
-
-   animation-duration: 78s;
-   animation-delay: -17s;
- 
-}
-
-
- .wave-layer-2 {
-
-   animation-duration: 66s;
-   animation-delay: -43s;
- 
-}
-
-
- .wave-layer-2-5 {
-
-   animation-duration: 70s;
-   animation-delay: -8s;
- 
-}
-
-
- .wave-layer-3 {
-
-   animation-duration: 62s;
-   animation-delay: -31s;
- 
-}
-
-
  .wave-layer-4 {
 
    animation-duration: 82s;
    animation-delay: -52s;
  
-}
-
-
-.moon-glow,
-.water,
-.cartoon-water,
-.cartoon-water .wave-svg,
-.cartoon-water .lalaloy,
-.landing > canvas {
-
-  pointer-events: none;
-
-}
-
-
-
-
-.cartoon-water #latestWishesGrid {
-
-  position: absolute;
-  inset: 0;
-  z-index: auto;
-  display: block;
-  width: 100%;
-  height: 100%;
-  min-height: 0;
-  margin: 0;
-  padding: 0;
-  overflow: visible;
-  isolation: auto;
-  pointer-events: none;
-
-}
-
-
-
-.cartoon-water .latest-wish-krathong.lalaloy {
-
-  left: 0;
-  top: var(--wish-float-top, 27%);
-  z-index: 3;
-  pointer-events: auto;
-  cursor: pointer;
-
-}
-
-
-
-.cartoon-water .latest-wish-trigger {
-
-  display: grid;
-  place-items: center;
-  width: 100%;
-  height: 100%;
-  padding: 0;
-  border: 0;
-  background: transparent;
-  color: inherit;
-  font: inherit;
-  font-size: 55px;
-  cursor: pointer;
-  pointer-events: auto;
-  filter: drop-shadow(0 0 12px rgba(214, 184, 121, 0.2));
-
-}
-
-
-.cartoon-water .latest-wish-krathong .tooltip-card {
-
-  position: absolute;
-  left: 50%;
-  bottom: 88px;
-  width: min(320px, calc(100vw - 40px));
-  scale: 1;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transform: translate(-50%, 8px);
-  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
-
-}
-
-
-.cartoon-water .latest-wish-krathong.is-open .tooltip-card {
-
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-  transform: translate(-50%, 0);
-
-}
-
-
-.cartoon-water .latest-wish-krathong.is-open {
-
-  z-index: 20;
-
-}
-
-
-
-
-
-
-
-.cartoon-water .latest-wish-krathong.lalaloy.is-waiting {
-
-  left: -120px;
-  visibility: hidden;
-  pointer-events: none;
-
-}
-
-
-
-
-
-
-.cartoon-water .krathong-owner-name {
-
-  position: absolute;
-  top: -24px;
-  left: 50%;
-  z-index: 4;
-  max-width: 150px;
-  padding: 2px 8px;
-  overflow: hidden;
-  border: 1px solid rgba(214, 184, 121, 0.5);
-  border-radius: 999px;
-  background: rgba(6, 21, 43, 0.92);
-  color: #fff4d6;
-  font-family: "Kanit", sans-serif;
-  font-size: 11px;
-  line-height: 1.5;
-  text-align: center;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  pointer-events: none;
-  transform: translateX(-50%);
-
-}
-
-
-
-.cartoon-water .latest-wish-krathong.lalaloy.is-waiting {
-
-  visibility: hidden !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
-  animation-play-state: paused !important;
-
-}
-
-
-.cartoon-water .latest-wish-krathong.lalaloy:not(.is-waiting) {
-
-  visibility: visible;
-  pointer-events: auto;
-
 }
 
 /* Reduce moon size on the landing page */
@@ -721,32 +511,15 @@ animation-duration: 82s;
 .cartoon-water .krathong-wave-lane:has(.latest-wish-krathong.is-open) {
   z-index: 20;
 }
-
-
-/* Move all water wave layers slightly downward together. */
-
-
-/* Move the entire water section downward while preserving horizontal centering. */
-
-
-/* Ten independently animated water-wave layers. */
-.cartoon-water .wave-layer-4 { z-index: 8; }
 .cartoon-water .wave-layer-5 { z-index: 9; animation-duration: 76s; animation-delay: -24s; }
 .cartoon-water .wave-layer-6 { z-index: 10; animation-duration: 68s; animation-delay: -39s; }
 .cartoon-water .wave-layer-7 { z-index: 11; animation-duration: 84s; animation-delay: -12s; }
 .cartoon-water .wave-layer-8 { z-index: 12; animation-duration: 72s; animation-delay: -57s; }
 .cartoon-water .wave-layer-9 { z-index: 13; animation-duration: 88s; animation-delay: -33s; }
-
-
-/* Place three krathong lanes between the upper wave layers. */
-.cartoon-water .wave-layer-1 { z-index: 1; }
-.cartoon-water .krathong-wave-lane-1 { z-index: 2; }
-.cartoon-water .wave-layer-2 { z-index: 3; }
 .cartoon-water .krathong-wave-lane-2 { z-index: 4; }
 .cartoon-water .wave-layer-2-5 { z-index: 5; }
 .cartoon-water .krathong-wave-lane-3 { z-index: 6; }
 .cartoon-water .wave-layer-3 { z-index: 7; }
-.cartoon-water .wave-layer-4 { z-index: 8; }
 .cartoon-water .wave-layer-5 { z-index: 9; }
 .cartoon-water .wave-layer-6 { z-index: 10; }
 .cartoon-water .wave-layer-7 { z-index: 11; }
