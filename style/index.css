@@ -1320,7 +1320,7 @@ body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-back
 /* Lower the home scene slightly on wide screens. */
 @media (min-width: 1001px) {
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track img {
-    width: min(140vw, 1450px);
+    width: min(130vw, 1350px);
   }
 
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
