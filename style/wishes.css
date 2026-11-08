@@ -11,57 +11,16 @@
 }
 
 
- @media (max-width: 520px) {
-
-   .wish-grid {
-
-     gap: 24px;
-     padding: 8px 0;
-   
-}
-
-}
+ 
 
 
- @media (max-width: 800px) {
-
-   .wish-grid {
-
-     grid-template-columns: repeat(2, minmax(0, 1fr));
-   
-}
-
-}
+ 
 
 
- @media (max-width: 520px) {
+ 
 
 
-   .wish-grid {
-
-     grid-template-columns: 1fr 1fr;
-     gap: 30px 8px;
-   
-}
-
-}
-
-
- @media (max-width: 520px) {
-
-
-   
-   .wish-grid {
-
-     display: flex;
-     flex-direction: column;
-     gap: 16px;
-     width: 100%;
-     overflow: visible;
-   
-}
-
-}
+ 
 
 
  .wish-grid {
@@ -102,15 +61,7 @@
 }
 
 
- @media (max-width: 520px) {
-
-   .landing>section[aria-labelledby="wishes-title"] .wish-grid {
-
-     gap: 14px;
-   
-}
-
-}
+ 
 
 
 
@@ -134,57 +85,16 @@
 }
 
 
- @media (max-width: 520px) {
-
-   .wish-grid {
-
-     gap: 24px;
-     padding: 8px 0;
-   
-}
-
-}
+ 
 
 
- @media (max-width: 800px) {
-
-   .wish-grid {
-
-     grid-template-columns: repeat(2, minmax(0, 1fr));
-   
-}
-
-}
+ 
 
 
- @media (max-width: 520px) {
+ 
 
 
-   .wish-grid {
-
-     grid-template-columns: 1fr 1fr;
-     gap: 30px 8px;
-   
-}
-
-}
-
-
- @media (max-width: 520px) {
-
-
-   
-   .wish-grid {
-
-     display: flex;
-     flex-direction: column;
-     gap: 16px;
-     width: 100%;
-     overflow: visible;
-   
-}
-
-}
+ 
 
 
  .wish-grid {
@@ -225,15 +135,7 @@
 }
 
 
- @media (max-width: 520px) {
-
-   .landing>section[aria-labelledby="wishes-title"] .wish-grid {
-
-     gap: 14px;
-   
-}
-
-}
+ 
 
 
 
@@ -345,23 +247,7 @@ body:has(#wishGrid) .sky-lantern-image img {
 }
 
 
-@media (max-width: 600px) {
-  .sky-lantern-1 { top: 26%; right: 3%; width: clamp(68px, 19vw, 92px); }
-  .sky-lantern-2 { top: 15%; left: 4%; width: clamp(42px, 12vw, 58px); }
-  .sky-lantern-3 { top: 38%; left: 18%; width: clamp(52px, 15vw, 72px); }
-  .sky-lantern-4 { top: 11%; right: 25%; width: clamp(34px, 9vw, 44px); }
-  .sky-lantern-5 { top: 44%; right: 20%; width: clamp(38px, 11vw, 52px); }
-  .sky-lantern-6 { top: 55%; left: 3%; width: clamp(42px, 12vw, 58px); }
-  .sky-lantern-7 { top: 18%; right: 10%; width: clamp(30px, 8vw, 40px); }
-  .sky-lantern-8 { top: 58%; right: 3%; width: clamp(46px, 13vw, 62px); }
-  .sky-lantern-9 { top: 29%; left: 58%; width: clamp(28px, 7.5vw, 36px); }
-  .sky-lantern-10 { top: 64%; left: 40%; width: clamp(34px, 9vw, 46px); }
-  .sky-lantern-11 { top: 34%; left: 35%; width: clamp(28px, 7.5vw, 36px); }
-  .sky-lantern-12 { top: 64%; left: 12%; width: clamp(38px, 10vw, 48px); }
-  .sky-lantern-13 { top: 48%; right: 9%; width: clamp(26px, 7vw, 34px); }
-  .sky-lantern-14 { top: 68%; right: 37%; width: clamp(32px, 8.5vw, 42px); }
-  .sky-lantern-15 { top: 18%; left: 21%; width: clamp(24px, 6vw, 30px); }
-}
+
 
 @keyframes sky-lantern-float {
   0%, 100% { transform: translate3d(0, 0, 0) rotate(-2deg); }
@@ -386,23 +272,7 @@ body:has(#wishGrid) .sky-lanterns .sky-lantern-13 { width: clamp(22px, 2.5vw, 34
 body:has(#wishGrid) .sky-lanterns .sky-lantern-14 { width: clamp(28px, 3.2vw, 42px) !important; }
 body:has(#wishGrid) .sky-lanterns .sky-lantern-15 { width: clamp(20px, 2.3vw, 30px) !important; }
 
-@media (max-width: 600px) {
-  body:has(#wishGrid) .sky-lanterns .sky-lantern-1 { width: clamp(48px, 14vw, 62px) !important; }
-  body:has(#wishGrid) .sky-lanterns .sky-lantern-2 { width: clamp(28px, 8vw, 38px) !important; }
-  body:has(#wishGrid) .sky-lanterns .sky-lantern-3 { width: clamp(34px, 10vw, 46px) !important; }
-  body:has(#wishGrid) .sky-lanterns .sky-lantern-4 { width: clamp(22px, 6.5vw, 30px) !important; }
-  body:has(#wishGrid) .sky-lanterns .sky-lantern-5 { width: clamp(26px, 7.5vw, 34px) !important; }
-  body:has(#wishGrid) .sky-lanterns .sky-lantern-6 { width: clamp(28px, 8vw, 38px) !important; }
-  body:has(#wishGrid) .sky-lanterns .sky-lantern-7 { width: clamp(20px, 6vw, 28px) !important; }
-  body:has(#wishGrid) .sky-lanterns .sky-lantern-8 { width: clamp(32px, 9vw, 42px) !important; }
-  body:has(#wishGrid) .sky-lanterns .sky-lantern-9 { width: clamp(18px, 5.5vw, 26px) !important; }
-  body:has(#wishGrid) .sky-lanterns .sky-lantern-10 { width: clamp(24px, 7vw, 32px) !important; }
-  body:has(#wishGrid) .sky-lanterns .sky-lantern-11 { width: clamp(18px, 5.5vw, 26px) !important; }
-  body:has(#wishGrid) .sky-lanterns .sky-lantern-12 { width: clamp(26px, 7.5vw, 34px) !important; }
-  body:has(#wishGrid) .sky-lanterns .sky-lantern-13 { width: clamp(18px, 5vw, 24px) !important; }
-  body:has(#wishGrid) .sky-lanterns .sky-lantern-14 { width: clamp(22px, 6.5vw, 30px) !important; }
-  body:has(#wishGrid) .sky-lanterns .sky-lantern-15 { width: clamp(16px, 4.5vw, 22px) !important; }
-}
+
 
 /* Give every lantern its own position on desktop; 6-15 previously had no desktop coordinates. */
 body:has(#wishGrid) .sky-lanterns .sky-lantern-1  { top: 22%; left: auto; right: 7%; }
@@ -478,13 +348,7 @@ body:has(#wishGrid) .wish-item .tooltip-card {
   max-width: min(440px, calc(100vw - 32px));
 }
 
-@media (max-width: 520px) {
-  body:has(#wishGrid) .wish-item .tooltip-card {
-    flex-basis: auto;
-    width: calc(100vw - 48px);
-    max-width: calc(100vw - 48px);
-  }
-}
+
 
 /* Keep the wishes-page footer at the bottom of the viewport or content. */
 body:has(#wishGrid) .landing {
