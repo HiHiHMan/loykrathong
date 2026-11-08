@@ -1297,3 +1297,10 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop > a:first-child img {
   transform: translateY(-5px);
 }
+
+/* Lower obj01 slightly on viewports taller than 850px. */
+@media (min-height: 851px) {
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
+    bottom: calc(130px + clamp(180px, 24svh, 260px) - 50px + clamp(38px, 6svh, 72px) - 10px);
+  }
+}
