@@ -1425,6 +1425,6 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 
 /* Leave a small breathing gap below the home-page water. */
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .cartoon-water {
-  bottom: 15px;
+  bottom: 170px;
 }
 
