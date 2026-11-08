@@ -1323,7 +1323,7 @@ body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-back
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro .title-image {
     width: min(75vw, 460px);
     position: relative;
-    top: -20px;
+    top: -70px;
   }
 }
 
