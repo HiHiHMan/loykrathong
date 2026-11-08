@@ -669,16 +669,7 @@
 
 
  
- @media (max-height: 520px) and (orientation: landscape) {
-
-
-   .krathong-list {
-
-     margin-bottom: 18px;
-   
-}
-
-}
+ 
 
 
  @media (prefers-reduced-motion: reduce) {
@@ -1440,16 +1431,7 @@ body:has(#webgl-canvas-create) select {
 
 
  
- @media (max-height: 520px) and (orientation: landscape) {
-
-
-   .krathong-list {
-
-     margin-bottom: 18px;
-   
-}
-
-}
+ 
 
 
  @media (prefers-reduced-motion: reduce) {
