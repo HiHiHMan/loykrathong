@@ -688,3 +688,14 @@ body:has(#webgl-canvas-create) .selected-preview {
   min-width: 0;
   flex-wrap: wrap;
 }
+
+
+/* Keep the Create page document scrollable so the start button can be brought into view. */
+body:has(#webgl-canvas-create) .landing {
+  overflow: visible;
+  justify-content: flex-start;
+}
+
+body:has(#webgl-canvas-create) .landing > .content {
+  margin: 0 auto;
+}
