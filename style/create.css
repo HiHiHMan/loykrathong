@@ -662,6 +662,13 @@ body:has(#webgl-canvas-create) .krathong-list {
   margin-inline: auto;
 }
 
+/* Use a fixed three-column grid on tablets and desktop screens. */
+@media (min-width: 600px) {
+  body:has(#webgl-canvas-create) .krathong-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
 body:has(#webgl-canvas-create) .krathong {
   min-width: 0;
   min-height: clamp(112px, 16vw, 150px);
