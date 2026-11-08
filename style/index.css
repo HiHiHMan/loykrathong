@@ -1211,7 +1211,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
   max-width: none;
   min-width: 0;
   margin: 0;
-  padding: clamp(28px, 5svh, 64px) 0 0;
+  padding: clamp(10svh, 10svh, 10svh) 0 0;
   text-align: center;
 }
 
