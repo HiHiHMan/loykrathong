@@ -1002,7 +1002,7 @@ body:has(.landing > .content > .moon-image):not(:has(#webgl-canvas-create)) .lan
 
 body:has(.landing > .content > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro .title-image {
   display: block;
-  width: min(72vw, 460px);
+  width: min(60vw, 460px);
   max-width: 100%;
   height: auto;
   margin: 0 auto;
