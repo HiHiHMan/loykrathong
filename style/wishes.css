@@ -376,3 +376,22 @@ body:has(#wishGrid) .wish-item .tooltip-card {
 body:has(#wishGrid) .wish-item .tooltip-card::before {
   display: none;
 }
+
+/* Dark text for strong contrast against the gold card artwork. */
+body:has(#wishGrid) .wish-item .tooltip-card,
+body:has(#wishGrid) .wish-item .tooltip-card :is(
+  .tooltip-label,
+  .tooltip-wish,
+  .tooltip-name,
+  .tooltip-date,
+  .tooltip-type,
+  .tooltip-type strong,
+  .tooltip-type small
+) {
+  color: #241808 !important;
+}
+
+body:has(#wishGrid) .wish-item .tooltip-card .tooltip-divider {
+  color: #684b1b !important;
+  border-color: rgba(36, 24, 8, 0.3);
+}
