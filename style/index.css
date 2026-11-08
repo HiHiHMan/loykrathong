@@ -1292,3 +1292,8 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
     bottom: calc(170px + clamp(180px, 24svh, 260px) - 60px);
   }
 }
+
+/* Nudge only the create button upward without moving its surrounding actions. */
+body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop > a:first-child img {
+  transform: translateY(-5px);
+}
