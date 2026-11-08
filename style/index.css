@@ -1317,7 +1317,7 @@ body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-back
   }
 
   body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop > a:first-child img {
-    width: 150px !important;
+    width: 175px !important;
   }
 }
 
