@@ -103,25 +103,7 @@
 }
 
 
- @media (max-width: 600px) {
-
-   .top-nav {
-
-     padding: 16px;
-     gap: 4px;
-   
-}
-
-
-   .nav-link {
-
-     padding: 9px 12px;
-     font-size: 12px;
-   
-}
-
  
-}
 
 
  .ornament {
@@ -166,16 +148,7 @@
 }
 
 
- @media (max-width: 760px) {
-
-   .intro {
-
-     margin-bottom: 30px;
-   
-}
-
  
-}
 
 
  button,
@@ -508,129 +481,13 @@
 
 
 
- @media (max-width: 600px) {
+ 
 
-   .landing {
-
-     padding: 46px 18px 76px;
-   
-}
-
-
-   .moon-glow {
-
-     width: 280px;
-     top: 8%;
-   
-}
-
-
-   .eyebrow {
-
-     margin-bottom: 23px;
-     font-size: 11px;
-   
-}
-
-
-   h1 {
-
-     font-size: clamp(35px, 10vw, 46px);
-   
-}
-
-
-   .description {
-
-     margin: 15px 0 34px;
-     font-size: 12px;
-   
-}
-
-
-   .loykrathong {
-
-     width: 68px;
-     font-size: 43px;
-   
-}
-
-
-   .krathong-name {
-
-     font-size: 12px;
-   
-}
-
-
-   .krathong-detail {
-
-     font-size: 10px;
-   
-}
-
-
-   .start-button {
-
-     width: 100%;
-     max-width: 340px;
-   
-}
-
-
-   footer {
-
-     right: 16px;
-     left: 16px;
-     font-size: 8px;
-     letter-spacing: 0.07em;
-   
-}
 
  
-}
 
-
- @media (max-width: 360px) {
-
-   .krathong-detail {
-
-     font-size: 9px;
-   
-}
-
-
-   .loykrathong {
-
-     font-size: 37px;
-   
-}
-
-
-   .text-button {
-
-     font-size: 10px;
-   
-}
 
  
-}
-
-
- @media (prefers-reduced-motion: reduce) {
-
-
-   *,
-   *::before,
-   *::after {
-
-     animation: none !important;
-     transition: none !important;
-   
-}
-
- 
-}
 
 
  @keyframes success-krathong-bob {
@@ -1026,140 +883,14 @@
 
 
  
- @media (max-width: 800px) {
-
-   .wish-item {
-
-     max-width: 90%;
-   
-}
-
-
-   .wish-item:nth-child(even) {
-
-     max-width: 98%;
-   
-}
-
  
-}
-
-
- @media (max-width: 520px) {
-
-
-   .wish-item {
-
-     max-width: 94%;
-     gap: 8px;
-   
-}
-
-
-   .wish-item:nth-child(even) {
-
-     max-width: 100%;
-     gap: 8px;
-   
-}
-
-
-   .tooltip-card {
-
-     padding: 14px 12px;
-     border-radius: 14px;
-   
-}
-
-
-   .tooltip-wish {
-
-     font-size: 14px;
-   
-}
-
-
-   .tooltip-footer {
-
-     flex-wrap: wrap;
-   
-}
-
-
-   .tooltip-type {
-
-     text-align: left;
-   
-}
-
-
-   .wish-item:nth-child(even) .tooltip-card {
-
-     flex: 1 1 0;
-     width: auto;
-   
-}
-
-
-   .wish-item:nth-child(even) .krathong-trigger {
-
-     flex-basis: 84px;
-     width: 84px;
-     margin: 8px 0 12px;
-     font-size: 44px;
-   
-}
-
-
-   .wish-item:nth-child(odd) .krathong-trigger {
-
-     flex-basis: 84px;
-     width: 84px;
-     margin: 8px 0 12px;
-     font-size: 44px;
-   
-}
-
-
-   .wish-item:nth-child(odd) .krathong-emoji {
-
-     font-size: 40px;
-   
-}
-
-
-   .wish-item:nth-child(even) .krathong-emoji {
-
-     font-size: 40px;
-   
-}
-
-
-   .wish-item:nth-child(even) .water-ripple {
-
-     width: 70px;
-   
-}
-
- 
-}
 
 
  
- @media (prefers-reduced-motion: reduce) {
 
-
-   *,
-   *::before,
-   *::after {
-
-     animation: none !important;
-     transition: none !important;
-   
-}
 
  
-}
+ 
 
 
  .refresh-btn {
@@ -1226,97 +957,7 @@
 }
 
 
- @media (max-width: 520px) {
-
-   .top-nav {
-
-     padding: 14px 12px;
-   
-}
-
-
-.krathong-trigger {
-
-     width: 124px;
-   
-}
-
-
-   .krathong-emoji {
-
-     font-size: 51px;
-   
-}
-
-
-   .tooltip-card {
-
-     width: min(270px, calc(100vw - 28px));
-   
-}
-
-
-   .wish-item:nth-child(odd) .tooltip-card {
-
-     left: 20px;
-     transform: translate(0, 8px) scale(.97);
-     transform-origin: bottom left;
-   
-}
-
-
-   .wish-item:nth-child(even) .tooltip-card {
-
-     left: auto;
-     right: 20px;
-     transform: translate(0, 8px) scale(.97);
-     transform-origin: bottom right;
-   
-}
-
-
-   .wish-item:nth-child(odd):hover .tooltip-card,
-   .wish-item:nth-child(odd):focus-within .tooltip-card,
-   .wish-item:nth-child(odd).is-open .tooltip-card {
-
-     transform: translate(0, 0) scale(1);
-   
-}
-
-
-   .wish-item:nth-child(even):hover .tooltip-card,
-   .wish-item:nth-child(even):focus-within .tooltip-card,
-   .wish-item:nth-child(even).is-open .tooltip-card {
-
-     transform: translate(0, 0) scale(1);
-   
-}
-
-
-   .wish-item:nth-child(odd) .tooltip-card::after {
-
-     left: 34px;
-   
-}
-
-
-   .wish-item:nth-child(even) .tooltip-card::after {
-
-     left: auto;
-     right: 34px;
-   
-}
-
-
-   footer {
-
-     font-size: 9px;
-     letter-spacing: 1px;
-   
-}
-
  
-}
 
 
  .refresh-row {
@@ -1339,221 +980,10 @@
 }
 
 
- @media (max-width: 520px) {
+ 
 
-   .top-nav {
-
-     position: relative;
-     justify-content: center;
-     padding: max(12px, env(safe-area-inset-top)) 10px 8px;
-     gap: 6px;
-   
-}
-
-
-   .nav-link {
-
-     padding: 10px 14px;
-     font-size: 13px;
-   
-}
-
-
-   .landing {
-
-     padding: 24px 14px calc(78px + env(safe-area-inset-bottom));
-     overflow: clip;
-   
-}
-
-
-   .content {
-
-     width: 100%;
-     min-width: 0;
-   
-}
-
-
-   h1 {
-
-     font-size: clamp(32px, 9vw, 43px);
-     line-height: 1.3;
-     overflow-wrap: anywhere;
-   
-}
-
-
-   .eyebrow {
-
-     letter-spacing: .16em;
-   
-}
-
-
-   .description {
-
-     overflow-wrap: anywhere;
-   
-}
-
-
-   .krathong-detail {
-
-     line-height: 1.5;
-     overflow-wrap: anywhere;
-   
-}
-
-
-   .start-button,
-   .submit-button,
-   .refresh-btn {
-
-     touch-action: manipulation;
-   
-}
-
-
-   footer {
-
-     right: 12px;
-     bottom: max(12px, env(safe-area-inset-bottom));
-     left: 12px;
-     flex-wrap: wrap;
-     justify-content: center;
-     text-align: center;
-     line-height: 1.6;
-   
-}
-
-
-   .wish-item,
-   .wish-item:nth-child(odd),
-   .wish-item:nth-child(even) {
-
-     display: flex;
-     flex-direction: row;
-     align-items: center;
-     align-self: stretch;
-     gap: 12px;
-     width: 100%;
-     max-width: 100%;
-     min-width: 0;
-   
-}
-
-
-   .wish-item .tooltip-card,
-   .wish-item:nth-child(odd) .tooltip-card,
-   .wish-item:nth-child(even) .tooltip-card {
-
-     display: none;
-     order: 2;
-     flex: 1 1 auto;
-     width: auto;
-     min-width: 0;
-     max-width: 100%;
-     margin: 0;
-     padding: 14px;
-     scale: 1;
-     transform: none;
-     overflow-wrap: anywhere;
-   
-}
-
-
-   .wish-item.is-open .tooltip-card {
-
-     display: block;
-   
-}
-
-
-   .wish-item .krathong-trigger,
-   .wish-item:nth-child(odd) .krathong-trigger,
-   .wish-item:nth-child(even) .krathong-trigger {
-
-     order: 1;
-     flex: 0 0 72px;
-     width: 72px;
-     margin: 0;
-     font-size: 40px;
-   
-}
-
-
-   .wish-item .krathong-emoji {
-
-     font-size: 38px;
-   
-}
-
-
-   .wish-item .water-ripple {
-
-     width: 62px;
-   
-}
-
-
-   .wish-item.is-open {
-
-     align-items: stretch;
-     flex-wrap: wrap;
-   
-}
-
-
-   .wish-item.is-open .tooltip-card {
-
-     flex: 1 1 100%;
-     order: 3;
-   
-}
-
-
-   .tooltip-wish {
-
-     font-size: 14px;
-     line-height: 1.75;
-   
-}
 
  
-}
-
-
- @media (max-width: 360px) {
-
-   .landing {
-
-     padding-right: 10px;
-     padding-left: 10px;
-   
-}
-
-
-   .nav-link {
-
-     padding-right: 10px;
-     padding-left: 10px;
-   
-}
-
-
-   .krathong-trigger,
-   .wish-item .krathong-trigger,
-   .wish-item:nth-child(odd) .krathong-trigger,
-   .wish-item:nth-child(even) .krathong-trigger {
-
-     flex-basis: 64px;
-     width: 64px;
-   
-}
-
- 
-}
 
 
 
@@ -1682,279 +1112,7 @@
 
 
  
- @media (max-width: 389px) {
-
-   :root {
-
-     --page-gutter: 12px;
-   
-}
-
-
-   .top-nav {
-
-     position: relative;
-     justify-content: center;
-     flex-wrap: wrap;
-     gap: 4px;
-     padding: max(8px, env(safe-area-inset-top)) 8px 4px;
-   
-}
-
-
-   .nav-link {
-
-     padding: 8px 10px;
-     font-size: 12px;
-   
-}
-
-
-   .landing {
-
-     padding-top: 24px;
-     padding-bottom: calc(76px + env(safe-area-inset-bottom));
-   
-}
-
-
-   h1 {
-
-     font-size: clamp(28px, 8.8vw, 36px);
-     line-height: 1.3;
-   
-}
-
-
-   .eyebrow {
-
-     font-size: 10px;
-     letter-spacing: .12em;
-   
-}
-
-
-   .description {
-
-     margin-top: 14px;
-     margin-bottom: 26px;
-     font-size: 13px;
-     line-height: 1.8;
-   
-}
-
-
-   .loykrathong {
-
-     width: 76px;
-     font-size: 44px;
-   
-}
-
-
-   .krathong-name {
-
-     font-size: 13px;
-   
-}
-
-
-   .krathong-detail {
-
-     font-size: 10px;
-   
-}
-
-
-   .start-button {
-
-     width: 100%;
-     gap: 12px;
-     padding: 0 14px;
-   
-}
-
-
-   footer {
-
-     position: relative;
-     inset: auto;
-     margin: 20px auto 0;
-   
-}
-
  
-}
-
-
- 
- @media (min-width: 390px) and (max-width: 599px) {
-
-   :root {
-
-     --page-gutter: 16px;
-   
-}
-
-
-   .top-nav {
-
-     position: relative;
-     justify-content: center;
-     flex-wrap: wrap;
-     padding: max(10px, env(safe-area-inset-top)) 12px 6px;
-   
-}
-
-
-   .landing {
-
-     padding-top: 28px;
-     padding-bottom: calc(80px + env(safe-area-inset-bottom));
-   
-}
-
-
-   h1 {
-
-     font-size: clamp(32px, 7.5vw, 42px);
-     line-height: 1.32;
-   
-}
-
-
-   .description {
-
-     margin-bottom: 30px;
-     line-height: 1.85;
-   
-}
-
-
-   .loykrathong {
-
-     width: 84px;
-     font-size: 48px;
-   
-}
-
-
-   .start-button {
-
-     max-width: 100%;
-   
-}
-
-
-   footer {
-
-     position: relative;
-     inset: auto;
-     margin: 20px auto 0;
-   
-}
-
- 
-}
-
-
- 
- @media (min-width: 600px) and (max-width: 899px) {
-
-   :root {
-
-     --page-gutter: clamp(22px, 4vw, 36px);
-   
-}
-
-
-   .top-nav {
-
-     padding: 18px var(--page-gutter);
-   
-}
-
-
-   .landing {
-
-     padding-top: 82px;
-     padding-bottom: 76px;
-   
-}
-
-
-   .content {
-
-     max-width: 760px;
-   
-}
-
-
-   h1 {
-
-     font-size: clamp(40px, 5.5vw, 54px);
-   
-}
-
-
-   .description {
-
-     font-size: 14px;
-   
-}
-
-
-   .loykrathong {
-
-     width: 88px;
-     font-size: 50px;
-   
-}
-
- 
-}
-
-
- 
- @media (min-width: 900px) {
-
-   .landing {
-
-     padding-top: 84px;
-     padding-bottom: 82px;
-   
-}
-
-
-   .content {
-
-     max-width: 1120px;
-   
-}
-
- 
-}
-
-
- 
- @media (min-width: 1440px) {
-
-   .content {
-
-     max-width: 1200px;
-   
-}
-
-
-   .landing {
-
-     padding-right: max(40px, calc((100vw - 1320px) / 2));
-     padding-left: max(40px, calc((100vw - 1320px) / 2));
-   
-}
-
- 
-}
 
 
  
@@ -1962,22 +1120,23 @@
 
 
  
- @media (prefers-reduced-motion: reduce) {
+ 
 
-
-   *,
-   *::before,
-   *::after {
-
-     scroll-behavior: auto !important;
-     animation-duration: .01ms !important;
-     animation-iteration-count: 1 !important;
-     transition-duration: .01ms !important;
-   
-}
 
  
-}
+ 
+
+
+ 
+ 
+
+
+ 
+ 
+
+
+ 
+ 
 
 
 
@@ -2002,94 +1161,10 @@
 }
 
 
- @media (min-width: 521px) {
+ 
 
-
-   .wish-item,
-   .wish-item:nth-child(odd),
-   .wish-item:nth-child(even) {
-
-     width: 100%;
-     max-width: 100%;
-     min-width: 0;
-     gap: clamp(10px, 2vw, 18px);
-   
-}
-
-
-   .wish-item:nth-child(odd) .tooltip-card,
-   .wish-item:nth-child(even) .tooltip-card {
-
-     flex: 1 1 0;
-     width: auto;
-     min-width: 0;
-     max-width: 100%;
-     scale: 1;
-     overflow-wrap: anywhere;
-   
-}
-
-
-   .wish-item:nth-child(odd) .krathong-trigger,
-   .wish-item:nth-child(even) .krathong-trigger {
-
-     flex: 0 0 clamp(76px, 12vw, 120px);
-     width: clamp(76px, 12vw, 120px);
-     max-width: 100%;
-     font-size: clamp(40px, 5vw, 62px);
-   
-}
-
-
-   .wish-item .krathong-emoji {
-
-     font-size: clamp(38px, 4.5vw, 56px);
-   
-}
-
-
-   .wish-item .water-ripple {
-
-     width: min(85%, 105px);
-   
-}
 
  
-}
-
-
- @media (max-width: 520px) {
-
-   .landing>section[aria-labelledby="wishes-title"] {
-
-     width: 100%;
-     max-width: 100%;
-   
-}
-
-
-   .wish-item,
-   .wish-item:nth-child(odd),
-   .wish-item:nth-child(even) {
-
-     width: 100%;
-     max-width: 100%;
-     min-width: 0;
-   
-}
-
-
-   .wish-item.is-open .tooltip-card {
-
-     box-sizing: border-box;
-     width: 100%;
-     min-width: 0;
-     max-width: 100%;
-   
-}
-
- 
-}
 
 
 
@@ -2149,75 +1224,10 @@
 }
 
 
- @media (min-width: 521px) {
+ 
 
-
-   .wish-item,
-   .wish-item:nth-child(odd),
-   .wish-item:nth-child(even) {
-
-     align-self: stretch;
-   
-}
-
-
-   .wish-item .tooltip-card,
-   .wish-item:nth-child(odd) .tooltip-card,
-   .wish-item:nth-child(even) .tooltip-card {
-
-     width: 0;
-     min-width: 0;
-   
-}
-
-
-   .wish-item .krathong-trigger,
-   .wish-item:nth-child(odd) .krathong-trigger,
-   .wish-item:nth-child(even) .krathong-trigger {
-
-     flex: 0 1 clamp(64px, 10vw, 112px);
-     width: clamp(64px, 10vw, 112px);
-   
-}
 
  
-}
-
-
- @media (max-width: 520px) {
-
-
-   .wish-item,
-   .wish-item:nth-child(odd),
-   .wish-item:nth-child(even) {
-
-     flex-wrap: wrap;
-     gap: 10px;
-   
-}
-
-
-   .wish-item .tooltip-card,
-   .wish-item:nth-child(odd) .tooltip-card,
-   .wish-item:nth-child(even) .tooltip-card {
-
-     flex: 1 1 100%;
-     width: 100%;
-   
-}
-
-
-   .wish-item .krathong-trigger,
-   .wish-item:nth-child(odd) .krathong-trigger,
-   .wish-item:nth-child(even) .krathong-trigger {
-
-     flex: 0 0 64px;
-     width: 64px;
-   
-}
-
- 
-}
 
 
  .landing>section[aria-labelledby="wishes-title"] .wish-item,
@@ -2299,164 +1309,15 @@
 }
 
 
- @media (max-width: 520px) {
+ 
 
-
-   .landing>section[aria-labelledby="wishes-title"] .wish-item,
-   .landing>section[aria-labelledby="wishes-title"] .wish-item:nth-child(odd),
-   .landing>section[aria-labelledby="wishes-title"] .wish-item:nth-child(even) {
-
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     align-self: stretch;
-     gap: 10px;
-     width: 100%;
-     max-width: 100%;
-   
-}
-
-
-   .landing>section[aria-labelledby="wishes-title"] .wish-item .tooltip-card,
-   .landing>section[aria-labelledby="wishes-title"] .wish-item:nth-child(odd) .tooltip-card,
-   .landing>section[aria-labelledby="wishes-title"] .wish-item:nth-child(even) .tooltip-card {
-
-     display: block !important;
-     order: 2;
-     flex: 0 1 auto;
-     width: min(320px, calc(100vw - 32px));
-     min-width: 0;
-     max-width: 320px;
-     padding: 11px 12px;
-     transform: none;
-   
-}
-
-
-   .landing>section[aria-labelledby="wishes-title"] .wish-item .krathong-trigger,
-   .landing>section[aria-labelledby="wishes-title"] .wish-item:nth-child(odd) .krathong-trigger,
-   .landing>section[aria-labelledby="wishes-title"] .wish-item:nth-child(even) .krathong-trigger {
-
-     order: 1;
-     flex: 0 0 64px;
-     width: 64px;
-     margin: 0;
-   
-}
 
  
-}
-
-
- @media (max-width: 360px) {
-
-
-   .landing>section[aria-labelledby="wishes-title"] .wish-item .tooltip-card,
-   .landing>section[aria-labelledby="wishes-title"] .wish-item.is-open .tooltip-card {
-
-     width: calc(100vw - 28px);
-     padding: 10px 11px;
-   
-}
-
-
-   .landing>section[aria-labelledby="wishes-title"] .tooltip-card .tooltip-wish {
-
-     font-size: 12px;
-   
-}
-
- 
-}
 
 
 
  
- @media (max-width: 520px) {
-
-
-   .landing>section[aria-labelledby="wishes-title"] .wish-item,
-   .landing>section[aria-labelledby="wishes-title"] .wish-item:nth-child(odd),
-   .landing>section[aria-labelledby="wishes-title"] .wish-item:nth-child(even),
-   .landing>section[aria-labelledby="wishes-title"] .wish-item.is-open {
-
-     display: flex;
-     flex-direction: column;
-     flex-wrap: nowrap;
-     align-items: center;
-     align-self: stretch;
-     position: relative;
-     left: auto;
-     right: auto;
-     transform: none;
-     width: 100%;
-     max-width: 100%;
-     min-width: 0;
-     gap: 10px;
-     margin-inline: auto;
-   
-}
-
-
-   .landing>section[aria-labelledby="wishes-title"] .wish-item .tooltip-card,
-   .landing>section[aria-labelledby="wishes-title"] .wish-item:nth-child(odd) .tooltip-card,
-   .landing>section[aria-labelledby="wishes-title"] .wish-item:nth-child(even) .tooltip-card,
-   .landing>section[aria-labelledby="wishes-title"] .wish-item.is-open .tooltip-card {
-
-     display: block !important;
-     position: relative;
-     left: auto;
-     right: auto;
-     align-self: center;
-     order: 1;
-     flex: 0 1 auto;
-     width: min(320px, calc(100vw - 32px));
-     max-width: calc(100vw - 32px);
-     min-width: 0;
-     margin-left: auto !important;
-     margin-right: auto !important;
-     transform: none !important;
-     translate: none;
-     scale: 1;
-     text-align: left;
-   
-}
-
-
-   
-   .landing>section[aria-labelledby="wishes-title"] .wish-item .tooltip-card::after,
-   .landing>section[aria-labelledby="wishes-title"] .wish-item:nth-child(odd) .tooltip-card::after,
-   .landing>section[aria-labelledby="wishes-title"] .wish-item:nth-child(even) .tooltip-card::after {
-
-     content: "";
-     display: block;
-     position: absolute;
-     left: 50%;
-     bottom: -10px;
-     width: 2px;
-     border: 0;
-     border-radius: 2px;
-     background: linear-gradient(to bottom, rgba(216, 184, 107, .8), rgba(216, 184, 107, .15));
-     transform: translateX(-50%);
-   
-}
-
-
-   .landing>section[aria-labelledby="wishes-title"] .wish-item .krathong-trigger,
-   .landing>section[aria-labelledby="wishes-title"] .wish-item:nth-child(odd) .krathong-trigger,
-   .landing>section[aria-labelledby="wishes-title"] .wish-item:nth-child(even) .krathong-trigger,
-   .landing>section[aria-labelledby="wishes-title"] .wish-item.is-open .krathong-trigger {
-
-     order: 2;
-     align-self: center;
-     flex: 0 0 64px;
-     width: 64px;
-     margin: 0 auto;
-   
-}
-
  
-}
 
 
  
@@ -2473,19 +1334,7 @@
 }
 
 
- @media (prefers-reduced-motion: reduce) {
-
-
-.wave-svg,
-    .success-krathong,
-    .loykrathong {
-
-      animation: none;
-    
-}
-
  
-}
 
 
  footer {
@@ -2555,37 +1404,10 @@
 }
 
 
-@media (max-width: 760px) {
-
-  .lalaloy {
-
-    top: 24%;
-  
-}
 
 
-}
 
 
-@media (prefers-reduced-motion: reduce) {
-
-  .lalaloy,
-  .lalaloy-motion {
-
-    animation: none;
-    transform: none;
-  
-}
-
-
-  .lalaloy {
-
-    left: calc(50% - 50px);
-  
-}
-
-
-}
 
 
 .landing {
@@ -2615,23 +1437,7 @@
 
 
 
-@media (max-width: 600px) {
 
-  body:not(:has(#webgl-canvas-create)) .content > .refresh-btn {
-
-    margin-top: 30px;
-  
-}
-
-
-  body:not(:has(#webgl-canvas-create)) .refresh-row {
-
-    margin-top: 14px;
-  
-}
-
-
-}
 
 
 
@@ -2704,24 +1510,7 @@ body:not(:has(#webgl-canvas-create)) #webgl-canvas {
 }
 
 
-@media (max-width: 600px) {
 
-
-  body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop::before {
-
-    inset: -24px -18px;
-    background: radial-gradient(
-      ellipse at center,
-      rgba(2, 9, 21, 0.34) 0%,
-      rgba(2, 9, 21, 0.20) 54%,
-      transparent 82%
-    );
-    filter: blur(8px);
-  
-}
-
-
-}
 
 
 
@@ -2847,25 +1636,7 @@ oot {
 }
 
 
- @media (max-width: 600px) {
-
-   .top-nav {
-
-     padding: 16px;
-     gap: 4px;
-   
-}
-
-
-   .nav-link {
-
-     padding: 9px 12px;
-     font-size: 12px;
-   
-}
-
  
-}
 
 
  .ornament {
@@ -2910,16 +1681,7 @@ oot {
 }
 
 
- @media (max-width: 760px) {
-
-   .intro {
-
-     margin-bottom: 30px;
-   
-}
-
  
-}
 
 
  button,
@@ -3251,129 +2013,13 @@ oot {
 
 
 
- @media (max-width: 600px) {
+ 
 
-   .landing {
-
-     padding: 46px 18px 76px;
-   
-}
-
-
-   .moon-glow {
-
-     width: 280px;
-     top: 8%;
-   
-}
-
-
-   .eyebrow {
-
-     margin-bottom: 23px;
-     font-size: 11px;
-   
-}
-
-
-   h1 {
-
-     font-size: clamp(35px, 10vw, 46px);
-   
-}
-
-
-   .description {
-
-     margin: 15px 0 34px;
-     font-size: 12px;
-   
-}
-
-
-   .loykrathong {
-
-     width: 68px;
-     font-size: 43px;
-   
-}
-
-
-   .krathong-name {
-
-     font-size: 12px;
-   
-}
-
-
-   .krathong-detail {
-
-     font-size: 10px;
-   
-}
-
-
-   .start-button {
-
-     width: 100%;
-     max-width: 340px;
-   
-}
-
-
-   footer {
-
-     right: 16px;
-     left: 16px;
-     font-size: 8px;
-     letter-spacing: 0.07em;
-   
-}
 
  
-}
 
-
- @media (max-width: 360px) {
-
-   .krathong-detail {
-
-     font-size: 9px;
-   
-}
-
-
-   .loykrathong {
-
-     font-size: 37px;
-   
-}
-
-
-   .text-button {
-
-     font-size: 10px;
-   
-}
 
  
-}
-
-
- @media (prefers-reduced-motion: reduce) {
-
-
-   *,
-   *::before,
-   *::after {
-
-     animation: none !important;
-     transition: none !important;
-   
-}
-
- 
-}
 
 
  @keyframes success-krathong-bob {
@@ -3769,140 +2415,14 @@ oot {
 
 
  
- @media (max-width: 800px) {
-
-   .wish-item {
-
-     max-width: 90%;
-   
-}
-
-
-   .wish-item:nth-child(even) {
-
-     max-width: 98%;
-   
-}
-
  
-}
-
-
- @media (max-width: 520px) {
-
-
-   .wish-item {
-
-     max-width: 94%;
-     gap: 8px;
-   
-}
-
-
-   .wish-item:nth-child(even) {
-
-     max-width: 100%;
-     gap: 8px;
-   
-}
-
-
-   .tooltip-card {
-
-     padding: 14px 12px;
-     border-radius: 14px;
-   
-}
-
-
-   .tooltip-wish {
-
-     font-size: 14px;
-   
-}
-
-
-   .tooltip-footer {
-
-     flex-wrap: wrap;
-   
-}
-
-
-   .tooltip-type {
-
-     text-align: left;
-   
-}
-
-
-   .wish-item:nth-child(even) .tooltip-card {
-
-     flex: 1 1 0;
-     width: auto;
-   
-}
-
-
-   .wish-item:nth-child(even) .krathong-trigger {
-
-     flex-basis: 84px;
-     width: 84px;
-     margin: 8px 0 12px;
-     font-size: 44px;
-   
-}
-
-
-   .wish-item:nth-child(odd) .krathong-trigger {
-
-     flex-basis: 84px;
-     width: 84px;
-     margin: 8px 0 12px;
-     font-size: 44px;
-   
-}
-
-
-   .wish-item:nth-child(odd) .krathong-emoji {
-
-     font-size: 40px;
-   
-}
-
-
-   .wish-item:nth-child(even) .krathong-emoji {
-
-     font-size: 40px;
-   
-}
-
-
-   .wish-item:nth-child(even) .water-ripple {
-
-     width: 70px;
-   
-}
-
- 
-}
 
 
  
- @media (prefers-reduced-motion: reduce) {
 
-
-   *,
-   *::before,
-   *::after {
-
-     animation: none !important;
-     transition: none !important;
-   
-}
 
  
-}
+ 
 
 
  .refresh-btn {
@@ -3969,97 +2489,7 @@ oot {
 }
 
 
- @media (max-width: 520px) {
-
-   .top-nav {
-
-     padding: 14px 12px;
-   
-}
-
-
-.krathong-trigger {
-
-     width: 124px;
-   
-}
-
-
-   .krathong-emoji {
-
-     font-size: 51px;
-   
-}
-
-
-   .tooltip-card {
-
-     width: min(270px, calc(100vw - 28px));
-   
-}
-
-
-   .wish-item:nth-child(odd) .tooltip-card {
-
-     left: 20px;
-     transform: translate(0, 8px) scale(.97);
-     transform-origin: bottom left;
-   
-}
-
-
-   .wish-item:nth-child(even) .tooltip-card {
-
-     left: auto;
-     right: 20px;
-     transform: translate(0, 8px) scale(.97);
-     transform-origin: bottom right;
-   
-}
-
-
-   .wish-item:nth-child(odd):hover .tooltip-card,
-   .wish-item:nth-child(odd):focus-within .tooltip-card,
-   .wish-item:nth-child(odd).is-open .tooltip-card {
-
-     transform: translate(0, 0) scale(1);
-   
-}
-
-
-   .wish-item:nth-child(even):hover .tooltip-card,
-   .wish-item:nth-child(even):focus-within .tooltip-card,
-   .wish-item:nth-child(even).is-open .tooltip-card {
-
-     transform: translate(0, 0) scale(1);
-   
-}
-
-
-   .wish-item:nth-child(odd) .tooltip-card::after {
-
-     left: 34px;
-   
-}
-
-
-   .wish-item:nth-child(even) .tooltip-card::after {
-
-     left: auto;
-     right: 34px;
-   
-}
-
-
-   footer {
-
-     font-size: 9px;
-     letter-spacing: 1px;
-   
-}
-
  
-}
 
 
  .refresh-row {
@@ -4082,221 +2512,10 @@ oot {
 }
 
 
- @media (max-width: 520px) {
+ 
 
-   .top-nav {
-
-     position: relative;
-     justify-content: center;
-     padding: max(12px, env(safe-area-inset-top)) 10px 8px;
-     gap: 6px;
-   
-}
-
-
-   .nav-link {
-
-     padding: 10px 14px;
-     font-size: 13px;
-   
-}
-
-
-   .landing {
-
-     padding: 24px 14px calc(78px + env(safe-area-inset-bottom));
-     overflow: clip;
-   
-}
-
-
-   .content {
-
-     width: 100%;
-     min-width: 0;
-   
-}
-
-
-   h1 {
-
-     font-size: clamp(32px, 9vw, 43px);
-     line-height: 1.3;
-     overflow-wrap: anywhere;
-   
-}
-
-
-   .eyebrow {
-
-     letter-spacing: .16em;
-   
-}
-
-
-   .description {
-
-     overflow-wrap: anywhere;
-   
-}
-
-
-   .krathong-detail {
-
-     line-height: 1.5;
-     overflow-wrap: anywhere;
-   
-}
-
-
-   .start-button,
-   .submit-button,
-   .refresh-btn {
-
-     touch-action: manipulation;
-   
-}
-
-
-   footer {
-
-     right: 12px;
-     bottom: max(12px, env(safe-area-inset-bottom));
-     left: 12px;
-     flex-wrap: wrap;
-     justify-content: center;
-     text-align: center;
-     line-height: 1.6;
-   
-}
-
-
-   .wish-item,
-   .wish-item:nth-child(odd),
-   .wish-item:nth-child(even) {
-
-     display: flex;
-     flex-direction: row;
-     align-items: center;
-     align-self: stretch;
-     gap: 12px;
-     width: 100%;
-     max-width: 100%;
-     min-width: 0;
-   
-}
-
-
-   .wish-item .tooltip-card,
-   .wish-item:nth-child(odd) .tooltip-card,
-   .wish-item:nth-child(even) .tooltip-card {
-
-     display: none;
-     order: 2;
-     flex: 1 1 auto;
-     width: auto;
-     min-width: 0;
-     max-width: 100%;
-     margin: 0;
-     padding: 14px;
-     scale: 1;
-     transform: none;
-     overflow-wrap: anywhere;
-   
-}
-
-
-   .wish-item.is-open .tooltip-card {
-
-     display: block;
-   
-}
-
-
-   .wish-item .krathong-trigger,
-   .wish-item:nth-child(odd) .krathong-trigger,
-   .wish-item:nth-child(even) .krathong-trigger {
-
-     order: 1;
-     flex: 0 0 72px;
-     width: 72px;
-     margin: 0;
-     font-size: 40px;
-   
-}
-
-
-   .wish-item .krathong-emoji {
-
-     font-size: 38px;
-   
-}
-
-
-   .wish-item .water-ripple {
-
-     width: 62px;
-   
-}
-
-
-   .wish-item.is-open {
-
-     align-items: stretch;
-     flex-wrap: wrap;
-   
-}
-
-
-   .wish-item.is-open .tooltip-card {
-
-     flex: 1 1 100%;
-     order: 3;
-   
-}
-
-
-   .tooltip-wish {
-
-     font-size: 14px;
-     line-height: 1.75;
-   
-}
 
  
-}
-
-
- @media (max-width: 360px) {
-
-   .landing {
-
-     padding-right: 10px;
-     padding-left: 10px;
-   
-}
-
-
-   .nav-link {
-
-     padding-right: 10px;
-     padding-left: 10px;
-   
-}
-
-
-   .krathong-trigger,
-   .wish-item .krathong-trigger,
-   .wish-item:nth-child(odd) .krathong-trigger,
-   .wish-item:nth-child(even) .krathong-trigger {
-
-     flex-basis: 64px;
-     width: 64px;
-   
-}
-
- 
-}
 
 
 
@@ -4425,279 +2644,7 @@ oot {
 
 
  
- @media (max-width: 389px) {
-
-   :root {
-
-     --page-gutter: 12px;
-   
-}
-
-
-   .top-nav {
-
-     position: relative;
-     justify-content: center;
-     flex-wrap: wrap;
-     gap: 4px;
-     padding: max(8px, env(safe-area-inset-top)) 8px 4px;
-   
-}
-
-
-   .nav-link {
-
-     padding: 8px 10px;
-     font-size: 12px;
-   
-}
-
-
-   .landing {
-
-     padding-top: 24px;
-     padding-bottom: calc(76px + env(safe-area-inset-bottom));
-   
-}
-
-
-   h1 {
-
-     font-size: clamp(28px, 8.8vw, 36px);
-     line-height: 1.3;
-   
-}
-
-
-   .eyebrow {
-
-     font-size: 10px;
-     letter-spacing: .12em;
-   
-}
-
-
-   .description {
-
-     margin-top: 14px;
-     margin-bottom: 26px;
-     font-size: 13px;
-     line-height: 1.8;
-   
-}
-
-
-   .loykrathong {
-
-     width: 76px;
-     font-size: 44px;
-   
-}
-
-
-   .krathong-name {
-
-     font-size: 13px;
-   
-}
-
-
-   .krathong-detail {
-
-     font-size: 10px;
-   
-}
-
-
-   .start-button {
-
-     width: 100%;
-     gap: 12px;
-     padding: 0 14px;
-   
-}
-
-
-   footer {
-
-     position: relative;
-     inset: auto;
-     margin: 20px auto 0;
-   
-}
-
  
-}
-
-
- 
- @media (min-width: 390px) and (max-width: 599px) {
-
-   :root {
-
-     --page-gutter: 16px;
-   
-}
-
-
-   .top-nav {
-
-     position: relative;
-     justify-content: center;
-     flex-wrap: wrap;
-     padding: max(10px, env(safe-area-inset-top)) 12px 6px;
-   
-}
-
-
-   .landing {
-
-     padding-top: 28px;
-     padding-bottom: calc(80px + env(safe-area-inset-bottom));
-   
-}
-
-
-   h1 {
-
-     font-size: clamp(32px, 7.5vw, 42px);
-     line-height: 1.32;
-   
-}
-
-
-   .description {
-
-     margin-bottom: 30px;
-     line-height: 1.85;
-   
-}
-
-
-   .loykrathong {
-
-     width: 84px;
-     font-size: 48px;
-   
-}
-
-
-   .start-button {
-
-     max-width: 100%;
-   
-}
-
-
-   footer {
-
-     position: relative;
-     inset: auto;
-     margin: 20px auto 0;
-   
-}
-
- 
-}
-
-
- 
- @media (min-width: 600px) and (max-width: 899px) {
-
-   :root {
-
-     --page-gutter: clamp(22px, 4vw, 36px);
-   
-}
-
-
-   .top-nav {
-
-     padding: 18px var(--page-gutter);
-   
-}
-
-
-   .landing {
-
-     padding-top: 82px;
-     padding-bottom: 76px;
-   
-}
-
-
-   .content {
-
-     max-width: 760px;
-   
-}
-
-
-   h1 {
-
-     font-size: clamp(40px, 5.5vw, 54px);
-   
-}
-
-
-   .description {
-
-     font-size: 14px;
-   
-}
-
-
-   .loykrathong {
-
-     width: 88px;
-     font-size: 50px;
-   
-}
-
- 
-}
-
-
- 
- @media (min-width: 900px) {
-
-   .landing {
-
-     padding-top: 84px;
-     padding-bottom: 82px;
-   
-}
-
-
-   .content {
-
-     max-width: 1120px;
-   
-}
-
- 
-}
-
-
- 
- @media (min-width: 1440px) {
-
-   .content {
-
-     max-width: 1200px;
-   
-}
-
-
-   .landing {
-
-     padding-right: max(40px, calc((100vw - 1320px) / 2));
-     padding-left: max(40px, calc((100vw - 1320px) / 2));
-   
-}
-
- 
-}
 
 
  
@@ -4705,22 +2652,23 @@ oot {
 
 
  
- @media (prefers-reduced-motion: reduce) {
+ 
 
-
-   *,
-   *::before,
-   *::after {
-
-     scroll-behavior: auto !important;
-     animation-duration: .01ms !important;
-     animation-iteration-count: 1 !important;
-     transition-duration: .01ms !important;
-   
-}
 
  
-}
+ 
+
+
+ 
+ 
+
+
+ 
+ 
+
+
+ 
+ 
 
 
 
@@ -4745,94 +2693,10 @@ oot {
 }
 
 
- @media (min-width: 521px) {
+ 
 
-
-   .wish-item,
-   .wish-item:nth-child(odd),
-   .wish-item:nth-child(even) {
-
-     width: 100%;
-     max-width: 100%;
-     min-width: 0;
-     gap: clamp(10px, 2vw, 18px);
-   
-}
-
-
-   .wish-item:nth-child(odd) .tooltip-card,
-   .wish-item:nth-child(even) .tooltip-card {
-
-     flex: 1 1 0;
-     width: auto;
-     min-width: 0;
-     max-width: 100%;
-     scale: 1;
-     overflow-wrap: anywhere;
-   
-}
-
-
-   .wish-item:nth-child(odd) .krathong-trigger,
-   .wish-item:nth-child(even) .krathong-trigger {
-
-     flex: 0 0 clamp(76px, 12vw, 120px);
-     width: clamp(76px, 12vw, 120px);
-     max-width: 100%;
-     font-size: clamp(40px, 5vw, 62px);
-   
-}
-
-
-   .wish-item .krathong-emoji {
-
-     font-size: clamp(38px, 4.5vw, 56px);
-   
-}
-
-
-   .wish-item .water-ripple {
-
-     width: min(85%, 105px);
-   
-}
 
  
-}
-
-
- @media (max-width: 520px) {
-
-   .landing>section[aria-labelledby="wishes-title"] {
-
-     width: 100%;
-     max-width: 100%;
-   
-}
-
-
-   .wish-item,
-   .wish-item:nth-child(odd),
-   .wish-item:nth-child(even) {
-
-     width: 100%;
-     max-width: 100%;
-     min-width: 0;
-   
-}
-
-
-   .wish-item.is-open .tooltip-card {
-
-     box-sizing: border-box;
-     width: 100%;
-     min-width: 0;
-     max-width: 100%;
-   
-}
-
- 
-}
 
 
 
@@ -4892,75 +2756,10 @@ oot {
 }
 
 
- @media (min-width: 521px) {
+ 
 
-
-   .wish-item,
-   .wish-item:nth-child(odd),
-   .wish-item:nth-child(even) {
-
-     align-self: stretch;
-   
-}
-
-
-   .wish-item .tooltip-card,
-   .wish-item:nth-child(odd) .tooltip-card,
-   .wish-item:nth-child(even) .tooltip-card {
-
-     width: 0;
-     min-width: 0;
-   
-}
-
-
-   .wish-item .krathong-trigger,
-   .wish-item:nth-child(odd) .krathong-trigger,
-   .wish-item:nth-child(even) .krathong-trigger {
-
-     flex: 0 1 clamp(64px, 10vw, 112px);
-     width: clamp(64px, 10vw, 112px);
-   
-}
 
  
-}
-
-
- @media (max-width: 520px) {
-
-
-   .wish-item,
-   .wish-item:nth-child(odd),
-   .wish-item:nth-child(even) {
-
-     flex-wrap: wrap;
-     gap: 10px;
-   
-}
-
-
-   .wish-item .tooltip-card,
-   .wish-item:nth-child(odd) .tooltip-card,
-   .wish-item:nth-child(even) .tooltip-card {
-
-     flex: 1 1 100%;
-     width: 100%;
-   
-}
-
-
-   .wish-item .krathong-trigger,
-   .wish-item:nth-child(odd) .krathong-trigger,
-   .wish-item:nth-child(even) .krathong-trigger {
-
-     flex: 0 0 64px;
-     width: 64px;
-   
-}
-
- 
-}
 
 
  .landing>section[aria-labelledby="wishes-title"] .wish-item,
@@ -5042,164 +2841,15 @@ oot {
 }
 
 
- @media (max-width: 520px) {
+ 
 
-
-   .landing>section[aria-labelledby="wishes-title"] .wish-item,
-   .landing>section[aria-labelledby="wishes-title"] .wish-item:nth-child(odd),
-   .landing>section[aria-labelledby="wishes-title"] .wish-item:nth-child(even) {
-
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     align-self: stretch;
-     gap: 10px;
-     width: 100%;
-     max-width: 100%;
-   
-}
-
-
-   .landing>section[aria-labelledby="wishes-title"] .wish-item .tooltip-card,
-   .landing>section[aria-labelledby="wishes-title"] .wish-item:nth-child(odd) .tooltip-card,
-   .landing>section[aria-labelledby="wishes-title"] .wish-item:nth-child(even) .tooltip-card {
-
-     display: block !important;
-     order: 2;
-     flex: 0 1 auto;
-     width: min(320px, calc(100vw - 32px));
-     min-width: 0;
-     max-width: 320px;
-     padding: 11px 12px;
-     transform: none;
-   
-}
-
-
-   .landing>section[aria-labelledby="wishes-title"] .wish-item .krathong-trigger,
-   .landing>section[aria-labelledby="wishes-title"] .wish-item:nth-child(odd) .krathong-trigger,
-   .landing>section[aria-labelledby="wishes-title"] .wish-item:nth-child(even) .krathong-trigger {
-
-     order: 1;
-     flex: 0 0 64px;
-     width: 64px;
-     margin: 0;
-   
-}
 
  
-}
-
-
- @media (max-width: 360px) {
-
-
-   .landing>section[aria-labelledby="wishes-title"] .wish-item .tooltip-card,
-   .landing>section[aria-labelledby="wishes-title"] .wish-item.is-open .tooltip-card {
-
-     width: calc(100vw - 28px);
-     padding: 10px 11px;
-   
-}
-
-
-   .landing>section[aria-labelledby="wishes-title"] .tooltip-card .tooltip-wish {
-
-     font-size: 12px;
-   
-}
-
- 
-}
 
 
 
  
- @media (max-width: 520px) {
-
-
-   .landing>section[aria-labelledby="wishes-title"] .wish-item,
-   .landing>section[aria-labelledby="wishes-title"] .wish-item:nth-child(odd),
-   .landing>section[aria-labelledby="wishes-title"] .wish-item:nth-child(even),
-   .landing>section[aria-labelledby="wishes-title"] .wish-item.is-open {
-
-     display: flex;
-     flex-direction: column;
-     flex-wrap: nowrap;
-     align-items: center;
-     align-self: stretch;
-     position: relative;
-     left: auto;
-     right: auto;
-     transform: none;
-     width: 100%;
-     max-width: 100%;
-     min-width: 0;
-     gap: 10px;
-     margin-inline: auto;
-   
-}
-
-
-   .landing>section[aria-labelledby="wishes-title"] .wish-item .tooltip-card,
-   .landing>section[aria-labelledby="wishes-title"] .wish-item:nth-child(odd) .tooltip-card,
-   .landing>section[aria-labelledby="wishes-title"] .wish-item:nth-child(even) .tooltip-card,
-   .landing>section[aria-labelledby="wishes-title"] .wish-item.is-open .tooltip-card {
-
-     display: block !important;
-     position: relative;
-     left: auto;
-     right: auto;
-     align-self: center;
-     order: 1;
-     flex: 0 1 auto;
-     width: min(320px, calc(100vw - 32px));
-     max-width: calc(100vw - 32px);
-     min-width: 0;
-     margin-left: auto !important;
-     margin-right: auto !important;
-     transform: none !important;
-     translate: none;
-     scale: 1;
-     text-align: left;
-   
-}
-
-
-   
-   .landing>section[aria-labelledby="wishes-title"] .wish-item .tooltip-card::after,
-   .landing>section[aria-labelledby="wishes-title"] .wish-item:nth-child(odd) .tooltip-card::after,
-   .landing>section[aria-labelledby="wishes-title"] .wish-item:nth-child(even) .tooltip-card::after {
-
-     content: "";
-     display: block;
-     position: absolute;
-     left: 50%;
-     bottom: -10px;
-     width: 2px;
-     border: 0;
-     border-radius: 2px;
-     background: linear-gradient(to bottom, rgba(216, 184, 107, .8), rgba(216, 184, 107, .15));
-     transform: translateX(-50%);
-   
-}
-
-
-   .landing>section[aria-labelledby="wishes-title"] .wish-item .krathong-trigger,
-   .landing>section[aria-labelledby="wishes-title"] .wish-item:nth-child(odd) .krathong-trigger,
-   .landing>section[aria-labelledby="wishes-title"] .wish-item:nth-child(even) .krathong-trigger,
-   .landing>section[aria-labelledby="wishes-title"] .wish-item.is-open .krathong-trigger {
-
-     order: 2;
-     align-self: center;
-     flex: 0 0 64px;
-     width: 64px;
-     margin: 0 auto;
-   
-}
-
  
-}
 
 
  
@@ -5216,19 +2866,7 @@ oot {
 }
 
 
- @media (prefers-reduced-motion: reduce) {
-
-
-.wave-svg,
-    .success-krathong,
-    .loykrathong {
-
-      animation: none;
-    
-}
-
  
-}
 
 
  footer {
@@ -5298,37 +2936,10 @@ oot {
 }
 
 
-@media (max-width: 760px) {
-
-  .lalaloy {
-
-    top: 24%;
-  
-}
 
 
-}
 
 
-@media (prefers-reduced-motion: reduce) {
-
-  .lalaloy,
-  .lalaloy-motion {
-
-    animation: none;
-    transform: none;
-  
-}
-
-
-  .lalaloy {
-
-    left: calc(50% - 50px);
-  
-}
-
-
-}
 
 
 .landing {
@@ -5358,23 +2969,7 @@ oot {
 
 
 
-@media (max-width: 600px) {
 
-  body:not(:has(#webgl-canvas-create)) .content > .refresh-btn {
-
-    margin-top: 30px;
-  
-}
-
-
-  body:not(:has(#webgl-canvas-create)) .refresh-row {
-
-    margin-top: 14px;
-  
-}
-
-
-}
 
 
 
@@ -5447,24 +3042,7 @@ body:not(:has(#webgl-canvas-create)) #webgl-canvas {
 }
 
 
-@media (max-width: 600px) {
 
-
-  body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop::before {
-
-    inset: -24px -18px;
-    background: radial-gradient(
-      ellipse at center,
-      rgba(2, 9, 21, 0.84) 0%,
-      rgba(2, 9, 21, 0.58) 54%,
-      transparent 82%
-    );
-    filter: blur(8px);
-  
-}
-
-
-}
 
 
 
@@ -5600,25 +3178,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moo
 }
 
 
-@media (max-width: 600px) {
 
-  body:not(:has(#webgl-canvas-create)) .landing > .moon-image {
-
-    top: -2vh;
-    width: clamp(150px, 46vw, 230px);
-  
-}
-
-
-  body:not(:has(#webgl-canvas-create)) .landing > .moon-image::before {
-
-    inset: -30%;
-    filter: blur(11px);
-  
-}
-
-
-}
 
 
 
@@ -5641,18 +3201,7 @@ body:has(.landing > footer) .landing > footer {
 }
 
 
-@media (max-width: 600px) {
 
-  body:has(.landing > footer) .landing > footer {
-
-    gap: 8px 12px;
-    font-size: 9px !important;
-    letter-spacing: 0.1em;
-  
-}
-
-
-}
 
 
 /* Index page: move intro and moon upward only */
@@ -5670,16 +3219,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moo
 }
 
 
-@media (max-width: 600px) {
 
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image {
-
-    top: 0 !important;
-  
-}
-
-
-}
 
 
 
