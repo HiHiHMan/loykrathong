@@ -1157,7 +1157,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
   min-height: 0;
   box-sizing: border-box;
   padding: 0;
-  padding-top: calc(2svh + clamp(70px, 12vw, 150px));
+  padding-top: calc(2svh + clamp(50px, 6vw, 90px));
 }
 
 body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop {
