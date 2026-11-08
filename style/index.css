@@ -1220,7 +1220,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
   position: fixed;
   left: 50%;
   right: auto;
-  bottom: 170px;
+  bottom: 181px;
   top: auto;
   z-index: 3;
   width: 100vw;
