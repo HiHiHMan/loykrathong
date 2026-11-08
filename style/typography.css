@@ -68,6 +68,5 @@ body .wish-form textarea {
   }
 
   body :is(.nav-link, .start-button, .refresh-btn, .text-button) {
-    min-height: 46px;
   }
 }
