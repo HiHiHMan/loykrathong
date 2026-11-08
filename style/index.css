@@ -1145,10 +1145,6 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing {
   min-height: 100dvh;
 }
 
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image {
-  top: 5%;
-}
-
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .moon-image > img {
   display: block;
   width: 100%;
@@ -1160,25 +1156,8 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
   height: 100%;
   min-height: 0;
   box-sizing: border-box;
+  padding: 0;
   padding-top: calc(5svh + clamp(110px, 22vw, 260px) + 20px);
-  padding-bottom: 0;
-}
-
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
-  flex: 0 0 auto;
-  margin-top: auto;
-}
-
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-road {
-  flex: 0 0 clamp(38px, 6svh, 72px);
-  height: clamp(38px, 6svh, 72px);
-  margin: 0;
-}
-
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .cartoon-water {
-  flex: 0 0 clamp(180px, 24svh, 260px);
-  height: clamp(180px, 24svh, 260px);
-  margin: 0;
 }
 
 body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop {
@@ -1207,19 +1186,13 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
   position: fixed;
   left: 50%;
   right: auto;
-  bottom: 0;
+  bottom: 170px;
   top: auto;
   z-index: 3;
   width: 100vw;
   height: clamp(180px, 24svh, 260px);
   margin: 0;
   transform: translateX(-50%);
-}
-
-/* Keep water at its original position; extend it over the road by 80px. */
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .cartoon-water {
-  bottom: 170px;
-  z-index: 3;
 }
 
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-road {
