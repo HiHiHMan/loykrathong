@@ -358,3 +358,17 @@ body:has(#wishGrid) .wish-item .krathong-emoji {
   width: 100%;
   max-width: 100%;
 }
+
+/* Use the decorative card artwork as the Wishes tooltip background. */
+body:has(#wishGrid) .wish-item .tooltip-card {
+  background: url("../images/card.png") center / 100% 100% no-repeat;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+body:has(#wishGrid) .wish-item .tooltip-card::before {
+  display: none;
+}
