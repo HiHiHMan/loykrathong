@@ -1344,10 +1344,13 @@ body:not(:has(#webgl-canvas-create)) .landing > footer {
 }
 
 
-/* Reduce the visible create-krathong image button by one third. */
+/* Keep the create-krathong button at a modest fixed size on every viewport. */
 body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop > a:first-child img {
-  transform: scale(0.8);
-  transform-origin: center;
+  display: block;
+  width: 130px !important;
+  max-width: none !important;
+  height: auto !important;
+  transform: none;
 }
 
 /* HOME SCENE POSITIONING — anchored to the viewport (mobile-first). */
