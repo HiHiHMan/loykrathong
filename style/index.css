@@ -113,7 +113,6 @@ animation-duration: 82s;
 
    .cartoon-water {
 
-     height: 220px;
      margin-top: -170px;
      margin-bottom: 0;
    
@@ -243,7 +242,6 @@ animation-duration: 82s;
   .cartoon-water .latest-wish-krathong.lalaloy {
 
     width: 76px;
-    height: 76px;
     font-size: 44px;
   
 }
@@ -568,7 +566,6 @@ body:has(.landing > .moon-image) .landing .intro .ornament {
 
    .cartoon-water {
 
-     height: 220px;
      margin-top: -170px;
      margin-bottom: 0;
    
@@ -698,7 +695,6 @@ body:has(.landing > .moon-image) .landing .intro .ornament {
   .cartoon-water .latest-wish-krathong.lalaloy {
 
     width: 76px;
-    height: 76px;
     font-size: 44px;
   
 }
@@ -926,7 +922,6 @@ body:has(.landing > .moon-image) .landing .intro .ornament {
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    height: auto !important;
     overflow: visible !important;
     padding-bottom: max(12px, env(safe-area-inset-bottom));
   
@@ -1456,7 +1451,6 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .sky
 @media (max-width: 600px) {
   .cartoon-water .latest-wish-krathong.lalaloy {
     width: 64px;
-    height: 64px;
   }
 }
 
@@ -1567,7 +1561,6 @@ body:has(.landing > .moon-image) .refresh-actions-backdrop > .refresh-btn:active
 
 @media (max-width: 760px) {
   .cartoon-water {
-    height: 176px;
   }
 }
 
@@ -2712,7 +2705,6 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro .title-image {
     width: 55vw !important;
     max-width: none !important;
-    height: auto !important;
     transform: translateY(-75px) !important;
   }
 
@@ -2805,7 +2797,6 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro .title-image {
     width: 55vw !important;
     max-width: none !important;
-    height: auto !important;
     transform: translateY(-30px) !important;
   }
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro .ornament {
