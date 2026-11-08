@@ -1282,7 +1282,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
   z-index: 2;
   left: 50%;
   width: 100vw;
-  height: clamp(42px, 8vw, 110px);
+  height: clamp(38px, 6svh, 72px);
   margin: -1px 0 0;
   transform: translateX(-50%);
   pointer-events: none;
@@ -1393,8 +1393,8 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 }
 
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-road {
-  flex: 0 0 clamp(42px, 8vw, 110px);
-  height: clamp(42px, 8vw, 110px);
+  flex: 0 0 clamp(38px, 6svh, 72px);
+  height: clamp(38px, 6svh, 72px);
   margin: 0;
 }
 
@@ -1440,7 +1440,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
   bottom: calc(170px + clamp(180px, 24svh, 260px) - 50px);
   z-index: 2;
   width: 100vw;
-  height: clamp(42px, 8vw, 110px);
+  height: clamp(38px, 6svh, 72px);
   margin: 0;
   transform: translateX(-50%);
 }
