@@ -1133,6 +1133,24 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .moon-star-5 {
   height: clamp(52px, 4.2vw, 80px);
 }
 
+/* Restore the original home-page twilight gradient background. */
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing {
+  background:
+    radial-gradient(ellipse at 50% 58%, rgba(255, 112, 160, 0.42) 0%, rgba(255, 112, 160, 0.12) 28%, transparent 56%),
+    radial-gradient(ellipse at 18% 38%, rgba(117, 65, 220, 0.34) 0%, transparent 48%),
+    radial-gradient(ellipse at 84% 30%, rgba(65, 74, 190, 0.32) 0%, transparent 46%),
+    linear-gradient(
+      180deg,
+      #17164f 0%,
+      #302078 22%,
+      #6230a0 43%,
+      #a33d9b 61%,
+      #d65391 73%,
+      #70406f 87%,
+      #101d3d 100%
+    );
+}
+
 /* =========================================================
    HOME SCENE RESET — mobile-first layout
    Reset conflicting viewport-specific offsets; keep artwork,
