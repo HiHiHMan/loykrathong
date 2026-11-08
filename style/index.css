@@ -1304,3 +1304,9 @@ body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-back
     bottom: calc(130px + clamp(180px, 24svh, 260px) - 50px + clamp(38px, 6svh, 72px) - 10px);
   }
 }
+
+/* Make the home-page text button slightly smaller and higher. */
+body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-backdrop .text-button {
+  font-size: 10px;
+  transform: translateY(-5px);
+}
