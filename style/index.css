@@ -936,8 +936,8 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .moon-star-5 {
 /* Fluid scene sizing: preserve the artwork ratio at every viewport width. */
 
 .cartoon-water .latest-wish-krathong.lalaloy {
-  width: clamp(52px, 4.2vw, 80px);
-  height: clamp(52px, 4.2vw, 80px);
+  width: 80px;
+  height: 80px;
 }
 
 /* Restore the original home-page twilight gradient background. */
