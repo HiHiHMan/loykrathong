@@ -2705,6 +2705,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro .title-image {
     width: 55vw !important;
     max-width: none !important;
+    height: auto !important;
     transform: translateY(-75px) !important;
   }
 
@@ -2797,6 +2798,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro .title-image {
     width: 55vw !important;
     max-width: none !important;
+    height: auto !important;
     transform: translateY(-30px) !important;
   }
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro .ornament {
