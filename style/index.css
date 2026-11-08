@@ -1418,7 +1418,7 @@ body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-back
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
   position: fixed;
   left: 50%;
-  bottom: calc(150px + clamp(180px, 24svh, 260px) - 50px + clamp(38px, 6svh, 72px));
+  bottom: calc(130px + clamp(180px, 24svh, 260px) - 50px + clamp(38px, 6svh, 72px));
   z-index: 1;
   width: 100vw;
   margin: 0;
