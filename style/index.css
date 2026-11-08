@@ -428,6 +428,24 @@ animation-duration: 82s;
 
 
 
+
+/* Smaller sky lanterns on phones */
+@media (max-width: 600px) {
+  .sky-lantern-1 {
+    width: clamp(34px, 9vw, 54px);
+  }
+
+  .sky-lantern-2,
+  .sky-lantern-3 {
+    width: clamp(28px, 7vw, 42px);
+  }
+
+  .sky-lantern-4,
+  .sky-lantern-5 {
+    width: clamp(24px, 6vw, 34px);
+  }
+}
+
 /* Keep sky lanterns visible in front of the temple while the intro stays above them. */
 
 
