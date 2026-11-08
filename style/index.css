@@ -917,8 +917,6 @@ body:has(.landing > .moon-image) .landing .intro .ornament {
 
   body:has(.landing > .moon-image) {
 
-    min-height: 100vh;
-    min-height: 100dvh;
   
 }
 
@@ -929,9 +927,6 @@ body:has(.landing > .moon-image) .landing .intro .ornament {
     flex-direction: column;
     align-items: stretch;
     height: auto !important;
-    min-height: 100vh;
-    min-height: 100svh;
-    min-height: 100dvh;
     overflow: visible !important;
     padding-bottom: max(12px, env(safe-area-inset-bottom));
   
