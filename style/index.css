@@ -1041,6 +1041,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro
   height: auto;
   margin: 0 auto;
   object-fit: contain;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.85));
 }
 
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro .ornament {
