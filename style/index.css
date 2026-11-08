@@ -1220,10 +1220,11 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
   top: 0;
   z-index: 24;
   display: flex;
+  flex: 0 0 auto;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  margin: 0 auto clamp(16px, 3svh, 32px);
+  margin: 0 auto 20px;
 }
 
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing .intro .title-image {
@@ -1388,11 +1389,6 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
   box-sizing: border-box;
   padding-top: calc(5svh + clamp(110px, 22vw, 260px) + 20px);
   padding-bottom: 0;
-}
-
-body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .intro {
-  flex: 0 0 auto;
-  margin: 0 auto 20px;
 }
 
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image {
