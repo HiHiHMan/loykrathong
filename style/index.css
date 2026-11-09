@@ -1070,6 +1070,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
   margin: 0;
   will-change: transform;
   animation: obj01SeamlessLoop 180s linear infinite;
+  animation-play-state: paused;
 }
 
 body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track img {
@@ -1265,19 +1266,21 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 
 /* Enlarge obj01 artwork on narrow mobile screens without affecting tablet/desktop. */
 @media (max-width: 600px) {
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track {
+    position: relative;
+    left: -60vw;
+  }
+
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track img {
     flex-basis: 235vw;
     width: 235vw;
-  }
-
-  /* Offset only the first duplicated obj01 image; keep the second aligned. */
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track img:first-child {
-    margin-left: -60vw;
-  }
-
-  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track img:nth-child(2) {
     margin-left: 0;
   }
+}
+
+/* Start the loop only after both duplicated temple images are decoded. */
+body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track.is-ready {
+  animation-play-state: running;
 }
 
 /* Reduce the home intro offset on phones; keep the desktop spacing unchanged. */
