@@ -25,6 +25,30 @@
     });
 })();
 
+/* Wait until both temple copies are decoded before starting the seamless loop. */
+(function prepareTempleLoop() {
+    const track = document.querySelector('.temple-image .temple-track');
+    if (!track) return;
+
+    const images = Array.from(track.querySelectorAll('img'));
+    if (!images.length) return;
+
+    Promise.all(images.map((image) => {
+        if (typeof image.decode === 'function') {
+            return image.decode().catch(() => undefined);
+        }
+
+        if (image.complete) return Promise.resolve();
+
+        return new Promise((resolve) => {
+            image.addEventListener('load', resolve, { once: true });
+            image.addEventListener('error', resolve, { once: true });
+        });
+    })).then(() => {
+        track.classList.add('is-ready');
+    });
+})();
+
 /* Randomize sky lantern X/Y positions on every page load */
 (function randomizeSkyLanterns() {
     const container = document.querySelector('.sky-lanterns');
