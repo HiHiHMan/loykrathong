@@ -874,7 +874,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .moon-star-5 {
     transform: translateX(0);
   }
   to {
-    transform: translateX(-50%);
+    transform: translateX(calc(0px - var(--obj01-loop-distance, min(100vw, 1920px))));
   }
 }
 
@@ -1069,6 +1069,7 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
   max-width: none;
   margin: 0;
   will-change: transform;
+  --obj01-loop-distance: min(100vw, 1920px);
   animation: obj01SeamlessLoop 180s linear infinite;
   animation-play-state: paused;
 }
@@ -1266,6 +1267,10 @@ body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .con
 
 /* Enlarge obj01 artwork on narrow mobile screens without affecting tablet/desktop. */
 @media (max-width: 600px) {
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track {
+    --obj01-loop-distance: 235vw;
+  }
+
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track img {
     flex-basis: 235vw;
     width: 235vw;
@@ -1325,6 +1330,10 @@ body:not(:has(#webgl-canvas-create)) .landing > .content > .refresh-actions-back
 
 /* Lower the home scene slightly on wide screens. */
 @media (min-width: 1001px) {
+  body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track {
+    --obj01-loop-distance: min(130vw, 1350px);
+  }
+
   body:has(.landing > .moon-image):not(:has(#webgl-canvas-create)) .landing > .content > .temple-image .temple-track img {
     flex-basis: min(130vw, 1350px);
     width: min(130vw, 1350px);
