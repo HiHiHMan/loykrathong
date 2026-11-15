@@ -1,0 +1,44 @@
+{
+  "rules": {
+    "Wishes": {
+      ".read": true,
+      "$id": {
+        ".write": true,
+        ".validate": "newData.hasChildren(['id', 'fullName', 'employeeCode', 'department', 'whName', 'krathongType', 'wish', 'createdAt'])",
+        "id": {
+          ".validate": "newData.isString() && newData.val() == $id"
+        },
+        "fullName": {
+          ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 100"
+        },
+        "employeeCode": {
+          ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 30"
+        },
+        "department": {
+          ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 100"
+        },
+        "whName": {
+          ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 100"
+        },
+        "krathongType": {
+          ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 50"
+        },
+        "wish": {
+          ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 500"
+        },
+        "createdAt": {
+          ".validate": "newData.isNumber()"
+        },
+        "$other": {
+          ".validate": false
+        }
+      }
+    },
+    "Emps": {
+      ".read": "query.orderByChild === 'employeeCode' && query.equalTo != null",
+      ".indexOn": [
+        "employeeCode"
+      ]
+    }
+  }
+}
