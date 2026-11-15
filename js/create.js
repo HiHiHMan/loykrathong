@@ -228,6 +228,24 @@ const employeeCodeInput = document.querySelector("#employee-code");
 const employeeCodeMessage = document.querySelector("#employee-code-message");
 const prayerInput = document.querySelector("#prayer");
 
+// Mark completed fields with a green border after the user leaves the field.
+const formFields = wishForm.querySelectorAll("input, select, textarea");
+
+function updateCompletedField(field) {
+    const hasValue = String(field.value || "").trim().length > 0;
+    field.classList.toggle("is-complete", hasValue && field.checkValidity());
+}
+
+formFields.forEach((field) => {
+    field.addEventListener("blur", () => updateCompletedField(field));
+    field.addEventListener("input", () => {
+        if (field.classList.contains("is-complete")) {
+            updateCompletedField(field);
+        }
+    });
+    field.addEventListener("change", () => updateCompletedField(field));
+});
+
 departmentInput.addEventListener("change", () => {
     const isOther = departmentInput.value === "__other__";
     departmentOtherInput.hidden = !isOther;
@@ -481,6 +499,8 @@ async function lookupEmployeeByCode() {
             }
 
             employeeNameInput.value = employee.fullName || "";
+            updateCompletedField(employeeNameInput);
+            updateCompletedField(empCodeInput);
 
             const department = String(employee.department || "").trim();
             if (department) {
@@ -493,6 +513,7 @@ async function lookupEmployeeByCode() {
                 }
 
                 departmentInput.value = department;
+                updateCompletedField(departmentInput);
                 departmentOtherInput.value = "";
                 departmentOtherInput.hidden = true;
                 departmentOtherInput.required = false;
@@ -526,6 +547,9 @@ empCodeInput.addEventListener('input', (e) => {
     lastEmployeeLookupCode = "";
     employeeLookupPromise = null;
     employeeCodeMessage.classList.remove("is-success");
+    empCodeInput.classList.remove("is-complete");
+    employeeNameInput.classList.remove("is-complete");
+    departmentInput.classList.remove("is-complete");
     employeeCodeMessage.textContent = "";
 });
 
