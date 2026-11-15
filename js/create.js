@@ -375,7 +375,6 @@ wishForm.addEventListener("submit", async  (event) => {
         const alreadyRegistered = await window.LoyKrathongDB.hasEmployeeCode(employeeCode);
         if (alreadyRegistered) {
             employeeCodeExists = true;
-            employeeCodeInput.value = "";
             employeeCodeMessage.textContent = "รหัสพนักงานนี้เคยลงทะเบียนแล้ว";
             employeeCodeInput.focus();
             return;
@@ -477,8 +476,7 @@ empCodeInput.addEventListener("blur", async () => {
 
         employeeCodeExists = exists;
         if (exists) {
-            empCodeInput.value = "";
-            employeeCodeExists = false;
+            employeeCodeExists = true;
             employeeCodeMessage.textContent = "รหัสพนักงานนี้เคยลงทะเบียนแล้ว";
             empCodeInput.focus();
             return;
