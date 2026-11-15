@@ -26,22 +26,6 @@
         return null;
       },
 
-      async getEmployeeByCode(employeeCode) {
-      const code = String(employeeCode || "").trim();
-      if (!code) return null;
-
-      const snapshot = await database.ref("Emps")
-        .orderByChild("employeeCode")
-        .equalTo(code)
-        .limitToFirst(1)
-        .once("value");
-
-      if (!snapshot.exists()) return null;
-
-      const firstRecord = Object.values(snapshot.val())[0];
-      return firstRecord || null;
-    },
-
     async hasEmployeeCode(employeeCode) {
         const code = String(employeeCode || "").trim();
         if (!code) return false;
@@ -127,6 +111,22 @@
 
   window.LoyKrathongDB = {
     mode: "firebase",
+
+    async getEmployeeByCode(employeeCode) {
+      const code = String(employeeCode || "").trim();
+      if (!code) return null;
+
+      const snapshot = await database.ref("Emps")
+        .orderByChild("employeeCode")
+        .equalTo(code)
+        .limitToFirst(1)
+        .once("value");
+
+      if (!snapshot.exists()) return null;
+
+      const firstRecord = Object.values(snapshot.val())[0];
+      return firstRecord || null;
+    },
 
     async hasEmployeeCode(employeeCode) {
       const code = String(employeeCode || "").trim();
