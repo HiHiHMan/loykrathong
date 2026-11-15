@@ -367,6 +367,24 @@ wishForm.addEventListener("submit", async  (event) => {
 
 
 
+    formMessage.hidden = false;
+    formMessage.textContent = "กำลังตรวจสอบรหัสพนักงาน...";
+
+    try {
+        const alreadyRegistered = await window.LoyKrathongDB.hasEmployeeCode(employeeCode);
+        if (alreadyRegistered) {
+            employeeCodeExists = true;
+            formMessage.textContent = "รหัสพนักงานนี้เคยลงทะเบียนแล้ว ไม่สามารถลงทะเบียนซ้ำได้";
+            employeeCodeInput.focus();
+            return;
+        }
+        employeeCodeExists = false;
+    } catch (error) {
+        console.error("Check employee code error:", error);
+        formMessage.textContent = "ตรวจสอบรหัสพนักงานไม่สำเร็จ กรุณาลองใหม่";
+        return;
+    }
+
     const wishData = {
         fullName: employeeName,
         department,
@@ -431,8 +449,39 @@ wishForm.addEventListener("submit", async  (event) => {
 
 
 const empCodeInput = document.getElementById('employee-code');
+let employeeCodeCheckToken = 0;
+let employeeCodeExists = false;
+
 empCodeInput.addEventListener('input', (e) => {
     e.target.value = e.target.value.replace(/[^0-9]/g, '');
+    employeeCodeExists = false;
+    employeeCodeCheckToken++;
+    formMessage.textContent = "";
+});
+
+empCodeInput.addEventListener("blur", async () => {
+    const employeeCode = empCodeInput.value.trim();
+    const checkToken = ++employeeCodeCheckToken;
+
+    employeeCodeExists = false;
+    if (!employeeCode) return;
+
+    formMessage.hidden = false;
+    formMessage.textContent = "กำลังตรวจสอบรหัสพนักงาน...";
+
+    try {
+        const exists = await window.LoyKrathongDB.hasEmployeeCode(employeeCode);
+        if (checkToken !== employeeCodeCheckToken) return;
+
+        employeeCodeExists = exists;
+        formMessage.textContent = exists
+            ? "รหัสพนักงานนี้เคยลงทะเบียนแล้ว ไม่สามารถลงทะเบียนซ้ำได้"
+            : "รหัสพนักงานนี้ยังไม่เคยลงทะเบียน สามารถดำเนินการต่อได้";
+    } catch (error) {
+        console.error("Check employee code error:", error);
+        if (checkToken !== employeeCodeCheckToken) return;
+        formMessage.textContent = "ตรวจสอบรหัสพนักงานไม่สำเร็จ กรุณาลองใหม่";
+    }
 });
 
  
