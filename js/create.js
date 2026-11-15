@@ -452,12 +452,83 @@ wishForm.addEventListener("submit", async  (event) => {
 const empCodeInput = document.getElementById('employee-code');
 let employeeCodeCheckToken = 0;
 let employeeCodeExists = false;
+let employeeLookupToken = 0;
+let lastEmployeeLookupCode = "";
+let employeeLookupPromise = null;
+
+async function lookupEmployeeByCode() {
+    const employeeCode = empCodeInput.value.trim();
+    if (!employeeCode) return null;
+
+    if (lastEmployeeLookupCode === employeeCode && employeeLookupPromise) {
+        return employeeLookupPromise;
+    }
+
+    const lookupToken = ++employeeLookupToken;
+    lastEmployeeLookupCode = employeeCode;
+    employeeCodeMessage.textContent = "กำลังค้นหาข้อมูลพนักงาน...";
+
+    employeeLookupPromise = (async () => {
+        try {
+            const employee = await window.LoyKrathongDB.getEmployeeByCode(employeeCode);
+            if (lookupToken !== employeeLookupToken || empCodeInput.value.trim() !== employeeCode) return null;
+
+            if (!employee) {
+                employeeCodeMessage.textContent = "ไม่พบรหัสพนักงานในระบบ";
+                return null;
+            }
+
+            employeeNameInput.value = employee.fullName || "";
+
+            const department = String(employee.department || "").trim();
+            if (department) {
+                let option = Array.from(departmentInput.options)
+                    .find(item => item.value === department);
+
+                if (!option) {
+                    option = new Option(department, department);
+                    departmentInput.add(option);
+                }
+
+                departmentInput.value = department;
+                departmentOtherInput.value = "";
+                departmentOtherInput.hidden = true;
+                departmentOtherInput.required = false;
+            }
+
+            employeeCodeMessage.textContent = "พบข้อมูลพนักงานแล้ว";
+            return employee;
+        } catch (error) {
+            console.error("Lookup employee error:", error);
+            if (lookupToken === employeeLookupToken) {
+                employeeCodeMessage.textContent = "ค้นหาข้อมูลพนักงานไม่สำเร็จ";
+            }
+            return null;
+        } finally {
+            if (lookupToken === employeeLookupToken) {
+                employeeLookupPromise = null;
+            }
+        }
+    })();
+
+    return employeeLookupPromise;
+}
 
 empCodeInput.addEventListener('input', (e) => {
     e.target.value = e.target.value.replace(/[^0-9]/g, '');
     employeeCodeExists = false;
     employeeCodeCheckToken++;
+    employeeLookupToken++;
+    lastEmployeeLookupCode = "";
+    employeeLookupPromise = null;
     employeeCodeMessage.textContent = "";
+});
+
+empCodeInput.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        lookupEmployeeByCode();
+    }
 });
 
 empCodeInput.addEventListener("blur", async () => {
@@ -467,8 +538,8 @@ empCodeInput.addEventListener("blur", async () => {
     employeeCodeExists = false;
     if (!employeeCode) return;
 
-    formMessage.hidden = false;
-    formMessage.textContent = "กำลังตรวจสอบรหัสพนักงาน...";
+    await lookupEmployeeByCode();
+    if (checkToken !== employeeCodeCheckToken) return;
 
     try {
         const exists = await window.LoyKrathongDB.hasEmployeeCode(employeeCode);
@@ -476,16 +547,13 @@ empCodeInput.addEventListener("blur", async () => {
 
         employeeCodeExists = exists;
         if (exists) {
-            employeeCodeExists = true;
             employeeCodeMessage.textContent = "รหัสพนักงานนี้เคยลงทะเบียนแล้ว";
             empCodeInput.focus();
-            return;
         }
-        employeeCodeMessage.textContent = "";
     } catch (error) {
         console.error("Check employee code error:", error);
         if (checkToken !== employeeCodeCheckToken) return;
-        formMessage.textContent = "ตรวจสอบรหัสพนักงานไม่สำเร็จ กรุณาลองใหม่";
+        employeeCodeMessage.textContent = "ตรวจสอบรหัสพนักงานไม่สำเร็จ กรุณาลองใหม่";
     }
 });
 
