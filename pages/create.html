@@ -112,6 +112,10 @@
           </button>
         </div>
 
+        <label for="employee-code">รหัสพนักงาน</label>
+        <input id="employee-code" name="employeeCode" inputmode="numeric" pattern="[0-9]*" type="text" maxlength="30"
+          placeholder="กรอกรหัสพนักงาน" autocomplete="off" required>
+
         <label for="employee-name">ชื่อ - นามสกุล</label>
         <input id="employee-name" name="employeeName" type="text" maxlength="100" placeholder="กรอกชื่อ - นามสกุล"
           autocomplete="name" required>
@@ -168,10 +172,6 @@
         </select>
         <input id="department-other" name="departmentOther" type="text" maxlength="100"
           placeholder="กรอกชื่อแผนกของคุณ" autocomplete="organization" hidden>
-
-        <label for="employee-code">รหัสพนักงาน</label>
-        <input id="employee-code" name="employeeCode" inputmode="numeric" pattern="[0-9]*" type="text" maxlength="30"
-          placeholder="กรอกรหัสพนักงาน" autocomplete="off" required>
 
         <label for="prayer">คำอธิษฐาน</label>
         <textarea id="prayer" name="prayer" rows="4" maxlength="300" placeholder="เขียนสิ่งที่คุณอยากขอพรในปีนี้..."
