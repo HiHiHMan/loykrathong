@@ -225,6 +225,7 @@ const employeeNameInput = document.querySelector("#employee-name");
 const departmentInput = document.querySelector("#department");
 const departmentOtherInput = document.querySelector("#department-other");
 const employeeCodeInput = document.querySelector("#employee-code");
+const employeeCodeMessage = document.querySelector("#employee-code-message");
 const prayerInput = document.querySelector("#prayer");
 
 departmentInput.addEventListener("change", () => {
@@ -374,10 +375,9 @@ wishForm.addEventListener("submit", async  (event) => {
         const alreadyRegistered = await window.LoyKrathongDB.hasEmployeeCode(employeeCode);
         if (alreadyRegistered) {
             employeeCodeExists = true;
-            alert("รหัสพนักงานนี้เคยลงทะเบียนแล้ว ไม่สามารถลงทะเบียนซ้ำได้");
             employeeCodeInput.value = "";
+            employeeCodeMessage.textContent = "รหัสพนักงานนี้เคยลงทะเบียนแล้ว กรุณากรอกรหัสใหม่";
             employeeCodeInput.focus();
-            formMessage.textContent = "กรุณากรอกรหัสพนักงานใหม่"; 
             return;
         }
         employeeCodeExists = false;
@@ -458,7 +458,7 @@ empCodeInput.addEventListener('input', (e) => {
     e.target.value = e.target.value.replace(/[^0-9]/g, '');
     employeeCodeExists = false;
     employeeCodeCheckToken++;
-    formMessage.textContent = "";
+    employeeCodeMessage.textContent = "";
 });
 
 empCodeInput.addEventListener("blur", async () => {
@@ -477,14 +477,13 @@ empCodeInput.addEventListener("blur", async () => {
 
         employeeCodeExists = exists;
         if (exists) {
-            alert("รหัสพนักงานนี้เคยลงทะเบียนแล้ว ไม่สามารถลงทะเบียนซ้ำได้");
             empCodeInput.value = "";
             employeeCodeExists = false;
-            formMessage.textContent = "กรุณากรอกรหัสพนักงานใหม่";
+            employeeCodeMessage.textContent = "รหัสพนักงานนี้เคยลงทะเบียนแล้ว กรุณากรอกรหัสใหม่";
             empCodeInput.focus();
             return;
         }
-        formMessage.textContent = "รหัสพนักงานนี้ยังไม่เคยลงทะเบียน สามารถดำเนินการต่อได้";
+        employeeCodeMessage.textContent = "รหัสพนักงานนี้ยังไม่เคยลงทะเบียน สามารถดำเนินการต่อได้";
     } catch (error) {
         console.error("Check employee code error:", error);
         if (checkToken !== employeeCodeCheckToken) return;
