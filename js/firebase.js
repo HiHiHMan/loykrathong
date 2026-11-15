@@ -22,7 +22,27 @@
     window.LoyKrathongDB = {
       mode: "mock",
 
-      async hasEmployeeCode(employeeCode) {
+      async getEmployeeByCode() {
+        return null;
+      },
+
+      async getEmployeeByCode(employeeCode) {
+      const code = String(employeeCode || "").trim();
+      if (!code) return null;
+
+      const snapshot = await database.ref("Emps")
+        .orderByChild("employeeCode")
+        .equalTo(code)
+        .limitToFirst(1)
+        .once("value");
+
+      if (!snapshot.exists()) return null;
+
+      const firstRecord = Object.values(snapshot.val())[0];
+      return firstRecord || null;
+    },
+
+    async hasEmployeeCode(employeeCode) {
         const code = String(employeeCode || "").trim();
         if (!code) return false;
         const items = JSON.parse(localStorage.getItem(MOCK_KEY) || "[]");
