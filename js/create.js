@@ -393,11 +393,16 @@ wishForm.addEventListener("submit", async  (event) => {
         const alreadyRegistered = await window.LoyKrathongDB.hasEmployeeCode(employeeCode);
         if (alreadyRegistered) {
             employeeCodeExists = true;
-            employeeCodeMessage.textContent = "รหัสพนักงานนี้เคยลงทะเบียนแล้ว";
+            employeeCodeMessage.classList.remove("is-success");
+            employeeCodeMessage.classList.add("is-registered");
+            employeeCodeInput.classList.add("is-registered");
+            employeeCodeMessage.textContent = "ลงทะเบียนแล้ว";
             employeeCodeInput.focus();
             return;
         }
         employeeCodeExists = false;
+        employeeCodeInput.classList.remove("is-registered");
+        employeeCodeMessage.classList.remove("is-registered");
     } catch (error) {
         console.error("Check employee code error:", error);
         formMessage.textContent = "ตรวจสอบรหัสพนักงานไม่สำเร็จ กรุณาลองใหม่";
@@ -519,6 +524,8 @@ async function lookupEmployeeByCode() {
                 departmentOtherInput.required = false;
             }
 
+            employeeCodeInput.classList.remove("is-registered");
+            employeeCodeMessage.classList.remove("is-registered");
             employeeCodeMessage.classList.add("is-success");
             employeeCodeMessage.textContent = "พบข้อมูลพนักงานแล้ว";
             return employee;
@@ -546,7 +553,8 @@ empCodeInput.addEventListener('input', (e) => {
     employeeLookupToken++;
     lastEmployeeLookupCode = "";
     employeeLookupPromise = null;
-    employeeCodeMessage.classList.remove("is-success");
+    employeeCodeMessage.classList.remove("is-success", "is-registered");
+    empCodeInput.classList.remove("is-complete", "is-registered");
     empCodeInput.classList.remove("is-complete");
     employeeNameInput.classList.remove("is-complete");
     departmentInput.classList.remove("is-complete");
@@ -576,8 +584,15 @@ empCodeInput.addEventListener("blur", async () => {
 
         employeeCodeExists = exists;
         if (exists) {
-            employeeCodeMessage.textContent = "รหัสพนักงานนี้เคยลงทะเบียนแล้ว";
+            employeeCodeInput.classList.remove("is-complete");
+            employeeCodeInput.classList.add("is-registered");
+            employeeCodeMessage.classList.remove("is-success");
+            employeeCodeMessage.classList.add("is-registered");
+            employeeCodeMessage.textContent = "ลงทะเบียนแล้ว";
             empCodeInput.focus();
+        } else {
+            employeeCodeInput.classList.remove("is-registered");
+            employeeCodeMessage.classList.remove("is-registered");
         }
     } catch (error) {
         console.error("Check employee code error:", error);
