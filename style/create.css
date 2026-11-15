@@ -716,3 +716,7 @@ body:has(#webgl-canvas-create) .landing > .content {
   font-size: 12px;
   text-align: left;
 }
+
+#employee-code-message.is-success {
+  color: #4ade80;
+}
