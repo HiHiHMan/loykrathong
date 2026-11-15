@@ -489,11 +489,30 @@ async function lookupEmployeeByCode() {
 
     const lookupToken = ++employeeLookupToken;
     lastEmployeeLookupCode = employeeCode;
-    employeeCodeMessage.classList.remove("is-success");
-    employeeCodeMessage.textContent = "กำลังค้นหาข้อมูลพนักงาน...";
+    employeeCodeMessage.classList.remove("is-success", "is-registered");
+    employeeCodeInput.classList.remove("is-registered");
+    employeeCodeMessage.textContent = "กำลังตรวจสอบการลงทะเบียน...";
 
     employeeLookupPromise = (async () => {
         try {
+            // Check Wishes first. Query Emps only when this code is not registered.
+            const alreadyRegistered = await window.LoyKrathongDB.hasEmployeeCode(employeeCode);
+            if (lookupToken !== employeeLookupToken || empCodeInput.value.trim() !== employeeCode) return null;
+
+            if (alreadyRegistered) {
+                employeeCodeExists = true;
+                employeeCodeInput.classList.remove("is-complete");
+                employeeCodeInput.classList.add("is-registered");
+                employeeCodeMessage.classList.add("is-registered");
+                employeeCodeMessage.textContent = "ลงทะเบียนแล้ว";
+                return { registered: true };
+            }
+
+            employeeCodeExists = false;
+            employeeCodeInput.classList.remove("is-registered");
+            employeeCodeMessage.classList.remove("is-registered");
+            employeeCodeMessage.textContent = "กำลังค้นหาข้อมูลพนักงาน...";
+
             const employee = await window.LoyKrathongDB.getEmployeeByCode(employeeCode);
             if (lookupToken !== employeeLookupToken || empCodeInput.value.trim() !== employeeCode) return null;
 
@@ -524,62 +543,24 @@ async function lookupEmployeeByCode() {
                 departmentOtherInput.required = false;
             }
 
-            employeeCodeInput.classList.remove("is-registered");
-            employeeCodeMessage.classList.remove("is-registered");
             employeeCodeMessage.classList.add("is-success");
             employeeCodeMessage.textContent = "พบข้อมูลพนักงานแล้ว";
             return employee;
         } catch (error) {
-            console.error("Lookup employee error:", error);
+            console.error("Employee code check error:", error);
             if (lookupToken === employeeLookupToken) {
-                employeeCodeMessage.classList.remove("is-success");
-                employeeCodeMessage.textContent = "ค้นหาข้อมูลพนักงานไม่สำเร็จ";
-            }
-            return null;
-        } finally {
-            if (lookupToken === employeeLookupToken) {
-                employeeLookupPromise = null;
-            }
-        }
-    })();
-
-    return employeeLookupPromise;
-}
-
-empCodeInput.addEventListener('input', (e) => {
-    e.target.value = e.target.value.replace(/[^0-9]/g, '');
-    employeeCodeExists = false;
-    employeeCodeCheckToken++;
-    employeeLookupToken++;
-    lastEmployeeLookupCode = "";
-    employeeLookupPromise = null;
-    employeeCodeMessage.classList.remove("is-success", "is-registered");
-    empCodeInput.classList.remove("is-complete", "is-registered");
-    empCodeInput.classList.remove("is-complete");
-    employeeNameInput.classList.remove("is-complete");
-    departmentInput.classList.remove("is-complete");
-    employeeCodeMessage.textContent = "";
-});
-
-empCodeInput.addEventListener("keydown", (event) => {
+                employeeCodeMessage.classList.remove("is-success", "is-registered");
+       empCodeInput.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
         event.preventDefault();
         lookupEmployeeByCode();
     }
 });
 
-empCodeInput.addEventListener("blur", async () => {
-    const employeeCode = empCodeInput.value.trim();
-    const checkToken = ++employeeCodeCheckToken;
-
-    employeeCodeExists = false;
-    if (!employeeCode) return;
-
-    await lookupEmployeeByCode();
-    if (checkToken !== employeeCodeCheckToken) return;
-
-    try {
-        const exists = await window.LoyKrathongDB.hasEmployeeCode(employeeCode);
+empCodeInput.addEventListener("blur", () => {
+    lookupEmployeeByCode();
+});
+ait window.LoyKrathongDB.hasEmployeeCode(employeeCode);
         if (checkToken !== employeeCodeCheckToken) return;
 
         employeeCodeExists = exists;
