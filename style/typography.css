@@ -44,6 +44,17 @@ body .tooltip-wish {
   line-height: 1.55;
 }
 
+/* Tooltip name is more prominent than the small type tag. */
+body .tooltip-name {
+  font-size: 16px !important;
+  line-height: 1.5;
+}
+
+body .tooltip-type small {
+  font-size: 12px !important;
+  line-height: 1.5;
+}
+
 /* Secondary information remains slightly smaller, but never tiny. */
 body :is(.eyebrow, .form-step, .success-eyebrow, .tooltip-type small) {
   font-size: 14px !important;
