@@ -313,7 +313,7 @@ startButton.addEventListener("click", () => {
 
     formMessage.textContent = "";
 
-    employeeNameInput.focus();
+    employeeCodeInput.focus();
 
     window.scrollTo({
         top: 0,
