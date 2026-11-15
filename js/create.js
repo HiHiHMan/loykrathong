@@ -376,7 +376,7 @@ wishForm.addEventListener("submit", async  (event) => {
         if (alreadyRegistered) {
             employeeCodeExists = true;
             employeeCodeInput.value = "";
-            employeeCodeMessage.textContent = "รหัสพนักงานนี้เคยลงทะเบียนแล้ว กรุณากรอกรหัสใหม่";
+            employeeCodeMessage.textContent = "รหัสพนักงานนี้เคยลงทะเบียนแล้ว";
             employeeCodeInput.focus();
             return;
         }
@@ -479,11 +479,11 @@ empCodeInput.addEventListener("blur", async () => {
         if (exists) {
             empCodeInput.value = "";
             employeeCodeExists = false;
-            employeeCodeMessage.textContent = "รหัสพนักงานนี้เคยลงทะเบียนแล้ว กรุณากรอกรหัสใหม่";
+            employeeCodeMessage.textContent = "รหัสพนักงานนี้เคยลงทะเบียนแล้ว";
             empCodeInput.focus();
             return;
         }
-        employeeCodeMessage.textContent = "รหัสพนักงานนี้ยังไม่เคยลงทะเบียน สามารถดำเนินการต่อได้";
+        employeeCodeMessage.textContent = "";
     } catch (error) {
         console.error("Check employee code error:", error);
         if (checkToken !== employeeCodeCheckToken) return;
