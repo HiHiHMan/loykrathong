@@ -466,6 +466,7 @@ async function lookupEmployeeByCode() {
 
     const lookupToken = ++employeeLookupToken;
     lastEmployeeLookupCode = employeeCode;
+    employeeCodeMessage.classList.remove("is-success");
     employeeCodeMessage.textContent = "กำลังค้นหาข้อมูลพนักงาน...";
 
     employeeLookupPromise = (async () => {
@@ -474,6 +475,7 @@ async function lookupEmployeeByCode() {
             if (lookupToken !== employeeLookupToken || empCodeInput.value.trim() !== employeeCode) return null;
 
             if (!employee) {
+                employeeCodeMessage.classList.remove("is-success");
                 employeeCodeMessage.textContent = "ไม่พบรหัสพนักงานในระบบ";
                 return null;
             }
@@ -496,11 +498,13 @@ async function lookupEmployeeByCode() {
                 departmentOtherInput.required = false;
             }
 
+            employeeCodeMessage.classList.add("is-success");
             employeeCodeMessage.textContent = "พบข้อมูลพนักงานแล้ว";
             return employee;
         } catch (error) {
             console.error("Lookup employee error:", error);
             if (lookupToken === employeeLookupToken) {
+                employeeCodeMessage.classList.remove("is-success");
                 employeeCodeMessage.textContent = "ค้นหาข้อมูลพนักงานไม่สำเร็จ";
             }
             return null;
@@ -521,6 +525,7 @@ empCodeInput.addEventListener('input', (e) => {
     employeeLookupToken++;
     lastEmployeeLookupCode = "";
     employeeLookupPromise = null;
+    employeeCodeMessage.classList.remove("is-success");
     employeeCodeMessage.textContent = "";
 });
 
