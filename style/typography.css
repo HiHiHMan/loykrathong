@@ -34,7 +34,7 @@ body :is(
   .tooltip-name,
   .tooltip-type
 ) {
-  font-size: clamp(16px, 1rem + 0.12vw, 18px) !important;
+  font-size: clamp(16px, 1rem + 0.12vw, 18px);
   line-height: 1.65;
 }
 
