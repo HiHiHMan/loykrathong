@@ -22,6 +22,13 @@
     window.LoyKrathongDB = {
       mode: "mock",
 
+      async hasEmployeeCode(employeeCode) {
+        const code = String(employeeCode || "").trim();
+        if (!code) return false;
+        const items = JSON.parse(localStorage.getItem(MOCK_KEY) || "[]");
+        return items.some(item => String(item.employeeCode || "").trim() === code);
+      },
+
       async addWish(data) {
         const items = JSON.parse(localStorage.getItem(MOCK_KEY) || "[]");
         const wish = {
@@ -100,6 +107,19 @@
 
   window.LoyKrathongDB = {
     mode: "firebase",
+
+    async hasEmployeeCode(employeeCode) {
+      const code = String(employeeCode || "").trim();
+      if (!code) return false;
+
+      const snapshot = await wishesRef
+        .orderByChild("employeeCode")
+        .equalTo(code)
+        .limitToFirst(1)
+        .once("value");
+
+      return snapshot.exists();
+    },
 
     async addWish(data) {
       const itemRef = wishesRef.push();
