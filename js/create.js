@@ -550,7 +550,34 @@ async function lookupEmployeeByCode() {
             console.error("Employee code check error:", error);
             if (lookupToken === employeeLookupToken) {
                 employeeCodeMessage.classList.remove("is-success", "is-registered");
-       empCodeInput.addEventListener("keydown", (event) => {
+                employeeCodeMessage.textContent = "ตรวจสอบข้อมูลไม่สำเร็จ กรุณาลองใหม่";
+            }
+            return null;
+        } finally {
+            if (lookupToken === employeeLookupToken) {
+                employeeLookupPromise = null;
+            }
+        }
+    })();
+
+    return employeeLookupPromise;
+}
+
+empCodeInput.addEventListener("input", (event) => {
+    event.target.value = event.target.value.replace(/[^0-9]/g, "");
+    employeeCodeExists = false;
+    employeeCodeCheckToken++;
+    employeeLookupToken++;
+    lastEmployeeLookupCode = "";
+    employeeLookupPromise = null;
+    employeeCodeMessage.classList.remove("is-success", "is-registered");
+    empCodeInput.classList.remove("is-complete", "is-registered");
+    employeeNameInput.classList.remove("is-complete");
+    departmentInput.classList.remove("is-complete");
+    employeeCodeMessage.textContent = "";
+});
+
+empCodeInput.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
         event.preventDefault();
         lookupEmployeeByCode();
@@ -560,29 +587,7 @@ async function lookupEmployeeByCode() {
 empCodeInput.addEventListener("blur", () => {
     lookupEmployeeByCode();
 });
-ait window.LoyKrathongDB.hasEmployeeCode(employeeCode);
-        if (checkToken !== employeeCodeCheckToken) return;
 
-        employeeCodeExists = exists;
-        if (exists) {
-            employeeCodeInput.classList.remove("is-complete");
-            employeeCodeInput.classList.add("is-registered");
-            employeeCodeMessage.classList.remove("is-success");
-            employeeCodeMessage.classList.add("is-registered");
-            employeeCodeMessage.textContent = "ลงทะเบียนแล้ว";
-            empCodeInput.focus();
-        } else {
-            employeeCodeInput.classList.remove("is-registered");
-            employeeCodeMessage.classList.remove("is-registered");
-        }
-    } catch (error) {
-        console.error("Check employee code error:", error);
-        if (checkToken !== employeeCodeCheckToken) return;
-        employeeCodeMessage.textContent = "ตรวจสอบรหัสพนักงานไม่สำเร็จ กรุณาลองใหม่";
-    }
-});
-
- 
 homeButton.addEventListener("click", () => {
     wishForm.reset();
 
