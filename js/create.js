@@ -374,8 +374,10 @@ wishForm.addEventListener("submit", async  (event) => {
         const alreadyRegistered = await window.LoyKrathongDB.hasEmployeeCode(employeeCode);
         if (alreadyRegistered) {
             employeeCodeExists = true;
-            formMessage.textContent = "รหัสพนักงานนี้เคยลงทะเบียนแล้ว ไม่สามารถลงทะเบียนซ้ำได้";
+            alert("รหัสพนักงานนี้เคยลงทะเบียนแล้ว ไม่สามารถลงทะเบียนซ้ำได้");
+            employeeCodeInput.value = "";
             employeeCodeInput.focus();
+            formMessage.textContent = "กรุณากรอกรหัสพนักงานใหม่"; 
             return;
         }
         employeeCodeExists = false;
@@ -474,9 +476,15 @@ empCodeInput.addEventListener("blur", async () => {
         if (checkToken !== employeeCodeCheckToken) return;
 
         employeeCodeExists = exists;
-        formMessage.textContent = exists
-            ? "รหัสพนักงานนี้เคยลงทะเบียนแล้ว ไม่สามารถลงทะเบียนซ้ำได้"
-            : "รหัสพนักงานนี้ยังไม่เคยลงทะเบียน สามารถดำเนินการต่อได้";
+        if (exists) {
+            alert("รหัสพนักงานนี้เคยลงทะเบียนแล้ว ไม่สามารถลงทะเบียนซ้ำได้");
+            empCodeInput.value = "";
+            employeeCodeExists = false;
+            formMessage.textContent = "กรุณากรอกรหัสพนักงานใหม่";
+            empCodeInput.focus();
+            return;
+        }
+        formMessage.textContent = "รหัสพนักงานนี้ยังไม่เคยลงทะเบียน สามารถดำเนินการต่อได้";
     } catch (error) {
         console.error("Check employee code error:", error);
         if (checkToken !== employeeCodeCheckToken) return;
