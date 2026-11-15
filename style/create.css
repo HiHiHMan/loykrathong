@@ -706,3 +706,13 @@ body:has(#webgl-canvas-create) .landing {
 body:has(#webgl-canvas-create) .landing > .content {
   margin: 0 auto;
 }
+
+
+/* Employee code validation message */
+#employee-code-message {
+  min-height: 0;
+  margin: 6px 0 0;
+  color: #f0a34a;
+  font-size: 12px;
+  text-align: left;
+}
