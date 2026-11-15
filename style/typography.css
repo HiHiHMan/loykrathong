@@ -38,6 +38,12 @@ body :is(
   line-height: 1.65;
 }
 
+/* Keep wish text compact inside the wish cards. */
+body .tooltip-wish {
+  font-size: 12px !important;
+  line-height: 1.55;
+}
+
 /* Secondary information remains slightly smaller, but never tiny. */
 body :is(.eyebrow, .form-step, .success-eyebrow, .tooltip-type small) {
   font-size: 14px !important;
