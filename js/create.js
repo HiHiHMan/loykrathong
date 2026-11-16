@@ -236,6 +236,26 @@ function updateCompletedField(field) {
     field.classList.toggle("is-complete", hasValue && field.checkValidity());
 }
 
+// Move focus to the first required field that is still empty.
+function focusFirstIncompleteField() {
+    const nextField = Array.from(
+        wishForm.querySelectorAll("input[required], select[required], textarea[required]")
+    ).find((field) => {
+        return !field.disabled &&
+            !field.hidden &&
+            field.getClientRects().length > 0 &&
+            !String(field.value || "").trim();
+    });
+
+    if (!nextField) return;
+
+    nextField.focus({ preventScroll: true });
+    nextField.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+    });
+}
+
 formFields.forEach((field) => {
     field.addEventListener("blur", () => updateCompletedField(field));
     field.addEventListener("input", () => {
@@ -545,6 +565,9 @@ async function lookupEmployeeByCode() {
 
             employeeCodeMessage.classList.remove("is-success", "is-registered");
             employeeCodeMessage.textContent = "";
+
+            // After employee details are filled, guide the user to the next missing field.
+            focusFirstIncompleteField();
             return employee;
         } catch (error) {
             console.error("Employee code check error:", error);
