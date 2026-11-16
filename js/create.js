@@ -491,7 +491,7 @@ async function lookupEmployeeByCode() {
     lastEmployeeLookupCode = employeeCode;
     employeeCodeMessage.classList.remove("is-success", "is-registered");
     employeeCodeInput.classList.remove("is-registered");
-    employeeCodeMessage.textContent = "กำลังตรวจสอบการลงทะเบียน...";
+    employeeCodeMessage.textContent = "";
 
     employeeLookupPromise = (async () => {
         try {
@@ -511,14 +511,14 @@ async function lookupEmployeeByCode() {
             employeeCodeExists = false;
             employeeCodeInput.classList.remove("is-registered");
             employeeCodeMessage.classList.remove("is-registered");
-            employeeCodeMessage.textContent = "กำลังค้นหาข้อมูลพนักงาน...";
+            employeeCodeMessage.textContent = "";
 
             const employee = await window.LoyKrathongDB.getEmployeeByCode(employeeCode);
             if (lookupToken !== employeeLookupToken || empCodeInput.value.trim() !== employeeCode) return null;
 
             if (!employee) {
-                employeeCodeMessage.classList.remove("is-success");
-                employeeCodeMessage.textContent = "ไม่พบรหัสพนักงานในระบบ";
+                employeeCodeMessage.classList.remove("is-success", "is-registered");
+                employeeCodeMessage.textContent = "";
                 return null;
             }
 
@@ -543,14 +543,14 @@ async function lookupEmployeeByCode() {
                 departmentOtherInput.required = false;
             }
 
-            employeeCodeMessage.classList.add("is-success");
-            employeeCodeMessage.textContent = "พบข้อมูลพนักงานแล้ว";
+            employeeCodeMessage.classList.remove("is-success", "is-registered");
+            employeeCodeMessage.textContent = "";
             return employee;
         } catch (error) {
             console.error("Employee code check error:", error);
             if (lookupToken === employeeLookupToken) {
                 employeeCodeMessage.classList.remove("is-success", "is-registered");
-                employeeCodeMessage.textContent = "ตรวจสอบข้อมูลไม่สำเร็จ กรุณาลองใหม่";
+                employeeCodeMessage.textContent = "";
             }
             return null;
         } finally {
