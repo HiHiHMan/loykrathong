@@ -2,21 +2,15 @@
 
 /*
  * Firebase Realtime Database + optional local mock database for manual testing.
- * Open any page with ?mock=1 to use an empty local database.
- * Open any page with ?mock=0 to switch back to Firebase.
+ * Production always uses Firebase.
+ * Add ?mock=1 to the URL only when you want to test with local mock data.
  */
 (function initializeLoyKrathongDatabase() {
-  const MODE_KEY = "loykrathong-db-mode";
   const MOCK_KEY = "loykrathong-mock-wishes";
   const params = new URLSearchParams(window.location.search);
 
-  if (params.get("mock") === "1") {
-    localStorage.setItem(MODE_KEY, "mock");
-  } else if (params.get("mock") === "0") {
-    localStorage.setItem(MODE_KEY, "firebase");
-  }
-
-  const useMock = localStorage.getItem(MODE_KEY) === "mock";
+  // Mock mode is opt-in per URL and never persists into production visits.
+  const useMock = params.get("mock") === "1";
 
   if (useMock) {
     window.LoyKrathongDB = {
