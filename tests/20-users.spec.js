@@ -12,9 +12,17 @@ test("20 concurrent browser users complete a mixed Loy Krathong journey", async 
   try {
     // Each browser context has isolated cookies and localStorage, like a separate user session.
     for (let index = 0; index < USER_COUNT; index += 1) {
-      contexts.push(await browser.newContext({
+      const context = await browser.newContext({
         viewport: { width: 1365, height: 900 }
-      }));
+      });
+
+      // Mock mode does not use Firebase or remote fonts. Block these external
+      // requests so the test remains deterministic and does not depend on CDN access.
+      await context.route(/^https:\/\/(www\.gstatic\.com|fonts\.googleapis\.com|fonts\.gstatic\.com)\//, (route) =>
+        route.abort()
+      );
+
+      contexts.push(context);
     }
 
     const pages = await Promise.all(contexts.map(async (context) => {
@@ -33,7 +41,6 @@ test("20 concurrent browser users complete a mixed Loy Krathong journey", async 
     }
 
     // Phase 2: all users use the actual home-page CTA to enter the create flow.
-    // The query flag keeps each session on the repository's safe local mock database.
     await Promise.all(pages.map(async (page) => {
       const createLink = page.locator('a[href="./pages/create.html"]');
       await expect(createLink).toBeVisible();
