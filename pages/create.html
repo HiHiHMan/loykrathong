@@ -187,6 +187,17 @@
         </button>
 
         <p id="form-message" class="hint" aria-live="polite"></p>
+
+        <section id="wish-confirmation" class="wish-confirmation" role="group" aria-labelledby="wish-confirmation-title" hidden>
+          <div class="confirmation-icon" aria-hidden="true">✧</div>
+          <h3 id="wish-confirmation-title">ยืนยันคำอธิษฐาน</h3>
+          <p class="confirmation-description">ตรวจสอบข้อความของคุณก่อนส่ง</p>
+          <blockquote id="wish-confirmation-text" class="confirmation-wish"></blockquote>
+          <div class="confirmation-actions">
+            <button type="button" id="cancel-wish-button" class="confirmation-cancel">กลับไปแก้ไข</button>
+            <button type="button" id="confirm-wish-button" class="confirmation-submit">ยืนยันส่ง</button>
+          </div>
+        </section>
       </form>
 
       <div id="success-view" class="success-view" hidden>
