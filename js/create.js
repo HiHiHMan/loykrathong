@@ -415,6 +415,19 @@ wishForm.addEventListener("submit", async  (event) => {
         return;
     }
 
+    const confirmMessage = [
+        "ยืนยันส่งคำอธิษฐานหรือไม่?",
+        "",
+        "คำอธิษฐาน:",
+        prayer,
+        "",
+        "กด OK เพื่อยืนยันการส่ง"
+    ].join("\n");
+
+    if (!window.confirm(confirmMessage)) {
+        return;
+    }
+
 
 
     formMessage.hidden = false;
