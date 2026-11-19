@@ -752,16 +752,39 @@ body:has(#webgl-canvas-create) .landing > .content {
 }
 
 
-/* In-page wish confirmation card */
+/* Centered confirmation modal with full-screen black backdrop */
+.wish-confirmation-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483645;
+  background: rgba(0, 0, 0, 0.76);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  animation: confirmation-backdrop-in 180ms ease both;
+}
+
+.wish-confirmation-backdrop[hidden] {
+  display: none;
+}
+
 .wish-confirmation {
-  margin: 22px 0 8px;
-  padding: 22px;
-  border: 1px solid rgba(214, 184, 121, 0.48);
-  border-radius: 16px;
-  background: linear-gradient(145deg, rgba(34, 38, 49, 0.96), rgba(17, 25, 39, 0.98));
-  box-shadow: 0 14px 38px rgba(0, 0, 0, 0.28), inset 0 1px rgba(255, 255, 255, 0.045);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 2147483646;
+  width: min(460px, calc(100vw - 32px));
+  max-height: min(86dvh, 620px);
+  overflow-y: auto;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 24px;
+  border: 1px solid rgba(214, 184, 121, 0.58);
+  border-radius: 18px;
+  background: linear-gradient(145deg, rgba(34, 38, 49, 0.99), rgba(17, 25, 39, 0.99));
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55), inset 0 1px rgba(255, 255, 255, 0.06);
   text-align: center;
-  animation: appear 260ms ease both;
+  transform: translate(-50%, -50%);
+  animation: confirmation-card-in 220ms ease both;
 }
 
 .wish-confirmation[hidden] { display: none; }
@@ -790,7 +813,17 @@ body:has(#webgl-canvas-create) .landing > .content {
   color: #201a10; font-weight: 500;
 }
 .confirmation-actions button:focus-visible { outline: 2px solid #f2d18a; outline-offset: 3px; }
+
+@keyframes confirmation-backdrop-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes confirmation-card-in {
+  from { opacity: 0; transform: translate(-50%, -47%) scale(0.97); }
+  to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
 @media (max-width: 420px) {
-  .wish-confirmation { padding: 18px 14px; }
+  .wish-confirmation { padding: 20px 16px; }
   .confirmation-actions button { flex: 1; padding-inline: 10px; }
 }
