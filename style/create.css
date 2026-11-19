@@ -750,3 +750,47 @@ body:has(#webgl-canvas-create) .landing > .content {
     0 0 0 1px rgba(245, 158, 11, 0.35),
     0 0 0 4px rgba(245, 158, 11, 0.10);
 }
+
+
+/* In-page wish confirmation card */
+.wish-confirmation {
+  margin: 22px 0 8px;
+  padding: 22px;
+  border: 1px solid rgba(214, 184, 121, 0.48);
+  border-radius: 16px;
+  background: linear-gradient(145deg, rgba(34, 38, 49, 0.96), rgba(17, 25, 39, 0.98));
+  box-shadow: 0 14px 38px rgba(0, 0, 0, 0.28), inset 0 1px rgba(255, 255, 255, 0.045);
+  text-align: center;
+  animation: appear 260ms ease both;
+}
+
+.wish-confirmation[hidden] { display: none; }
+.confirmation-icon { color: var(--gold); font-size: 25px; line-height: 1.2; }
+.wish-confirmation h3 { margin: 8px 0 4px; color: #f2dfb8; font-size: 20px; font-weight: 400; }
+.confirmation-description { margin: 0 0 14px; color: var(--muted); font-size: 12px; }
+.confirmation-wish {
+  margin: 0; padding: 14px; max-height: 180px; overflow-y: auto;
+  border-left: 2px solid var(--gold); border-radius: 4px;
+  background: rgba(255, 255, 255, 0.045); color: #f4eee2;
+  font-size: 14px; line-height: 1.9; text-align: left;
+  white-space: pre-wrap; overflow-wrap: anywhere;
+}
+.confirmation-actions { display: flex; justify-content: center; gap: 10px; margin-top: 18px; }
+.confirmation-actions button {
+  min-height: 42px; padding: 9px 18px; border-radius: 999px;
+  font: inherit; font-size: 13px; cursor: pointer;
+}
+.confirmation-cancel {
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.055); color: #e5dfd4;
+}
+.confirmation-submit {
+  border: 1px solid rgba(214, 184, 121, 0.75);
+  background: linear-gradient(135deg, #d8b879, #b99453);
+  color: #201a10; font-weight: 500;
+}
+.confirmation-actions button:focus-visible { outline: 2px solid #f2d18a; outline-offset: 3px; }
+@media (max-width: 420px) {
+  .wish-confirmation { padding: 18px 14px; }
+  .confirmation-actions button { flex: 1; padding-inline: 10px; }
+}
