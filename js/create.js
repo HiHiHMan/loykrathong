@@ -219,6 +219,7 @@ const status = document.querySelector("#status");
 const formMessage = document.querySelector("#form-message");
 
 const confirmationCard = document.querySelector("#wish-confirmation");
+const confirmationBackdrop = document.querySelector("#wish-confirmation-backdrop");
 const confirmationText = document.querySelector("#wish-confirmation-text");
 const confirmWishButton = document.querySelector("#confirm-wish-button");
 const cancelWishButton = document.querySelector("#cancel-wish-button");
@@ -226,12 +227,14 @@ let wishSubmissionConfirmed = false;
 
 cancelWishButton.addEventListener("click", () => {
     confirmationCard.hidden = true;
+    confirmationBackdrop.hidden = true;
     confirmationText.textContent = "";
 });
 
 confirmWishButton.addEventListener("click", () => {
     wishSubmissionConfirmed = true;
     confirmationCard.hidden = true;
+    confirmationBackdrop.hidden = true;
     wishForm.requestSubmit();
 });
 
@@ -435,11 +438,8 @@ wishForm.addEventListener("submit", async  (event) => {
 
     if (!wishSubmissionConfirmed) {
         confirmationText.textContent = prayer;
+        confirmationBackdrop.hidden = false;
         confirmationCard.hidden = false;
-        confirmationCard.scrollIntoView({
-            behavior: "smooth",
-            block: "center",
-        });
         confirmWishButton.focus({ preventScroll: true });
         return;
     }
