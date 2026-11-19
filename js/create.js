@@ -218,6 +218,24 @@ const wishForm = document.querySelector("#wish-form");
 const status = document.querySelector("#status");
 const formMessage = document.querySelector("#form-message");
 
+const confirmationCard = document.querySelector("#wish-confirmation");
+const confirmationText = document.querySelector("#wish-confirmation-text");
+const confirmWishButton = document.querySelector("#confirm-wish-button");
+const cancelWishButton = document.querySelector("#cancel-wish-button");
+let wishSubmissionConfirmed = false;
+
+cancelWishButton.addEventListener("click", () => {
+    confirmationCard.hidden = true;
+    confirmationText.textContent = "";
+});
+
+confirmWishButton.addEventListener("click", () => {
+    wishSubmissionConfirmed = true;
+    confirmationCard.hidden = true;
+    wishForm.requestSubmit();
+});
+
+
 const previewIcon = document.querySelector("#selected-preview-icon");
 const previewName = document.querySelector("#selected-preview-name");
 
@@ -415,20 +433,18 @@ wishForm.addEventListener("submit", async  (event) => {
         return;
     }
 
-    const confirmMessage = [
-        "ยืนยันส่งคำอธิษฐานหรือไม่?",
-        "",
-        "คำอธิษฐาน:",
-        prayer,
-        "",
-        "กด OK เพื่อยืนยันการส่ง"
-    ].join("\n");
-
-    if (!window.confirm(confirmMessage)) {
+    if (!wishSubmissionConfirmed) {
+        confirmationText.textContent = prayer;
+        confirmationCard.hidden = false;
+        confirmationCard.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+        });
+        confirmWishButton.focus({ preventScroll: true });
         return;
     }
 
-
+    wishSubmissionConfirmed = false;
 
     formMessage.hidden = false;
     formMessage.textContent = "กำลังตรวจสอบรหัสพนักงาน...";
