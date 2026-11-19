@@ -1,6 +1,6 @@
 const { test, expect } = require("@playwright/test");
 
-const employees = require("./fixtures/employees.json").employees;
+const employees = require("./fixtures/employees.json");
 const employeeRecords = Object.values(employees);
 const USER_COUNT = employeeRecords.length;
 
