@@ -1,0 +1,125 @@
+{
+  "_README": "TEST DATA ONLY. Import only into a separate Firebase staging project's Emps node. Never import into production.",
+  "employees": {
+    "test-employee-01": {
+      "employeeCode": "99000001",
+      "fullName": "ผู้ทดสอบระบบ 01",
+      "department": "แผนกพัฒนาระบบงาน DC.",
+      "testRecord": true
+    },
+    "test-employee-02": {
+      "employeeCode": "99000002",
+      "fullName": "ผู้ทดสอบระบบ 02",
+      "department": "แผนกพัฒนาระบบงาน DC.",
+      "testRecord": true
+    },
+    "test-employee-03": {
+      "employeeCode": "99000003",
+      "fullName": "ผู้ทดสอบระบบ 03",
+      "department": "แผนกพัฒนาระบบงาน DC.",
+      "testRecord": true
+    },
+    "test-employee-04": {
+      "employeeCode": "99000004",
+      "fullName": "ผู้ทดสอบระบบ 04",
+      "department": "แผนกพัฒนาระบบงาน DC.",
+      "testRecord": true
+    },
+    "test-employee-05": {
+      "employeeCode": "99000005",
+      "fullName": "ผู้ทดสอบระบบ 05",
+      "department": "แผนกพัฒนาระบบงาน DC.",
+      "testRecord": true
+    },
+    "test-employee-06": {
+      "employeeCode": "99000006",
+      "fullName": "ผู้ทดสอบระบบ 06",
+      "department": "แผนกพัฒนาระบบงาน DC.",
+      "testRecord": true
+    },
+    "test-employee-07": {
+      "employeeCode": "99000007",
+      "fullName": "ผู้ทดสอบระบบ 07",
+      "department": "แผนกพัฒนาระบบงาน DC.",
+      "testRecord": true
+    },
+    "test-employee-08": {
+      "employeeCode": "99000008",
+      "fullName": "ผู้ทดสอบระบบ 08",
+      "department": "แผนกพัฒนาระบบงาน DC.",
+      "testRecord": true
+    },
+    "test-employee-09": {
+      "employeeCode": "99000009",
+      "fullName": "ผู้ทดสอบระบบ 09",
+      "department": "แผนกพัฒนาระบบงาน DC.",
+      "testRecord": true
+    },
+    "test-employee-10": {
+      "employeeCode": "99000010",
+      "fullName": "ผู้ทดสอบระบบ 10",
+      "department": "แผนกพัฒนาระบบงาน DC.",
+      "testRecord": true
+    },
+    "test-employee-11": {
+      "employeeCode": "99000011",
+      "fullName": "ผู้ทดสอบระบบ 11",
+      "department": "แผนกพัฒนาระบบงาน DC.",
+      "testRecord": true
+    },
+    "test-employee-12": {
+      "employeeCode": "99000012",
+      "fullName": "ผู้ทดสอบระบบ 12",
+      "department": "แผนกพัฒนาระบบงาน DC.",
+      "testRecord": true
+    },
+    "test-employee-13": {
+      "employeeCode": "99000013",
+      "fullName": "ผู้ทดสอบระบบ 13",
+      "department": "แผนกพัฒนาระบบงาน DC.",
+      "testRecord": true
+    },
+    "test-employee-14": {
+      "employeeCode": "99000014",
+      "fullName": "ผู้ทดสอบระบบ 14",
+      "department": "แผนกพัฒนาระบบงาน DC.",
+      "testRecord": true
+    },
+    "test-employee-15": {
+      "employeeCode": "99000015",
+      "fullName": "ผู้ทดสอบระบบ 15",
+      "department": "แผนกพัฒนาระบบงาน DC.",
+      "testRecord": true
+    },
+    "test-employee-16": {
+      "employeeCode": "99000016",
+      "fullName": "ผู้ทดสอบระบบ 16",
+      "department": "แผนกพัฒนาระบบงาน DC.",
+      "testRecord": true
+    },
+    "test-employee-17": {
+      "employeeCode": "99000017",
+      "fullName": "ผู้ทดสอบระบบ 17",
+      "department": "แผนกพัฒนาระบบงาน DC.",
+      "testRecord": true
+    },
+    "test-employee-18": {
+      "employeeCode": "99000018",
+      "fullName": "ผู้ทดสอบระบบ 18",
+      "department": "แผนกพัฒนาระบบงาน DC.",
+      "testRecord": true
+    },
+    "test-employee-19": {
+      "employeeCode": "99000019",
+      "fullName": "ผู้ทดสอบระบบ 19",
+      "department": "แผนกพัฒนาระบบงาน DC.",
+      "testRecord": true
+    },
+    "test-employee-20": {
+      "employeeCode": "99000020",
+      "fullName": "ผู้ทดสอบระบบ 20",
+      "department": "แผนกพัฒนาระบบงาน DC.",
+      "testRecord": true
+    }
+  }
+}
