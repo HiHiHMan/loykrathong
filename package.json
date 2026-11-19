@@ -1,0 +1,14 @@
+{
+  "name": "loykrathong",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test:browser:20": "playwright test tests/20-users.spec.js",
+    "test:browser:20:headed": "playwright test tests/20-users.spec.js --headed",
+    "test:report": "playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.1",
+    "http-server": "^14.1.1"
+  }
+}
