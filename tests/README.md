@@ -54,3 +54,18 @@ npm run test:report
 ```
 
 HTML report, screenshots, traces, and videos are saved locally by Playwright. Do not commit generated report artifacts.
+
+## Synthetic employee records (20 users)
+
+The file `tests/fixtures/employees.json` contains 20 fictional records with unique numeric employee codes `99000001`–`99000020`. Names are clearly marked as system-test users and all records use the existing valid department option `แผนกพัฒนาระบบงาน DC.`.
+
+These records are test fixtures only; they have **not** been written to the production Firebase project.
+
+For a real Firebase staging test:
+
+1. Create/use a separate Firebase project for staging. Do not use the production project.
+2. In the staging Realtime Database, import the JSON file as the value of the `Emps` node (Firebase Console → Realtime Database → Import JSON while `Emps` is selected).
+3. Confirm the records appear under `Emps` and each has `employeeCode`, `fullName`, and `department`.
+4. Configure the staging website to use the staging Firebase project before running a real-database test.
+
+The browser test in this branch still runs with `?mock=1` and does not query `Emps`; the fixture provides consistent identities for the simulated users and can seed a separate staging database when that next test is prepared.
