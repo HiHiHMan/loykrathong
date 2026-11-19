@@ -228,6 +228,17 @@ const employeeCodeInput = document.querySelector("#employee-code");
 const employeeCodeMessage = document.querySelector("#employee-code-message");
 const prayerInput = document.querySelector("#prayer");
 
+// Press Enter to submit the wish; use Shift+Enter for a new line.
+prayerInput.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter" || event.shiftKey || event.isComposing) return;
+
+    event.preventDefault();
+
+    if (prayerInput.value.trim()) {
+        wishForm.requestSubmit();
+    }
+});
+
 // Mark completed fields with a green border after the user leaves the field.
 const formFields = wishForm.querySelectorAll("input, select, textarea");
 
