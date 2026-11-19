@@ -5,7 +5,10 @@
   "scripts": {
     "test:browser:20": "playwright test tests/20-users.spec.js",
     "test:browser:20:headed": "playwright test tests/20-users.spec.js --headed",
-    "test:report": "playwright show-report"
+    "test:report": "playwright show-report",
+    "test:load": "k6 run load-test.js",
+    "test:load:50": "k6 run -e VUS=50 load-test.js",
+    "test:load:100": "k6 run -e VUS=100 load-test.js"
   },
   "devDependencies": {
     "@playwright/test": "^1.56.1",
