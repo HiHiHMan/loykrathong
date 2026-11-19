@@ -34,10 +34,17 @@ test("20 concurrent browser users complete a mixed Loy Krathong journey", async 
       await expect(page).toHaveTitle(/Loy Krathong/i);
     }
 
-    // Phase 2: all users enter the create flow and choose a krathong.
-    await Promise.all(pages.map((page) =>
-      page.goto("/pages/create.html?mock=1", { waitUntil: "domcontentloaded" })
-    ));
+    // Phase 2: all users use the actual home-page CTA to enter the create flow.
+    // The query flag keeps each session on the repository's safe local mock database.
+    await Promise.all(pages.map(async (page) => {
+      const createLink = page.locator('a[href="./pages/create.html"]');
+      await expect(createLink).toBeVisible();
+      await createLink.evaluate((link) => {
+        link.search = "mock=1";
+      });
+      await createLink.click();
+      await expect(page).toHaveURL(/\/pages\/create\.html\?mock=1$/);
+    }));
 
     await Promise.all(pages.map(async (page, index) => {
       await expect(page.locator("#selection-view")).toBeVisible();
