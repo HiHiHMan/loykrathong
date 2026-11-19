@@ -8,7 +8,10 @@
     "test:report": "playwright show-report",
     "test:load": "k6 run load-test.js",
     "test:load:50": "k6 run -e VUS=50 load-test.js",
-    "test:load:100": "k6 run -e VUS=100 load-test.js"
+    "test:load:100": "k6 run -e VUS=100 load-test.js",
+    "test:firebase:insert": "k6 run firebase-insert-test.js",
+    "test:firebase:insert:50": "k6 run -e VUS=50 firebase-insert-test.js",
+    "test:firebase:insert:100": "k6 run -e VUS=100 firebase-insert-test.js"
   },
   "devDependencies": {
     "@playwright/test": "^1.56.1",
