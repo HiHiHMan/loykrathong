@@ -1,15 +1,13 @@
 const { test, expect } = require("@playwright/test");
 
-const USER_COUNT = 20;
-const TEST_DEPARTMENT = "แผนกพัฒนาระบบงาน DC.";
+const employees = require("./fixtures/employees.json").employees;
+const employeeRecords = Object.values(employees);
+const USER_COUNT = employeeRecords.length;
 
 test("20 concurrent browser users complete a mixed Loy Krathong journey", async ({ browser }) => {
   const contexts = [];
   const pageErrors = [];
-  const employeeCodes = Array.from(
-    { length: USER_COUNT },
-    (_, index) => String(99000000 + index)
-  );
+  const employeeCodes = employeeRecords.map((employee) => employee.employeeCode);
 
   try {
     // Each browser context has isolated cookies and localStorage, like a separate user session.
@@ -52,9 +50,9 @@ test("20 concurrent browser users complete a mixed Loy Krathong journey", async 
       await page.locator("#start-button").click();
 
       await expect(page.locator("#wish-form")).toBeVisible();
-      await page.locator("#employee-code").fill(employeeCodes[index]);
-      await page.locator("#employee-name").fill(`ผู้ทดสอบ ${index + 1}`);
-      await page.locator("#department").selectOption({ label: TEST_DEPARTMENT });
+      await page.locator("#employee-code").fill(employeeRecords[index].employeeCode);
+      await page.locator("#employee-name").fill(employeeRecords[index].fullName);
+      await page.locator("#department").selectOption({ label: employeeRecords[index].department });
       await page.locator("#prayer").fill(`ทดสอบการใช้งานพร้อมกัน ลำดับที่ ${index + 1}`);
     }));
 
@@ -69,7 +67,7 @@ test("20 concurrent browser users complete a mixed Loy Krathong journey", async 
     await Promise.all(pages.map(async (page, index) => {
       await page.goto("/pages/wishes.html?mock=1", { waitUntil: "domcontentloaded" });
       await expect(page.locator("#wishGrid .wish-item")).toHaveCount(1);
-      await expect(page.locator("#wishGrid")).toContainText(`ผู้ทดสอบ ${index + 1}`);
+      await expect(page.locator("#wishGrid")).toContainText(employeeRecords[index].fullName);
       await expect(page.locator("#wishGrid")).toContainText(
         `ทดสอบการใช้งานพร้อมกัน ลำดับที่ ${index + 1}`
       );
