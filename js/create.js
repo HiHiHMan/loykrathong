@@ -398,7 +398,12 @@ startButton.addEventListener("click", () => {
 
     formMessage.textContent = "";
 
+    const isMobile = window.matchMedia("(max-width: 600px)").matches;
     employeeCodeInput.classList.toggle("needs-attention", !employeeCodeInput.value.trim());
+
+    if (!isMobile) {
+        employeeCodeInput.focus({ preventScroll: true });
+    }
 
     requestAnimationFrame(() => {
         window.scrollTo({
