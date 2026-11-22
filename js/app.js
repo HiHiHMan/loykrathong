@@ -410,9 +410,10 @@ if (gl) {
   function prepareKrathong(item) {
     const element = createKrathong(item, nextLaneIndex++);
     const itemWidth = element.getBoundingClientRect().width || 100;
-    const travelDistance = grid.clientWidth + itemWidth + 24;
+    const startOffset = 80;
+    const travelDistance = grid.clientWidth + itemWidth + (startOffset * 2);
     element.style.setProperty("--krathong-travel", travelDistance + "px");
-    element.style.left = (-itemWidth - 12) + "px";
+    element.style.left = (-itemWidth - startOffset) + "px";
     element.style.animation = "none";
     element.style.visibility = "hidden";
     element.style.opacity = "0";
@@ -442,7 +443,8 @@ if (gl) {
     if (prepared.length === 1) {
       const { itemWidth, travelDistance } = prepared[0];
       const targetX = grid.clientWidth * 0.2;
-      phases.push(Math.min(1, Math.max(0, (itemWidth + 12 + targetX) / travelDistance)) * duration);
+      const startOffset = 80;
+      phases.push(Math.min(1, Math.max(0, (itemWidth + startOffset + targetX) / travelDistance)) * duration);
     } else {
       const { itemWidth, travelDistance } = prepared[0];
       const minGapSeconds = Math.max(8.5, ((itemWidth + 112) / travelDistance) * duration);
