@@ -502,7 +502,7 @@ wishForm.addEventListener("submit", async  (event) => {
         successView.hidden = false;
 
         const countdownElement = document.querySelector("#success-countdown");
-        let remainingSeconds = 3;
+        let remainingSeconds = 2;
 
         countdownElement.textContent = `กำลังกลับหน้าหลักใน ${remainingSeconds} วินาที`;
 
