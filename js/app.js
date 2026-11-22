@@ -445,7 +445,7 @@ if (gl) {
       phases.push(Math.min(1, Math.max(0, (itemWidth + 12 + targetX) / travelDistance)) * duration);
     } else {
       const { itemWidth, travelDistance } = prepared[0];
-      const minGapSeconds = Math.max(8.5, ((itemWidth + 48) / travelDistance) * duration);
+      const minGapSeconds = Math.max(8.5, ((itemWidth + 112) / travelDistance) * duration);
       for (let attempt = 0; attempt < 2000 && phases.length < prepared.length; attempt++) {
         const phase = Math.random() * duration;
         const enoughSpace = phases.every(existing => {
@@ -472,7 +472,7 @@ if (gl) {
     const prepared = items.map(prepareKrathong);
     const first = prepared[0];
     const minGapSeconds = Math.max(
-      8.5, ((first.itemWidth + 48) / first.travelDistance) * ANIMATION_DURATION
+      8.5, ((first.itemWidth + 112) / first.travelDistance) * ANIMATION_DURATION
     );
 
     // Preserve existing elements and animations; each new krathong enters from beyond the left edge.
