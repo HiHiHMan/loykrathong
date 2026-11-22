@@ -386,19 +386,12 @@ startButton.addEventListener("click", () => {
 
     employeeCodeInput.focus({ preventScroll: true });
 
-    if (window.matchMedia("(max-width: 600px)").matches) {
-        requestAnimationFrame(() => {
-            window.scrollTo({
-                top: document.documentElement.scrollHeight,
-                behavior: "smooth",
-            });
-        });
-    } else {
+    requestAnimationFrame(() => {
         window.scrollTo({
-            top: 0,
+            top: document.documentElement.scrollHeight,
             behavior: "smooth",
         });
-    }
+    });
 });
 
  
