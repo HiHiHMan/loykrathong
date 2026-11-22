@@ -249,6 +249,15 @@ const employeeCodeInput = document.querySelector("#employee-code");
 const employeeCodeMessage = document.querySelector("#employee-code-message");
 const prayerInput = document.querySelector("#prayer");
 
+// Prevent department selection until the employee code has been entered.
+departmentInput.addEventListener("pointerdown", (event) => {
+    if (employeeCodeInput.value.trim()) return;
+
+    event.preventDefault();
+    employeeCodeInput.classList.add("needs-attention");
+    employeeCodeInput.focus();
+});
+
 // Require an employee code before allowing interaction with other form fields.
 wishForm.addEventListener("focusin", (event) => {
     if (event.target === employeeCodeInput || employeeCodeInput.value.trim()) return;
