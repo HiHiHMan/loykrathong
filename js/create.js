@@ -220,6 +220,9 @@ const formMessage = document.querySelector("#form-message");
 
 const confirmationCard = document.querySelector("#wish-confirmation");
 const confirmationBackdrop = document.querySelector("#wish-confirmation-backdrop");
+
+// Keep the confirmation overlay at the document body level so it covers the full page.
+document.body.append(confirmationBackdrop, confirmationCard);
 const confirmationText = document.querySelector("#wish-confirmation-text");
 const confirmWishButton = document.querySelector("#confirm-wish-button");
 const cancelWishButton = document.querySelector("#cancel-wish-button");
