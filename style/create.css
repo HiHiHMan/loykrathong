@@ -840,13 +840,14 @@ body:has(#webgl-canvas-create) .landing > .content {
 }
 
 
-/* Ripple the input border while a form field is focused. */
+/* Keep the gold border ripple running for the entire focus state. */
 .wish-form input:focus,
 .wish-form textarea:focus,
 .wish-form select:focus {
-  animation:
-    input-focus-ripple 1.6s ease-out infinite,
-    input-focus-shake 320ms ease-in-out 1;
+  animation-name: input-focus-ripple !important;
+  animation-duration: 1.6s !important;
+  animation-timing-function: ease-out !important;
+  animation-iteration-count: infinite !important;
 }
 
 @keyframes input-focus-ripple {
@@ -855,9 +856,9 @@ body:has(#webgl-canvas-create) .landing > .content {
                 0 0 0 0 rgba(216, 184, 107, 0.38),
                 0 0 20px rgba(216, 184, 107, 0.16);
   }
-  70% {
+  65% {
     box-shadow: 0 0 0 1px rgba(242, 209, 138, 0.38),
-                0 0 0 8px rgba(216, 184, 107, 0),
+                0 0 0 9px rgba(216, 184, 107, 0),
                 0 0 20px rgba(216, 184, 107, 0.16);
   }
   100% {
@@ -866,7 +867,6 @@ body:has(#webgl-canvas-create) .landing > .content {
                 0 0 20px rgba(216, 184, 107, 0.16);
   }
 }
-
 
 @keyframes input-focus-shake {
   0%, 100% { transform: translateX(0); }
