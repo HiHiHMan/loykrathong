@@ -366,7 +366,7 @@ if (gl) {
   const MAX_WISHES = 10;
   const BATCH_SIZE = 5;
   const REFRESH_INTERVAL = 10000;
-  const ANIMATION_DURATION = 110;
+  const ANIMATION_DURATION = 72;
   let displayedWishes = [];
   let isLoadingWishes = false;
   let hasLoadedOnce = false;
@@ -437,7 +437,7 @@ if (gl) {
       return;
     }
 
-    const duration = prepared.length === 1 ? 65 : ANIMATION_DURATION;
+    const duration = prepared.length === 1 ? 40 : ANIMATION_DURATION;
     const phases = [];
 
     if (prepared.length === 1) {
