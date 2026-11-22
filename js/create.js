@@ -249,6 +249,20 @@ const employeeCodeInput = document.querySelector("#employee-code");
 const employeeCodeMessage = document.querySelector("#employee-code-message");
 const prayerInput = document.querySelector("#prayer");
 
+// Require an employee code before allowing interaction with other form fields.
+wishForm.addEventListener("focusin", (event) => {
+    if (event.target === employeeCodeInput || employeeCodeInput.value.trim()) return;
+    if (!event.target.matches("input, select, textarea")) return;
+
+    event.target.blur();
+    employeeCodeInput.classList.add("needs-attention");
+    employeeCodeInput.focus();
+});
+
+employeeCodeInput.addEventListener("input", () => {
+    employeeCodeInput.classList.toggle("needs-attention", !employeeCodeInput.value.trim());
+});
+
 // Press Enter to submit the wish; use Shift+Enter for a new line.
 prayerInput.addEventListener("keydown", (event) => {
     if (event.key !== "Enter" || event.shiftKey || event.isComposing) return;
@@ -384,7 +398,7 @@ startButton.addEventListener("click", () => {
 
     formMessage.textContent = "";
 
-    employeeCodeInput.focus({ preventScroll: true });
+    employeeCodeInput.classList.toggle("needs-attention", !employeeCodeInput.value.trim());
 
     requestAnimationFrame(() => {
         window.scrollTo({
