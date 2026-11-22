@@ -384,12 +384,21 @@ startButton.addEventListener("click", () => {
 
     formMessage.textContent = "";
 
-    employeeCodeInput.focus();
+    employeeCodeInput.focus({ preventScroll: true });
 
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-    });
+    if (window.matchMedia("(max-width: 600px)").matches) {
+        requestAnimationFrame(() => {
+            window.scrollTo({
+                top: document.documentElement.scrollHeight,
+                behavior: "smooth",
+            });
+        });
+    } else {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
+    }
 });
 
  
