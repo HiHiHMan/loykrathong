@@ -343,6 +343,12 @@ if (gl) {
     });
   }
 
+  function getWishPreview(value) {
+    const wish = String(value || "ขอให้พบเจอแต่สิ่งดี ๆ").trim();
+    const characters = Array.from(wish);
+    return characters.length > 100 ? characters.slice(0, 99).join("") + "…" : wish;
+  }
+
   function formatWishDate(value) {
     if (value === null || value === undefined || value === "") return "";
     const date = new Date(Number(value));
@@ -386,9 +392,9 @@ if (gl) {
     const html = [
       '<article class="lalaloy latest-wish-krathong is-waiting" style="--wish-float-top:', top, '; animation-delay:0s">',
       '<button class="lalaloy-motion latest-wish-trigger" type="button" aria-label="เปิดคำอธิษฐานของ ',
-      escapeHtml(item.fullName || "ผู้ร่วมงาน"), '" aria-expanded="false">',
+      escapeHtml(getWishPreview(item.wish)), '" aria-expanded="false">',
       '<img class="latest-wish-krathong-image" src="', flower.image, '" alt="', flower.label, '" loading="lazy">',
-      '</button><span class="krathong-owner-name">', escapeHtml(item.fullName || "ไม่ระบุชื่อ"), '</span>',
+      '</button><span class="krathong-wish-preview">', escapeHtml(getWishPreview(item.wish)), '</span>',
       '<div class="tooltip-card" role="group" aria-label="รายละเอียดคำอธิษฐาน">',
       '<p class="tooltip-label">✦ คำอธิษฐาน</p><p class="tooltip-wish">“',
       escapeHtml(item.wish || "ขอให้พบเจอแต่สิ่งดี ๆ"), '”</p>',
