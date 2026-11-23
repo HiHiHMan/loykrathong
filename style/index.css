@@ -178,12 +178,12 @@ animation-duration: 82s;
 
 .cartoon-water .krathong-wish-preview {
   position: absolute;
-  top: -52px;
+  bottom: calc(100% + 8px);
   left: 50%;
   z-index: 4;
   display: block;
   box-sizing: border-box;
-  width: 144px;
+  width: 200px;
   height: auto;
   padding: 4px 7px;
   border: 1px solid rgba(214, 184, 121, 0.5);
