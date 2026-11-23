@@ -176,28 +176,31 @@ animation-duration: 82s;
 
 
 
-.cartoon-water .krathong-owner-name {
-
+.cartoon-water .krathong-wish-preview {
   position: absolute;
-  top: -24px;
+  top: -48px;
   left: 50%;
   z-index: 4;
-  max-width: 150px;
-  padding: 2px 8px;
+  display: -webkit-box;
+  box-sizing: border-box;
+  width: 116px;
+  max-height: 42px;
+  padding: 4px 7px;
   overflow: hidden;
   border: 1px solid rgba(214, 184, 121, 0.5);
-  border-radius: 999px;
+  border-radius: 9px;
   background: rgba(6, 21, 43, 0.92);
   color: #fff4d6;
   font-family: "Kanit", sans-serif;
-  font-size: 11px;
-  line-height: 1.5;
+  font-size: 9px;
+  line-height: 1.45;
   text-align: center;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  overflow-wrap: anywhere;
+  white-space: normal;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
   pointer-events: none;
   transform: translateX(-50%);
-
 }
 
 
