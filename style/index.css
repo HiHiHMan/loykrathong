@@ -204,6 +204,22 @@ animation-duration: 82s;
   transform: translateX(-50%);
 }
 
+.krathong-wish-name,
+.krathong-wish-text {
+  display: block;
+}
+
+.krathong-wish-name {
+  margin-bottom: 1px;
+  color: #e8c98d;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.krathong-wish-text {
+  font-size: 12px;
+}
+
 
 
 .cartoon-water .latest-wish-krathong.lalaloy.is-waiting {
