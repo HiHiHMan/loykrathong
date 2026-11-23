@@ -178,13 +178,13 @@ animation-duration: 82s;
 
 .cartoon-water .krathong-wish-preview {
   position: absolute;
-  top: -48px;
+  top: -52px;
   left: 50%;
   z-index: 4;
   display: -webkit-box;
   box-sizing: border-box;
-  width: 128px;
-  max-height: 48px;
+  width: 136px;
+  max-height: 52px;
   padding: 4px 7px;
   overflow: hidden;
   border: 1px solid rgba(214, 184, 121, 0.5);
@@ -192,7 +192,7 @@ animation-duration: 82s;
   background: rgba(6, 21, 43, 0.92);
   color: #fff4d6;
   font-family: "Kanit", sans-serif;
-  font-size: 11px;
+  font-size: 12px;
   line-height: 1.4;
   text-align: center;
   overflow-wrap: anywhere;
