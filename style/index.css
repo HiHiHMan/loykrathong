@@ -181,12 +181,11 @@ animation-duration: 82s;
   top: -52px;
   left: 50%;
   z-index: 4;
-  display: -webkit-box;
+  display: block;
   box-sizing: border-box;
-  width: 136px;
-  max-height: 52px;
+  width: 144px;
+  height: auto;
   padding: 4px 7px;
-  overflow: hidden;
   border: 1px solid rgba(214, 184, 121, 0.5);
   border-radius: 9px;
   background: rgba(6, 21, 43, 0.92);
@@ -198,8 +197,6 @@ animation-duration: 82s;
   text-align: center;
   overflow-wrap: anywhere;
   white-space: normal;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
   pointer-events: none;
   transform: translateX(-50%);
 }
@@ -213,7 +210,7 @@ animation-duration: 82s;
   margin-bottom: 1px;
   color: #e8c98d;
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .krathong-wish-text {
