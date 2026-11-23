@@ -394,7 +394,7 @@ if (gl) {
       '<button class="lalaloy-motion latest-wish-trigger" type="button" aria-label="เปิดคำอธิษฐานของ ',
       escapeHtml(getWishPreview(item.wish)), '" aria-expanded="false">',
       '<img class="latest-wish-krathong-image" src="', flower.image, '" alt="', flower.label, '" loading="lazy">',
-      '</button><span class="krathong-wish-preview">', escapeHtml(getWishPreview(item.wish)), '</span>',
+      '</button><span class="krathong-wish-preview"><span class="krathong-wish-name">', escapeHtml(item.fullName || "ไม่ระบุชื่อ"), '</span><span class="krathong-wish-text">', escapeHtml(getWishPreview(item.wish)), '</span></span>',
       '<div class="tooltip-card" role="group" aria-label="รายละเอียดคำอธิษฐาน">',
       '<p class="tooltip-label">✦ คำอธิษฐาน</p><p class="tooltip-wish">“',
       escapeHtml(item.wish || "ขอให้พบเจอแต่สิ่งดี ๆ"), '”</p>',
